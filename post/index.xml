@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Jirong&#39;s sandbox</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 16 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
+      <link>/post/xirr_cpfis/</link>
+      <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/xirr_cpfis/</guid>
+      <description>What’re the returns (XIRR) for my CPFIS Portfolio? Every employee in Singapore is bounded by the same set of CPF rules.
+As an ex-economist/ data geek who doesn’t shy away from having skin in the game. I asked myself this question back in 2015 when I was still a starry-eyed young man 2 years into the workforce - how do I set out to optimize my returns in my CPF OA with these given set of constraints,</description>
+    </item>
+    
+    <item>
+      <title>Hosting a Flask App on Heroku</title>
+      <link>/post/hosting-a-flask-app-on-heroku/</link>
+      <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
+      
+      <guid>/post/hosting-a-flask-app-on-heroku/</guid>
+      <description>Following the steps here &amp;ndash;&amp;gt; https://realpython.com/flask-by-example-part-1-project-setup/
+I managed to deploy my python flask app in Heroku.
+from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &amp;quot;Hello World!&amp;quot; @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello_name(name): return &amp;quot;Hello {}!&amp;quot;.format(name) if __name__ == &#39;__main__&#39;: app.run()  You may visit the following link &amp;ndash;&amp;gt;https://jirong-stage.herokuapp.com/ &amp;amp; add a suffix to it.
+Example https://jirong-stage.herokuapp.com/jirong &amp;amp; this will return Hello jirong!
+Possibilites are immense! I can easily create APIs or host dashboard here.</description>
+    </item>
+    
+    <item>
+      <title>Sampling With Replacement Through First Principles</title>
+      <link>/post/sampling-with-replacement-through-first-principles/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/sampling-with-replacement-through-first-principles/</guid>
+      <description>Sampling with replacement Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
+I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
+Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.</description>
+    </item>
+    
+    <item>
+      <title>Building a decision tree algorithm from scratch</title>
+      <link>/post/building-adecision-tree-from-scratch/</link>
+      <pubDate>Fri, 15 Feb 2019 13:09:44 +0800</pubDate>
+      
+      <guid>/post/building-adecision-tree-from-scratch/</guid>
+      <description>Building a decision tree from scratch Sometimes to truly understand and internalise an algorithm, it&amp;rsquo;s always useful to build from scratch. Rather than relying on a module or library written by someone else.
+I&amp;rsquo;m fortunate to be given the chance to do it in 1 of my assignments for decision trees.
+From this exercise, I had to rely on my knowledge on recursion, binary trees (in-order traversal) and object oriented programming.</description>
+    </item>
+    
+    <item>
+      <title>Martingale Strategy - Double Down</title>
+      <link>/post/martingale-strategy/</link>
+      <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/martingale-strategy/</guid>
+      <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
+Double down! That&amp;rsquo;s essentially the essence of it.
+Here&amp;rsquo;s a simple explanation of the strategy,
+ The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?</description>
+    </item>
+    
+    <item>
+      <title>How to Create a Python Environment in Ubuntu or any Debian-based system</title>
+      <link>/post/how-to-create-a-python-environment-in-ubuntu/</link>
+      <pubDate>Wed, 09 Jan 2019 23:39:22 +0800</pubDate>
+      
+      <guid>/post/how-to-create-a-python-environment-in-ubuntu/</guid>
+      <description>Often, certain projects or classes involving python require a set of modules/packages for the code to work.
+1 solution is to create a Python Environment dedicated to that project.
+First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),
+name: env channels: !!python/tuple - !!python/unicode &#39;defaults&#39; dependencies: - nb_conda=2.2.0=py27_0 - python=2.7.13=0 - cycler=0.10.0 - functools32=3.</description>
+    </item>
+    
+    <item>
+      <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
+      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
+      <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
+      
+      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
+      <description>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.
+Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
+In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.</description>
+    </item>
+    
+    <item>
+      <title>How I Find Country Pairs for Mean Reversion Strategy</title>
+      <link>/post/how-i-find-country-pairs-for-mean-reversion-strategy/</link>
+      <pubDate>Wed, 26 Dec 2018 12:30:03 +0800</pubDate>
+      
+      <guid>/post/how-i-find-country-pairs-for-mean-reversion-strategy/</guid>
+      <description>How I Find Country Pairs for Mean Reversion Strategy As mentioned in my previous post here, the first step for a mean reversion strategy is to conduct some background quantitative research.
+Step 1 First, I use a pair trading function to loop across 800+ country pairs (created from combination function),
+pair_trading = function(stock1, stock2, trade_amount, finance_rates, start_date, end_date, prop_train, enter_z_score, exit_z_score){ ## More codes here ## Return this key_info = list( ticker = c(stock1, stock2), start_date = start_date, trade_table = data_trade, sharpe = c(sharpeRatioTrainset, sharpeRatioTestset), half_life = half_life, profits = data_trade_stats, max_drawdown = c(table.</description>
+    </item>
+    
+    <item>
+      <title>Research to Production Pipeline for Mean Reversion</title>
+      <link>/post/research-to-production-pipeline-for-mean-reversion/</link>
+      <pubDate>Tue, 25 Dec 2018 18:07:19 +0800</pubDate>
+      
+      <guid>/post/research-to-production-pipeline-for-mean-reversion/</guid>
+      <description>Research to Production Pipeline for Mean Reversion Here is a high level overview of something that I&amp;rsquo;m working on.
+I&amp;rsquo;ve been grappling with the finite state automata Event Driven Computing transitions and I kinda sorted it out for production use.</description>
+    </item>
+    
+    <item>
+      <title>Prototype Pair Trading Strategy for Silver ETFs</title>
+      <link>/post/prototype-of-pair-trading-strategy-for-silver-etfs/</link>
+      <pubDate>Tue, 18 Dec 2018 13:03:44 +0800</pubDate>
+      
+      <guid>/post/prototype-of-pair-trading-strategy-for-silver-etfs/</guid>
+      <description>In these 2 weeks, I&amp;rsquo;ll deploy my pair trading algo strategy into my server.
+I modified the code below from a renowned quant trader, Ernest Chan. The basic idea is to find z-scores through moving average &amp;amp; moving SD of spread. If it&amp;rsquo;s more than absolute of z-score, I will either short or long the spread depending on the polarity.
+In the backtesting below (using a pair of silver ETFs as an example), I assumed a hypothetical amount of 10,000 dollars per trade.</description>
+    </item>
+    
+    <item>
+      <title>Summary of My Computational Photography Module From Georgia Tech Computer Science Masters</title>
+      <link>/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</link>
+      <pubDate>Sat, 08 Dec 2018 01:11:52 +0800</pubDate>
+      
+      <guid>/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</guid>
+      <description>For what&amp;rsquo;s worth, here is a summary of what I went through for my Georgia Tech Computer Science Msc Computational Photography module.
+And it&amp;rsquo;s really painful but rewarding!</description>
+    </item>
+    
+    <item>
+      <title>Colorization</title>
+      <link>/post/colorization/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/colorization/</guid>
+      <description>Colorization The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.
+1.Input: I first read in the image using imread function.
+2.Find the difference: Next I compute the difference between the marked and grey scale image.</description>
+    </item>
+    
+    <item>
+      <title>Architecture and Process Flow for My Algorithmic Trading</title>
+      <link>/post/architecture-and-process-flow-for-my-algorithmic-trading/</link>
+      <pubDate>Sun, 04 Nov 2018 10:19:13 +0800</pubDate>
+      
+      <guid>/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
+      <description> Project that I will be working in 2018-2019 </description>
+    </item>
+    
+    <item>
+      <title>Seam Carving</title>
+      <link>/post/seam-carving/</link>
+      <pubDate>Thu, 25 Oct 2018 13:23:23 +0800</pubDate>
+      
+      <guid>/post/seam-carving/</guid>
+      <description>Snippet of my Seam Carving Report from my Msc Computer Science Georgia Tech&amp;rsquo;s Computational Photography module Besides removing of streams, we can also add streams. We identify k streams for removal and duplicate by averaging the left and right neighbours. The computation of these averages is done by convolving the following matrix with the images’ colour channels.
+kernel = np.array([[0, 0, 0], [0.5, 0, 0.5], [0, 0, 0]])  In the implementation of my scaling_up algorithm, I first remove k streams (depending on ratio set by user) and recorded the coordinates and cumulative energy values of the original picture in each removal.</description>
+    </item>
+    
+    <item>
+      <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
+      <link>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
+      <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
+      
+      <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
+      <description>Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,
+ If you are an investor, you may use it to analyze impact of exchange rate on your investment positions. If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.</description>
+    </item>
+    
+    <item>
+      <title>Shift Share Analysis Package I developed</title>
+      <link>/post/shift-share-analysis-package/</link>
+      <pubDate>Sat, 22 Sep 2018 12:23:28 +0800</pubDate>
+      
+      <guid>/post/shift-share-analysis-package/</guid>
+      <description>Shift-share Analysis Package I developed During my career, I often have to deal with compositional &amp;amp; within group effects. For instance, the employment rate fell by 3% across 2 period. How much of it is due to an increase in employment rate within the sub-group and how much of it is due to compositional shift (for example ageing population).
+A formal way to explain these effects is known as shift-share analysis.</description>
+    </item>
+    
+    <item>
+      <title>Automated Email Notification of my ETF watchlist</title>
+      <link>/post/automated_email_notification/</link>
+      <pubDate>Tue, 04 Sep 2018 01:37:53 +0800</pubDate>
+      
+      <guid>/post/automated_email_notification/</guid>
+      <description>I wrote an automated email notification code to send out my daily ETF watchlist in csv - an extension of my ETF watchlist project here. I figured out that people will not visit my site. So why not blast out the watchlist instead:)
+And if you are interested in the code. Here you go.
+#Steps for sending watchlist library(&amp;quot;rJava&amp;quot;) library(&#39;mailR&#39;) source(&amp;quot;./R/emails.R&amp;quot;) # Write the content of your email msg &amp;lt;- paste(&amp;quot;Hey there, I&#39;m sending this ETF watchlist that is updated as of &amp;quot;, &amp;quot;\n&amp;quot;, as.</description>
+    </item>
+    
+    <item>
+      <title>Naming Conventions in R. Let&#39;s call it JR Notations</title>
+      <link>/post/jr-naming-conventions-in-r/</link>
+      <pubDate>Sun, 26 Aug 2018 14:09:02 +0800</pubDate>
+      
+      <guid>/post/jr-naming-conventions-in-r/</guid>
+      <description>Naming Conventions in R. Let&amp;rsquo;s call it JR Notations. &amp;lsquo;Naming conventions&amp;rsquo; is a huge thing in many programming languages/ paradigms/ communities. But it&amp;rsquo;s noticeably absent in the R programming community.
+With some inspiration from the Hungarian Notation, here&amp;rsquo;s a blue-print that I came up with while working on a major R project over the last 2 months. Drumroll please&amp;hellip;
+1. Naming conventions for R scripts  F_ for R scripts that contains functions.</description>
+    </item>
+    
+    <item>
+      <title>Rolling out the Investment Compass interactive app that I promised eons ago</title>
+      <link>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</guid>
+      <description>Finally I had some time to sit down to work on the interactive app. From what was an hideous app to a somewhat Minimum Viable Product (MVP) version of an app. (Shhh&amp;hellip;I&amp;rsquo;m not really a User Interface, UI person).
+This serves as a compass for me to visualize the potential returns given the % fall from 52 week high. See my linkedin article here for further explanation on why I think this is a good indicator.</description>
+    </item>
+    
+    <item>
+      <title>Updated ETF project codes</title>
+      <link>/post/etf_watchlist_project/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/etf_watchlist_project/</guid>
+      <description>Updated ETF watchlist project While watching a world cup match today, I updated my ETF watchlist project (you may click here if you haven’t seen it yet)
+You may find the github code here. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.
+To create your own watchlist. Follow these steps,
+ Install R and R studio. In Mac or Linux, type the following in command line git clone https://github.</description>
+    </item>
+    
+    <item>
+      <title>Updated ETF Watchlist Codes</title>
+      <link>/post/updated-etf-watchlist-codes/</link>
+      <pubDate>Sat, 07 Jul 2018 01:37:53 +0800</pubDate>
+      
+      <guid>/post/updated-etf-watchlist-codes/</guid>
+      <description>Updated ETF watchlist project While watching a world cup match today, I updated my ETF watchlist project (you may click here if you haven&amp;rsquo;t seen it yet)
+You may find the github code here. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.
+To create your own watchlist. Follow these steps,
+ Install R and R studio. In Mac or Linux, type the following in command line git clone https://github.</description>
+    </item>
+    
+    <item>
+      <title>Analyzing Warren Buffett Cash Level</title>
+      <link>/post/buffett/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/buffett/</guid>
+      <description>Warren Buffett the sage It’s always interesting to understand investment gurus’ thought process. And one of the ways is to look at their companies’ balance sheet.
+Warren Buffett, the Sage &amp;amp; CEO of Berkshire, in recent decade has always been known to hoard cash. And before the 2008 crisis, he held cash level of 40-50% relative to its equity - probably trying to stay out of the overvalued market and waiting for the right opportunity to swoop in for a ‘BIG CATCH’.</description>
+    </item>
+    
+    <item>
+      <title>World Cup - Singapore Pools odds</title>
+      <link>/post/odds_analysis_worldcup/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/odds_analysis_worldcup/</guid>
+      <description>Hey it’s the world cup season - Tapping into a Machine Learning based paper Once again as a Singaporean citizen, there’re no other choices but to place my bets in Singapore pools. Betting in SG is not my preferred way to grow my wealth because of the crazy ~15% spread in Sg pools. In international sites, the spread is usually close to 3-5%. Oh well, that’s illegal.
+But because this is the world cup season, I decide to make some small punts!</description>
+    </item>
+    
+    <item>
+      <title>Journey of a non coder to a budding computer scientist</title>
+      <link>/post/journey-from-a-non-coder-to-a-budding-computer-scientist/</link>
+      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/journey-from-a-non-coder-to-a-budding-computer-scientist/</guid>
+      <description>Here&amp;rsquo;s a true story. And it happens on 1 faithful night during the wee hours&amp;hellip; when I was inspired to write a statement of purpose for my Msc Georgia Tech application.
+I am currently an analyst, working in Korn Ferry Institute, a research and analytics arm of Korn Ferry. At the same time, I&amp;rsquo;m &amp;lsquo;juggling&amp;rsquo; my work-study-life balance as a Part-Time student, studying Post-Graduate Diploma Computer Science in University of Adelaide.</description>
+    </item>
+    
+    <item>
+      <title>Betting in Singapore Pools</title>
+      <link>/post/odds_analysis/</link>
+      <pubDate>Wed, 11 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/odds_analysis/</guid>
+      <description>Finding value in Singapore Pools Of all places, this is the last place I expect to find value. But I found it - supposedly!
+I compared the Singapore Pools Odds against Fivethirtyeight blog probabilities of teams’ winning various leagues.
+The spread in Singpore Pools is often insane. In a typical 1X2 game, the odds is around 15% - as compared to a spread of 3% in overseas betting houses - which btw is illegal in Singapore.</description>
+    </item>
+    
+    <item>
+      <title>Investigating Faber Sector Rotation Strategy</title>
+      <link>/post/sector_rotation/</link>
+      <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/sector_rotation/</guid>
+      <description>Does sector rotation - momentum strategy work? Faber sector rotation strategy is touted as a superior Tactical Asset Allocation strategy that could generate positive Alpha. This is evident in the post here http://stockcharts.com/school/doku.php?id=chart_school:trading_strategies:sector_rotation_roc.
+The strategy is pretty simple. Here is how it works,
+ First, you choose 9 sectors Second, compute the 6 month returns Third, you only ‘trade’ once a month. For simiplicity I choose end of the month Fourth, you invest in 3 sectors with the highest past 6 month returns.</description>
+    </item>
+    
+    <item>
+      <title>Macroeconomic Analysis - Country&#39;s Market Capitalization to GDP ratio</title>
+      <link>/post/mkt_cap_gdp/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mkt_cap_gdp/</guid>
+      <description>Analysis of Market Cap to GDP Warren Buffett, the world’s greatest investor once remarked that Country’s Total Market Capitalization to GDP ratio is a good indicator to measure the ‘temperature’ of the market. My wild guess is - he draws his inspiration from P/E ratio where price correspondes to the Total Market Cap and GDP to Earnings.
+ Key points  By historical standards, the Market Cap to GDP ratios are currently way above the average, 5-year and 10-year averages This may spell some bad news in the near term.</description>
+    </item>
+    
+    <item>
+      <title>Permanent Portfolio</title>
+      <link>/post/perm_port/</link>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/perm_port/</guid>
+      <description>An all weather portfolio Based on the literature, permanent portfolio is an investment strategy that is able to yield moderate returns and relatively low volatility. Investor is recommended to invest equally (25%) into GLD, Index, Bond and Cash and rebalance it back to this proportion on regular intervals.
+This approach is something that I’m keen to adopt for a portion of my portfolio.
+To investigate the feasibility, I simulated a portfolio starting at $300 on Nov 2004.</description>
+    </item>
+    
+    <item>
+      <title>Days elapsed strategy</title>
+      <link>/post/elapse_strat/</link>
+      <pubDate>Wed, 28 Mar 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/post/elapse_strat/</guid>
+      <description>I simply adapted the code in this post here (https://www.r-bloggers.com/backtesting-a-simple-stock-trading-strategy/) for the following momentum strategy.
+This is a momentum based strategy: Long if current day is &amp;lt;50 days of 200 days high. Nil position otherwise.
+Returns are pretty impressive for Singapore market. That being said, it will be useful to try it with different parameters and different markets!
+#Inspired by the blog post here--&amp;gt;https://www.r-bloggers.com/backtesting-a-simple-stock-trading-strategy/ #http://etfprophet.com/days-since-200-day-highs/ #Simple momentum strategy rm(list = ls(all = TRUE)) library(quantmod) ## Loading required package: xts ## Loading required package: zoo ## ## Attaching package: &amp;#39;zoo&amp;#39; ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## as.</description>
+    </item>
+    
+  </channel>
+</rss>
