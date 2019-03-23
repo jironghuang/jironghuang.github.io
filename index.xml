@@ -12,6 +12,1492 @@
     
     <item>
       <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
+      <link>/project/xirr_cpf/</link>
+      <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/xirr_cpf/</guid>
+      <description>
+
+
+&lt;div id=&#34;whatre-the-returns-xirr-for-my-cpfis-portfolio&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What’re the returns (XIRR) for my CPFIS Portfolio?&lt;/h2&gt;
+&lt;p&gt;Every employee in Singapore is bounded by the same set of CPF rules.&lt;/p&gt;
+&lt;p&gt;As an ex-economist/ data geek who doesn’t shy away from having skin in the game. I asked myself this question back in 2015 when I was still a starry-eyed young man 2 years into the workforce - how do I set out to optimize my returns in my CPF OA with these given set of constraints,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You cannot withdraw your CPF OA till you are 55 years old&lt;/li&gt;
+&lt;li&gt;You can only invest CPF OA beyond 20k&lt;/li&gt;
+&lt;li&gt;And of this delta, you can only invest 35% in non ETFs instruments OR 100% of it in ETFs&lt;/li&gt;
+&lt;li&gt;CPF OA returns of 2.5% per annum&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The last point is something that I wish to highlight. If I choose to invest, I would have to overcome the 2.5% hurdle rate from CPF OA.&lt;/p&gt;
+&lt;p&gt;Subscribing to Vanguard’s philosophy, a pioneeer &amp;amp; leader in the space of index funds - (&lt;a href=&#34;https://personal.vanguard.com/pdf/s315.pdf&#34; class=&#34;uri&#34;&gt;https://personal.vanguard.com/pdf/s315.pdf&lt;/a&gt;) at least for my CPFIS portion, they advocate that lump sum investing proves to be superior than spacing out your investments (dollar cost averaging).&lt;/p&gt;
+&lt;p&gt;Since then - whenever I have 5-6k in my CPF OA beyond the 20k, I promptly allocated it to the market. In some periods, I invested with smaller amounts when POEMS brokerage offered some promotions on commission fees.&lt;/p&gt;
+&lt;div id=&#34;how-did-this-strategy-fare-thus-far&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How did this strategy fare thus far?&lt;/h3&gt;
+&lt;p&gt;XIRR- a metric used in assessing rate of returns with a given set of cashflows - came up to be around 5.7%! Note: This figure here accounts for the dividends received over the years.&lt;/p&gt;
+&lt;p&gt;Hurray! It’s more than twice the 2.5% hurdle rate in CPF OA. And even the 4% rate from SA. One could voluntarily transfer OA to SA, but you will lose the flexibility of using the OA for serving mortage in future&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;my-thoughts&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;This is still an ongoing experiment in my ‘lab’. Apparently it seems to be working well! Going forward, I will continue this strategy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;if-you-are-keen-in-the-technicalities-of-computing-xirr-applied-the-function-developed-by-someone-else-here-httpsgithub.comsunilveeravallixirr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;If you are keen in the technicalities of computing XIRR (applied the function developed by someone else here –&amp;gt;#&lt;a href=&#34;https://github.com/SunilVeeravalli/xirr&#34; class=&#34;uri&#34;&gt;https://github.com/SunilVeeravalli/xirr&lt;/a&gt;)…&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressMessages(source(&amp;quot;./CPFOA/F_xirr.R&amp;quot;))
+suppressMessages(source(&amp;quot;./CPFOA/another_irr_eg.R&amp;quot;))
+suppressPackageStartupMessages(library(tvm))
+
+#Reading my dataset
+cpf_contrib &amp;lt;- read_csv(file = &amp;quot;./CPFOA/jr_cpfis_contrib.csv&amp;quot;, col_names = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   Date = col_character(),
+##   num_stocks_cpf_port = col_double(),
+##   sti_px = col_double(),
+##   cpf_oa_port_val = col_double(),
+##   Dividends_per_share = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Formattting date
+cpf_contrib$Date = as.Date(cpf_contrib$Date, format = &amp;quot;%m/%d/%y&amp;quot;)
+names(cpf_contrib)[which(names(cpf_contrib) == &amp;quot;Date&amp;quot;)] = &amp;quot;dates&amp;quot; 
+
+#including ss
+cpf_contrib$net_stocks_purchase = lead(cpf_contrib$num_stocks_cpf_port - lag(cpf_contrib$num_stocks_cpf_port))
+
+#Contributions
+cpf_contrib$stock_amt_purchase = cpf_contrib$net_stocks_purchase * cpf_contrib$sti_px
+
+#Dividends amount
+cpf_contrib$dividends = cpf_contrib$num_stocks_cpf_port * cpf_contrib$Dividends_per_share 
+cpf_contrib$dividends = ifelse(is.na(cpf_contrib$dividends), 0, cpf_contrib$dividends)
+
+#Net cashflow
+cpf_contrib = cpf_contrib %&amp;gt;%
+                mutate(net_cash_flow = dividends - stock_amt_purchase)
+
+#Setting final cashflow  
+cpf_contrib$net_cash_flow[nrow(cpf_contrib)] = cpf_contrib$cpf_oa_port_val[nrow(cpf_contrib)]
+
+#Computing the xirr
+xirr(cpf_contrib[, c(&amp;quot;dates&amp;quot;,&amp;quot;net_cash_flow&amp;quot;)])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;XIRR is 5.775%&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(xirr2(cpf_contrib$net_cash_flow, cpf_contrib$dates))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.05777714&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;final-dataset-on-dividends-purchases-cashflows-portfolio-values&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Final dataset on dividends, purchases, cashflows, portfolio values&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(kableExtra))
+
+kable(cpf_contrib, caption = &amp;quot;Final data-frame of dividends, purchase, cashflows, portfolio values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;
+&lt;span id=&#34;tab:unnamed-chunk-2&#34;&gt;Table 1: &lt;/span&gt;Final data-frame of dividends, purchase, cashflows, portfolio values
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+dates
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+num_stocks_cpf_port
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+sti_px
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+cpf_oa_port_val
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+Dividends_per_share
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+net_stocks_purchase
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+stock_amt_purchase
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+dividends
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+net_cash_flow
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-05-01
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.350
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6030.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-6030.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-06-01
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.240
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5562
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3240.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-3240.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-07-15
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.970
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8372
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.049
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2970.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+137.2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2832.8
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-08-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.850
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+10564
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5700.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-5700.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-09-13
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.040
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15486
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-10-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.920
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16530
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-11-11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.950
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15892
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2950.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2950.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2015-12-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.630
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18768
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-01-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.690
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16728
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+700
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1883.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1883.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-02-03
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7500
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.860
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+19275
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.107
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+400
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1144.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+802.5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-341.5
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-03-21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7900
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.870
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+21567
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+400
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1148.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1148.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-04-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.840
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22742
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+900
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2556.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2556.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-05-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+9200
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.880
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+24932
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1728.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1728.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-06-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+9800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.880
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+26950
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+400
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1152.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1152.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-07-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+10200
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.860
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+28050
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+400
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1144.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1144.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-08-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+10600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.910
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+29362
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.084
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2910.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+890.4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2019.6
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-09-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+11600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.860
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32712
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+700
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2002.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2002.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-10-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.950
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+34071
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-11-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.940
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+35178
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2016-12-09
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.110
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+35055
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-01-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+12300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.100
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+37023
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4960.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-4960.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-02-25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+13900
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.190
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+41700
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.053
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1914.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+736.7
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1177.3
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-03-25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+14500
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.200
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+45530
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2560.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2560.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-04-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.260
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+48195
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-05-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.270
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+49113
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-06-22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.320
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+49266
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+800
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2656.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-2656.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-07-21
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16100
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.320
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+52647
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.048
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+772.8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+772.8
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-08-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16100
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.250
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+53452
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+400
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1300.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-1300.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-09-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16500
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.420
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+53625
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1100
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3762.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-3762.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-10-25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.480
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+60192
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-11-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.450
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+61072
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2017-12-23
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.580
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+60544
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-01-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.520
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+64416
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-02-22
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.430
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+61952
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.053
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+932.8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+932.8
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-03-23
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.637
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+60368
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-04-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.500
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+63184
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-05-17
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.321
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+63008
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-06-24
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.388
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58960
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-07-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.251
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58432
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-08-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.299
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58080
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.060
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1700
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5608.3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1056.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-4552.3
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-09-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+19300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.061
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+60795
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-10-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+19300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.156
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+60216
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4102.8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-4102.8
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-11-10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.100
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+64272
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2018-12-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.247
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+63860
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2019-01-11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.218
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+67362
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2019-02-19
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.191
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+66332
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.056
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6382.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1153.6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-5228.4
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2019-03-12
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22600
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.210
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+72388
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+72388.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
       <link>/post/xirr_cpfis/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -2388,138 +3874,6 @@ summary(data_trade_stats$profit_per_trade_less_comms)
 &lt;p&gt;Figure 8(a), 8&amp;copy;, 8(d), (f)&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/post/img/seam_carving.img.png&#34; alt=&#34;/post/img/seam_carving.img.png&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
-      <link>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
-      <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
-      
-      <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
-      <description>
-
-&lt;h2 id=&#34;decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects&#34;&gt;Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects&lt;/h2&gt;
-
-&lt;p&gt;If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;If you are an investor, you may use it to analyze impact of exchange rate on your investment positions.&lt;/li&gt;
-&lt;li&gt;If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.&lt;/li&gt;
-&lt;li&gt;If you are in the finance department, you could analyze the exchange rate impact on your foreign revenue.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To start using this package, you may first install the devtools package and execute the following command. install_github(&amp;ldquo;jironghuang/RemoveExchangeRateEffects&amp;rdquo;). The R documentation is as follows,&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
-&lt;img src=&#34;/post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;You may follow the 2 examples to better understand how this package works.&lt;/p&gt;
-
-&lt;h3 id=&#34;example-1&#34;&gt;Example 1&lt;/h3&gt;
-
-&lt;p&gt;In summary, what the example does below is to decompose 1 instrument position in SGD (column value) - from the perspective of someone staying in Singapore - into local static value (i.e if I keep the exchange rate constant at the start of the period) and the residual exchange rate impact.&lt;/p&gt;
-
-&lt;p&gt;If you look at the value at the end of the period (Oct 2018), you would notice that the value in SGD fell from 331 to 261. From the perspective of a Singaporean local - through this package -  we can understand that the appreciation in USD negate the fall in value by 4 SGD.&lt;/p&gt;
-
-&lt;p&gt;If you are an economist, you could have considered the exchange rate elasticities. But let&amp;rsquo;s ignore that for now.&lt;/p&gt;
-
-&lt;h3 id=&#34;quick-example-1-in-r-codes-decomposing-a-single-instrument&#34;&gt;Quick example 1 in R codes (decomposing a single instrument)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;library(devtools)
-install_github(&amp;quot;jironghuang/RemoveExchangeRateEffects&amp;quot;)
-library(RemoveExchangeRateEffects)
-
-sp_exch_rate_pair = &amp;quot;USDSGD=X&amp;quot;  #exchange rate pair. e.g &amp;quot;USDSGD=X&amp;quot;. &amp;quot;&amp;lt;Foreign_currency&amp;gt;&amp;lt;local_currency&amp;gt;=X&amp;quot;
-
-ap_start_date &amp;lt;- as.Date(&amp;quot;2017-10-01&amp;quot;)  #starting date of portfolio e.g. 2017-10-01
-ap_end_date &amp;lt;- as.Date(&amp;quot;2020-10-01&amp;quot;) #ending date of portfolio e.g. 2020-10-01. If you include a date beyond current date, the function will use the current date instead
-np_mthly_yearly = &amp;quot;monthly&amp;quot;  #alternatively this could be &amp;quot;yearly&amp;quot;&amp;quot;
-
-data(eg_dat) #example dataset that I included in this package
-dp_dates_investment_value = instrument
-o_exchRate_effect &amp;lt;- exchange_rate_decomposition(sp_exch_rate_pair, ap_start_date, ap_end_date, np_mthly_yearly, dp_dates_investment_value)
-o_exchRate_effect$get_portfolio()
-
-    value_in_sgd exchange_rate fgn_value local_static_value exch_rate_impact
-Oct 2017 331.53   1.36010  243.7541           331.5300        0.0000000
-Nov 2017 308.85   1.34670  229.3384           311.9231       -3.0731344
-Dec 2017 311.35   1.33780  232.7328           316.5399       -5.1899425
-Jan 2018 354.31   1.31168  270.1192           367.3892      -13.0791734
-Feb 2018 343.06   1.32433  259.0442           352.3260       -9.2660108
-Mar 2018 266.13   1.31090  203.0132           276.1183       -9.9882495
-Apr 2018 293.90   1.32577  221.6825           301.5104       -7.6103599
-May 2018 284.73   1.33850  212.7232           289.3248       -4.5948212
-Jun 2018 342.95   1.36830  250.6395           340.8948        2.0552438
-Jul 2018 298.14   1.36140  218.9952           297.8553        0.2846937
-Aug 2018 301.66   1.36700  220.6730           300.1374        1.5226438
-Sep 2018 264.77   1.36732  193.6416           263.3719        1.3980921
-Oct 2018 260.95   1.38061  189.0107           257.0734        3.8766087
-
-o_exchRate_effect$get_diff_portfolio_value()
-[1] 3.8766087
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;example-2&#34;&gt;Example 2&lt;/h3&gt;
-
-&lt;p&gt;The second example builds upon the first. I&amp;rsquo;ve expanded the previous function to decompose multiple instruments at once.&lt;/p&gt;
-
-&lt;p&gt;get_full_decomposition() returns a list of data frames with the decompositions.&lt;/p&gt;
-
-&lt;p&gt;But before you implement the function above, you would have to add the information via the mutator functions as shown in the example below (the functions with the prefix set)&lt;/p&gt;
-
-&lt;h3 id=&#34;quick-example-2-in-r-codes-decomposing-multiple-instruments-at-1-time&#34;&gt;Quick example 2 in R codes (Decomposing multiple instruments at 1 time)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;data(eg_dat)
-
-er = c(&amp;quot;USDSGD=X&amp;quot;, &amp;quot;GBPSGD=X&amp;quot;)
-start_date = c(&amp;quot;2017-10-01&amp;quot;, &amp;quot;2017-10-01&amp;quot;)
-end_date = c(&amp;quot;2020-10-01&amp;quot;, &amp;quot;2020-10-01&amp;quot;)
-freq = c(&amp;quot;monthly&amp;quot;, &amp;quot;monthly&amp;quot;)
-dat = list(eg_dat, eg_dat)
-
-
-o_exchRate_effect &amp;lt;- multiple_exchange_rate_decomposition(2)
-o_exchRate_effect$set_sa_exch_rate_pair(er) #adding an array of exchange rate pairs
-o_exchRate_effect$set_sa_start_date(start_date) #adding an array of starting dates
-o_exchRate_effect$set_sa_end_date(end_date) #adding an array of ending dates
-o_exchRate_effect$set_sa_mthly_yearly(freq) #adding an array of &amp;quot;monthly&amp;quot; or &amp;quot;yearly&amp;quot; option
-o_exchRate_effect$set_dl_dates_investment_value(dat) #adding list of data frames
-o_exchRate_effect$get_full_decomposition()  #carry out decomposition and obtain a list of data frames
-
-[[1]]
-          value exchange_rate fgn_value local_static_value exch_rate_impact
-Oct 2017 331.53       1.36010  243.7541           331.5300        0.0000000
-Nov 2017 308.85       1.34670  229.3384           311.9231       -3.0731344
-Dec 2017 311.35       1.33780  232.7328           316.5399       -5.1899425
-Jan 2018 354.31       1.31168  270.1192           367.3892      -13.0791734
-Feb 2018 343.06       1.32433  259.0442           352.3260       -9.2660108
-Mar 2018 266.13       1.31090  203.0132           276.1183       -9.9882495
-Apr 2018 293.90       1.32577  221.6825           301.5104       -7.6103599
-May 2018 284.73       1.33850  212.7232           289.3248       -4.5948212
-Jun 2018 342.95       1.36830  250.6395           340.8948        2.0552438
-Jul 2018 298.14       1.36140  218.9952           297.8553        0.2846937
-Aug 2018 301.66       1.36700  220.6730           300.1374        1.5226438
-Sep 2018 264.77       1.36732  193.6416           263.3719        1.3980921
-Oct 2018 260.95       1.38061  189.0107           257.0734        3.8766087
-
-[[2]]
-          value exchange_rate fgn_value local_static_value exch_rate_impact
-Oct 2017 331.53       1.79703  184.4877           331.5300        0.0000000
-Nov 2017 308.85       1.80690  170.9281           307.1629        1.6870605
-Dec 2017 311.35       1.79812  173.1531           311.1613        0.1887369
-Jan 2018 354.31       1.85680  190.8175           342.9048       11.4051640
-Feb 2018 343.06       1.84162  186.2816           334.7537        8.3062984
-Mar 2018 266.13       1.83911  144.7059           260.0408        6.0892228
-Apr 2018 293.90       1.82588  160.9635           289.2562        4.6437963
-May 2018 284.73       1.77878  160.0704           287.6513       -2.9212846
-Jun 2018 342.95       1.78907  191.6918           344.4759       -1.5258666
-Jul 2018 298.14       1.78638  166.8962           299.9175       -1.7774444
-Aug 2018 301.66       1.77860  169.6053           304.7858       -3.1258259
-Sep 2018 264.77       1.78285  148.5094           266.8759       -2.1058633
-Oct 2018 260.95       1.76900  147.5127           265.0848       -4.1347817
-
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
