@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -13,7 +11,7 @@
   <meta name="description" content="Data scientist and Quantitative Investor/ Trader">
 
   
-  <link rel="alternate" hreflang="en-us" href="/categories/statistics/">
+  <link rel="alternate" hreflang="en-us" href="/post/">
 
   
   
@@ -64,30 +62,30 @@
   
 
   
-  <link rel="alternate" href="/categories/statistics/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
-  <link rel="feed" href="/categories/statistics/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/categories/statistics/">
+  <link rel="canonical" href="/post/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
-  <meta property="og:url" content="/categories/statistics/">
-  <meta property="og:title" content="statistics | Jirong&#39;s sandbox">
+  <meta property="og:url" content="/post/">
+  <meta property="og:title" content="Posts | Jirong&#39;s sandbox">
   <meta property="og:description" content="Data scientist and Quantitative Investor/ Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-05-05T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2018-03-28T21:13:14-05:00">
   
 
   
 
-  <title>statistics | Jirong&#39;s sandbox</title>
+  <title>Posts | Jirong&#39;s sandbox</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,37 +248,93 @@
 
 <div class="universal-wrapper">
 
-  <h1>statistics</h1>
+  <h1>Posts</h1>
 
   
 
   
   
-  <div>
-    <h2><a href="/post/exp_distrib/">Using exponential distribution to estimate frequency of occurence</a></h2>
-    <div class="article-style">
-      
-      Simulating product failures I’m inspired by this post here (<a href="http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/" target="_blank">http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/</a>). And decided to expand on the example.
-Say you are an owner of a computer store and you would like to estimate the frequency of warranty repairs - and the ensuing costs.
-Here’s the scenario with the accompanying assumptions
- Each computer is expected to last an average of 7 years You only sell 1000 computers at the start of each year You sell computer from 2019 to 2025  First, I simulate an exponential distribution of 1000 points for 7 years; and place a time index of 2019 to 2025
-      
-    </div>
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/elapse_strat/" itemprop="url">Days elapsed strategy</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-03-28 21:13:14 -0500 -0500" itemprop="datePublished dateModified">
+      Mar 28, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/elapse_strat/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/trading">trading</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    I simply adapted the code in this post here (https://www.r-bloggers.com/backtesting-a-simple-stock-trading-strategy/) for the following momentum strategy.
+This is a momentum based strategy: Long if current day is &lt;50 days of 200 days high. Nil position otherwise.
+Returns are pretty impressive for Singapore market. That being said, it will be useful to try it with different parameters and different markets!
+#Inspired by the blog post here--&gt;https://www.r-bloggers.com/backtesting-a-simple-stock-trading-strategy/ #http://etfprophet.com/days-since-200-day-highs/ #Simple momentum strategy rm(list = ls(all = TRUE)) library(quantmod) ## Loading required package: xts ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
+    
   </div>
-  
-  <div>
-    <h2><a href="/post/sampling-with-replacement-through-first-principles/">Sampling With Replacement Through First Principles</a></h2>
-    <div class="article-style">
-      
-      Sampling with replacement Hello! It&rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
-I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
-Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.
-      
-    </div>
-  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/elapse_strat/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
 
   
+<nav>
+  <ul class="pager">
+    
+    <li><a href="/post/page/3/">&lt;</a></li>
+    
+    
+  </ul>
+</nav>
+
 
 
 </div>
@@ -368,6 +422,4 @@ Earlier in the week, I attempted to write a simple function from scratch but I g
 
   </body>
 </html>
-
-
 

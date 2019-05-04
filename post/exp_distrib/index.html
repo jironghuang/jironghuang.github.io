@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="author" content="Huang Jirong">
+  <meta name="description" content="Data scientist and Quantitative Investor/ Trader">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/exp_distrib/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-116737154-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/exp_distrib/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Jirong&#39;s sandbox">
+  <meta property="og:url" content="/post/exp_distrib/">
+  <meta property="og:title" content="Using exponential distribution to estimate frequency of occurence | Jirong&#39;s sandbox">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-05-05T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Using exponential distribution to estimate frequency of occurence | Jirong&#39;s sandbox</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Jirong&#39;s sandbox</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/skin/skin-in-the-game">
+            
+            <span>Skin in the game</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/asset_allocation/asset_allocation">
+            
+            <span>Asset allocation</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/subscribe/subscribe">
+            
+            <span>Subscribe Here</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Using exponential distribution to estimate frequency of occurence</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-05-05 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      May 5, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/exp_distrib/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/statistics">statistics</a
+    >, 
+    
+    <a href="/categories/firstprinciples">firstPrinciples</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Using%20exponential%20distribution%20to%20estimate%20frequency%20of%20occurence&amp;url=%2fpost%2fexp_distrib%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fexp_distrib%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fexp_distrib%2f&amp;title=Using%20exponential%20distribution%20to%20estimate%20frequency%20of%20occurence"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fexp_distrib%2f&amp;title=Using%20exponential%20distribution%20to%20estimate%20frequency%20of%20occurence"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Using%20exponential%20distribution%20to%20estimate%20frequency%20of%20occurence&amp;body=%2fpost%2fexp_distrib%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+
+<div id="simulating-product-failures" class="section level2">
+<h2>Simulating product failures</h2>
+<p>I’m inspired by this post here (<a href="http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/" class="uri">http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/</a>). And decided to expand on the example.</p>
+<p>Say you are an owner of a computer store and you would like to estimate the frequency of warranty repairs - and the ensuing costs.</p>
+<p>Here’s the scenario with the accompanying assumptions</p>
+<ul>
+<li>Each computer is expected to last an average of 7 years</li>
+<li>You only sell 1000 computers at the start of each year</li>
+<li>You sell computer from 2019 to 2025</li>
+</ul>
+<p>First, I simulate an exponential distribution of 1000 points for 7 years; and place a time index of 2019 to 2025</p>
+<pre class="r"><code>set.seed(1) 
+library(tidyr)
+
+sim_repair_time = mapply(rexp, rep(1000, 7), rep(1/7, 7))
+sim_repair_time = data.frame(sim_repair_time)
+names(sim_repair_time) = paste0(&quot;Y&quot;, 2019:2025)
+sim_repair_time$comp_index = 1:nrow(sim_repair_time)
+head(sim_repair_time)</code></pre>
+<pre><code>##        Y2019     Y2020      Y2021     Y2022      Y2023     Y2024     Y2025
+## 1  5.2862728 7.0456022  4.4584814  2.987471  2.4983623  1.155475  3.526856
+## 2  8.2714995 0.3831851 21.3583423 16.976357  0.6371918 19.870135  8.339298
+## 3  1.0199471 6.1577002 24.7270286  7.184722 13.6686444  2.692336  1.531733
+## 4  0.9785668 2.0554758  4.0556961 11.680879  3.4047724  8.547126  4.098845
+## 5  3.0524804 1.3899782  0.8014122  7.394160 10.8930823  1.088804  8.679067
+## 6 20.2647798 1.1392965  8.5595344  3.423599  5.0281127  8.178582 15.854250
+##   comp_index
+## 1          1
+## 2          2
+## 3          3
+## 4          4
+## 5          5
+## 6          6</code></pre>
+<p>Then, I - in dplyr lingo - gather the dataset (convert to long form)</p>
+<pre class="r"><code>sim_repair_time = sim_repair_time %&gt;% gather(key = year, 
+                                     value = spoilt_years_later, 
+                                    -comp_index)
+sim_repair_time$year = gsub(&quot;Y&quot;, &quot;&quot;, sim_repair_time$year)
+
+head(sim_repair_time, 50)</code></pre>
+<pre><code>##    comp_index year spoilt_years_later
+## 1           1 2019          5.2862728
+## 2           2 2019          8.2714995
+## 3           3 2019          1.0199471
+## 4           4 2019          0.9785668
+## 5           5 2019          3.0524804
+## 6           6 2019         20.2647798
+## 7           7 2019          8.6069344
+## 8           8 2019          3.7777799
+## 9           9 2019          6.6959725
+## 10         10 2019          1.0293219
+## 11         11 2019          9.7351459
+## 12         12 2019          5.3342090
+## 13         13 2019          8.6632249
+## 14         14 2019         30.9675395
+## 15         15 2019          7.3818022
+## 16         16 2019          7.2467076
+## 17         17 2019         13.1322462
+## 18         18 2019          4.5832265
+## 19         19 2019          2.3585343
+## 20         20 2019          4.1193581
+## 21         21 2019         16.5516068
+## 22         22 2019          4.4932481
+## 23         23 2019          2.0588427
+## 24         24 2019          3.9610587
+## 25         25 2019          0.7425084
+## 26         26 2019          0.4160741
+## 27         27 2019          4.0509872
+## 28         28 2019         27.7125300
+## 29         29 2019          8.2131847
+## 30         30 2019          6.9776907
+## 31         31 2019         10.0469974
+## 32         32 2019          0.2608797
+## 33         33 2019          2.2680711
+## 34         34 2019          9.2432755
+## 35         35 2019          1.4245725
+## 36         36 2019          7.1590811
+## 37         37 2019          2.1121865
+## 38         38 2019          5.0765001
+## 39         39 2019          5.2607988
+## 40         40 2019          1.6451922
+## 41         41 2019          7.5591680
+## 42         42 2019          7.1977283
+## 43         43 2019          9.0458315
+## 44         44 2019          8.7717375
+## 45         45 2019          3.8824898
+## 46         46 2019          2.1089810
+## 47         47 2019          9.0518726
+## 48         48 2019          6.9618905
+## 49         49 2019          3.5992201
+## 50         50 2019         14.0548268</code></pre>
+<p>Lastly, I add the time taken for each computer to break down to the year for which the computer is bought.</p>
+<pre class="r"><code>#sim_repair_time$spoilt_years_later = round(sim_repair_time$spoilt_years_later, 0)
+sim_repair_time$year_spoilt = sim_repair_time$spoilt_years_later + as.numeric(sim_repair_time$year)</code></pre>
+<p>Here is the distribution of years taken that a computer will break down.</p>
+<pre class="r"><code>hist(sim_repair_time$spoilt_years_later)</code></pre>
+<p><img src="/post/exp_distrib_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>And here is the distribution of the years that the company will break down.</p>
+<pre class="r"><code>hist(sim_repair_time$year_spoilt)</code></pre>
+<p><img src="/post/exp_distrib_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="explaining-exponential-distribution-from-first-principle" class="section level2">
+<h2>Explaining exponential distribution from first principle</h2>
+<p>If you are keen from the first example perspective,</p>
+<p><span class="math display">\[f(x) =  {\lambda}e^{-\lambda x} \]</span></p>
+<p>To understand pdf function here. It’s pretty simple. If you run the simulator 1000 times with mean = 7 (lambda = 1/7), and you plot the distribution, it’s mostly likely to be front-loaded.</p>
+<p>If you fit a series of values x - N to the above function, it will be pretty similar to simulated series of values.</p>
+<p>And if you do a mean of the simulated data, it will return close to the mean of 7</p>
+<pre class="r"><code>data = rexp(1000, 1/7)
+hist(data)</code></pre>
+<p><img src="/post/exp_distrib_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>mean(data)</code></pre>
+<pre><code>## [1] 6.775649</code></pre>
+<p>I hope this simple example here is useful!</p>
+</div>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/statistics">statistics</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/firstprinciples">firstPrinciples</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/sampling-with-replacement-through-first-principles/">Sampling With Replacement Through First Principles</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jirong" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://jironghuang.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//jirong.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
