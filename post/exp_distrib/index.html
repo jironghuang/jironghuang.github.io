@@ -446,13 +446,13 @@ sim_repair_time$year_spoilt = sim_repair_time$spoilt_years_later + as.numeric(si
 <p>Here is the distribution of years taken that a computer will break down.</p>
 <pre class="r"><code>hist(sim_repair_time$spoilt_years_later)</code></pre>
 <p><img src="/post/exp_distrib_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>And here is the distribution of the years that the company will break down.</p>
+<p>And here is the distribution of the years that the computer will break down.</p>
 <pre class="r"><code>hist(sim_repair_time$year_spoilt)</code></pre>
 <p><img src="/post/exp_distrib_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="explaining-exponential-distribution-from-first-principle" class="section level2">
 <h2>Explaining exponential distribution from first principle</h2>
-<p>If you are keen from the first example perspective,</p>
+<p>If you are keen from the first principle perspective,</p>
 <p><span class="math display">\[f(x) =  {\lambda}e^{-\lambda x} \]</span></p>
 <p>To understand pdf function here. It’s pretty simple. If you run the simulator 1000 times with mean = 7 (lambda = 1/7), and you plot the distribution, it’s mostly likely to be front-loaded.</p>
 <p>If you fit a series of values x - N to the above function, it will be pretty similar to simulated series of values.</p>
