@@ -11,6 +11,65 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Playing with Google Place API</title>
+      <link>/post/google_place_api/</link>
+      <pubDate>Tue, 14 May 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/google_place_api/</guid>
+      <description>
+
+&lt;h2 id=&#34;google-place-api&#34;&gt;Google Place API&lt;/h2&gt;
+
+&lt;p&gt;I was playing around with the API to obtain lat-long for my geo analytics work.&lt;/p&gt;
+
+&lt;p&gt;I entered my credit card info but it seems that I&amp;rsquo;m not charged even with 9000+ API calls. Unsure if it&amp;rsquo;s because I&amp;rsquo;ve a 400+ dollars free cloud credit?&lt;/p&gt;
+
+&lt;p&gt;Anyway, what I did here was to make API calls and storing the data into my local database.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re interested, you may visit this stackoverflow link (&lt;a href=&#34;https://stackoverflow.com/questions/52565472/get-map-not-passing-the-api-key-http-status-was-403-forbidden/52617929#52617929&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/52565472/get-map-not-passing-the-api-key-http-status-was-403-forbidden/52617929#52617929&lt;/a&gt;) to understand how to set up the credentials.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#Load util function
+source(&amp;quot;connect_db.R&amp;quot;)
+vf_connect_db(&amp;quot;google_place.db&amp;quot;)
+
+#load packages
+sapply(c(&amp;quot;ggmap&amp;quot;, &amp;quot;RSQLite&amp;quot;), require, character.only = T)
+
+#Google key information
+register_google(key = &amp;quot;&amp;lt;intentionally left blank&amp;gt;&amp;quot;) 
+
+#Load dataframe into the memory
+query = paste0(&#39;select TripAdv_Key, address from &amp;quot;trip_advisor_full_dataset_without_lat_long&amp;quot;&#39;)
+origAddress = dbGetQuery(con, query)
+
+# Loop through the addresses to get the latitude and longitude of each address and add it to the
+# origAddress data frame in new columns lat and lon
+for(i in 1:nrow(origAddress))
+{
+  print(i)
+  tryCatch({
+    
+    #Geocoding based on address
+    result &amp;lt;- geocode(origAddress$address[i], output = &amp;quot;latlona&amp;quot;, source = &amp;quot;google&amp;quot;)
+    
+    #Extracting results values and inserting into database
+    TripAdv_Key = origAddress$TripAdv_Key[i] 
+    lat = as.numeric(result[2])
+    long = as.numeric(result[1])
+    add = as.character(result[3])
+    values = paste0(&amp;quot;(&amp;quot;,TripAdv_Key, &amp;quot;,&amp;quot;, lat, &amp;quot;,&amp;quot;, long, &amp;quot;,&#39;&amp;quot;, add,&amp;quot;&#39;)&amp;quot;)
+    query = paste0(&#39;INSERT INTO lat_long_info VALUES&#39;, values)
+    dbSendQuery(con, query)
+    
+    #Print lat long
+    print(c(lat, long))
+  }, error=function(e){})
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Using exponential distribution to estimate frequency of occurence</title>
       <link>/post/exp_distrib/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
@@ -2491,44 +2550,6 @@ summary(data_trade_stats$profit_per_trade_less_comms)
 &lt;img src=&#34;/post/img/CP_7.png&#34; alt=&#34;/post/img/CP_7.png&#34;&gt;
 &lt;img src=&#34;/post/img/CP_8.png&#34; alt=&#34;/post/img/CP_8.png&#34;&gt;
 &lt;img src=&#34;/post/img/CP_9.png&#34; alt=&#34;/post/img/CP_9.png&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Colorization</title>
-      <link>/post/colorization/</link>
-      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/colorization/</guid>
-      <description>
-
-&lt;h2 id=&#34;colorization&#34;&gt;Colorization&lt;/h2&gt;
-
-&lt;p&gt;The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.&lt;/p&gt;
-
-&lt;p&gt;1.Input: I first read in the image using imread function.&lt;/p&gt;
-
-&lt;p&gt;2.Find the difference: Next I compute the difference between the marked and grey scale image. This would feed into step 5.&lt;/p&gt;
-
-&lt;p&gt;3.Transform to YIQ space: Then I convert the grey image and the marked version from RGB space to YIQ space 2 &amp;amp; 3 . I wrote a function, rgbToyiq in color_space.py to convert rgb dimension to that of YIQ.&lt;/p&gt;
-
-&lt;p&gt;4.Compute weight matrix:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The next step, also the most complicated one is to compute the weight matrix.&lt;/li&gt;
-&lt;li&gt;I first initialize 3 matrices of size height X width X size of window (9): row indices (i, j count), colIndices and values (weights) to hold key information during the loop&lt;/li&gt;
-&lt;li&gt;The algo will loop through each pixel. And it will compute the weights (using marked) according to formula below in a window of size 9 i.e. 9 pixels in a window (including the pixel).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;5.Solve Ax = B: Once the weights are obtained, I proceed to obtain a least square solution.&lt;/p&gt;
-
-&lt;p&gt;6.Lastly, I transform the YIQ output back to RGB space.&lt;/p&gt;
-
-&lt;p&gt;Here are the photographs.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/post/img/baby.bmp&#34; alt=&#34;/post/img/baby.bmp&#34;&gt;
-&lt;img src=&#34;/post/img/baby_marked.bmp&#34; alt=&#34;/post/img/baby_marked.bmp&#34;&gt;
-&lt;img src=&#34;/post/img/baby_colorized.bmp&#34; alt=&#34;/post/img/baby_colorized.bmp&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
