@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 14 May 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2019 11:46:49 +0800</lastBuildDate>
     
 	<atom:link href="/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Function to describe clusters derived from unsupervised learning</title>
+      <link>/post/cluster_descriptive_stats/</link>
+      <pubDate>Fri, 24 May 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/cluster_descriptive_stats/</guid>
+      <description>Describing unsupervised learning clusters As a data scientist / analyst, besides doing cool modelling stuff, we&amp;rsquo;re often asked to churn out descriptive statistics. Yes, we know. It&amp;rsquo;s part of the process.
+I chanced upon this really nifty concept at work to describe the clusters derived from unsupervised learnig. Here&amp;rsquo;s how it goes,
+ Say it&amp;rsquo;s a nominal or ordinal variable. First, I find the proportion of the feature across the X clusters Second, I rank this proportion through percentiles across these X values The cluster with the highest percentile will earn its right to be represented by the feature And if it&amp;rsquo;s a scale variable, you may find the mean of the feature for each cluster and repeat the steps.</description>
+    </item>
     
     <item>
       <title>Playing with Google Place API</title>

@@ -479,6 +479,90 @@
   
   
   <h3 class="article-title" itemprop="headline">
+    <a href="/post/cluster_descriptive_stats/" itemprop="url">Function to describe clusters derived from unsupervised learning</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-05-24 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+      May 24, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/cluster_descriptive_stats/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Describing unsupervised learning clusters As a data scientist / analyst, besides doing cool modelling stuff, we&rsquo;re often asked to churn out descriptive statistics. Yes, we know. It&rsquo;s part of the process.
+I chanced upon this really nifty concept at work to describe the clusters derived from unsupervised learnig. Here&rsquo;s how it goes,
+ Say it&rsquo;s a nominal or ordinal variable. First, I find the proportion of the feature across the X clusters Second, I rank this proportion through percentiles across these X values The cluster with the highest percentile will earn its right to be represented by the feature And if it&rsquo;s a scale variable, you may find the mean of the feature for each cluster and repeat the steps.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/cluster_descriptive_stats/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
     <a href="/post/google_place_api/" itemprop="url">Playing with Google Place API</a>
   </h3>
   
@@ -805,102 +889,6 @@ As an ex-economist/ data geek who doesn’t shy away from having skin in the gam
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/hosting-a-flask-app-on-heroku/" itemprop="url">Hosting a Flask App on Heroku</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-02-28 23:34:32 &#43;0800 &#43;08" itemprop="datePublished dateModified">
-      Feb 28, 2019
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/hosting-a-flask-app-on-heroku/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >, 
-    
-    <a href="/categories/api">api</a
-    >, 
-    
-    <a href="/categories/python">python</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Following the steps here &ndash;&gt; https://realpython.com/flask-by-example-part-1-project-setup/
-I managed to deploy my python flask app in Heroku.
-from flask import Flask app = Flask(__name__) @app.route('/') def hello(): return &quot;Hello World!&quot; @app.route('/&lt;name&gt;') def hello_name(name): return &quot;Hello {}!&quot;.format(name) if __name__ == '__main__': app.run()  You may visit the following link &ndash;&gt;https://jirong-stage.herokuapp.com/ &amp; add a suffix to it.
-Example https://jirong-stage.herokuapp.com/jirong &amp; this will return Hello jirong!
-Possibilites are immense! I can easily create APIs or host dashboard here.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/hosting-a-flask-app-on-heroku/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1082,7 +1070,7 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/algo" style="font-size:1.459195289565433rem">algo</a>
+          <a href="/tags/algo" style="font-size:1.4461594034170884rem">algo</a>
         
           
           
@@ -1096,14 +1084,14 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/asset_allocation" style="font-size:1.2159059216009842rem">asset_allocation</a>
+          <a href="/tags/asset_allocation" style="font-size:1.2076811931658236rem">asset_allocation</a>
         
           
           
           
           
           
-          <a href="/tags/betting" style="font-size:1.459195289565433rem">betting</a>
+          <a href="/tags/betting" style="font-size:1.4461594034170884rem">betting</a>
         
           
           
@@ -1117,7 +1105,7 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/dashboard" style="font-size:1.2159059216009842rem">dashboard</a>
+          <a href="/tags/dashboard" style="font-size:1.2076811931658236rem">dashboard</a>
         
           
           
@@ -1131,28 +1119,28 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/finance" style="font-size:2.1816095657963306rem">finance</a>
+          <a href="/tags/finance" style="font-size:2.1542876093347507rem">finance</a>
         
           
           
           
           
           
-          <a href="/tags/firstprinciples" style="font-size:1.2159059216009842rem">firstPrinciples</a>
+          <a href="/tags/firstprinciples" style="font-size:1.2076811931658236rem">firstPrinciples</a>
         
           
           
           
           
           
-          <a href="/tags/investment" style="font-size:2.23879809556493rem">investment</a>
+          <a href="/tags/investment" style="font-size:2.2103452099616296rem">investment</a>
         
           
           
           
           
           
-          <a href="/tags/machine_learning" style="font-size:1.2159059216009842rem">machine_learning</a>
+          <a href="/tags/machine_learning" style="font-size:1.2076811931658236rem">machine_learning</a>
         
           
           
@@ -1166,28 +1154,28 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/momentum" style="font-size:1.2159059216009842rem">momentum</a>
+          <a href="/tags/momentum" style="font-size:1.2076811931658236rem">momentum</a>
         
           
           
           
           
           
-          <a href="/tags/odds" style="font-size:1.2159059216009842rem">odds</a>
+          <a href="/tags/odds" style="font-size:1.2076811931658236rem">odds</a>
         
           
           
           
           
           
-          <a href="/tags/probability" style="font-size:1.2159059216009842rem">probability</a>
+          <a href="/tags/probability" style="font-size:1.2076811931658236rem">probability</a>
         
           
           
           
           
           
-          <a href="/tags/programming" style="font-size:2.463623686403937rem">programming</a>
+          <a href="/tags/programming" style="font-size:2.466381728141905rem">programming</a>
         
           
           
@@ -1215,14 +1203,14 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/statistics" style="font-size:1.2159059216009842rem">statistics</a>
+          <a href="/tags/statistics" style="font-size:1.2076811931658236rem">statistics</a>
         
           
           
           
           
           
-          <a href="/tags/trading" style="font-size:1.765703644195346rem">trading</a>
+          <a href="/tags/trading" style="font-size:1.7466064161689272rem">trading</a>
         
       </div>
     
@@ -1267,7 +1255,7 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/algo" style="font-size:1.459195289565433rem">algo</a>
+          <a href="/tags/algo" style="font-size:1.4461594034170884rem">algo</a>
         
           
           
@@ -1281,14 +1269,14 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/asset_allocation" style="font-size:1.2159059216009842rem">asset_allocation</a>
+          <a href="/tags/asset_allocation" style="font-size:1.2076811931658236rem">asset_allocation</a>
         
           
           
           
           
           
-          <a href="/tags/betting" style="font-size:1.459195289565433rem">betting</a>
+          <a href="/tags/betting" style="font-size:1.4461594034170884rem">betting</a>
         
           
           
@@ -1302,7 +1290,7 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/dashboard" style="font-size:1.2159059216009842rem">dashboard</a>
+          <a href="/tags/dashboard" style="font-size:1.2076811931658236rem">dashboard</a>
         
           
           
@@ -1316,28 +1304,28 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/finance" style="font-size:2.1816095657963306rem">finance</a>
+          <a href="/tags/finance" style="font-size:2.1542876093347507rem">finance</a>
         
           
           
           
           
           
-          <a href="/tags/firstprinciples" style="font-size:1.2159059216009842rem">firstPrinciples</a>
+          <a href="/tags/firstprinciples" style="font-size:1.2076811931658236rem">firstPrinciples</a>
         
           
           
           
           
           
-          <a href="/tags/investment" style="font-size:2.23879809556493rem">investment</a>
+          <a href="/tags/investment" style="font-size:2.2103452099616296rem">investment</a>
         
           
           
           
           
           
-          <a href="/tags/machine_learning" style="font-size:1.2159059216009842rem">machine_learning</a>
+          <a href="/tags/machine_learning" style="font-size:1.2076811931658236rem">machine_learning</a>
         
           
           
@@ -1351,28 +1339,28 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/momentum" style="font-size:1.2159059216009842rem">momentum</a>
+          <a href="/tags/momentum" style="font-size:1.2076811931658236rem">momentum</a>
         
           
           
           
           
           
-          <a href="/tags/odds" style="font-size:1.2159059216009842rem">odds</a>
+          <a href="/tags/odds" style="font-size:1.2076811931658236rem">odds</a>
         
           
           
           
           
           
-          <a href="/tags/probability" style="font-size:1.2159059216009842rem">probability</a>
+          <a href="/tags/probability" style="font-size:1.2076811931658236rem">probability</a>
         
           
           
           
           
           
-          <a href="/tags/programming" style="font-size:2.463623686403937rem">programming</a>
+          <a href="/tags/programming" style="font-size:2.466381728141905rem">programming</a>
         
           
           
@@ -1400,14 +1388,14 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
           
           
           
-          <a href="/tags/statistics" style="font-size:1.2159059216009842rem">statistics</a>
+          <a href="/tags/statistics" style="font-size:1.2076811931658236rem">statistics</a>
         
           
           
           
           
           
-          <a href="/tags/trading" style="font-size:1.765703644195346rem">trading</a>
+          <a href="/tags/trading" style="font-size:1.7466064161689272rem">trading</a>
         
       </div>
     
