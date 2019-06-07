@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Jirong&#39;s sandbox</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 26 Jan 2019 11:46:49 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Martingale Strategy - Double Down</title>
+      <link>/post/martingale-strategy/</link>
+      <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/martingale-strategy/</guid>
+      <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
+Double down! That&amp;rsquo;s essentially the essence of it.
+Here&amp;rsquo;s a simple explanation of the strategy,
+ The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?</description>
+    </item>
+    
+    <item>
+      <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
+      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
+      <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
+      
+      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
+      <description>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.
+Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
+In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.</description>
+    </item>
+    
+    <item>
+      <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
+      <link>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
+      <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
+      
+      <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
+      <description>Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,
+ If you are an investor, you may use it to analyze impact of exchange rate on your investment positions. If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.</description>
+    </item>
+    
+    <item>
+      <title>Shift Share Analysis Package I developed</title>
+      <link>/post/shift-share-analysis-package/</link>
+      <pubDate>Sat, 22 Sep 2018 12:23:28 +0800</pubDate>
+      
+      <guid>/post/shift-share-analysis-package/</guid>
+      <description>Shift-share Analysis Package I developed During my career, I often have to deal with compositional &amp;amp; within group effects. For instance, the employment rate fell by 3% across 2 period. How much of it is due to an increase in employment rate within the sub-group and how much of it is due to compositional shift (for example ageing population).
+A formal way to explain these effects is known as shift-share analysis.</description>
+    </item>
+    
+  </channel>
+</rss>

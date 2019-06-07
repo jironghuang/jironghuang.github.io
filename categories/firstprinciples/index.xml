@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/firstprinciples/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/categories/firstprinciples/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using exponential distribution to estimate frequency of occurence</title>
@@ -18,10 +16,125 @@
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/exp_distrib/</guid>
-      <description>Simulating product failures I’m inspired by this post here (http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/). And decided to expand on the example.
-Say you are an owner of a computer store and you would like to estimate the frequency of warranty repairs - and the ensuing costs.
-Here’s the scenario with the accompanying assumptions
- Each computer is expected to last an average of 7 years You only sell 1000 computers at the start of each year You sell computer from 2019 to 2025  First, I simulate an exponential distribution of 1000 points for 7 years; and place a time index of 2019 to 2025</description>
+      <description>
+
+
+&lt;div id=&#34;simulating-product-failures&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Simulating product failures&lt;/h2&gt;
+&lt;p&gt;I’m inspired by this post here (&lt;a href=&#34;http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/&#34; class=&#34;uri&#34;&gt;http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/&lt;/a&gt;). And decided to expand on the example.&lt;/p&gt;
+&lt;p&gt;Say you are an owner of a computer store and you would like to estimate the frequency of warranty repairs - and the ensuing costs.&lt;/p&gt;
+&lt;p&gt;Here’s the scenario with the accompanying assumptions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each computer is expected to last an average of 7 years&lt;/li&gt;
+&lt;li&gt;You only sell 1000 computers at the start of each year&lt;/li&gt;
+&lt;li&gt;You sell computer from 2019 to 2025&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;First, I simulate an exponential distribution of 1000 points for 7 years; and place a time index of 2019 to 2025&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1) 
+library(tidyr)
+
+sim_repair_time = mapply(rexp, rep(1000, 7), rep(1/7, 7))
+sim_repair_time = data.frame(sim_repair_time)
+names(sim_repair_time) = paste0(&amp;quot;Y&amp;quot;, 2019:2025)
+sim_repair_time$comp_index = 1:nrow(sim_repair_time)
+head(sim_repair_time)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        Y2019     Y2020      Y2021     Y2022      Y2023     Y2024     Y2025
+## 1  5.2862728 7.0456022  4.4584814  2.987471  2.4983623  1.155475  3.526856
+## 2  8.2714995 0.3831851 21.3583423 16.976357  0.6371918 19.870135  8.339298
+## 3  1.0199471 6.1577002 24.7270286  7.184722 13.6686444  2.692336  1.531733
+## 4  0.9785668 2.0554758  4.0556961 11.680879  3.4047724  8.547126  4.098845
+## 5  3.0524804 1.3899782  0.8014122  7.394160 10.8930823  1.088804  8.679067
+## 6 20.2647798 1.1392965  8.5595344  3.423599  5.0281127  8.178582 15.854250
+##   comp_index
+## 1          1
+## 2          2
+## 3          3
+## 4          4
+## 5          5
+## 6          6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, I - in dplyr lingo - gather the dataset (convert to long form)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_repair_time = sim_repair_time %&amp;gt;% gather(key = year, 
+                                     value = spoilt_years_later, 
+                                    -comp_index)
+sim_repair_time$year = gsub(&amp;quot;Y&amp;quot;, &amp;quot;&amp;quot;, sim_repair_time$year)
+
+head(sim_repair_time, 50)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    comp_index year spoilt_years_later
+## 1           1 2019          5.2862728
+## 2           2 2019          8.2714995
+## 3           3 2019          1.0199471
+## 4           4 2019          0.9785668
+## 5           5 2019          3.0524804
+## 6           6 2019         20.2647798
+## 7           7 2019          8.6069344
+## 8           8 2019          3.7777799
+## 9           9 2019          6.6959725
+## 10         10 2019          1.0293219
+## 11         11 2019          9.7351459
+## 12         12 2019          5.3342090
+## 13         13 2019          8.6632249
+## 14         14 2019         30.9675395
+## 15         15 2019          7.3818022
+## 16         16 2019          7.2467076
+## 17         17 2019         13.1322462
+## 18         18 2019          4.5832265
+## 19         19 2019          2.3585343
+## 20         20 2019          4.1193581
+## 21         21 2019         16.5516068
+## 22         22 2019          4.4932481
+## 23         23 2019          2.0588427
+## 24         24 2019          3.9610587
+## 25         25 2019          0.7425084
+## 26         26 2019          0.4160741
+## 27         27 2019          4.0509872
+## 28         28 2019         27.7125300
+## 29         29 2019          8.2131847
+## 30         30 2019          6.9776907
+## 31         31 2019         10.0469974
+## 32         32 2019          0.2608797
+## 33         33 2019          2.2680711
+## 34         34 2019          9.2432755
+## 35         35 2019          1.4245725
+## 36         36 2019          7.1590811
+## 37         37 2019          2.1121865
+## 38         38 2019          5.0765001
+## 39         39 2019          5.2607988
+## 40         40 2019          1.6451922
+## 41         41 2019          7.5591680
+## 42         42 2019          7.1977283
+## 43         43 2019          9.0458315
+## 44         44 2019          8.7717375
+## 45         45 2019          3.8824898
+## 46         46 2019          2.1089810
+## 47         47 2019          9.0518726
+## 48         48 2019          6.9618905
+## 49         49 2019          3.5992201
+## 50         50 2019         14.0548268&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lastly, I add the time taken for each computer to break down to the year for which the computer is bought.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#sim_repair_time$spoilt_years_later = round(sim_repair_time$spoilt_years_later, 0)
+sim_repair_time$year_spoilt = sim_repair_time$spoilt_years_later + as.numeric(sim_repair_time$year)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is the distribution of years taken that a computer will break down.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(sim_repair_time$spoilt_years_later)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/exp_distrib_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And here is the distribution of the years that the computer will break down.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(sim_repair_time$year_spoilt)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/exp_distrib_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;explaining-exponential-distribution-from-first-principle&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Explaining exponential distribution from first principle&lt;/h2&gt;
+&lt;p&gt;If you are keen from the first principle perspective,&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[f(x) =  {\lambda}e^{-\lambda x} \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To understand pdf function here. It’s pretty simple. If you run the simulator 1000 times with mean = 7 (lambda = 1/7), and you plot the distribution, it’s mostly likely to be front-loaded.&lt;/p&gt;
+&lt;p&gt;If you fit a series of values x - N to the above function, it will be pretty similar to simulated series of values.&lt;/p&gt;
+&lt;p&gt;And if you do a mean of the simulated data, it will return close to the mean of 7&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data = rexp(1000, 1/7)
+hist(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/exp_distrib_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6.775649&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I hope this simple example here is useful!&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -30,9 +143,99 @@ Here’s the scenario with the accompanying assumptions
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/sampling-with-replacement-through-first-principles/</guid>
-      <description>Sampling with replacement Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
-I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
-Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.</description>
+      <description>
+
+&lt;h1 id=&#34;sampling-with-replacement&#34;&gt;Sampling with replacement&lt;/h1&gt;
+
+&lt;p&gt;Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.&lt;/p&gt;
+
+&lt;p&gt;I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.&lt;/p&gt;
+
+&lt;p&gt;Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals. Haven&amp;rsquo;t figured that part out yet.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;re definitely packages out there that does sort of stuff but this forces me to understand the underlying theory from scratch.&lt;/p&gt;
+
+&lt;p&gt;So here is the idea, I&amp;rsquo;ve a dataset with 4 individuals, tagged to respective weights that corresponds to the population. And I wish to do a bootstrap i.e. sampling with replacement to get a sample size of N = 100&lt;/p&gt;
+
+&lt;p&gt;See Wikipedia page on advantages of Bootstrapping &amp;ndash;&amp;gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Bootstrapping_(statistics&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Bootstrapping_(statistics&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s what I will do. I will first line up the individuals and find the Probability Mass Function (PMF) for each individual accounting for its weight. Second, I will add up the PMF to obtain the Cumulative Density Function (cumulative proportion)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;df
+id weight PMF     CDF
+1  2      20%    [0, 20]
+2  3      30%    (20, 50]
+3  3      30%    (50, 80]
+4  2      20%    (80, 100]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, I will do a loop of 100 times. At the start of each loop I will obtain a float of between 0 to 1. If the value lies between a certain range, I will add that individual to the dataset. Given that num is random, it will lie between the various ranges without order, accouting for length of the interval.&lt;/p&gt;
+
+&lt;p&gt;Note that sampling with replacement means there&amp;rsquo;s a chance that an individual may be represented more than once in the dataset.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;for (i in 1:100){
+
+  num = randint(0, 1)
+  
+  if(num &amp;lt; 0.2){
+    add_to_new_dataset(id = 1)
+  }else if (num between 0.2 to 0.5){
+    add_to_new_dataset(id = 2)
+  }else if (num between 0.5 to 0.8){
+    add_to_new_dataset(id = 3)
+  }else{
+    add_to_new_dataset(id = 3)
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Of course! In R, you should avoid an explicit loop at all costs. The solution is to embed it in a function and use a lapply function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bootstrap_weights = function(i){
+
+num = randint(0, 1)
+
+  if(num &amp;lt; 0.2){
+    id = 1
+  }else if (num between 0.2 to 0.5){
+    id = 2 
+  }else if (num between 0.5 to 0.8){
+    id = 3
+  }else{
+    id = 4
+  }
+  
+  data_row = data[id, ]
+  return (data_row)
+}
+
+bootstrapped_data = rbind.fill(lapply(1: 100, bootstrap_weights))
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I hope this is useful!&lt;/p&gt;
+
+&lt;h2 id=&#34;latest-developments&#34;&gt;Latest developments&lt;/h2&gt;
+
+&lt;p&gt;Courtesy of this post here &amp;ndash;&amp;gt; &lt;a href=&#34;https://stackoverflow.com/questions/24766104/checking-if-value-in-vector-is-in-range-of-values-in-different-length-vector&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/24766104/checking-if-value-in-vector-is-in-range-of-values-in-different-length-vector&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the simple solution to link a value to an interval,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;getValue &amp;lt;- function(x, data) {
+  tmp &amp;lt;- data %&amp;gt;%
+    filter(CDF1 &amp;lt;= x, x &amp;lt;= CDF2)
+  return(tmp$id)
+}
+
+# Using rand function to get a list of numbers
+rand_numbers &amp;lt;- c(0.1, 0.173, 0.235)
+sapply(rand_numbers, getValue, data = df)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cheers!&lt;/p&gt;
+</description>
     </item>
     
   </channel>

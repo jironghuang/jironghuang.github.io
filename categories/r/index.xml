@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Jirong&#39;s sandbox</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 26 Jan 2019 11:46:49 +0800</lastBuildDate>
+    <atom:link href="/categories/r/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Martingale Strategy - Double Down</title>
+      <link>/post/martingale-strategy/</link>
+      <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/martingale-strategy/</guid>
+      <description>
+
+&lt;h2 id=&#34;martingale-strategy&#34;&gt;Martingale Strategy&lt;/h2&gt;
+
+&lt;p&gt;In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.&lt;/p&gt;
+
+&lt;p&gt;Double down! That&amp;rsquo;s essentially the essence of it.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a simple explanation of the strategy,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount&lt;/li&gt;
+&lt;li&gt;If you win, you continue to bet the same amount (same as your 1st bet amount)&lt;/li&gt;
+&lt;li&gt;If you lose, you double your bet amount&lt;/li&gt;
+&lt;li&gt;And if your accumulated winnings hits a certain amount, you stop and leave the casino&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So how would the strategy fare? To explain, I will use Monte Carlo with a Bernoulli distribution for each roulette spin (X ~ B(1, 0.48)).&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-10-runs-times&#34;&gt;Simulate strategy 10 runs/ times&lt;/h3&gt;
+
+&lt;p&gt;Here, I simulate the strategy of 10 times. Think of it in this way, there&amp;rsquo;re 10 alternate universes which you exist and you play the same game 10 times. Or you can just simply treat this as going back to the casino on 10 separate days.&lt;/p&gt;
+
+&lt;p&gt;In the chart below, you will notice that for some runs; because of a sequence of bad luck, the losses quick spiralled!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/10_simulations.png&#34; alt=&#34;/post/img/10_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-1000-runs-times-and-compute-the-mean&#34;&gt;Simulate strategy 1000 runs/ times and compute the mean&lt;/h3&gt;
+
+&lt;p&gt;Next, for a more robust interpretation, I went on to simulate this strategy 1000 times and computed the mean and standard deviation. You will notice that the strategy eventually converges to a desired terminal value. In this case, it&amp;rsquo;s $80. So essentially, out of 1000 simulations, all of them reaches my profit target!&lt;/p&gt;
+
+&lt;p&gt;However the the risk is enormous. Near the average 120th run, the standard deviation sky-rocketed to 120,000. I&amp;rsquo;m unsure if anyone could stomach this loss at any one point of time. The journey matters!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/1000_simulations.png&#34; alt=&#34;/post/img/1000_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/simulation_sd.png&#34; alt=&#34;/post/img/simulation_sd.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;insights-from-this-strategy&#34;&gt;Insights from this strategy&lt;/h3&gt;
+
+&lt;p&gt;Martingale strategy - to put it simply - is a win small, lose potentially huge strategy.&lt;/p&gt;
+
+&lt;p&gt;In this strategy, you will win 100% of the time.&lt;/p&gt;
+
+&lt;p&gt;But the question is, do you have the money (or infinite bankroll) to tide through tough times?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
+      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
+      <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
+      
+      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
+      <description>
+
+&lt;h2 id=&#34;translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r&#34;&gt;Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.&lt;/p&gt;
+
+&lt;p&gt;Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).&lt;/p&gt;
+
+&lt;p&gt;In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs. What I learnt - with real capital - is that the hedge ratio is dynamic and will vary over time. In the early days, I fixed it through linear regression. But boy this doesn&amp;rsquo;t work! It&amp;rsquo;s not really market neutral because of the imbalance in values between pairs across time.&lt;/p&gt;
+
+&lt;p&gt;Then I chanced upon Kalman filter - something I learnt during my AI module in my Computer Science Degree days. I&amp;rsquo;ll spare the Math here. It&amp;rsquo;s a variant of the markov model, that uses a series of measurements over time (in this case, one of the pairs price), containing noise and produces estimates of unknown (here it&amp;rsquo;s the hedge ratio and intercept). Hedge ratio is updated in each time step.&lt;/p&gt;
+
+&lt;p&gt;I saw the Python code online for EWA-EWC pair strategy that returns a sharpe ratio of 2.4. I tried to search for a R version but to no avail!&lt;/p&gt;
+
+&lt;p&gt;Hence I decided to spend a day translating the python code into R code (for deployment purposes. Currently my algo trading stack is built around R). Thankfully I&amp;rsquo;m not translating the Matlab version because I do not have prior experience in that. And it would definitely take me more than a day for the translation.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve since,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wrapped the code with a function&lt;/li&gt;
+&lt;li&gt;Loop through a 40 choose 2 combinations of country pairs&lt;/li&gt;
+&lt;li&gt;Triangulated with distance metrics like Correlation, Euclidean Distance and Manhattan Distance&lt;/li&gt;
+&lt;li&gt;Filtered out long half life (i.e. # of days before reverting to the mean)&lt;/li&gt;
+&lt;li&gt;Filtered by sharpe ratios, drawdown and average profits&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And so far, this market-neutral strategy is really promising!&lt;/p&gt;
+
+&lt;h3 id=&#34;translated-r-code-for-ewa-ewc-strategy&#34;&gt;Translated R code for EWA - EWC strategy&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;#Note: Try to put everything in a data-frame
+lapply(c(&amp;quot;zoo&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;plyr&amp;quot;, &amp;quot;dplyr&amp;quot;,
+         &amp;quot;gtools&amp;quot;,&amp;quot;googlesheets&amp;quot;, &amp;quot;quantmod&amp;quot;, 
+         &amp;quot;urca&amp;quot;, &amp;quot;PerformanceAnalytics&amp;quot;, &amp;quot;parallel&amp;quot;), require, character.only = T)
+
+source(&#39;util/calculateReturns.R&#39;)
+source(&#39;util/calculateMaxDD.R&#39;)
+source(&#39;util/backshift.R&#39;)
+source(&#39;util/extract_stock_prices.R&#39;)
+source(&#39;util/cointegration_pair.R&#39;)
+
+
+#Reading in the data
+df = read.csv(&#39;kalman_filter/inputData_EWA_EWC.csv&#39;)
+df = subset(df, select = c(&amp;quot;Date&amp;quot;, &amp;quot;EWC&amp;quot;, &amp;quot;EWA&amp;quot;))
+
+# Augment x with ones to  accomodate possible offset in the regression between y vs x.
+# df$EWA_ones = 1
+
+# delta=1 gives fastest change in beta, delta=0.000....1 allows no change (like traditional linear regression).
+delta = 0.0001 
+
+#yhat=np.full(y.shape[0], np.nan) # measurement prediction
+df$yhat = NA
+
+#Initialize matrix
+df$e = df$yhat # e = yhat.copy(), residuals
+df$Q = df$yhat # Q = yhat.copy(), measurement variance
+
+# For clarity, we denote R(t|t) by P(t). Initialize R, P and beta.
+R = matrix(dat = rep(0, 4), nrow = 2, ncol = 2) #R = np.zeros((2,2))
+P = R   #P = R.copy()
+
+#Store beta in df and separately for computation
+beta = matrix(dat = rep(NA, nrow(df) * 2), nrow = 2, ncol = nrow(df))
+df$beta1 = NA; df$beta2 = NA  #beta = np.full((2, x.shape[0]), np.nan)
+
+Vw = delta/(1-delta) * diag(2) #Vw=delta/(1-delta)*np.eye(2)
+Ve = 0.001
+
+# Initialize beta(:, 1) to zero
+beta[, 1] = 0 #beta[:, 0]=0
+df$beta1 = beta[1, 1]; df$beta2 = beta[2, 1]
+
+#for t in range(len(y)):
+for (t in 1:nrow(df)){
+ 
+  if(t &amp;gt; 1){
+    #Update matrix
+    beta[, t] = beta[, t-1]
+    R = P + Vw
+    
+    #Update df
+    df$beta1[t] = beta[1, t]
+    df$beta2[t] = beta[2, t]
+  }
+  
+  # yhat[t, ] = as.matrix(x[t, ]) %*% as.matrix(beta[, t])    #yhat[t]=np.dot(x[t, :], beta[:, t])
+  df$yhat[t] = as.matrix(data.frame(df$EWA[t], 1)) %*% as.matrix(beta[, t]) 
+  
+  # Q[t, ] = (as.matrix(x[t, ]) %*% R) %*% t(as.matrix(x[t, ])) + Ve  #Q[t] = np.dot(np.dot(x[t, :], R), x[t, :].T)+Ve
+  df$Q[t] = (as.matrix(data.frame(df$EWA[t], 1)) %*% R) %*% t(as.matrix(data.frame(df$EWA[t], 1))) + Ve
+  
+  # e[t, ] = y[t, ] - yhat[t, ] #e[t]=y[t]-yhat[t] # measurement prediction error
+  df$e[t] = df$EWC[t] - df$yhat[t]
+  
+  K = R %*% t(as.matrix(data.frame(df$EWA[t], 1))) / df$Q[t]  #K = np.dot(R, x[t, :].T)/Q[t] #  Kalman gain
+  beta[, t] = beta[, t] + K %*% as.matrix(df$e[t]) #beta[:, t]=beta[:, t]+np.dot(K, e[t]) #  State update. Equation 3.11
+  
+  #Update df
+  df$beta1[t] = beta[1, t]
+  df$beta2[t] = beta[2, t]
+  
+  # State covariance update. Euqation 3.12
+  P = R - ((K %*% as.matrix(data.frame(df$EWA[t], 1))) %*% R) #P = R-np.dot(np.dot(K, x[t, :]), R) 
+}
+
+#Generated signals
+df$Q_root = df$Q ^ 0.5
+df$longs &amp;lt;- df$e &amp;lt;= -df$Q ^ 0.5 # buy spread when its value drops below 2 standard deviations.
+df$shorts &amp;lt;- df$e &amp;gt;= df$Q ^ 0.5  # short spread when its value rises above 2 standard deviations.  Short EWC
+
+df$longExits  &amp;lt;- df$e &amp;gt; 0 
+df$shortExits &amp;lt;- df$e &amp;lt; 0
+
+# initialize to 0
+df$numUnitsLong = NA
+df$numUnitsShort = NA
+df$numUnitsLong[0]=0.
+df$numUnitsShort[0]=0.
+
+df$numUnitsLong[df$longs]=1.
+df$numUnitsLong[df$longsExit]=0
+df$numUnitsLong = ifelse(is.na(df$numUnitsLong), 0, df$numUnitsLong)
+
+df$numUnitsShort[df$shorts]=-1.
+df$numUnitsShort[df$shortsExit]=0
+df$numUnitsShort = ifelse(is.na(df$numUnitsShort), 0, df$numUnitsShort)
+
+df$numUnits = df$numUnitsLong + df$numUnitsShort 
+
+df$position1 = 0; df$position2 = 0 
+
+df$position1 = ifelse(df$numUnits == -1, -1, df$position1)   #short EWC, Long EWA --&amp;gt; df$e[t] = df$EWC[t] - df$yhat[t]
+df$position2 = ifelse(df$numUnits == -1, 1, df$position2)  #short EWC, Long EWA 
+
+df$position1 = ifelse(df$numUnits == 1, 1, df$position1)   #long EWC, short EWA 
+df$position2 = ifelse(df$numUnits == 1, -1, df$position2)  #long EWC, short EWA 
+
+# df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(-df$beta1, 1)) * data.frame(df$EWA, df$EWC)   #Adjusted price
+df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(1, -df$beta1)) * data.frame(df$EWC, df$EWA)   #Adjusted price
+
+#Returns
+df$dailyret1 &amp;lt;- c(NA, (df$EWC[2: nrow(df)] - df$EWC[1: (nrow(df) - 1)])/df$EWC[1: (nrow(df) - 1)])
+df$dailyret2 &amp;lt;- c(NA, (df$EWA[2: nrow(df)] - df$EWA[1: (nrow(df) - 1)])/df$EWA[1: (nrow(df) - 1)])
+
+#Daily returns
+# lag(df$position1, 1)
+# lag(df$position2, 1) * df$beta1
+df$pnl = lag(df$positions$df.numUnits, 1) * df$dailyret1  + lag(df$positions$df.numUnits.1, 1) * df$dailyret2
+
+df$ret = (df$pnl)/lag((df$positions$df.numUnits + df$positions$df.numUnits.1), 1)
+df$ret = ifelse(is.na(df$ret), 0, df$ret)
+df$ret[2] = 0
+
+#Sharpe ratio
+sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
+      <link>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
+      <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
+      
+      <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
+      <description>
+
+&lt;h2 id=&#34;decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects&#34;&gt;Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects&lt;/h2&gt;
+
+&lt;p&gt;If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you are an investor, you may use it to analyze impact of exchange rate on your investment positions.&lt;/li&gt;
+&lt;li&gt;If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.&lt;/li&gt;
+&lt;li&gt;If you are in the finance department, you could analyze the exchange rate impact on your foreign revenue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To start using this package, you may first install the devtools package and execute the following command. install_github(&amp;ldquo;jironghuang/RemoveExchangeRateEffects&amp;rdquo;). The R documentation is as follows,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
+&lt;img src=&#34;/post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;You may follow the 2 examples to better understand how this package works.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-1&#34;&gt;Example 1&lt;/h3&gt;
+
+&lt;p&gt;In summary, what the example does below is to decompose 1 instrument position in SGD (column value) - from the perspective of someone staying in Singapore - into local static value (i.e if I keep the exchange rate constant at the start of the period) and the residual exchange rate impact.&lt;/p&gt;
+
+&lt;p&gt;If you look at the value at the end of the period (Oct 2018), you would notice that the value in SGD fell from 331 to 261. From the perspective of a Singaporean local - through this package -  we can understand that the appreciation in USD negate the fall in value by 4 SGD.&lt;/p&gt;
+
+&lt;p&gt;If you are an economist, you could have considered the exchange rate elasticities. But let&amp;rsquo;s ignore that for now.&lt;/p&gt;
+
+&lt;h3 id=&#34;quick-example-1-in-r-codes-decomposing-a-single-instrument&#34;&gt;Quick example 1 in R codes (decomposing a single instrument)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;library(devtools)
+install_github(&amp;quot;jironghuang/RemoveExchangeRateEffects&amp;quot;)
+library(RemoveExchangeRateEffects)
+
+sp_exch_rate_pair = &amp;quot;USDSGD=X&amp;quot;  #exchange rate pair. e.g &amp;quot;USDSGD=X&amp;quot;. &amp;quot;&amp;lt;Foreign_currency&amp;gt;&amp;lt;local_currency&amp;gt;=X&amp;quot;
+
+ap_start_date &amp;lt;- as.Date(&amp;quot;2017-10-01&amp;quot;)  #starting date of portfolio e.g. 2017-10-01
+ap_end_date &amp;lt;- as.Date(&amp;quot;2020-10-01&amp;quot;) #ending date of portfolio e.g. 2020-10-01. If you include a date beyond current date, the function will use the current date instead
+np_mthly_yearly = &amp;quot;monthly&amp;quot;  #alternatively this could be &amp;quot;yearly&amp;quot;&amp;quot;
+
+data(eg_dat) #example dataset that I included in this package
+dp_dates_investment_value = instrument
+o_exchRate_effect &amp;lt;- exchange_rate_decomposition(sp_exch_rate_pair, ap_start_date, ap_end_date, np_mthly_yearly, dp_dates_investment_value)
+o_exchRate_effect$get_portfolio()
+
+    value_in_sgd exchange_rate fgn_value local_static_value exch_rate_impact
+Oct 2017 331.53   1.36010  243.7541           331.5300        0.0000000
+Nov 2017 308.85   1.34670  229.3384           311.9231       -3.0731344
+Dec 2017 311.35   1.33780  232.7328           316.5399       -5.1899425
+Jan 2018 354.31   1.31168  270.1192           367.3892      -13.0791734
+Feb 2018 343.06   1.32433  259.0442           352.3260       -9.2660108
+Mar 2018 266.13   1.31090  203.0132           276.1183       -9.9882495
+Apr 2018 293.90   1.32577  221.6825           301.5104       -7.6103599
+May 2018 284.73   1.33850  212.7232           289.3248       -4.5948212
+Jun 2018 342.95   1.36830  250.6395           340.8948        2.0552438
+Jul 2018 298.14   1.36140  218.9952           297.8553        0.2846937
+Aug 2018 301.66   1.36700  220.6730           300.1374        1.5226438
+Sep 2018 264.77   1.36732  193.6416           263.3719        1.3980921
+Oct 2018 260.95   1.38061  189.0107           257.0734        3.8766087
+
+o_exchRate_effect$get_diff_portfolio_value()
+[1] 3.8766087
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-2&#34;&gt;Example 2&lt;/h3&gt;
+
+&lt;p&gt;The second example builds upon the first. I&amp;rsquo;ve expanded the previous function to decompose multiple instruments at once.&lt;/p&gt;
+
+&lt;p&gt;get_full_decomposition() returns a list of data frames with the decompositions.&lt;/p&gt;
+
+&lt;p&gt;But before you implement the function above, you would have to add the information via the mutator functions as shown in the example below (the functions with the prefix set)&lt;/p&gt;
+
+&lt;h3 id=&#34;quick-example-2-in-r-codes-decomposing-multiple-instruments-at-1-time&#34;&gt;Quick example 2 in R codes (Decomposing multiple instruments at 1 time)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;data(eg_dat)
+
+er = c(&amp;quot;USDSGD=X&amp;quot;, &amp;quot;GBPSGD=X&amp;quot;)
+start_date = c(&amp;quot;2017-10-01&amp;quot;, &amp;quot;2017-10-01&amp;quot;)
+end_date = c(&amp;quot;2020-10-01&amp;quot;, &amp;quot;2020-10-01&amp;quot;)
+freq = c(&amp;quot;monthly&amp;quot;, &amp;quot;monthly&amp;quot;)
+dat = list(eg_dat, eg_dat)
+
+
+o_exchRate_effect &amp;lt;- multiple_exchange_rate_decomposition(2)
+o_exchRate_effect$set_sa_exch_rate_pair(er) #adding an array of exchange rate pairs
+o_exchRate_effect$set_sa_start_date(start_date) #adding an array of starting dates
+o_exchRate_effect$set_sa_end_date(end_date) #adding an array of ending dates
+o_exchRate_effect$set_sa_mthly_yearly(freq) #adding an array of &amp;quot;monthly&amp;quot; or &amp;quot;yearly&amp;quot; option
+o_exchRate_effect$set_dl_dates_investment_value(dat) #adding list of data frames
+o_exchRate_effect$get_full_decomposition()  #carry out decomposition and obtain a list of data frames
+
+[[1]]
+          value exchange_rate fgn_value local_static_value exch_rate_impact
+Oct 2017 331.53       1.36010  243.7541           331.5300        0.0000000
+Nov 2017 308.85       1.34670  229.3384           311.9231       -3.0731344
+Dec 2017 311.35       1.33780  232.7328           316.5399       -5.1899425
+Jan 2018 354.31       1.31168  270.1192           367.3892      -13.0791734
+Feb 2018 343.06       1.32433  259.0442           352.3260       -9.2660108
+Mar 2018 266.13       1.31090  203.0132           276.1183       -9.9882495
+Apr 2018 293.90       1.32577  221.6825           301.5104       -7.6103599
+May 2018 284.73       1.33850  212.7232           289.3248       -4.5948212
+Jun 2018 342.95       1.36830  250.6395           340.8948        2.0552438
+Jul 2018 298.14       1.36140  218.9952           297.8553        0.2846937
+Aug 2018 301.66       1.36700  220.6730           300.1374        1.5226438
+Sep 2018 264.77       1.36732  193.6416           263.3719        1.3980921
+Oct 2018 260.95       1.38061  189.0107           257.0734        3.8766087
+
+[[2]]
+          value exchange_rate fgn_value local_static_value exch_rate_impact
+Oct 2017 331.53       1.79703  184.4877           331.5300        0.0000000
+Nov 2017 308.85       1.80690  170.9281           307.1629        1.6870605
+Dec 2017 311.35       1.79812  173.1531           311.1613        0.1887369
+Jan 2018 354.31       1.85680  190.8175           342.9048       11.4051640
+Feb 2018 343.06       1.84162  186.2816           334.7537        8.3062984
+Mar 2018 266.13       1.83911  144.7059           260.0408        6.0892228
+Apr 2018 293.90       1.82588  160.9635           289.2562        4.6437963
+May 2018 284.73       1.77878  160.0704           287.6513       -2.9212846
+Jun 2018 342.95       1.78907  191.6918           344.4759       -1.5258666
+Jul 2018 298.14       1.78638  166.8962           299.9175       -1.7774444
+Aug 2018 301.66       1.77860  169.6053           304.7858       -3.1258259
+Sep 2018 264.77       1.78285  148.5094           266.8759       -2.1058633
+Oct 2018 260.95       1.76900  147.5127           265.0848       -4.1347817
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Shift Share Analysis Package I developed</title>
+      <link>/post/shift-share-analysis-package/</link>
+      <pubDate>Sat, 22 Sep 2018 12:23:28 +0800</pubDate>
+      
+      <guid>/post/shift-share-analysis-package/</guid>
+      <description>
+
+&lt;h2 id=&#34;shift-share-analysis-package-i-developed&#34;&gt;Shift-share Analysis Package I developed&lt;/h2&gt;
+
+&lt;p&gt;During my career, I often have to deal with compositional &amp;amp; within group effects. For instance, the employment rate fell by 3% across 2 period. How much of it is due to an increase in employment rate within the sub-group and how much of it is due to compositional shift (for example ageing population).&lt;/p&gt;
+
+&lt;p&gt;A formal way to explain these effects is known as shift-share analysis. It allows you to decompose percentage point change or absolute changes (WIP) into within group and across group effects.&lt;/p&gt;
+
+&lt;p&gt;A package currently used in the R community is REAT, but it doesn&amp;rsquo;t allow you to decompose the effects into finer categories. Hence, I hope this package developed here is able to fill up the gap.&lt;/p&gt;
+
+&lt;p&gt;Some examples that you may use this tool are,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Employment rate&lt;/li&gt;
+&lt;li&gt;Demographics rate&lt;/li&gt;
+&lt;li&gt;Basketball field goal % decomposed into 2 point vs 3 point&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To start using this package, you may first install the devtools package and execute the following command. install_github(&amp;ldquo;jironghuang/shiftshare&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;And if you are interested in the codes used to develop the package, you may visit the following link &lt;a href=&#34;https://github.com/jironghuang/shiftshare&#34; target=&#34;_blank&#34;&gt;https://github.com/jironghuang/shiftshare&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You may follow the example to better understand how this package works. Essentially, what the example does is to decomposte the 29.7% point change into 3 effects. Within effect == 68.8%,  Across_effect == -7.4% and Dynamic Effect == -31.8%&lt;/p&gt;
+
+&lt;h3 id=&#34;quick-example&#34;&gt;Quick example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;emp1 = c(10, 20, 40, 50)
+pop1 = c(40, 50, 60, 70)
+emp2 = c(20, 30, 50, 60)
+pop2 = c(50, 70, 20, 50)
+
+ss_analysis &amp;lt;- shift_share(ap_grp_labels = c(&amp;quot;grp1&amp;quot;, &amp;quot;grp2&amp;quot;, &amp;quot;grp3&amp;quot;, &amp;quot;grp4&amp;quot;),
+                           ap_numerator1 = emp1,
+                           ap_numerator2 = emp2,
+                           ap_denominator1 = pop1,
+                           ap_denominator2 = pop2)
+                           
+&amp;gt; ss_analysis$get_effects()
+  grp_labels     prop1     prop2     rate1     rate2 within_effect across_effect dynamic_effect overall_effect
+1       grp1 0.1818182 0.2631579 0.2500000 0.4000000   0.027272727    0.02033493    0.012200957     0.05980861
+2       grp2 0.2272727 0.3684211 0.4000000 0.4285714   0.006493506    0.05645933    0.004032809     0.06698565
+3       grp3 0.2727273 0.1052632 0.6666667 2.5000000   0.500000000   -0.11164274   -0.307017544     0.08133971
+4       grp4 0.3181818 0.2631579 0.7142857 1.2000000   0.154545455   -0.03930280   -0.026725906     0.08851675  
+
+&amp;gt; ss_analysis$get_agg_effects()
+         Description within_effect across_effect dynamic_effect overall_effect
+1 aggregated_effects     0.6883117   -0.07415129     -0.3175097      0.2966507
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

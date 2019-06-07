@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.32.4" />
+  <meta name="generator" content="Hugo 0.53" />
   <meta name="author" content="Huang Jirong">
-  <meta name="description" content="Data analyst and Quantitative Trader">
+  <meta name="description" content="Data scientist and Quantitative Investor/ Trader">
 
   
   <link rel="alternate" hreflang="en-us" href="/categories/r/">
@@ -31,7 +31,7 @@
     
     
       
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
       
     
   
@@ -49,10 +49,23 @@
   
 
   
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-116737154-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
 
   
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
-  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="alternate" href="/categories/r/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/categories/r/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -66,10 +79,10 @@
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
   <meta property="og:url" content="/categories/r/">
   <meta property="og:title" content="R | Jirong&#39;s sandbox">
-  <meta property="og:description" content="Data analyst and Quantitative Trader">
+  <meta property="og:description" content="Data scientist and Quantitative Investor/ Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2015-07-23T21:13:14-05:00">
+  <meta property="og:updated_time" content="2019-01-26T11:46:49&#43;08:00">
   
 
   
@@ -77,7 +90,7 @@
   <title>R | Jirong&#39;s sandbox</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" class="dark">
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
   <div class="container">
@@ -162,6 +175,57 @@
         
 
         <li class="nav-item">
+          <a href="/skin/skin-in-the-game">
+            
+            <span>Skin in the game</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/asset_allocation/asset_allocation">
+            
+            <span>Asset allocation</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/subscribe/subscribe">
+            
+            <span>Subscribe Here</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
           <a href="/#contact">
             
             <span>Contact</span>
@@ -193,12 +257,44 @@
   
   
   <div>
-    <h2><a href="/post/2015-07-23-r-rmarkdown/">Not by me: Using this as future template...Hello R Markdown</a></h2>
+    <h2><a href="/post/martingale-strategy/">Martingale Strategy - Double Down</a></h2>
     <div class="article-style">
       
-      R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" target="_blank">http://rmarkdown.rstudio.com</a>.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.
+      Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&rsquo;s context to highlight the potential risks associated with this strategy.
+Double down! That&rsquo;s essentially the essence of it.
+Here&rsquo;s a simple explanation of the strategy,
+ The croupier spins the ball. If it&rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/">Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</a></h2>
+    <div class="article-style">
+      
+      Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&rsquo;m really intrigued by Ernest Chan&rsquo;s approach in Quant Trading.
+Often in the retail trading space, what &lsquo;gurus&rsquo; preach often sounds really dubious. But Ernest Chan is different. He&rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
+In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/">R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</a></h2>
+    <div class="article-style">
+      
+      Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,
+ If you are an investor, you may use it to analyze impact of exchange rate on your investment positions. If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/shift-share-analysis-package/">Shift Share Analysis Package I developed</a></h2>
+    <div class="article-style">
+      
+      Shift-share Analysis Package I developed During my career, I often have to deal with compositional &amp; within group effects. For instance, the employment rate fell by 3% across 2 period. How much of it is due to an increase in employment rate within the sub-group and how much of it is due to compositional shift (for example ageing population).
+A formal way to explain these effects is known as shift-share analysis.
       
     </div>
   </div>
@@ -257,6 +353,8 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
 
     
+    
+    <script id="dsq-count-scr" src="//jirong.disqus.com/count.js" async></script>
     
 
     

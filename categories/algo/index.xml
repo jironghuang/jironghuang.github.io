@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Tue, 01 Jan 2019 00:15:53 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/algo/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/categories/algo/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
@@ -18,9 +16,165 @@
       <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
       
       <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
-      <description>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.
-Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
-In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.</description>
+      <description>
+
+&lt;h2 id=&#34;translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r&#34;&gt;Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.&lt;/p&gt;
+
+&lt;p&gt;Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).&lt;/p&gt;
+
+&lt;p&gt;In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs. What I learnt - with real capital - is that the hedge ratio is dynamic and will vary over time. In the early days, I fixed it through linear regression. But boy this doesn&amp;rsquo;t work! It&amp;rsquo;s not really market neutral because of the imbalance in values between pairs across time.&lt;/p&gt;
+
+&lt;p&gt;Then I chanced upon Kalman filter - something I learnt during my AI module in my Computer Science Degree days. I&amp;rsquo;ll spare the Math here. It&amp;rsquo;s a variant of the markov model, that uses a series of measurements over time (in this case, one of the pairs price), containing noise and produces estimates of unknown (here it&amp;rsquo;s the hedge ratio and intercept). Hedge ratio is updated in each time step.&lt;/p&gt;
+
+&lt;p&gt;I saw the Python code online for EWA-EWC pair strategy that returns a sharpe ratio of 2.4. I tried to search for a R version but to no avail!&lt;/p&gt;
+
+&lt;p&gt;Hence I decided to spend a day translating the python code into R code (for deployment purposes. Currently my algo trading stack is built around R). Thankfully I&amp;rsquo;m not translating the Matlab version because I do not have prior experience in that. And it would definitely take me more than a day for the translation.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve since,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wrapped the code with a function&lt;/li&gt;
+&lt;li&gt;Loop through a 40 choose 2 combinations of country pairs&lt;/li&gt;
+&lt;li&gt;Triangulated with distance metrics like Correlation, Euclidean Distance and Manhattan Distance&lt;/li&gt;
+&lt;li&gt;Filtered out long half life (i.e. # of days before reverting to the mean)&lt;/li&gt;
+&lt;li&gt;Filtered by sharpe ratios, drawdown and average profits&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And so far, this market-neutral strategy is really promising!&lt;/p&gt;
+
+&lt;h3 id=&#34;translated-r-code-for-ewa-ewc-strategy&#34;&gt;Translated R code for EWA - EWC strategy&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;#Note: Try to put everything in a data-frame
+lapply(c(&amp;quot;zoo&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;plyr&amp;quot;, &amp;quot;dplyr&amp;quot;,
+         &amp;quot;gtools&amp;quot;,&amp;quot;googlesheets&amp;quot;, &amp;quot;quantmod&amp;quot;, 
+         &amp;quot;urca&amp;quot;, &amp;quot;PerformanceAnalytics&amp;quot;, &amp;quot;parallel&amp;quot;), require, character.only = T)
+
+source(&#39;util/calculateReturns.R&#39;)
+source(&#39;util/calculateMaxDD.R&#39;)
+source(&#39;util/backshift.R&#39;)
+source(&#39;util/extract_stock_prices.R&#39;)
+source(&#39;util/cointegration_pair.R&#39;)
+
+
+#Reading in the data
+df = read.csv(&#39;kalman_filter/inputData_EWA_EWC.csv&#39;)
+df = subset(df, select = c(&amp;quot;Date&amp;quot;, &amp;quot;EWC&amp;quot;, &amp;quot;EWA&amp;quot;))
+
+# Augment x with ones to  accomodate possible offset in the regression between y vs x.
+# df$EWA_ones = 1
+
+# delta=1 gives fastest change in beta, delta=0.000....1 allows no change (like traditional linear regression).
+delta = 0.0001 
+
+#yhat=np.full(y.shape[0], np.nan) # measurement prediction
+df$yhat = NA
+
+#Initialize matrix
+df$e = df$yhat # e = yhat.copy(), residuals
+df$Q = df$yhat # Q = yhat.copy(), measurement variance
+
+# For clarity, we denote R(t|t) by P(t). Initialize R, P and beta.
+R = matrix(dat = rep(0, 4), nrow = 2, ncol = 2) #R = np.zeros((2,2))
+P = R   #P = R.copy()
+
+#Store beta in df and separately for computation
+beta = matrix(dat = rep(NA, nrow(df) * 2), nrow = 2, ncol = nrow(df))
+df$beta1 = NA; df$beta2 = NA  #beta = np.full((2, x.shape[0]), np.nan)
+
+Vw = delta/(1-delta) * diag(2) #Vw=delta/(1-delta)*np.eye(2)
+Ve = 0.001
+
+# Initialize beta(:, 1) to zero
+beta[, 1] = 0 #beta[:, 0]=0
+df$beta1 = beta[1, 1]; df$beta2 = beta[2, 1]
+
+#for t in range(len(y)):
+for (t in 1:nrow(df)){
+ 
+  if(t &amp;gt; 1){
+    #Update matrix
+    beta[, t] = beta[, t-1]
+    R = P + Vw
+    
+    #Update df
+    df$beta1[t] = beta[1, t]
+    df$beta2[t] = beta[2, t]
+  }
+  
+  # yhat[t, ] = as.matrix(x[t, ]) %*% as.matrix(beta[, t])    #yhat[t]=np.dot(x[t, :], beta[:, t])
+  df$yhat[t] = as.matrix(data.frame(df$EWA[t], 1)) %*% as.matrix(beta[, t]) 
+  
+  # Q[t, ] = (as.matrix(x[t, ]) %*% R) %*% t(as.matrix(x[t, ])) + Ve  #Q[t] = np.dot(np.dot(x[t, :], R), x[t, :].T)+Ve
+  df$Q[t] = (as.matrix(data.frame(df$EWA[t], 1)) %*% R) %*% t(as.matrix(data.frame(df$EWA[t], 1))) + Ve
+  
+  # e[t, ] = y[t, ] - yhat[t, ] #e[t]=y[t]-yhat[t] # measurement prediction error
+  df$e[t] = df$EWC[t] - df$yhat[t]
+  
+  K = R %*% t(as.matrix(data.frame(df$EWA[t], 1))) / df$Q[t]  #K = np.dot(R, x[t, :].T)/Q[t] #  Kalman gain
+  beta[, t] = beta[, t] + K %*% as.matrix(df$e[t]) #beta[:, t]=beta[:, t]+np.dot(K, e[t]) #  State update. Equation 3.11
+  
+  #Update df
+  df$beta1[t] = beta[1, t]
+  df$beta2[t] = beta[2, t]
+  
+  # State covariance update. Euqation 3.12
+  P = R - ((K %*% as.matrix(data.frame(df$EWA[t], 1))) %*% R) #P = R-np.dot(np.dot(K, x[t, :]), R) 
+}
+
+#Generated signals
+df$Q_root = df$Q ^ 0.5
+df$longs &amp;lt;- df$e &amp;lt;= -df$Q ^ 0.5 # buy spread when its value drops below 2 standard deviations.
+df$shorts &amp;lt;- df$e &amp;gt;= df$Q ^ 0.5  # short spread when its value rises above 2 standard deviations.  Short EWC
+
+df$longExits  &amp;lt;- df$e &amp;gt; 0 
+df$shortExits &amp;lt;- df$e &amp;lt; 0
+
+# initialize to 0
+df$numUnitsLong = NA
+df$numUnitsShort = NA
+df$numUnitsLong[0]=0.
+df$numUnitsShort[0]=0.
+
+df$numUnitsLong[df$longs]=1.
+df$numUnitsLong[df$longsExit]=0
+df$numUnitsLong = ifelse(is.na(df$numUnitsLong), 0, df$numUnitsLong)
+
+df$numUnitsShort[df$shorts]=-1.
+df$numUnitsShort[df$shortsExit]=0
+df$numUnitsShort = ifelse(is.na(df$numUnitsShort), 0, df$numUnitsShort)
+
+df$numUnits = df$numUnitsLong + df$numUnitsShort 
+
+df$position1 = 0; df$position2 = 0 
+
+df$position1 = ifelse(df$numUnits == -1, -1, df$position1)   #short EWC, Long EWA --&amp;gt; df$e[t] = df$EWC[t] - df$yhat[t]
+df$position2 = ifelse(df$numUnits == -1, 1, df$position2)  #short EWC, Long EWA 
+
+df$position1 = ifelse(df$numUnits == 1, 1, df$position1)   #long EWC, short EWA 
+df$position2 = ifelse(df$numUnits == 1, -1, df$position2)  #long EWC, short EWA 
+
+# df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(-df$beta1, 1)) * data.frame(df$EWA, df$EWC)   #Adjusted price
+df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(1, -df$beta1)) * data.frame(df$EWC, df$EWA)   #Adjusted price
+
+#Returns
+df$dailyret1 &amp;lt;- c(NA, (df$EWC[2: nrow(df)] - df$EWC[1: (nrow(df) - 1)])/df$EWC[1: (nrow(df) - 1)])
+df$dailyret2 &amp;lt;- c(NA, (df$EWA[2: nrow(df)] - df$EWA[1: (nrow(df) - 1)])/df$EWA[1: (nrow(df) - 1)])
+
+#Daily returns
+# lag(df$position1, 1)
+# lag(df$position2, 1) * df$beta1
+df$pnl = lag(df$positions$df.numUnits, 1) * df$dailyret1  + lag(df$positions$df.numUnits.1, 1) * df$dailyret2
+
+df$ret = (df$pnl)/lag((df$positions$df.numUnits + df$positions$df.numUnits.1), 1)
+df$ret = ifelse(is.na(df$ret), 0, df$ret)
+df$ret[2] = 0
+
+#Sharpe ratio
+sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -29,9 +183,93 @@ In my first month of deploying algo trading strategies, I focus mainly on mean-r
       <pubDate>Wed, 26 Dec 2018 12:30:03 +0800</pubDate>
       
       <guid>/post/how-i-find-country-pairs-for-mean-reversion-strategy/</guid>
-      <description>How I Find Country Pairs for Mean Reversion Strategy As mentioned in my previous post here, the first step for a mean reversion strategy is to conduct some background quantitative research.
-Step 1 First, I use a pair trading function to loop across 800+ country pairs (created from combination function),
-pair_trading = function(stock1, stock2, trade_amount, finance_rates, start_date, end_date, prop_train, enter_z_score, exit_z_score){ ## More codes here ## Return this key_info = list( ticker = c(stock1, stock2), start_date = start_date, trade_table = data_trade, sharpe = c(sharpeRatioTrainset, sharpeRatioTestset), half_life = half_life, profits = data_trade_stats, max_drawdown = c(table.</description>
+      <description>
+
+&lt;h2 id=&#34;how-i-find-country-pairs-for-mean-reversion-strategy&#34;&gt;How I Find Country Pairs for Mean Reversion Strategy&lt;/h2&gt;
+
+&lt;p&gt;As mentioned in my previous post &lt;a href=&#34;https://jirong-huang.netlify.com/post/research-to-production-pipeline-for-mean-reversion/&#34;&gt;here&lt;/a&gt;, the first step for a mean reversion strategy is to conduct some background quantitative research.&lt;/p&gt;
+
+&lt;h3 id=&#34;step-1&#34;&gt;Step 1&lt;/h3&gt;
+
+&lt;p&gt;First, I use a pair trading function to loop across 800+ country pairs (created from combination function),&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pair_trading = function(stock1, stock2, trade_amount, finance_rates, start_date, end_date, 
+                        prop_train, enter_z_score, exit_z_score){
+
+## More codes here
+   
+## Return this
+key_info = list(
+  ticker = c(stock1, stock2),
+  start_date = start_date,
+  trade_table = data_trade,
+  sharpe = c(sharpeRatioTrainset, sharpeRatioTestset),
+  half_life = half_life,
+  profits = data_trade_stats,
+  max_drawdown = c(table.DownsideRisk(data$pnl[trainset])[1]$pnl[7], table.DownsideRisk(data$pnl[testset])[1]$pnl[7]),
+  returns = cbind(table.AnnualizedReturns(data$pnl[trainset]), table.AnnualizedReturns(data$pnl[testset])),
+  hedgeRatio_mean_sd = c(as.numeric(hedgeRatio), as.numeric(data_trade$spreadMean[nrow(data_trade)]), as.numeric(data_trade$spreadStd[nrow(data_trade)])),   #critical --&amp;gt;to be used in real-time trading
+  close_z_score = as.numeric(data_trade$zscore[nrow(data_trade)]),
+  hist_spread = data_trade$spread[(nrow(data_trade) - round(half_life) + 2):nrow(data_trade)],
+  prop_days_mkt = c(prop_days_mkt_train, prop_days_mkt_test),
+  close_price = c(data_trade$Close[nrow(data_trade)], data_trade$Close.1[nrow(data_trade)]),
+  win_rate = c(perc_win_train, perc_win_test)
+  # ,
+  # chart_train = charts.PerformanceSummary(data$pnl[trainset]),
+  # chart_test = charts.PerformanceSummary(data$pnl[testset])
+)
+
+return(key_info)
+                        
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step-2&#34;&gt;Step 2&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Next, I select pairs with sharpe ratio &amp;gt;1 in both training and testing periods.&lt;/li&gt;
+&lt;li&gt;And also select pairs with shorter half-life i.e. shorter duration before it reverts to its mean path - more than 5 and lesser than 25&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;step-3&#34;&gt;Step 3&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Then I went on to IShares website to get the respective tickers&amp;rsquo; industries&amp;rsquo; composition.
+&lt;img src=&#34;/post/img/country_composition.png&#34; alt=&#34;/post/img/country_composition.png&#34;&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;With this new piece of information, I went on to compute the manhattan distance, euclidean distance and correlation between these country pairs.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Next I applied percentile ranks to these distance measures and find an average percentile rank&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Anything that is above 50th percentile is selected.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;distance_metrics = function(stock1, stock2){
+  
+  dist = c(NA, NA, NA)
+  
+  tryCatch({
+  
+  ctry_pair_composition_sub = subset(ctry_pair_composition, ctry_pair_composition$ticker == stock1 | ctry_pair_composition$ticker == stock2)
+  manhattan = as.numeric(distance(ctry_pair_composition_sub[, -1], method = &amp;quot;manhattan&amp;quot;))
+  euclidean = as.numeric(distance(ctry_pair_composition_sub[, -1], method = &amp;quot;euclidean&amp;quot;))
+  correlation = cor(as.numeric(ctry_pair_composition_sub[1, -1]), as.numeric(ctry_pair_composition_sub[2, -1]))
+  
+  dist = c(manhattan, euclidean, correlation)
+  }, error=function(e){})
+  
+  return(dist)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And ta-dah! This is the final selected country pairs that I will be using for my mean reversion strategy.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/final_selection.png&#34; alt=&#34;/post/img/final_selection.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;further-improvement&#34;&gt;Further improvement&lt;/h3&gt;
+
+&lt;p&gt;Note: I could have applied co-integration test. Will do it pretty soon.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -40,8 +278,16 @@ pair_trading = function(stock1, stock2, trade_amount, finance_rates, start_date,
       <pubDate>Tue, 25 Dec 2018 18:07:19 +0800</pubDate>
       
       <guid>/post/research-to-production-pipeline-for-mean-reversion/</guid>
-      <description>Research to Production Pipeline for Mean Reversion Here is a high level overview of something that I&amp;rsquo;m working on.
-I&amp;rsquo;ve been grappling with the finite state automata Event Driven Computing transitions and I kinda sorted it out for production use.</description>
+      <description>
+
+&lt;h2 id=&#34;research-to-production-pipeline-for-mean-reversion&#34;&gt;Research to Production Pipeline for Mean Reversion&lt;/h2&gt;
+
+&lt;p&gt;Here is a high level overview of something that I&amp;rsquo;m working on.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been grappling with the finite state automata Event Driven Computing transitions and I kinda sorted it out for production use.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/research_to_production.png&#34; alt=&#34;/post/img/research_to_production.png&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

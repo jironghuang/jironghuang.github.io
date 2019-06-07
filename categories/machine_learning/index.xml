@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Mon, 08 Apr 2019 11:46:49 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/machine_learning/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/categories/machine_learning/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Some thoughts on Reinforcement Learning - Q Learning</title>
@@ -18,8 +16,38 @@
       <pubDate>Mon, 08 Apr 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/q_learning/</guid>
-      <description>Q learning I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia here, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.
-Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future.</description>
+      <description>
+
+&lt;h2 id=&#34;q-learning&#34;&gt;Q learning&lt;/h2&gt;
+
+&lt;p&gt;I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia &lt;a href=&#34;https://en.wikipedia.org/wiki/Q-learning&#34;&gt;here&lt;/a&gt;, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future. Hence it may or may not make sense to you,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RL is rather different from a conventional ML process. It contains an in-built iterative process to refresh the parameters&lt;/li&gt;
+&lt;li&gt;User can train the algorithm till the &amp;lsquo;total reward&amp;rsquo; (in ML lingo that could be error-type measures) converges. I will coin each training process as a simulation&lt;/li&gt;
+&lt;li&gt;To set up the learning process, I first initalize a Q learning table of 0s with dimension of number of states * actions (In python lingo, self.q = np.zeros((num_states, num_actions), dtype = np.float64))&lt;/li&gt;
+&lt;li&gt;In every step of each simulation, the algo will pick a random float of 0 to 1. If it&amp;rsquo;s lesser than the threshold, it will pick a random action. Else, it will pick the action with the best outcome. According to the literature, it seems that exploration plays a role in improving the results&lt;/li&gt;
+&lt;li&gt;From second step onward, the algo will update the Q-table as follows: self.q[self.s, self.a] = (1 - self.alpha) * self.q[self.s, self.a] + self.alpha * (r + self.gamma * np.max(self.q[s_prime,]))&lt;/li&gt;
+&lt;li&gt;What it meant in the above formula is that Q-learning computes a weighted score for a particular state and action based on present and future discounted score from best action.&lt;/li&gt;
+&lt;li&gt;The updated score will be used in subsequent simulations, and not current one. i.e in future iteration, if the option is non-random, it will pick the highest score option.&lt;/li&gt;
+&lt;li&gt;When the current simulation end, the algorithm will return to the starting point and retrain the algorithm with the refreshed Q-table&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;dyna-q&#34;&gt;Dyna-Q&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The additional bootstrap component algorithm is deemed to be cheaper because it doesn&amp;rsquo;t require additional interaction with the external environment to refresh the Q-table.&lt;/li&gt;
+&lt;li&gt;It will instead pick random states and actions&lt;/li&gt;
+&lt;li&gt;And select a new state based on a probability mass function in each loop (each state is assigned a discrete chance. Say there&amp;rsquo;re 100 states where 1 of the states has 2% chance and another has 1% chance. The latter might still be selected albeit with a lower chance)&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s different here is that it will refresh the reward information too&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;insights-from-this-exercise&#34;&gt;Insights from this exercise&lt;/h3&gt;
+
+&lt;p&gt;The strength of this algorithm lies in the fact that it doesn&amp;rsquo;t require a ton of data. I&amp;rsquo;m excited to apply this algorithm if there&amp;rsquo;s a chance.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

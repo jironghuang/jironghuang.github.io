@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 26 Jan 2019 11:46:49 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/betting/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/categories/betting/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Martingale Strategy - Double Down</title>
@@ -18,10 +16,51 @@
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/martingale-strategy/</guid>
-      <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
-Double down! That&amp;rsquo;s essentially the essence of it.
-Here&amp;rsquo;s a simple explanation of the strategy,
- The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?</description>
+      <description>
+
+&lt;h2 id=&#34;martingale-strategy&#34;&gt;Martingale Strategy&lt;/h2&gt;
+
+&lt;p&gt;In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.&lt;/p&gt;
+
+&lt;p&gt;Double down! That&amp;rsquo;s essentially the essence of it.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a simple explanation of the strategy,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount&lt;/li&gt;
+&lt;li&gt;If you win, you continue to bet the same amount (same as your 1st bet amount)&lt;/li&gt;
+&lt;li&gt;If you lose, you double your bet amount&lt;/li&gt;
+&lt;li&gt;And if your accumulated winnings hits a certain amount, you stop and leave the casino&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So how would the strategy fare? To explain, I will use Monte Carlo with a Bernoulli distribution for each roulette spin (X ~ B(1, 0.48)).&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-10-runs-times&#34;&gt;Simulate strategy 10 runs/ times&lt;/h3&gt;
+
+&lt;p&gt;Here, I simulate the strategy of 10 times. Think of it in this way, there&amp;rsquo;re 10 alternate universes which you exist and you play the same game 10 times. Or you can just simply treat this as going back to the casino on 10 separate days.&lt;/p&gt;
+
+&lt;p&gt;In the chart below, you will notice that for some runs; because of a sequence of bad luck, the losses quick spiralled!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/10_simulations.png&#34; alt=&#34;/post/img/10_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-1000-runs-times-and-compute-the-mean&#34;&gt;Simulate strategy 1000 runs/ times and compute the mean&lt;/h3&gt;
+
+&lt;p&gt;Next, for a more robust interpretation, I went on to simulate this strategy 1000 times and computed the mean and standard deviation. You will notice that the strategy eventually converges to a desired terminal value. In this case, it&amp;rsquo;s $80. So essentially, out of 1000 simulations, all of them reaches my profit target!&lt;/p&gt;
+
+&lt;p&gt;However the the risk is enormous. Near the average 120th run, the standard deviation sky-rocketed to 120,000. I&amp;rsquo;m unsure if anyone could stomach this loss at any one point of time. The journey matters!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/1000_simulations.png&#34; alt=&#34;/post/img/1000_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/simulation_sd.png&#34; alt=&#34;/post/img/simulation_sd.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;insights-from-this-strategy&#34;&gt;Insights from this strategy&lt;/h3&gt;
+
+&lt;p&gt;Martingale strategy - to put it simply - is a win small, lose potentially huge strategy.&lt;/p&gt;
+
+&lt;p&gt;In this strategy, you will win 100% of the time.&lt;/p&gt;
+
+&lt;p&gt;But the question is, do you have the money (or infinite bankroll) to tide through tough times?&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -30,8 +69,104 @@ Here&amp;rsquo;s a simple explanation of the strategy,
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/odds_analysis_worldcup/</guid>
-      <description>Hey it’s the world cup season - Tapping into a Machine Learning based paper Once again as a Singaporean citizen, there’re no other choices but to place my bets in Singapore pools. Betting in SG is not my preferred way to grow my wealth because of the crazy ~15% spread in Sg pools. In international sites, the spread is usually close to 3-5%. Oh well, that’s illegal.
-But because this is the world cup season, I decide to make some small punts!</description>
+      <description>
+
+
+&lt;div id=&#34;hey-its-the-world-cup-season---tapping-into-a-machine-learning-based-paper&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hey it’s the world cup season - Tapping into a Machine Learning based paper&lt;/h2&gt;
+&lt;p&gt;Once again as a Singaporean citizen, there’re no other choices but to place my bets in Singapore pools. Betting in SG is not my preferred way to grow my wealth because of the crazy ~15% spread in Sg pools. In international sites, the spread is usually close to 3-5%. Oh well, that’s illegal.&lt;/p&gt;
+&lt;p&gt;But because this is the world cup season, I decide to make some small punts! And of course with some analytical slant.&lt;/p&gt;
+&lt;p&gt;I came across this academic paper (&lt;a href=&#34;https://arxiv.org/pdf/1806.03208.pdf&#34; class=&#34;uri&#34;&gt;https://arxiv.org/pdf/1806.03208.pdf&lt;/a&gt;) written by Darmouth professors. They use a suite of features from individual players’ abilities, to teams’ rankings and even Countries’ GDP! Looking at all the data fields used, the data collection process must have been a nightmare. The authors then use Random Forest with simulations (think of Dr Strange forays’ into 14 milion possibilities) to predict the results. The probabilites for each team reaches each round is listed in 1 of the pages.&lt;/p&gt;
+&lt;p&gt;As the probabilities listed are accurate only for round of 16 (non-conditionally), I shall only place my bets for round of 16 should I find any undervalued opportunities. In addition, as one of the group A’s game has been played, I’ll ignore the analysis from Group A since the ‘true probability’ has already shifted.&lt;/p&gt;
+&lt;p&gt;Also, if my analysis shows that 2 of the teams in the same group are undervalued, I’ll only pick 1 of them because of the possible non-independence issues.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;According to the table at the end of the web page, only 5 teams are undervalued now! And they are Saudi, Morocco, Iceland, Switzerland and Sweden.&lt;/li&gt;
+&lt;li&gt;Since Saudi has been trashed, I shall ignore them.&lt;/li&gt;
+&lt;li&gt;And since these countries are in different groups, the round-of-16 probabilities used are strictly independent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Disclosure: - I bought into Morocoo, Icleand, Switzerland and Sweden with bet sizes of 200, 350, 350, 350. The allocation is based on ‘True - SG odds difference’ &amp;amp; ‘True - SG probabilities difference’. Fingers crossed and wish me luck!&lt;/p&gt;
+&lt;p&gt;Update: - Switzerland and Sweden won but the rest lost. So, I won 97 (got back 1347) while risking 1250. A return of 8% in a space of 1 month. May not seem much - but that’s the return in 1 month! Ok, that’s not a lot. - Earning a profit doesn’t mean I’m right. I believe I had a sound framework; that’s why I went with my decision. I think that’s the most important.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Analyzing UEFA champons league odds
+dat = data.frame(team = c(&amp;quot;uru&amp;quot;,&amp;quot;rus&amp;quot;,&amp;quot;egy&amp;quot;,&amp;quot;sau&amp;quot;,
+                          &amp;quot;spa&amp;quot;,&amp;quot;por&amp;quot;,&amp;quot;mor&amp;quot;,&amp;quot;ira&amp;quot;,
+                          &amp;quot;fra&amp;quot;,&amp;quot;den&amp;quot;,&amp;quot;per&amp;quot;,&amp;quot;aus&amp;quot;,
+                          &amp;quot;arg&amp;quot;,&amp;quot;cro&amp;quot;,&amp;quot;nig&amp;quot;,&amp;quot;ice&amp;quot;,
+                          &amp;quot;bra&amp;quot;,&amp;quot;swi&amp;quot;,&amp;quot;ser&amp;quot;,&amp;quot;coa&amp;quot;,
+                          &amp;quot;ger&amp;quot;,&amp;quot;mex&amp;quot;,&amp;quot;swe&amp;quot;,&amp;quot;kor&amp;quot;,
+                          &amp;quot;bel&amp;quot;,&amp;quot;eng&amp;quot;,&amp;quot;tun&amp;quot;,&amp;quot;pan&amp;quot;,
+                          &amp;quot;col&amp;quot;,&amp;quot;pol&amp;quot;,&amp;quot;sen&amp;quot;,&amp;quot;jap&amp;quot;),
+                 sg = c(1.15,1.16,2.1,11,
+                        1.05,1.12,3.5,6,
+                        1.03,1.53,2.3,4.2,
+                        1.02,1.45,3.15,3.2,
+                        1.02,1.85,1.9,4,
+                        1.07,1.80,2,3.25,
+                        1.03,1.05,4,8,
+                        1.25,1.5,2,3),
+                 ml_prop = c(86.6,50.4,45.5,17.5,
+                             88.4,67.5,30.3,13.8,
+                             85.5,59.0,39.2,16.2,
+                             81.6,65.9,15.8,36.6,
+                             83.5,58.9,36.2,21.4,
+                             86.5,41.5,54,17.9,
+                             86.3,79.8,22.8,11.1,
+                             79.2,60.6,39.7,20.5))
+
+dat$ml = 1/(dat$ml_prop/100)
+
+dat$underval = ifelse(dat$ml &amp;lt; dat$sg,1,0)
+
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dat = arrange(dat,desc(dat$underval))
+dat$sg_prob = 100*1/dat$sg
+
+print(dat)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    team    sg ml_prop       ml underval   sg_prob
+## 1   sau 11.00    17.5 5.714286        1  9.090909
+## 2   mor  3.50    30.3 3.300330        1 28.571429
+## 3   ice  3.20    36.6 2.732240        1 31.250000
+## 4   swi  1.85    58.9 1.697793        1 54.054054
+## 5   swe  2.00    54.0 1.851852        1 50.000000
+## 6   uru  1.15    86.6 1.154734        0 86.956522
+## 7   rus  1.16    50.4 1.984127        0 86.206897
+## 8   egy  2.10    45.5 2.197802        0 47.619048
+## 9   spa  1.05    88.4 1.131222        0 95.238095
+## 10  por  1.12    67.5 1.481481        0 89.285714
+## 11  ira  6.00    13.8 7.246377        0 16.666667
+## 12  fra  1.03    85.5 1.169591        0 97.087379
+## 13  den  1.53    59.0 1.694915        0 65.359477
+## 14  per  2.30    39.2 2.551020        0 43.478261
+## 15  aus  4.20    16.2 6.172840        0 23.809524
+## 16  arg  1.02    81.6 1.225490        0 98.039216
+## 17  cro  1.45    65.9 1.517451        0 68.965517
+## 18  nig  3.15    15.8 6.329114        0 31.746032
+## 19  bra  1.02    83.5 1.197605        0 98.039216
+## 20  ser  1.90    36.2 2.762431        0 52.631579
+## 21  coa  4.00    21.4 4.672897        0 25.000000
+## 22  ger  1.07    86.5 1.156069        0 93.457944
+## 23  mex  1.80    41.5 2.409639        0 55.555556
+## 24  kor  3.25    17.9 5.586592        0 30.769231
+## 25  bel  1.03    86.3 1.158749        0 97.087379
+## 26  eng  1.05    79.8 1.253133        0 95.238095
+## 27  tun  4.00    22.8 4.385965        0 25.000000
+## 28  pan  8.00    11.1 9.009009        0 12.500000
+## 29  col  1.25    79.2 1.262626        0 80.000000
+## 30  pol  1.50    60.6 1.650165        0 66.666667
+## 31  sen  2.00    39.7 2.518892        0 50.000000
+## 32  jap  3.00    20.5 4.878049        0 33.333333&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -40,9 +175,72 @@ But because this is the world cup season, I decide to make some small punts!</de
       <pubDate>Wed, 11 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/odds_analysis/</guid>
-      <description>Finding value in Singapore Pools Of all places, this is the last place I expect to find value. But I found it - supposedly!
-I compared the Singapore Pools Odds against Fivethirtyeight blog probabilities of teams’ winning various leagues.
-The spread in Singpore Pools is often insane. In a typical 1X2 game, the odds is around 15% - as compared to a spread of 3% in overseas betting houses - which btw is illegal in Singapore.</description>
+      <description>
+
+
+&lt;div id=&#34;finding-value-in-singapore-pools&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Finding value in Singapore Pools&lt;/h2&gt;
+&lt;p&gt;Of all places, this is the last place I expect to find value. But I found it - supposedly!&lt;/p&gt;
+&lt;p&gt;I compared the Singapore Pools Odds against Fivethirtyeight blog probabilities of teams’ winning various leagues.&lt;/p&gt;
+&lt;p&gt;The spread in Singpore Pools is often insane. In a typical 1X2 game, the odds is around 15% - as compared to a spread of 3% in overseas betting houses - which btw is illegal in Singapore.&lt;/p&gt;
+&lt;p&gt;Spread simply is summation of the inverse for all decimal odds subtracted by 1. The amount you concede to the ‘house’.&lt;/p&gt;
+&lt;p&gt;As much as this blog is about analytics and showcasing my skillset, it’s also about having skin in the game.&lt;/p&gt;
+&lt;p&gt;Disclosure: I bet 280 dollars on Barcelona to win Champions League in early March. Why $280 you may ask? I think that’s the amount of cash I had in my wallet at that point of time. I just realised Barcelona lost by 3-0 today. That’s like a black swan event. I was in the money - options terminology - 5 dollars odds down to 3 dollars. But poof! Oh well. It’s something I have to accept in the probability game.&lt;/p&gt;
+&lt;p&gt;Here’s my short analysis. Enjoy!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Analyzing UEFA champons league odds
+dat_cl = data.frame(team = c(&amp;quot;real&amp;quot;,&amp;quot;bayern&amp;quot;,&amp;quot;barca&amp;quot;,&amp;quot;manu&amp;quot;,&amp;quot;mancity&amp;quot;,&amp;quot;jue&amp;quot;),
+                 sg = c(4.5,5,5,15,3.3,8),
+                 five = c(1/0.15,1/0.19,1/0.22,1/0.02,1/0.15,1/0.13))
+
+
+dat_cl$underval = ifelse(dat_cl$five &amp;lt; dat_cl$sg,1,0)
+
+print(dat_cl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      team   sg      five underval
+## 1    real  4.5  6.666667        0
+## 2  bayern  5.0  5.263158        0
+## 3   barca  5.0  4.545455        1
+## 4    manu 15.0 50.000000        0
+## 5 mancity  3.3  6.666667        0
+## 6     jue  8.0  7.692308        1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Championship league
+dat_champ = data.frame(team = c(&amp;quot;wolf&amp;quot;,&amp;quot;cardiff&amp;quot;,&amp;quot;aston&amp;quot;,&amp;quot;fulham&amp;quot;),
+                       sg = c(1.03,5,15,30),
+                       five = c(1/0.85,1/0.1,1/0.03,1/0.01))
+
+dat_champ$underval = ifelse(dat_champ$five &amp;lt; dat_champ$sg,1,0)
+
+print(dat_champ)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      team    sg       five underval
+## 1    wolf  1.03   1.176471        0
+## 2 cardiff  5.00  10.000000        0
+## 3   aston 15.00  33.333333        0
+## 4  fulham 30.00 100.000000        0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#europa
+dat_eur = data.frame(team = c(&amp;quot;ath&amp;quot;,&amp;quot;dort&amp;quot;,&amp;quot;ars&amp;quot;,&amp;quot;lazio&amp;quot;,&amp;quot;mars&amp;quot;,&amp;quot;rb_lei&amp;quot;,&amp;quot;lyon&amp;quot;,&amp;quot;ac&amp;quot;,&amp;quot;cska&amp;quot;,&amp;quot;sport&amp;quot;,&amp;quot;ath_bil&amp;quot;,&amp;quot;rb_sal&amp;quot;,&amp;quot;zenit&amp;quot;,&amp;quot;dyn&amp;quot;),
+                       sg = c(2.9,5,6,9.5,17,10,12,11,40,15,17,150,40,80),
+                       five = c(1/0.26,1/0.11,1/0.09,1/0.08,1/0.06,1/0.06,1/0.05,1/0.05,1/0.04,1/0.04,1/0.04,1/0.03,1/0.03,1/0.03))
+
+dat_eur$underval = ifelse(dat_eur$five &amp;lt; dat_eur$sg,1,0)
+
+print(dat_eur)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       team    sg      five underval
+## 1      ath   2.9  3.846154        0
+## 2     dort   5.0  9.090909        0
+## 3      ars   6.0 11.111111        0
+## 4    lazio   9.5 12.500000        0
+## 5     mars  17.0 16.666667        1
+## 6   rb_lei  10.0 16.666667        0
+## 7     lyon  12.0 20.000000        0
+## 8       ac  11.0 20.000000        0
+## 9     cska  40.0 25.000000        1
+## 10   sport  15.0 25.000000        0
+## 11 ath_bil  17.0 25.000000        0
+## 12  rb_sal 150.0 33.333333        1
+## 13   zenit  40.0 33.333333        1
+## 14     dyn  80.0 33.333333        1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

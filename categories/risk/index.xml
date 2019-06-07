@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 26 Jan 2019 11:46:49 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/risk/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/categories/risk/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Martingale Strategy - Double Down</title>
@@ -18,10 +16,51 @@
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/martingale-strategy/</guid>
-      <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
-Double down! That&amp;rsquo;s essentially the essence of it.
-Here&amp;rsquo;s a simple explanation of the strategy,
- The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?</description>
+      <description>
+
+&lt;h2 id=&#34;martingale-strategy&#34;&gt;Martingale Strategy&lt;/h2&gt;
+
+&lt;p&gt;In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.&lt;/p&gt;
+
+&lt;p&gt;Double down! That&amp;rsquo;s essentially the essence of it.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a simple explanation of the strategy,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount&lt;/li&gt;
+&lt;li&gt;If you win, you continue to bet the same amount (same as your 1st bet amount)&lt;/li&gt;
+&lt;li&gt;If you lose, you double your bet amount&lt;/li&gt;
+&lt;li&gt;And if your accumulated winnings hits a certain amount, you stop and leave the casino&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So how would the strategy fare? To explain, I will use Monte Carlo with a Bernoulli distribution for each roulette spin (X ~ B(1, 0.48)).&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-10-runs-times&#34;&gt;Simulate strategy 10 runs/ times&lt;/h3&gt;
+
+&lt;p&gt;Here, I simulate the strategy of 10 times. Think of it in this way, there&amp;rsquo;re 10 alternate universes which you exist and you play the same game 10 times. Or you can just simply treat this as going back to the casino on 10 separate days.&lt;/p&gt;
+
+&lt;p&gt;In the chart below, you will notice that for some runs; because of a sequence of bad luck, the losses quick spiralled!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/10_simulations.png&#34; alt=&#34;/post/img/10_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-1000-runs-times-and-compute-the-mean&#34;&gt;Simulate strategy 1000 runs/ times and compute the mean&lt;/h3&gt;
+
+&lt;p&gt;Next, for a more robust interpretation, I went on to simulate this strategy 1000 times and computed the mean and standard deviation. You will notice that the strategy eventually converges to a desired terminal value. In this case, it&amp;rsquo;s $80. So essentially, out of 1000 simulations, all of them reaches my profit target!&lt;/p&gt;
+
+&lt;p&gt;However the the risk is enormous. Near the average 120th run, the standard deviation sky-rocketed to 120,000. I&amp;rsquo;m unsure if anyone could stomach this loss at any one point of time. The journey matters!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/1000_simulations.png&#34; alt=&#34;/post/img/1000_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/simulation_sd.png&#34; alt=&#34;/post/img/simulation_sd.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;insights-from-this-strategy&#34;&gt;Insights from this strategy&lt;/h3&gt;
+
+&lt;p&gt;Martingale strategy - to put it simply - is a win small, lose potentially huge strategy.&lt;/p&gt;
+
+&lt;p&gt;In this strategy, you will win 100% of the time.&lt;/p&gt;
+
+&lt;p&gt;But the question is, do you have the money (or infinite bankroll) to tide through tough times?&lt;/p&gt;
+</description>
     </item>
     
   </channel>

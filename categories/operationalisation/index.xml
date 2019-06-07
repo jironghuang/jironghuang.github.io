@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 04 Nov 2018 10:19:13 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/operationalisation/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/categories/operationalisation/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Architecture and Process Flow for My Algorithmic Trading</title>
@@ -18,7 +16,12 @@
       <pubDate>Sun, 04 Nov 2018 10:19:13 +0800</pubDate>
       
       <guid>/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
-      <description> Project that I will be working in 2018-2019 </description>
+      <description>
+
+&lt;h2 id=&#34;project-that-i-will-be-working-in-2018-2019&#34;&gt;Project that I will be working in 2018-2019&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/mvp_algo_trading.png&#34; alt=&#34;/post/img/mvp_algo_trading.png&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

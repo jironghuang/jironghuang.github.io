@@ -8,9 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/programming/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Loading excel data with correct variable types</title>
@@ -18,9 +16,81 @@
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/load_data_with_correct_types/</guid>
-      <description>Loading data with data types When reading static files into R or Python, most of the times we are lazy as we load the data with no regard to the data types.
-But in mission critical ETL jobs or Data analytics workflow, data types are quintessential and there’s a fine line between life and death. Ok, I’m exaggerating here.
-What I’ve written below is a swiss army knife function to read an excel file: 1st tab is data and 2nd tab is the variable types (e.</description>
+      <description>
+
+
+&lt;div id=&#34;loading-data-with-data-types&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Loading data with data types&lt;/h3&gt;
+&lt;p&gt;When reading static files into R or Python, most of the times we are lazy as we load the data with no regard to the data types.&lt;/p&gt;
+&lt;p&gt;But in mission critical ETL jobs or Data analytics workflow, data types are quintessential and there’s a fine line between life and death. Ok, I’m exaggerating here.&lt;/p&gt;
+&lt;p&gt;What I’ve written below is a swiss army knife function to read an excel file: 1st tab is data and 2nd tab is the variable types (e.g. database variable types mapped to R variable types)&lt;/p&gt;
+&lt;p&gt;Note: If I read or write to database, I would have to modify my function below. Oh well.&lt;/p&gt;
+&lt;p&gt;The steps in the function are pretty simple,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First I read in the data type&lt;/li&gt;
+&lt;li&gt;Second I read in the column name of the dataset&lt;/li&gt;
+&lt;li&gt;Third I left join the column names to its data type from database (or .sav or .dta or .sas files)&lt;/li&gt;
+&lt;li&gt;Fourth I left join the (DB variable types) to (R data types) translation into the column names&lt;/li&gt;
+&lt;li&gt;Lastly, I read in the dataset through read_excel functions with col_types as the parameter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here you go! Hope this is useful.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Reading excel data together with data types
+#&amp;#39; @title Reading data with data types
+#&amp;#39; @param spName_file Path of the data file
+#&amp;#39; @param spTab_name_data Tab name of data
+#&amp;#39; @param spTab_name_dataType Tab name of data type
+#&amp;#39; @param sp_dataType_col_name Column name of dataType&amp;#39;s (variables column)
+#&amp;#39; @param sp_dataType_datatype_name Column name of dataType&amp;#39;s (data type column)
+#&amp;#39; @param dp_r_hana_type data frame of R to hana variable types conversion
+#&amp;#39; @param sp_r_hana_type_DBType Column name of r_hana_type (DB_TYPE column)
+#&amp;#39; @param sp_r_hana_type_RType Column name of r_hana_type (R_TYPE column)
+#&amp;#39; @return A data frame with corresponding data types
+#&amp;#39; @export
+df_read_data_with_types = function(spName_file, spTab_name_data,
+                                   spTab_name_dataType,
+                                   sp_dataType_col_name, sp_dataType_datatype_name,
+                                   dp_r_hana_type, sp_r_hana_type_DBType, sp_r_hana_type_RType){
+
+  #Read in data types
+  data_type = df_read_tab(spName_file, spTab_name_dataType)
+
+  #Read in just first row of dataset
+  col_name = read_excel(spName_file, spTab_name_data, n_max = 1)
+  col_name = data.frame(col_name = names(col_name)); col_name$col_name = as.character(col_name$col_name)
+  col_name$column_order = 1:nrow(col_name)
+
+  #Left join data type to name
+  col_name = col_name %&amp;gt;%
+    dplyr::left_join(data_type, by = c(&amp;quot;col_name&amp;quot; = sp_dataType_col_name))
+
+  #Split this from above because of errors. weird
+  col_name = base::merge(col_name, dp_r_hana_type,
+                   by.x = sp_dataType_datatype_name, by.y = sp_r_hana_type_DBType,
+                   all.x = T)
+
+  col_name = arrange(col_name, column_order)
+
+  #Read in full dataset with assignment of classes (look at readxl.tidyverse.org)
+  data = readxl::read_excel(spName_file, spTab_name_data, col_types = col_name[, sp_r_hana_type_RType])
+
+  return(data)
+}
+
+# spName_file = &amp;#39;./data/input/TB_OVSS_FNB_FACT.xlsx&amp;#39;
+# spTab_name_data = &amp;#39;data&amp;#39;
+# spTab_name_dataType = &amp;#39;data_type&amp;#39;
+# sp_dataType_col_name = &amp;#39;COLUMN_NAME&amp;#39; 
+# sp_dataType_datatype_name = &amp;#39;DATA_TYPE_NAME&amp;#39;
+# dp_r_hana_type = r_hana_type 
+# sp_r_hana_type_DBType = &amp;#39;DB_TYPE&amp;#39; 
+# sp_r_hana_type_RType = &amp;#39;R_TYPE&amp;#39;
+#
+# a = df_read_data_with_types (spName_file, spTab_name_data,
+#                          spTab_name_dataType,
+#                          sp_dataType_col_name, sp_dataType_datatype_name,
+#                          dp_r_hana_type, sp_r_hana_type_DBType, sp_r_hana_type_RType)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -29,9 +99,102 @@ What I’ve written below is a swiss army knife function to read an excel file: 
       <pubDate>Fri, 24 May 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/cluster_descriptive_stats/</guid>
-      <description>Describing unsupervised learning clusters As a data scientist / analyst, besides doing cool modelling stuff, we&amp;rsquo;re often asked to churn out descriptive statistics. Yes, we know. It&amp;rsquo;s part of the process.
-I chanced upon this really nifty concept at work to describe the clusters derived from unsupervised learnig. Here&amp;rsquo;s how it goes,
- Say it&amp;rsquo;s a nominal or ordinal variable. First, I find the proportion of the feature across the X clusters Second, I rank this proportion through percentiles across these X values The cluster with the highest percentile will earn its right to be represented by the feature And if it&amp;rsquo;s a scale variable, you may find the mean of the feature for each cluster and repeat the steps.</description>
+      <description>
+
+&lt;h2 id=&#34;describing-unsupervised-learning-clusters&#34;&gt;Describing unsupervised learning clusters&lt;/h2&gt;
+
+&lt;p&gt;As a data scientist / analyst, besides doing cool modelling stuff, we&amp;rsquo;re often asked to churn out descriptive statistics. Yes, we know. It&amp;rsquo;s part of the process.&lt;/p&gt;
+
+&lt;p&gt;I chanced upon this really nifty concept at work to describe the clusters derived from unsupervised learnig. Here&amp;rsquo;s how it goes,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Say it&amp;rsquo;s a nominal or ordinal variable. First, I find the proportion of the feature across the X clusters&lt;/li&gt;
+&lt;li&gt;Second, I rank this proportion through percentiles across these X values&lt;/li&gt;
+&lt;li&gt;The cluster with the highest percentile will earn its right to be represented by the feature&lt;/li&gt;
+&lt;li&gt;And if it&amp;rsquo;s a scale variable, you may find the mean of the feature for each cluster and repeat the steps.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below is a nifty function to carry out the above steps. You can compile it into a package and may start using it in your data science work!&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#  This function takes in a data-frame
+#&#39; @title Finding feature importance associated with each cluster
+#&#39; @param dp_data data frame for clustering
+#&#39; @param sp_resp_key_name primary key in dataset
+#&#39; @param sp_feature Feature name
+#&#39; @param sp_cluster_name column name for cluster 
+#&#39; @param sp_scale_categorical scale or categorical
+#&#39; @param sp_IndivYr_aggregate IndivYr or aggregate
+#&#39; @param sp_weight_name Column names for weights
+#&#39; @param np_feature_imp_threshold threshold for percentile ranking
+#&#39; @param sp_all_filter filter or no filter
+#&#39; @return list of proportion, mean or percentile for 6 cluster importance
+#&#39; @export
+#&#39;
+
+l_feature_importance_cluster = function(dp_data, sp_resp_key_name,
+                                        sp_feature, sp_cluster_name, sp_scale_categorical,
+                                        sp_IndivYr_aggregate = NULL, sp_weight_name,
+                                        np_feature_imp_threshold = 1, sp_all_filter = &amp;quot;all&amp;quot;){
+
+  tryCatch({
+  if((sp_scale_categorical == &amp;quot;categorical&amp;quot;) &amp;amp; base::is.null(sp_IndivYr_aggregate)){
+    #Tabulate
+
+    dTabulated_data = dp_data %&amp;gt;%
+        dplyr::select(c(sp_resp_key_name, sp_feature, sp_weight_name, sp_cluster_name)) %&amp;gt;%                #select columns
+        dplyr::group_by(!! rlang:: sym(sp_cluster_name), !! rlang:: sym(sp_feature)) %&amp;gt;%   #Count by cluster and feature
+        dplyr::summarize(counts = n(),
+                         wt_counts = sum(!! rlang:: sym(sp_weight_name))) %&amp;gt;%
+        dplyr::group_by(!! rlang:: sym(sp_cluster_name)) %&amp;gt;%                               #Find proportion of feature in cluster group
+        dplyr::mutate(counts_cluster = sum(counts, na.rm = T),
+                      prop_feature_within_cluster = counts/counts_cluster,
+                      counts_cluster_wt = sum(wt_counts, na.rm = T),
+                      prop_feature_within_cluster_wt = wt_counts/counts_cluster_wt) %&amp;gt;%
+        dplyr::group_by(!! rlang:: sym(sp_feature)) %&amp;gt;%                                    #Find percentile of proportions
+        dplyr::mutate(percentile_feature = percent_rank(prop_feature_within_cluster),
+                      percentile_feature_wt = percent_rank(prop_feature_within_cluster_wt),
+                      counts_feature = sum(counts, na.rm = T),
+                      prop_cluster_within_features = counts/counts_feature) %&amp;gt;%            #Find proportion of cluster in feature
+        dplyr::group_by(!! rlang:: sym(sp_cluster_name), !! rlang:: sym(sp_feature)) %&amp;gt;%
+        dplyr::mutate(feature_name = sp_feature) %&amp;gt;%
+        dplyr::rename(feature_value = sp_feature)
+
+    #Filter to keep only the &#39;meaningful&#39; features   
+
+    if(sp_all_filter == &amp;quot;filter&amp;quot;){
+      dTabulated_data = dRaw_data %&amp;gt;%
+        dplyr::filter(percentile_feature &amp;gt;= np_feature_imp_threshold)   
+    }
+
+  } else if((sp_scale_categorical == &amp;quot;scale&amp;quot;) &amp;amp; base::is.null(sp_IndivYr_aggregate)){
+  
+    dTabulated_data = dp_data %&amp;gt;%
+        dplyr::select(c(sp_resp_key_name, sp_feature, sp_cluster_name, sp_weight_name)) %&amp;gt;%
+        dplyr::group_by(!! rlang:: sym(sp_cluster_name)) %&amp;gt;%
+        dplyr::summarize(avg_by_cluster = mean(!! rlang:: sym(sp_feature), na.rm = T),
+                         avg_by_cluster_wt = weighted.mean(!! rlang:: sym(sp_feature), !! rlang:: sym(sp_weight_name), na.rm = T))  %&amp;gt;%
+        dplyr::mutate(feature_name = sp_feature) %&amp;gt;%
+        dplyr::mutate(percentile_feature = percent_rank(avg_by_cluster),
+                      percentile_feature_wt = percent_rank(avg_by_cluster_wt))
+
+     #Filter to keep only the &#39;meaningful&#39; features
+
+    if(sp_all_filter == &amp;quot;filter&amp;quot;){
+      dTabulated_data = dRaw_data %&amp;gt;%
+                            dplyr::filter(percentile_feature &amp;gt;= np_feature_imp_threshold)    
+    } 
+  }
+  }, error = function(e){
+    print(paste0(&amp;quot;Error with &amp;quot;, sp_feature))
+  })
+  
+  return(dTabulated_data)
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -40,10 +203,57 @@ I chanced upon this really nifty concept at work to describe the clusters derive
       <pubDate>Tue, 14 May 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/google_place_api/</guid>
-      <description>Google Place API I was playing around with the API to obtain lat-long for my geo analytics work.
-I entered my credit card info but it seems that I&amp;rsquo;m not charged even with 9000+ API calls. Unsure if it&amp;rsquo;s because I&amp;rsquo;ve a 400+ dollars free cloud credit?
-Anyway, what I did here was to make API calls and storing the data into my local database.
-If you&amp;rsquo;re interested, you may visit this stackoverflow link (https://stackoverflow.</description>
+      <description>
+
+&lt;h2 id=&#34;google-place-api&#34;&gt;Google Place API&lt;/h2&gt;
+
+&lt;p&gt;I was playing around with the API to obtain lat-long for my geo analytics work.&lt;/p&gt;
+
+&lt;p&gt;I entered my credit card info but it seems that I&amp;rsquo;m not charged even with 9000+ API calls. Unsure if it&amp;rsquo;s because I&amp;rsquo;ve a 400+ dollars free cloud credit?&lt;/p&gt;
+
+&lt;p&gt;Anyway, what I did here was to make API calls and storing the data into my local database.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re interested, you may visit this stackoverflow link (&lt;a href=&#34;https://stackoverflow.com/questions/52565472/get-map-not-passing-the-api-key-http-status-was-403-forbidden/52617929#52617929&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/52565472/get-map-not-passing-the-api-key-http-status-was-403-forbidden/52617929#52617929&lt;/a&gt;) to understand how to set up the credentials.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#Load util function
+source(&amp;quot;connect_db.R&amp;quot;)
+vf_connect_db(&amp;quot;google_place.db&amp;quot;)
+
+#load packages
+sapply(c(&amp;quot;ggmap&amp;quot;, &amp;quot;RSQLite&amp;quot;), require, character.only = T)
+
+#Google key information
+register_google(key = &amp;quot;&amp;lt;intentionally left blank&amp;gt;&amp;quot;) 
+
+#Load dataframe into the memory
+query = paste0(&#39;select TripAdv_Key, address from &amp;quot;trip_advisor_full_dataset_without_lat_long&amp;quot;&#39;)
+origAddress = dbGetQuery(con, query)
+
+# Loop through the addresses to get the latitude and longitude of each address and add it to the
+# origAddress data frame in new columns lat and lon
+for(i in 1:nrow(origAddress))
+{
+  print(i)
+  tryCatch({
+    
+    #Geocoding based on address
+    result &amp;lt;- geocode(origAddress$address[i], output = &amp;quot;latlona&amp;quot;, source = &amp;quot;google&amp;quot;)
+    
+    #Extracting results values and inserting into database
+    TripAdv_Key = origAddress$TripAdv_Key[i] 
+    lat = as.numeric(result[2])
+    long = as.numeric(result[1])
+    add = as.character(result[3])
+    values = paste0(&amp;quot;(&amp;quot;,TripAdv_Key, &amp;quot;,&amp;quot;, lat, &amp;quot;,&amp;quot;, long, &amp;quot;,&#39;&amp;quot;, add,&amp;quot;&#39;)&amp;quot;)
+    query = paste0(&#39;INSERT INTO lat_long_info VALUES&#39;, values)
+    dbSendQuery(con, query)
+    
+    #Print lat long
+    print(c(lat, long))
+  }, error=function(e){})
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -52,8 +262,38 @@ If you&amp;rsquo;re interested, you may visit this stackoverflow link (https://s
       <pubDate>Mon, 08 Apr 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/q_learning/</guid>
-      <description>Q learning I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia here, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.
-Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future.</description>
+      <description>
+
+&lt;h2 id=&#34;q-learning&#34;&gt;Q learning&lt;/h2&gt;
+
+&lt;p&gt;I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia &lt;a href=&#34;https://en.wikipedia.org/wiki/Q-learning&#34;&gt;here&lt;/a&gt;, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future. Hence it may or may not make sense to you,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RL is rather different from a conventional ML process. It contains an in-built iterative process to refresh the parameters&lt;/li&gt;
+&lt;li&gt;User can train the algorithm till the &amp;lsquo;total reward&amp;rsquo; (in ML lingo that could be error-type measures) converges. I will coin each training process as a simulation&lt;/li&gt;
+&lt;li&gt;To set up the learning process, I first initalize a Q learning table of 0s with dimension of number of states * actions (In python lingo, self.q = np.zeros((num_states, num_actions), dtype = np.float64))&lt;/li&gt;
+&lt;li&gt;In every step of each simulation, the algo will pick a random float of 0 to 1. If it&amp;rsquo;s lesser than the threshold, it will pick a random action. Else, it will pick the action with the best outcome. According to the literature, it seems that exploration plays a role in improving the results&lt;/li&gt;
+&lt;li&gt;From second step onward, the algo will update the Q-table as follows: self.q[self.s, self.a] = (1 - self.alpha) * self.q[self.s, self.a] + self.alpha * (r + self.gamma * np.max(self.q[s_prime,]))&lt;/li&gt;
+&lt;li&gt;What it meant in the above formula is that Q-learning computes a weighted score for a particular state and action based on present and future discounted score from best action.&lt;/li&gt;
+&lt;li&gt;The updated score will be used in subsequent simulations, and not current one. i.e in future iteration, if the option is non-random, it will pick the highest score option.&lt;/li&gt;
+&lt;li&gt;When the current simulation end, the algorithm will return to the starting point and retrain the algorithm with the refreshed Q-table&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;dyna-q&#34;&gt;Dyna-Q&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The additional bootstrap component algorithm is deemed to be cheaper because it doesn&amp;rsquo;t require additional interaction with the external environment to refresh the Q-table.&lt;/li&gt;
+&lt;li&gt;It will instead pick random states and actions&lt;/li&gt;
+&lt;li&gt;And select a new state based on a probability mass function in each loop (each state is assigned a discrete chance. Say there&amp;rsquo;re 100 states where 1 of the states has 2% chance and another has 1% chance. The latter might still be selected albeit with a lower chance)&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s different here is that it will refresh the reward information too&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;insights-from-this-exercise&#34;&gt;Insights from this exercise&lt;/h3&gt;
+
+&lt;p&gt;The strength of this algorithm lies in the fact that it doesn&amp;rsquo;t require a ton of data. I&amp;rsquo;m excited to apply this algorithm if there&amp;rsquo;s a chance.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -62,11 +302,33 @@ Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summ
       <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
       
       <guid>/post/hosting-a-flask-app-on-heroku/</guid>
-      <description>Following the steps here &amp;ndash;&amp;gt; https://realpython.com/flask-by-example-part-1-project-setup/
-I managed to deploy my python flask app in Heroku.
-from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &amp;quot;Hello World!&amp;quot; @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello_name(name): return &amp;quot;Hello {}!&amp;quot;.format(name) if __name__ == &#39;__main__&#39;: app.run()  You may visit the following link &amp;ndash;&amp;gt;https://jirong-stage.herokuapp.com/ &amp;amp; add a suffix to it.
-Example https://jirong-stage.herokuapp.com/jirong &amp;amp; this will return Hello jirong!
-Possibilites are immense! I can easily create APIs or host dashboard here.</description>
+      <description>&lt;p&gt;Following the steps here &amp;ndash;&amp;gt; &lt;a href=&#34;https://realpython.com/flask-by-example-part-1-project-setup/&#34; target=&#34;_blank&#34;&gt;https://realpython.com/flask-by-example-part-1-project-setup/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I managed to deploy my python flask app in Heroku.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from flask import Flask
+app = Flask(__name__)
+
+
+@app.route(&#39;/&#39;)
+def hello():
+    return &amp;quot;Hello World!&amp;quot;
+
+
+@app.route(&#39;/&amp;lt;name&amp;gt;&#39;)
+def hello_name(name):
+    return &amp;quot;Hello {}!&amp;quot;.format(name)
+
+if __name__ == &#39;__main__&#39;:
+    app.run()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You may visit the following link &amp;ndash;&amp;gt;&lt;a href=&#34;https://jirong-stage.herokuapp.com/&#34; target=&#34;_blank&#34;&gt;https://jirong-stage.herokuapp.com/&lt;/a&gt; &amp;amp; add a suffix to it.&lt;/p&gt;
+
+&lt;p&gt;Example &lt;a href=&#34;https://jirong-stage.herokuapp.com/jirong&#34; target=&#34;_blank&#34;&gt;https://jirong-stage.herokuapp.com/jirong&lt;/a&gt; &amp;amp; this will return Hello jirong!&lt;/p&gt;
+
+&lt;p&gt;Possibilites are immense! I can easily create APIs or host dashboard here. Pretty exciting to me:)&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -75,9 +337,99 @@ Possibilites are immense! I can easily create APIs or host dashboard here.</desc
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/sampling-with-replacement-through-first-principles/</guid>
-      <description>Sampling with replacement Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
-I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
-Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.</description>
+      <description>
+
+&lt;h1 id=&#34;sampling-with-replacement&#34;&gt;Sampling with replacement&lt;/h1&gt;
+
+&lt;p&gt;Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.&lt;/p&gt;
+
+&lt;p&gt;I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.&lt;/p&gt;
+
+&lt;p&gt;Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals. Haven&amp;rsquo;t figured that part out yet.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;re definitely packages out there that does sort of stuff but this forces me to understand the underlying theory from scratch.&lt;/p&gt;
+
+&lt;p&gt;So here is the idea, I&amp;rsquo;ve a dataset with 4 individuals, tagged to respective weights that corresponds to the population. And I wish to do a bootstrap i.e. sampling with replacement to get a sample size of N = 100&lt;/p&gt;
+
+&lt;p&gt;See Wikipedia page on advantages of Bootstrapping &amp;ndash;&amp;gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Bootstrapping_(statistics&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Bootstrapping_(statistics&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s what I will do. I will first line up the individuals and find the Probability Mass Function (PMF) for each individual accounting for its weight. Second, I will add up the PMF to obtain the Cumulative Density Function (cumulative proportion)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;df
+id weight PMF     CDF
+1  2      20%    [0, 20]
+2  3      30%    (20, 50]
+3  3      30%    (50, 80]
+4  2      20%    (80, 100]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, I will do a loop of 100 times. At the start of each loop I will obtain a float of between 0 to 1. If the value lies between a certain range, I will add that individual to the dataset. Given that num is random, it will lie between the various ranges without order, accouting for length of the interval.&lt;/p&gt;
+
+&lt;p&gt;Note that sampling with replacement means there&amp;rsquo;s a chance that an individual may be represented more than once in the dataset.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;for (i in 1:100){
+
+  num = randint(0, 1)
+  
+  if(num &amp;lt; 0.2){
+    add_to_new_dataset(id = 1)
+  }else if (num between 0.2 to 0.5){
+    add_to_new_dataset(id = 2)
+  }else if (num between 0.5 to 0.8){
+    add_to_new_dataset(id = 3)
+  }else{
+    add_to_new_dataset(id = 3)
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Of course! In R, you should avoid an explicit loop at all costs. The solution is to embed it in a function and use a lapply function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bootstrap_weights = function(i){
+
+num = randint(0, 1)
+
+  if(num &amp;lt; 0.2){
+    id = 1
+  }else if (num between 0.2 to 0.5){
+    id = 2 
+  }else if (num between 0.5 to 0.8){
+    id = 3
+  }else{
+    id = 4
+  }
+  
+  data_row = data[id, ]
+  return (data_row)
+}
+
+bootstrapped_data = rbind.fill(lapply(1: 100, bootstrap_weights))
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I hope this is useful!&lt;/p&gt;
+
+&lt;h2 id=&#34;latest-developments&#34;&gt;Latest developments&lt;/h2&gt;
+
+&lt;p&gt;Courtesy of this post here &amp;ndash;&amp;gt; &lt;a href=&#34;https://stackoverflow.com/questions/24766104/checking-if-value-in-vector-is-in-range-of-values-in-different-length-vector&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/24766104/checking-if-value-in-vector-is-in-range-of-values-in-different-length-vector&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the simple solution to link a value to an interval,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;getValue &amp;lt;- function(x, data) {
+  tmp &amp;lt;- data %&amp;gt;%
+    filter(CDF1 &amp;lt;= x, x &amp;lt;= CDF2)
+  return(tmp$id)
+}
+
+# Using rand function to get a list of numbers
+rand_numbers &amp;lt;- c(0.1, 0.173, 0.235)
+sapply(rand_numbers, getValue, data = df)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cheers!&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -86,9 +438,29 @@ Earlier in the week, I attempted to write a simple function from scratch but I g
       <pubDate>Fri, 15 Feb 2019 13:09:44 +0800</pubDate>
       
       <guid>/post/building-adecision-tree-from-scratch/</guid>
-      <description>Building a decision tree from scratch Sometimes to truly understand and internalise an algorithm, it&amp;rsquo;s always useful to build from scratch. Rather than relying on a module or library written by someone else.
-I&amp;rsquo;m fortunate to be given the chance to do it in 1 of my assignments for decision trees.
-From this exercise, I had to rely on my knowledge on recursion, binary trees (in-order traversal) and object oriented programming.</description>
+      <description>
+
+&lt;h2 id=&#34;building-a-decision-tree-from-scratch&#34;&gt;Building a decision tree from scratch&lt;/h2&gt;
+
+&lt;p&gt;Sometimes to truly understand and internalise an algorithm, it&amp;rsquo;s always useful to build from scratch. Rather than relying on a module or library written by someone else.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m fortunate to be given the chance to do it in 1 of my assignments for decision trees.&lt;/p&gt;
+
+&lt;p&gt;From this exercise, I had to rely on my knowledge on recursion, binary trees (in-order traversal) and object oriented programming.&lt;/p&gt;
+
+&lt;p&gt;Below is a snippet of method in a class. The algorithm works as follows,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First you define a leaf size i.e. the maximum number of data you allow to be left in the leaf node.&lt;/li&gt;
+&lt;li&gt;If number of data in leaf node is still more than the allowable size, check if all data is the same. If it&amp;rsquo;s the same, return just 1 value&lt;/li&gt;
+&lt;li&gt;Next I find the feature based on best correlation (gini coefficient and information gain works too) with the dependent variable values. Note that as you traverse down the tree, this dataset gets smaller&lt;/li&gt;
+&lt;li&gt;With the best feature found in each split, I proceed to contruct the left tree and right tree together with a root node&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The idea is that if you are left with a node that&amp;rsquo;s smaller or equals to allowable leaf size, it will stop traversing.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/Building_decision_tree.png&#34; alt=&#34;/post/img/Building_decision_tree.png&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -97,10 +469,51 @@ From this exercise, I had to rely on my knowledge on recursion, binary trees (in
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/martingale-strategy/</guid>
-      <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
-Double down! That&amp;rsquo;s essentially the essence of it.
-Here&amp;rsquo;s a simple explanation of the strategy,
- The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?</description>
+      <description>
+
+&lt;h2 id=&#34;martingale-strategy&#34;&gt;Martingale Strategy&lt;/h2&gt;
+
+&lt;p&gt;In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.&lt;/p&gt;
+
+&lt;p&gt;Double down! That&amp;rsquo;s essentially the essence of it.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a simple explanation of the strategy,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount&lt;/li&gt;
+&lt;li&gt;If you win, you continue to bet the same amount (same as your 1st bet amount)&lt;/li&gt;
+&lt;li&gt;If you lose, you double your bet amount&lt;/li&gt;
+&lt;li&gt;And if your accumulated winnings hits a certain amount, you stop and leave the casino&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So how would the strategy fare? To explain, I will use Monte Carlo with a Bernoulli distribution for each roulette spin (X ~ B(1, 0.48)).&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-10-runs-times&#34;&gt;Simulate strategy 10 runs/ times&lt;/h3&gt;
+
+&lt;p&gt;Here, I simulate the strategy of 10 times. Think of it in this way, there&amp;rsquo;re 10 alternate universes which you exist and you play the same game 10 times. Or you can just simply treat this as going back to the casino on 10 separate days.&lt;/p&gt;
+
+&lt;p&gt;In the chart below, you will notice that for some runs; because of a sequence of bad luck, the losses quick spiralled!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/10_simulations.png&#34; alt=&#34;/post/img/10_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;simulate-strategy-1000-runs-times-and-compute-the-mean&#34;&gt;Simulate strategy 1000 runs/ times and compute the mean&lt;/h3&gt;
+
+&lt;p&gt;Next, for a more robust interpretation, I went on to simulate this strategy 1000 times and computed the mean and standard deviation. You will notice that the strategy eventually converges to a desired terminal value. In this case, it&amp;rsquo;s $80. So essentially, out of 1000 simulations, all of them reaches my profit target!&lt;/p&gt;
+
+&lt;p&gt;However the the risk is enormous. Near the average 120th run, the standard deviation sky-rocketed to 120,000. I&amp;rsquo;m unsure if anyone could stomach this loss at any one point of time. The journey matters!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/1000_simulations.png&#34; alt=&#34;/post/img/1000_simulations.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/simulation_sd.png&#34; alt=&#34;/post/img/simulation_sd.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;insights-from-this-strategy&#34;&gt;Insights from this strategy&lt;/h3&gt;
+
+&lt;p&gt;Martingale strategy - to put it simply - is a win small, lose potentially huge strategy.&lt;/p&gt;
+
+&lt;p&gt;In this strategy, you will win 100% of the time.&lt;/p&gt;
+
+&lt;p&gt;But the question is, do you have the money (or infinite bankroll) to tide through tough times?&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -109,10 +522,51 @@ Here&amp;rsquo;s a simple explanation of the strategy,
       <pubDate>Wed, 09 Jan 2019 23:39:22 +0800</pubDate>
       
       <guid>/post/how-to-create-a-python-environment-in-ubuntu/</guid>
-      <description>Often, certain projects or classes involving python require a set of modules/packages for the code to work.
-1 solution is to create a Python Environment dedicated to that project.
-First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),
-name: env channels: !!python/tuple - !!python/unicode &#39;defaults&#39; dependencies: - nb_conda=2.2.0=py27_0 - python=2.7.13=0 - cycler=0.10.0 - functools32=3.</description>
+      <description>&lt;p&gt;Often, certain projects or classes involving python require a set of modules/packages for the code to work.&lt;/p&gt;
+
+&lt;p&gt;1 solution is to create a Python Environment dedicated to that project.&lt;/p&gt;
+
+&lt;p&gt;First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;name: env
+channels: !!python/tuple
+- !!python/unicode &#39;defaults&#39;
+dependencies:
+- nb_conda=2.2.0=py27_0
+- python=2.7.13=0
+- cycler=0.10.0
+- functools32=3.2.3.2
+- matplotlib=2.0.2
+- numpy=1.13.1
+- pandas=0.20.3
+- py=1.4.34
+- pyparsing=2.2.0
+- pytest=3.2.1
+- python-dateutil=2.6.1
+- pytz=2017.2
+- scipy=0.19.1
+- six=1.10.0
+- subprocess32=3.2.7
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you have anaconda installed, navigate to the folder with .yml; right click and select open in terminal. Then, type the following into bash&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conda env create -f env.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once installed, type the following into bash to bring up the environment,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source activate env
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you wish to install a specific program in this environment - say spyder - you can install it directly. Example,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conda install spyder
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To open spyder program, simply type spyder into terminal. And there you go!&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -121,9 +575,165 @@ name: env channels: !!python/tuple - !!python/unicode &#39;defaults&#39; depende
       <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
       
       <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
-      <description>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.
-Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
-In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.</description>
+      <description>
+
+&lt;h2 id=&#34;translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r&#34;&gt;Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.&lt;/p&gt;
+
+&lt;p&gt;Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).&lt;/p&gt;
+
+&lt;p&gt;In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs. What I learnt - with real capital - is that the hedge ratio is dynamic and will vary over time. In the early days, I fixed it through linear regression. But boy this doesn&amp;rsquo;t work! It&amp;rsquo;s not really market neutral because of the imbalance in values between pairs across time.&lt;/p&gt;
+
+&lt;p&gt;Then I chanced upon Kalman filter - something I learnt during my AI module in my Computer Science Degree days. I&amp;rsquo;ll spare the Math here. It&amp;rsquo;s a variant of the markov model, that uses a series of measurements over time (in this case, one of the pairs price), containing noise and produces estimates of unknown (here it&amp;rsquo;s the hedge ratio and intercept). Hedge ratio is updated in each time step.&lt;/p&gt;
+
+&lt;p&gt;I saw the Python code online for EWA-EWC pair strategy that returns a sharpe ratio of 2.4. I tried to search for a R version but to no avail!&lt;/p&gt;
+
+&lt;p&gt;Hence I decided to spend a day translating the python code into R code (for deployment purposes. Currently my algo trading stack is built around R). Thankfully I&amp;rsquo;m not translating the Matlab version because I do not have prior experience in that. And it would definitely take me more than a day for the translation.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve since,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wrapped the code with a function&lt;/li&gt;
+&lt;li&gt;Loop through a 40 choose 2 combinations of country pairs&lt;/li&gt;
+&lt;li&gt;Triangulated with distance metrics like Correlation, Euclidean Distance and Manhattan Distance&lt;/li&gt;
+&lt;li&gt;Filtered out long half life (i.e. # of days before reverting to the mean)&lt;/li&gt;
+&lt;li&gt;Filtered by sharpe ratios, drawdown and average profits&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And so far, this market-neutral strategy is really promising!&lt;/p&gt;
+
+&lt;h3 id=&#34;translated-r-code-for-ewa-ewc-strategy&#34;&gt;Translated R code for EWA - EWC strategy&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;#Note: Try to put everything in a data-frame
+lapply(c(&amp;quot;zoo&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;plyr&amp;quot;, &amp;quot;dplyr&amp;quot;,
+         &amp;quot;gtools&amp;quot;,&amp;quot;googlesheets&amp;quot;, &amp;quot;quantmod&amp;quot;, 
+         &amp;quot;urca&amp;quot;, &amp;quot;PerformanceAnalytics&amp;quot;, &amp;quot;parallel&amp;quot;), require, character.only = T)
+
+source(&#39;util/calculateReturns.R&#39;)
+source(&#39;util/calculateMaxDD.R&#39;)
+source(&#39;util/backshift.R&#39;)
+source(&#39;util/extract_stock_prices.R&#39;)
+source(&#39;util/cointegration_pair.R&#39;)
+
+
+#Reading in the data
+df = read.csv(&#39;kalman_filter/inputData_EWA_EWC.csv&#39;)
+df = subset(df, select = c(&amp;quot;Date&amp;quot;, &amp;quot;EWC&amp;quot;, &amp;quot;EWA&amp;quot;))
+
+# Augment x with ones to  accomodate possible offset in the regression between y vs x.
+# df$EWA_ones = 1
+
+# delta=1 gives fastest change in beta, delta=0.000....1 allows no change (like traditional linear regression).
+delta = 0.0001 
+
+#yhat=np.full(y.shape[0], np.nan) # measurement prediction
+df$yhat = NA
+
+#Initialize matrix
+df$e = df$yhat # e = yhat.copy(), residuals
+df$Q = df$yhat # Q = yhat.copy(), measurement variance
+
+# For clarity, we denote R(t|t) by P(t). Initialize R, P and beta.
+R = matrix(dat = rep(0, 4), nrow = 2, ncol = 2) #R = np.zeros((2,2))
+P = R   #P = R.copy()
+
+#Store beta in df and separately for computation
+beta = matrix(dat = rep(NA, nrow(df) * 2), nrow = 2, ncol = nrow(df))
+df$beta1 = NA; df$beta2 = NA  #beta = np.full((2, x.shape[0]), np.nan)
+
+Vw = delta/(1-delta) * diag(2) #Vw=delta/(1-delta)*np.eye(2)
+Ve = 0.001
+
+# Initialize beta(:, 1) to zero
+beta[, 1] = 0 #beta[:, 0]=0
+df$beta1 = beta[1, 1]; df$beta2 = beta[2, 1]
+
+#for t in range(len(y)):
+for (t in 1:nrow(df)){
+ 
+  if(t &amp;gt; 1){
+    #Update matrix
+    beta[, t] = beta[, t-1]
+    R = P + Vw
+    
+    #Update df
+    df$beta1[t] = beta[1, t]
+    df$beta2[t] = beta[2, t]
+  }
+  
+  # yhat[t, ] = as.matrix(x[t, ]) %*% as.matrix(beta[, t])    #yhat[t]=np.dot(x[t, :], beta[:, t])
+  df$yhat[t] = as.matrix(data.frame(df$EWA[t], 1)) %*% as.matrix(beta[, t]) 
+  
+  # Q[t, ] = (as.matrix(x[t, ]) %*% R) %*% t(as.matrix(x[t, ])) + Ve  #Q[t] = np.dot(np.dot(x[t, :], R), x[t, :].T)+Ve
+  df$Q[t] = (as.matrix(data.frame(df$EWA[t], 1)) %*% R) %*% t(as.matrix(data.frame(df$EWA[t], 1))) + Ve
+  
+  # e[t, ] = y[t, ] - yhat[t, ] #e[t]=y[t]-yhat[t] # measurement prediction error
+  df$e[t] = df$EWC[t] - df$yhat[t]
+  
+  K = R %*% t(as.matrix(data.frame(df$EWA[t], 1))) / df$Q[t]  #K = np.dot(R, x[t, :].T)/Q[t] #  Kalman gain
+  beta[, t] = beta[, t] + K %*% as.matrix(df$e[t]) #beta[:, t]=beta[:, t]+np.dot(K, e[t]) #  State update. Equation 3.11
+  
+  #Update df
+  df$beta1[t] = beta[1, t]
+  df$beta2[t] = beta[2, t]
+  
+  # State covariance update. Euqation 3.12
+  P = R - ((K %*% as.matrix(data.frame(df$EWA[t], 1))) %*% R) #P = R-np.dot(np.dot(K, x[t, :]), R) 
+}
+
+#Generated signals
+df$Q_root = df$Q ^ 0.5
+df$longs &amp;lt;- df$e &amp;lt;= -df$Q ^ 0.5 # buy spread when its value drops below 2 standard deviations.
+df$shorts &amp;lt;- df$e &amp;gt;= df$Q ^ 0.5  # short spread when its value rises above 2 standard deviations.  Short EWC
+
+df$longExits  &amp;lt;- df$e &amp;gt; 0 
+df$shortExits &amp;lt;- df$e &amp;lt; 0
+
+# initialize to 0
+df$numUnitsLong = NA
+df$numUnitsShort = NA
+df$numUnitsLong[0]=0.
+df$numUnitsShort[0]=0.
+
+df$numUnitsLong[df$longs]=1.
+df$numUnitsLong[df$longsExit]=0
+df$numUnitsLong = ifelse(is.na(df$numUnitsLong), 0, df$numUnitsLong)
+
+df$numUnitsShort[df$shorts]=-1.
+df$numUnitsShort[df$shortsExit]=0
+df$numUnitsShort = ifelse(is.na(df$numUnitsShort), 0, df$numUnitsShort)
+
+df$numUnits = df$numUnitsLong + df$numUnitsShort 
+
+df$position1 = 0; df$position2 = 0 
+
+df$position1 = ifelse(df$numUnits == -1, -1, df$position1)   #short EWC, Long EWA --&amp;gt; df$e[t] = df$EWC[t] - df$yhat[t]
+df$position2 = ifelse(df$numUnits == -1, 1, df$position2)  #short EWC, Long EWA 
+
+df$position1 = ifelse(df$numUnits == 1, 1, df$position1)   #long EWC, short EWA 
+df$position2 = ifelse(df$numUnits == 1, -1, df$position2)  #long EWC, short EWA 
+
+# df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(-df$beta1, 1)) * data.frame(df$EWA, df$EWC)   #Adjusted price
+df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(1, -df$beta1)) * data.frame(df$EWC, df$EWA)   #Adjusted price
+
+#Returns
+df$dailyret1 &amp;lt;- c(NA, (df$EWC[2: nrow(df)] - df$EWC[1: (nrow(df) - 1)])/df$EWC[1: (nrow(df) - 1)])
+df$dailyret2 &amp;lt;- c(NA, (df$EWA[2: nrow(df)] - df$EWA[1: (nrow(df) - 1)])/df$EWA[1: (nrow(df) - 1)])
+
+#Daily returns
+# lag(df$position1, 1)
+# lag(df$position2, 1) * df$beta1
+df$pnl = lag(df$positions$df.numUnits, 1) * df$dailyret1  + lag(df$positions$df.numUnits.1, 1) * df$dailyret2
+
+df$ret = (df$pnl)/lag((df$positions$df.numUnits + df$positions$df.numUnits.1), 1)
+df$ret = ifelse(is.na(df$ret), 0, df$ret)
+df$ret[2] = 0
+
+#Sharpe ratio
+sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -132,8 +742,20 @@ In my first month of deploying algo trading strategies, I focus mainly on mean-r
       <pubDate>Sat, 08 Dec 2018 01:11:52 +0800</pubDate>
       
       <guid>/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</guid>
-      <description>For what&amp;rsquo;s worth, here is a summary of what I went through for my Georgia Tech Computer Science Msc Computational Photography module.
-And it&amp;rsquo;s really painful but rewarding!</description>
+      <description>&lt;p&gt;For what&amp;rsquo;s worth, here is a summary of what I went through for my Georgia Tech Computer Science Msc Computational Photography module.&lt;/p&gt;
+
+&lt;p&gt;And it&amp;rsquo;s really painful but rewarding!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/CP_1.png&#34; alt=&#34;/post/img/CP_1.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_2.png&#34; alt=&#34;/post/img/CP_2.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_3.png&#34; alt=&#34;/post/img/CP_3.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_4.png&#34; alt=&#34;/post/img/CP_4.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_5.png&#34; alt=&#34;/post/img/CP_5.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_6.png&#34; alt=&#34;/post/img/CP_6.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_7.png&#34; alt=&#34;/post/img/CP_7.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_8.png&#34; alt=&#34;/post/img/CP_8.png&#34;&gt;
+&lt;img src=&#34;/post/img/CP_9.png&#34; alt=&#34;/post/img/CP_9.png&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -142,9 +764,36 @@ And it&amp;rsquo;s really painful but rewarding!</description>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/colorization/</guid>
-      <description>Colorization The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.
-1.Input: I first read in the image using imread function.
-2.Find the difference: Next I compute the difference between the marked and grey scale image.</description>
+      <description>
+
+&lt;h2 id=&#34;colorization&#34;&gt;Colorization&lt;/h2&gt;
+
+&lt;p&gt;The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.&lt;/p&gt;
+
+&lt;p&gt;1.Input: I first read in the image using imread function.&lt;/p&gt;
+
+&lt;p&gt;2.Find the difference: Next I compute the difference between the marked and grey scale image. This would feed into step 5.&lt;/p&gt;
+
+&lt;p&gt;3.Transform to YIQ space: Then I convert the grey image and the marked version from RGB space to YIQ space 2 &amp;amp; 3 . I wrote a function, rgbToyiq in color_space.py to convert rgb dimension to that of YIQ.&lt;/p&gt;
+
+&lt;p&gt;4.Compute weight matrix:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The next step, also the most complicated one is to compute the weight matrix.&lt;/li&gt;
+&lt;li&gt;I first initialize 3 matrices of size height X width X size of window (9): row indices (i, j count), colIndices and values (weights) to hold key information during the loop&lt;/li&gt;
+&lt;li&gt;The algo will loop through each pixel. And it will compute the weights (using marked) according to formula below in a window of size 9 i.e. 9 pixels in a window (including the pixel).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5.Solve Ax = B: Once the weights are obtained, I proceed to obtain a least square solution.&lt;/p&gt;
+
+&lt;p&gt;6.Lastly, I transform the YIQ output back to RGB space.&lt;/p&gt;
+
+&lt;p&gt;Here are the photographs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/baby.bmp&#34; alt=&#34;/post/img/baby.bmp&#34;&gt;
+&lt;img src=&#34;/post/img/baby_marked.bmp&#34; alt=&#34;/post/img/baby_marked.bmp&#34;&gt;
+&lt;img src=&#34;/post/img/baby_colorized.bmp&#34; alt=&#34;/post/img/baby_colorized.bmp&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -153,7 +802,12 @@ And it&amp;rsquo;s really painful but rewarding!</description>
       <pubDate>Sun, 04 Nov 2018 10:19:13 +0800</pubDate>
       
       <guid>/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
-      <description> Project that I will be working in 2018-2019 </description>
+      <description>
+
+&lt;h2 id=&#34;project-that-i-will-be-working-in-2018-2019&#34;&gt;Project that I will be working in 2018-2019&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/mvp_algo_trading.png&#34; alt=&#34;/post/img/mvp_algo_trading.png&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -162,8 +816,34 @@ And it&amp;rsquo;s really painful but rewarding!</description>
       <pubDate>Thu, 25 Oct 2018 13:23:23 +0800</pubDate>
       
       <guid>/post/seam-carving/</guid>
-      <description>Snippet of my Seam Carving Report from my Msc Computer Science Georgia Tech&amp;rsquo;s Computational Photography module Besides removing of streams, we can also add streams. We identify k streams for removal and duplicate by averaging the left and right neighbours. The computation of these averages is done by convolving the following matrix with the images’ colour channels.
-kernel = np.array([[0, 0, 0], [0.5, 0, 0.5], [0, 0, 0]])  In the implementation of my scaling_up algorithm, I first remove k streams (depending on ratio set by user) and recorded the coordinates and cumulative energy values of the original picture in each removal.</description>
+      <description>
+
+&lt;h2 id=&#34;snippet-of-my-seam-carving-report-from-my-msc-computer-science-georgia-tech-s-computational-photography-module&#34;&gt;Snippet of my Seam Carving Report from my Msc Computer Science Georgia Tech&amp;rsquo;s Computational Photography module&lt;/h2&gt;
+
+&lt;p&gt;Besides removing of streams, we can also add streams. We identify k streams for removal and duplicate by averaging the left and right neighbours. The computation of these averages is done by convolving the following matrix with the images’ colour channels.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kernel = np.array([[0, 0, 0],
+         [0.5, 0, 0.5],
+         [0, 0, 0]])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the implementation of my scaling_up algorithm, I first remove k streams (depending on ratio set by user) and recorded the coordinates and cumulative energy values of the original picture in each removal.&lt;/p&gt;
+
+&lt;p&gt;Then I reverse the whole process by adding the stream back together with the averaged values of neighbours&lt;/p&gt;
+
+&lt;p&gt;I implemented this scaling_up algorithn for the dolphin pictures.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;8(a) is the original picture&lt;/li&gt;
+&lt;li&gt;8&amp;copy; Enlarged picture with added streams: python main.py fig8 u c 1.5 y&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;8(d) Enalrged picture without added streams: python main.py fig8 u c 1.5 n&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;8(f) Enlarged picture with scaling up algorithm implemented twice: python main.py fig8_processed u c 1.5 n&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Figure 8(a), 8&amp;copy;, 8(d), (f)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/seam_carving.img.png&#34; alt=&#34;/post/img/seam_carving.img.png&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -172,40 +852,130 @@ kernel = np.array([[0, 0, 0], [0.5, 0, 0.5], [0, 0, 0]])  In the implementation 
       <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
       
       <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
-      <description>Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,
- If you are an investor, you may use it to analyze impact of exchange rate on your investment positions. If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.</description>
-    </item>
-    
-    <item>
-      <title>Shift Share Analysis Package I developed</title>
-      <link>/post/shift-share-analysis-package/</link>
-      <pubDate>Sat, 22 Sep 2018 12:23:28 +0800</pubDate>
-      
-      <guid>/post/shift-share-analysis-package/</guid>
-      <description>Shift-share Analysis Package I developed During my career, I often have to deal with compositional &amp;amp; within group effects. For instance, the employment rate fell by 3% across 2 period. How much of it is due to an increase in employment rate within the sub-group and how much of it is due to compositional shift (for example ageing population).
-A formal way to explain these effects is known as shift-share analysis.</description>
-    </item>
-    
-    <item>
-      <title>Automated Email Notification of my ETF watchlist</title>
-      <link>/post/automated_email_notification/</link>
-      <pubDate>Tue, 04 Sep 2018 01:37:53 +0800</pubDate>
-      
-      <guid>/post/automated_email_notification/</guid>
-      <description>I wrote an automated email notification code to send out my daily ETF watchlist in csv - an extension of my ETF watchlist project here. I figured out that people will not visit my site. So why not blast out the watchlist instead:)
-And if you are interested in the code. Here you go.
-#Steps for sending watchlist library(&amp;quot;rJava&amp;quot;) library(&#39;mailR&#39;) source(&amp;quot;./R/emails.R&amp;quot;) # Write the content of your email msg &amp;lt;- paste(&amp;quot;Hey there, I&#39;m sending this ETF watchlist that is updated as of &amp;quot;, &amp;quot;\n&amp;quot;, as.</description>
-    </item>
-    
-    <item>
-      <title>Naming Conventions in R. Let&#39;s call it JR Notations</title>
-      <link>/post/jr-naming-conventions-in-r/</link>
-      <pubDate>Sun, 26 Aug 2018 14:09:02 +0800</pubDate>
-      
-      <guid>/post/jr-naming-conventions-in-r/</guid>
-      <description>Naming Conventions in R. Let&amp;rsquo;s call it JR Notations. &amp;lsquo;Naming conventions&amp;rsquo; is a huge thing in many programming languages/ paradigms/ communities. But it&amp;rsquo;s noticeably absent in the R programming community.
-With some inspiration from the Hungarian Notation, here&amp;rsquo;s a blue-print that I came up with while working on a major R project over the last 2 months. Drumroll please&amp;hellip;
-1. Naming conventions for R scripts  F_ for R scripts that contains functions.</description>
+      <description>
+
+&lt;h2 id=&#34;decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects&#34;&gt;Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects&lt;/h2&gt;
+
+&lt;p&gt;If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you are an investor, you may use it to analyze impact of exchange rate on your investment positions.&lt;/li&gt;
+&lt;li&gt;If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.&lt;/li&gt;
+&lt;li&gt;If you are in the finance department, you could analyze the exchange rate impact on your foreign revenue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To start using this package, you may first install the devtools package and execute the following command. install_github(&amp;ldquo;jironghuang/RemoveExchangeRateEffects&amp;rdquo;). The R documentation is as follows,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
+&lt;img src=&#34;/post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;You may follow the 2 examples to better understand how this package works.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-1&#34;&gt;Example 1&lt;/h3&gt;
+
+&lt;p&gt;In summary, what the example does below is to decompose 1 instrument position in SGD (column value) - from the perspective of someone staying in Singapore - into local static value (i.e if I keep the exchange rate constant at the start of the period) and the residual exchange rate impact.&lt;/p&gt;
+
+&lt;p&gt;If you look at the value at the end of the period (Oct 2018), you would notice that the value in SGD fell from 331 to 261. From the perspective of a Singaporean local - through this package -  we can understand that the appreciation in USD negate the fall in value by 4 SGD.&lt;/p&gt;
+
+&lt;p&gt;If you are an economist, you could have considered the exchange rate elasticities. But let&amp;rsquo;s ignore that for now.&lt;/p&gt;
+
+&lt;h3 id=&#34;quick-example-1-in-r-codes-decomposing-a-single-instrument&#34;&gt;Quick example 1 in R codes (decomposing a single instrument)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;library(devtools)
+install_github(&amp;quot;jironghuang/RemoveExchangeRateEffects&amp;quot;)
+library(RemoveExchangeRateEffects)
+
+sp_exch_rate_pair = &amp;quot;USDSGD=X&amp;quot;  #exchange rate pair. e.g &amp;quot;USDSGD=X&amp;quot;. &amp;quot;&amp;lt;Foreign_currency&amp;gt;&amp;lt;local_currency&amp;gt;=X&amp;quot;
+
+ap_start_date &amp;lt;- as.Date(&amp;quot;2017-10-01&amp;quot;)  #starting date of portfolio e.g. 2017-10-01
+ap_end_date &amp;lt;- as.Date(&amp;quot;2020-10-01&amp;quot;) #ending date of portfolio e.g. 2020-10-01. If you include a date beyond current date, the function will use the current date instead
+np_mthly_yearly = &amp;quot;monthly&amp;quot;  #alternatively this could be &amp;quot;yearly&amp;quot;&amp;quot;
+
+data(eg_dat) #example dataset that I included in this package
+dp_dates_investment_value = instrument
+o_exchRate_effect &amp;lt;- exchange_rate_decomposition(sp_exch_rate_pair, ap_start_date, ap_end_date, np_mthly_yearly, dp_dates_investment_value)
+o_exchRate_effect$get_portfolio()
+
+    value_in_sgd exchange_rate fgn_value local_static_value exch_rate_impact
+Oct 2017 331.53   1.36010  243.7541           331.5300        0.0000000
+Nov 2017 308.85   1.34670  229.3384           311.9231       -3.0731344
+Dec 2017 311.35   1.33780  232.7328           316.5399       -5.1899425
+Jan 2018 354.31   1.31168  270.1192           367.3892      -13.0791734
+Feb 2018 343.06   1.32433  259.0442           352.3260       -9.2660108
+Mar 2018 266.13   1.31090  203.0132           276.1183       -9.9882495
+Apr 2018 293.90   1.32577  221.6825           301.5104       -7.6103599
+May 2018 284.73   1.33850  212.7232           289.3248       -4.5948212
+Jun 2018 342.95   1.36830  250.6395           340.8948        2.0552438
+Jul 2018 298.14   1.36140  218.9952           297.8553        0.2846937
+Aug 2018 301.66   1.36700  220.6730           300.1374        1.5226438
+Sep 2018 264.77   1.36732  193.6416           263.3719        1.3980921
+Oct 2018 260.95   1.38061  189.0107           257.0734        3.8766087
+
+o_exchRate_effect$get_diff_portfolio_value()
+[1] 3.8766087
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-2&#34;&gt;Example 2&lt;/h3&gt;
+
+&lt;p&gt;The second example builds upon the first. I&amp;rsquo;ve expanded the previous function to decompose multiple instruments at once.&lt;/p&gt;
+
+&lt;p&gt;get_full_decomposition() returns a list of data frames with the decompositions.&lt;/p&gt;
+
+&lt;p&gt;But before you implement the function above, you would have to add the information via the mutator functions as shown in the example below (the functions with the prefix set)&lt;/p&gt;
+
+&lt;h3 id=&#34;quick-example-2-in-r-codes-decomposing-multiple-instruments-at-1-time&#34;&gt;Quick example 2 in R codes (Decomposing multiple instruments at 1 time)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;data(eg_dat)
+
+er = c(&amp;quot;USDSGD=X&amp;quot;, &amp;quot;GBPSGD=X&amp;quot;)
+start_date = c(&amp;quot;2017-10-01&amp;quot;, &amp;quot;2017-10-01&amp;quot;)
+end_date = c(&amp;quot;2020-10-01&amp;quot;, &amp;quot;2020-10-01&amp;quot;)
+freq = c(&amp;quot;monthly&amp;quot;, &amp;quot;monthly&amp;quot;)
+dat = list(eg_dat, eg_dat)
+
+
+o_exchRate_effect &amp;lt;- multiple_exchange_rate_decomposition(2)
+o_exchRate_effect$set_sa_exch_rate_pair(er) #adding an array of exchange rate pairs
+o_exchRate_effect$set_sa_start_date(start_date) #adding an array of starting dates
+o_exchRate_effect$set_sa_end_date(end_date) #adding an array of ending dates
+o_exchRate_effect$set_sa_mthly_yearly(freq) #adding an array of &amp;quot;monthly&amp;quot; or &amp;quot;yearly&amp;quot; option
+o_exchRate_effect$set_dl_dates_investment_value(dat) #adding list of data frames
+o_exchRate_effect$get_full_decomposition()  #carry out decomposition and obtain a list of data frames
+
+[[1]]
+          value exchange_rate fgn_value local_static_value exch_rate_impact
+Oct 2017 331.53       1.36010  243.7541           331.5300        0.0000000
+Nov 2017 308.85       1.34670  229.3384           311.9231       -3.0731344
+Dec 2017 311.35       1.33780  232.7328           316.5399       -5.1899425
+Jan 2018 354.31       1.31168  270.1192           367.3892      -13.0791734
+Feb 2018 343.06       1.32433  259.0442           352.3260       -9.2660108
+Mar 2018 266.13       1.31090  203.0132           276.1183       -9.9882495
+Apr 2018 293.90       1.32577  221.6825           301.5104       -7.6103599
+May 2018 284.73       1.33850  212.7232           289.3248       -4.5948212
+Jun 2018 342.95       1.36830  250.6395           340.8948        2.0552438
+Jul 2018 298.14       1.36140  218.9952           297.8553        0.2846937
+Aug 2018 301.66       1.36700  220.6730           300.1374        1.5226438
+Sep 2018 264.77       1.36732  193.6416           263.3719        1.3980921
+Oct 2018 260.95       1.38061  189.0107           257.0734        3.8766087
+
+[[2]]
+          value exchange_rate fgn_value local_static_value exch_rate_impact
+Oct 2017 331.53       1.79703  184.4877           331.5300        0.0000000
+Nov 2017 308.85       1.80690  170.9281           307.1629        1.6870605
+Dec 2017 311.35       1.79812  173.1531           311.1613        0.1887369
+Jan 2018 354.31       1.85680  190.8175           342.9048       11.4051640
+Feb 2018 343.06       1.84162  186.2816           334.7537        8.3062984
+Mar 2018 266.13       1.83911  144.7059           260.0408        6.0892228
+Apr 2018 293.90       1.82588  160.9635           289.2562        4.6437963
+May 2018 284.73       1.77878  160.0704           287.6513       -2.9212846
+Jun 2018 342.95       1.78907  191.6918           344.4759       -1.5258666
+Jul 2018 298.14       1.78638  166.8962           299.9175       -1.7774444
+Aug 2018 301.66       1.77860  169.6053           304.7858       -3.1258259
+Sep 2018 264.77       1.78285  148.5094           266.8759       -2.1058633
+Oct 2018 260.95       1.76900  147.5127           265.0848       -4.1347817
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
   </channel>
