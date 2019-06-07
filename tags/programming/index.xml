@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Convert NAs to Obscure Number in Data Frame</title>
+      <link>/post/convert_na_num/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/convert_na_num/</guid>
+      <description>Converting NAs to obscure numbers to prevent the data from messing up the recoding. 1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.
+suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent awkward recoding situations that require &amp;amp; !is.na(&amp;lt;variable&amp;gt;) # Doesn&amp;#39;t work for factors #&amp;#39; @title Convert NA to obscure number #&amp;#39; @param dp_dataframe Dataframe in consideration #&amp;#39; @param np_obscure_num Numeric - Obscure number #&amp;#39; @param bp_na_to_num Boolean if TRUE, convert NA to num.</description>
+    </item>
     
     <item>
       <title>Loading excel data with correct variable types</title>

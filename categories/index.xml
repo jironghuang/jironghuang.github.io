@@ -12,7 +12,7 @@
     <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>
@@ -64,6 +64,15 @@
     </item>
     
     <item>
+      <title>data_cleaning</title>
+      <link>/categories/data_cleaning/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/data_cleaning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>finance</title>
       <link>/categories/finance/</link>
       <pubDate>Tue, 18 Dec 2018 13:03:44 +0800</pubDate>
@@ -111,7 +120,7 @@
     <item>
       <title>programming</title>
       <link>/categories/programming/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/programming/</guid>
       <description></description>
@@ -132,15 +141,6 @@
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
       <guid>/categories/risk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>simulation</title>
-      <link>/categories/simulation/</link>
-      <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
-      
-      <guid>/categories/simulation/</guid>
       <description></description>
     </item>
     

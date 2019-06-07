@@ -7,8 +7,137 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Convert NAs to Obscure Number in Data Frame</title>
+      <link>/post/convert_na_num/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/convert_na_num/</guid>
+      <description>
+
+
+&lt;div id=&#34;converting-nas-to-obscure-numbers-to-prevent-the-data-from-messing-up-the-recoding.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Converting NAs to obscure numbers to prevent the data from messing up the recoding.&lt;/h2&gt;
+&lt;p&gt;1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressMessages(library(dplyr))
+
+# Converting NA to obscure number to prevent awkward recoding situations that require &amp;amp; !is.na(&amp;lt;variable&amp;gt;)
+# Doesn&amp;#39;t work for factors
+#&amp;#39; @title Convert NA to obscure number
+#&amp;#39; @param dp_dataframe Dataframe in consideration
+#&amp;#39; @param np_obscure_num Numeric - Obscure number
+#&amp;#39; @param bp_na_to_num Boolean if TRUE, convert NA to num. If FALSE, convert num to NA
+#&amp;#39; @return A data frame with converted NAs
+#&amp;#39; @export
+
+df_convertNAs_to_obscureNo = function(dp_dataframe, np_obscure_num, bp_na_to_num){
+
+  if(bp_na_to_num == T){
+
+    dConverted_data = dp_dataframe %&amp;gt;%
+      mutate_if(is.integer, ~ replace(., is.na(.), np_obscure_num)) %&amp;gt;%
+      mutate_if(is.numeric, ~ replace(., is.na(.), np_obscure_num)) %&amp;gt;%
+      mutate_if(is.character, ~ replace(., is.na(.), as.character(np_obscure_num)))  
+
+  }else if(bp_na_to_num == F){
+    
+    bf_is_obscure_num = function(np_num){
+      return(np_num == np_obscure_num)
+    }
+
+    bf_is_obscure_num_string = function(np_num){
+      return(as.character(np_num) == as.character(np_obscure_num))
+    }
+
+    dConverted_data = dp_dataframe %&amp;gt;%
+      mutate_if(is.integer, ~ replace(., bf_is_obscure_num(.), NA)) %&amp;gt;%
+      mutate_if(is.numeric, ~ replace(., bf_is_obscure_num(.), NA)) %&amp;gt;%
+      mutate_if(is.character, ~ replace(., bf_is_obscure_num_string(.), NA))
+  }
+  
+  return(dConverted_data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To illustrate how we could use the function, first, I load in the car dataset.&lt;/p&gt;
+&lt;p&gt;Second, I insert NA values into 1 of the cells.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(cars)
+data = head(cars)
+data$dist2 = data$dist
+str(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:    6 obs. of  3 variables:
+##  $ speed: num  4 4 7 7 8 9
+##  $ dist : num  2 10 4 22 16 10
+##  $ dist2: num  2 10 4 22 16 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$dist[1] = NA
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed dist dist2
+## 1     4   NA     2
+## 2     4   10    10
+## 3     7    4     4
+## 4     7   22    22
+## 5     8   16    16
+## 6     9   10    10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Third, I implement a recoding-logic as follows,&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$is_true = ifelse(data$speed == 4 &amp;amp; data$dist != 0 &amp;amp; data$dist2 == 2, 1, 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice in the first row that just because dist is NA, is_true returns NA. This holds true for even longer recoding rules. A mere NA would render the return value to be NA even if you would expect the result to be 1!&lt;/p&gt;
+&lt;p&gt;Here comes the highlight of the post.&lt;/p&gt;
+&lt;p&gt;By applying the df_convertNAs_to_obscureNo function I wrote above to the data frame with the following parameters,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data frame name;&lt;/li&gt;
+&lt;li&gt;An obscure number that will never be used in recoding (e.g. -123456);&lt;/li&gt;
+&lt;li&gt;And a boolean flag (will explain this later),&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You would be able to skirt the issue I highlighted above.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(cars)
+data = head(cars)
+data$dist2 = data$dist
+str(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:    6 obs. of  3 variables:
+##  $ speed: num  4 4 7 7 8 9
+##  $ dist : num  2 10 4 22 16 10
+##  $ dist2: num  2 10 4 22 16 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$dist[1] = NA
+
+data = df_convertNAs_to_obscureNo(data, -1234567, T)
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed     dist dist2
+## 1     4 -1234567     2
+## 2     4       10    10
+## 3     7        4     4
+## 4     7       22    22
+## 5     8       16    16
+## 6     9       10    10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Recoding results
+data$is_true = ifelse(data$speed == 4 &amp;amp; data$dist != 0 &amp;amp; data$dist2 == 2, 1, 0)
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed     dist dist2 is_true
+## 1     4 -1234567     2       1
+## 2     4       10    10       0
+## 3     7        4     4       0
+## 4     7       22    22       0
+## 5     8       16    16       0
+## 6     9       10    10       0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So instead of obtaining a NA value, it would return 1 instead!&lt;/p&gt;
+&lt;p&gt;And you may ask me - how do I change -123457 back into NA?&lt;/p&gt;
+&lt;p&gt;You could simply reuse the same function with a FALSE flag. And presto the obscure value is converted back into NA.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data = df_convertNAs_to_obscureNo(data, -1234567, F)
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed dist dist2 is_true
+## 1     4   NA     2       1
+## 2     4   10    10       0
+## 3     7    4     4       0
+## 4     7   22    22       0
+## 5     8   16    16       0
+## 6     9   10    10       0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;warning&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Warning!!!&lt;/h2&gt;
+&lt;p&gt;Developer/ Data Scientist/ Data Analysis would need to be absolutely sure that this is what he/ she wants. If NA value is expected instead of 1 in the above use case, please do not use the function!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Loading excel data with correct variable types</title>
@@ -843,138 +972,6 @@ sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
 &lt;p&gt;Figure 8(a), 8&amp;copy;, 8(d), (f)&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/post/img/seam_carving.img.png&#34; alt=&#34;/post/img/seam_carving.img.png&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
-      <link>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
-      <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
-      
-      <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
-      <description>
-
-&lt;h2 id=&#34;decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects&#34;&gt;Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects&lt;/h2&gt;
-
-&lt;p&gt;If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;If you are an investor, you may use it to analyze impact of exchange rate on your investment positions.&lt;/li&gt;
-&lt;li&gt;If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.&lt;/li&gt;
-&lt;li&gt;If you are in the finance department, you could analyze the exchange rate impact on your foreign revenue.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To start using this package, you may first install the devtools package and execute the following command. install_github(&amp;ldquo;jironghuang/RemoveExchangeRateEffects&amp;rdquo;). The R documentation is as follows,&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
-&lt;img src=&#34;/post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;You may follow the 2 examples to better understand how this package works.&lt;/p&gt;
-
-&lt;h3 id=&#34;example-1&#34;&gt;Example 1&lt;/h3&gt;
-
-&lt;p&gt;In summary, what the example does below is to decompose 1 instrument position in SGD (column value) - from the perspective of someone staying in Singapore - into local static value (i.e if I keep the exchange rate constant at the start of the period) and the residual exchange rate impact.&lt;/p&gt;
-
-&lt;p&gt;If you look at the value at the end of the period (Oct 2018), you would notice that the value in SGD fell from 331 to 261. From the perspective of a Singaporean local - through this package -  we can understand that the appreciation in USD negate the fall in value by 4 SGD.&lt;/p&gt;
-
-&lt;p&gt;If you are an economist, you could have considered the exchange rate elasticities. But let&amp;rsquo;s ignore that for now.&lt;/p&gt;
-
-&lt;h3 id=&#34;quick-example-1-in-r-codes-decomposing-a-single-instrument&#34;&gt;Quick example 1 in R codes (decomposing a single instrument)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;library(devtools)
-install_github(&amp;quot;jironghuang/RemoveExchangeRateEffects&amp;quot;)
-library(RemoveExchangeRateEffects)
-
-sp_exch_rate_pair = &amp;quot;USDSGD=X&amp;quot;  #exchange rate pair. e.g &amp;quot;USDSGD=X&amp;quot;. &amp;quot;&amp;lt;Foreign_currency&amp;gt;&amp;lt;local_currency&amp;gt;=X&amp;quot;
-
-ap_start_date &amp;lt;- as.Date(&amp;quot;2017-10-01&amp;quot;)  #starting date of portfolio e.g. 2017-10-01
-ap_end_date &amp;lt;- as.Date(&amp;quot;2020-10-01&amp;quot;) #ending date of portfolio e.g. 2020-10-01. If you include a date beyond current date, the function will use the current date instead
-np_mthly_yearly = &amp;quot;monthly&amp;quot;  #alternatively this could be &amp;quot;yearly&amp;quot;&amp;quot;
-
-data(eg_dat) #example dataset that I included in this package
-dp_dates_investment_value = instrument
-o_exchRate_effect &amp;lt;- exchange_rate_decomposition(sp_exch_rate_pair, ap_start_date, ap_end_date, np_mthly_yearly, dp_dates_investment_value)
-o_exchRate_effect$get_portfolio()
-
-    value_in_sgd exchange_rate fgn_value local_static_value exch_rate_impact
-Oct 2017 331.53   1.36010  243.7541           331.5300        0.0000000
-Nov 2017 308.85   1.34670  229.3384           311.9231       -3.0731344
-Dec 2017 311.35   1.33780  232.7328           316.5399       -5.1899425
-Jan 2018 354.31   1.31168  270.1192           367.3892      -13.0791734
-Feb 2018 343.06   1.32433  259.0442           352.3260       -9.2660108
-Mar 2018 266.13   1.31090  203.0132           276.1183       -9.9882495
-Apr 2018 293.90   1.32577  221.6825           301.5104       -7.6103599
-May 2018 284.73   1.33850  212.7232           289.3248       -4.5948212
-Jun 2018 342.95   1.36830  250.6395           340.8948        2.0552438
-Jul 2018 298.14   1.36140  218.9952           297.8553        0.2846937
-Aug 2018 301.66   1.36700  220.6730           300.1374        1.5226438
-Sep 2018 264.77   1.36732  193.6416           263.3719        1.3980921
-Oct 2018 260.95   1.38061  189.0107           257.0734        3.8766087
-
-o_exchRate_effect$get_diff_portfolio_value()
-[1] 3.8766087
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;example-2&#34;&gt;Example 2&lt;/h3&gt;
-
-&lt;p&gt;The second example builds upon the first. I&amp;rsquo;ve expanded the previous function to decompose multiple instruments at once.&lt;/p&gt;
-
-&lt;p&gt;get_full_decomposition() returns a list of data frames with the decompositions.&lt;/p&gt;
-
-&lt;p&gt;But before you implement the function above, you would have to add the information via the mutator functions as shown in the example below (the functions with the prefix set)&lt;/p&gt;
-
-&lt;h3 id=&#34;quick-example-2-in-r-codes-decomposing-multiple-instruments-at-1-time&#34;&gt;Quick example 2 in R codes (Decomposing multiple instruments at 1 time)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;data(eg_dat)
-
-er = c(&amp;quot;USDSGD=X&amp;quot;, &amp;quot;GBPSGD=X&amp;quot;)
-start_date = c(&amp;quot;2017-10-01&amp;quot;, &amp;quot;2017-10-01&amp;quot;)
-end_date = c(&amp;quot;2020-10-01&amp;quot;, &amp;quot;2020-10-01&amp;quot;)
-freq = c(&amp;quot;monthly&amp;quot;, &amp;quot;monthly&amp;quot;)
-dat = list(eg_dat, eg_dat)
-
-
-o_exchRate_effect &amp;lt;- multiple_exchange_rate_decomposition(2)
-o_exchRate_effect$set_sa_exch_rate_pair(er) #adding an array of exchange rate pairs
-o_exchRate_effect$set_sa_start_date(start_date) #adding an array of starting dates
-o_exchRate_effect$set_sa_end_date(end_date) #adding an array of ending dates
-o_exchRate_effect$set_sa_mthly_yearly(freq) #adding an array of &amp;quot;monthly&amp;quot; or &amp;quot;yearly&amp;quot; option
-o_exchRate_effect$set_dl_dates_investment_value(dat) #adding list of data frames
-o_exchRate_effect$get_full_decomposition()  #carry out decomposition and obtain a list of data frames
-
-[[1]]
-          value exchange_rate fgn_value local_static_value exch_rate_impact
-Oct 2017 331.53       1.36010  243.7541           331.5300        0.0000000
-Nov 2017 308.85       1.34670  229.3384           311.9231       -3.0731344
-Dec 2017 311.35       1.33780  232.7328           316.5399       -5.1899425
-Jan 2018 354.31       1.31168  270.1192           367.3892      -13.0791734
-Feb 2018 343.06       1.32433  259.0442           352.3260       -9.2660108
-Mar 2018 266.13       1.31090  203.0132           276.1183       -9.9882495
-Apr 2018 293.90       1.32577  221.6825           301.5104       -7.6103599
-May 2018 284.73       1.33850  212.7232           289.3248       -4.5948212
-Jun 2018 342.95       1.36830  250.6395           340.8948        2.0552438
-Jul 2018 298.14       1.36140  218.9952           297.8553        0.2846937
-Aug 2018 301.66       1.36700  220.6730           300.1374        1.5226438
-Sep 2018 264.77       1.36732  193.6416           263.3719        1.3980921
-Oct 2018 260.95       1.38061  189.0107           257.0734        3.8766087
-
-[[2]]
-          value exchange_rate fgn_value local_static_value exch_rate_impact
-Oct 2017 331.53       1.79703  184.4877           331.5300        0.0000000
-Nov 2017 308.85       1.80690  170.9281           307.1629        1.6870605
-Dec 2017 311.35       1.79812  173.1531           311.1613        0.1887369
-Jan 2018 354.31       1.85680  190.8175           342.9048       11.4051640
-Feb 2018 343.06       1.84162  186.2816           334.7537        8.3062984
-Mar 2018 266.13       1.83911  144.7059           260.0408        6.0892228
-Apr 2018 293.90       1.82588  160.9635           289.2562        4.6437963
-May 2018 284.73       1.77878  160.0704           287.6513       -2.9212846
-Jun 2018 342.95       1.78907  191.6918           344.4759       -1.5258666
-Jul 2018 298.14       1.78638  166.8962           299.9175       -1.7774444
-Aug 2018 301.66       1.77860  169.6053           304.7858       -3.1258259
-Sep 2018 264.77       1.78285  148.5094           266.8759       -2.1058633
-Oct 2018 260.95       1.76900  147.5127           265.0848       -4.1347817
-
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -7,8 +7,137 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 25 Oct 2018 11:39:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/categories/r/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Convert NAs to Obscure Number in Data Frame</title>
+      <link>/post/convert_na_num/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/convert_na_num/</guid>
+      <description>
+
+
+&lt;div id=&#34;converting-nas-to-obscure-numbers-to-prevent-the-data-from-messing-up-the-recoding.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Converting NAs to obscure numbers to prevent the data from messing up the recoding.&lt;/h2&gt;
+&lt;p&gt;1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressMessages(library(dplyr))
+
+# Converting NA to obscure number to prevent awkward recoding situations that require &amp;amp; !is.na(&amp;lt;variable&amp;gt;)
+# Doesn&amp;#39;t work for factors
+#&amp;#39; @title Convert NA to obscure number
+#&amp;#39; @param dp_dataframe Dataframe in consideration
+#&amp;#39; @param np_obscure_num Numeric - Obscure number
+#&amp;#39; @param bp_na_to_num Boolean if TRUE, convert NA to num. If FALSE, convert num to NA
+#&amp;#39; @return A data frame with converted NAs
+#&amp;#39; @export
+
+df_convertNAs_to_obscureNo = function(dp_dataframe, np_obscure_num, bp_na_to_num){
+
+  if(bp_na_to_num == T){
+
+    dConverted_data = dp_dataframe %&amp;gt;%
+      mutate_if(is.integer, ~ replace(., is.na(.), np_obscure_num)) %&amp;gt;%
+      mutate_if(is.numeric, ~ replace(., is.na(.), np_obscure_num)) %&amp;gt;%
+      mutate_if(is.character, ~ replace(., is.na(.), as.character(np_obscure_num)))  
+
+  }else if(bp_na_to_num == F){
+    
+    bf_is_obscure_num = function(np_num){
+      return(np_num == np_obscure_num)
+    }
+
+    bf_is_obscure_num_string = function(np_num){
+      return(as.character(np_num) == as.character(np_obscure_num))
+    }
+
+    dConverted_data = dp_dataframe %&amp;gt;%
+      mutate_if(is.integer, ~ replace(., bf_is_obscure_num(.), NA)) %&amp;gt;%
+      mutate_if(is.numeric, ~ replace(., bf_is_obscure_num(.), NA)) %&amp;gt;%
+      mutate_if(is.character, ~ replace(., bf_is_obscure_num_string(.), NA))
+  }
+  
+  return(dConverted_data)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To illustrate how we could use the function, first, I load in the car dataset.&lt;/p&gt;
+&lt;p&gt;Second, I insert NA values into 1 of the cells.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(cars)
+data = head(cars)
+data$dist2 = data$dist
+str(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:    6 obs. of  3 variables:
+##  $ speed: num  4 4 7 7 8 9
+##  $ dist : num  2 10 4 22 16 10
+##  $ dist2: num  2 10 4 22 16 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$dist[1] = NA
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed dist dist2
+## 1     4   NA     2
+## 2     4   10    10
+## 3     7    4     4
+## 4     7   22    22
+## 5     8   16    16
+## 6     9   10    10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Third, I implement a recoding-logic as follows,&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$is_true = ifelse(data$speed == 4 &amp;amp; data$dist != 0 &amp;amp; data$dist2 == 2, 1, 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice in the first row that just because dist is NA, is_true returns NA. This holds true for even longer recoding rules. A mere NA would render the return value to be NA even if you would expect the result to be 1!&lt;/p&gt;
+&lt;p&gt;Here comes the highlight of the post.&lt;/p&gt;
+&lt;p&gt;By applying the df_convertNAs_to_obscureNo function I wrote above to the data frame with the following parameters,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data frame name;&lt;/li&gt;
+&lt;li&gt;An obscure number that will never be used in recoding (e.g. -123456);&lt;/li&gt;
+&lt;li&gt;And a boolean flag (will explain this later),&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You would be able to skirt the issue I highlighted above.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(cars)
+data = head(cars)
+data$dist2 = data$dist
+str(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:    6 obs. of  3 variables:
+##  $ speed: num  4 4 7 7 8 9
+##  $ dist : num  2 10 4 22 16 10
+##  $ dist2: num  2 10 4 22 16 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$dist[1] = NA
+
+data = df_convertNAs_to_obscureNo(data, -1234567, T)
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed     dist dist2
+## 1     4 -1234567     2
+## 2     4       10    10
+## 3     7        4     4
+## 4     7       22    22
+## 5     8       16    16
+## 6     9       10    10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Recoding results
+data$is_true = ifelse(data$speed == 4 &amp;amp; data$dist != 0 &amp;amp; data$dist2 == 2, 1, 0)
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed     dist dist2 is_true
+## 1     4 -1234567     2       1
+## 2     4       10    10       0
+## 3     7        4     4       0
+## 4     7       22    22       0
+## 5     8       16    16       0
+## 6     9       10    10       0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So instead of obtaining a NA value, it would return 1 instead!&lt;/p&gt;
+&lt;p&gt;And you may ask me - how do I change -123457 back into NA?&lt;/p&gt;
+&lt;p&gt;You could simply reuse the same function with a FALSE flag. And presto the obscure value is converted back into NA.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data = df_convertNAs_to_obscureNo(data, -1234567, F)
+print(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   speed dist dist2 is_true
+## 1     4   NA     2       1
+## 2     4   10    10       0
+## 3     7    4     4       0
+## 4     7   22    22       0
+## 5     8   16    16       0
+## 6     9   10    10       0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;warning&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Warning!!!&lt;/h2&gt;
+&lt;p&gt;Developer/ Data Scientist/ Data Analysis would need to be absolutely sure that this is what he/ she wants. If NA value is expected instead of 1 in the above use case, please do not use the function!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>

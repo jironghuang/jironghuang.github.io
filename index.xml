@@ -11,6 +11,16 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Convert NAs to Obscure Number in Data Frame</title>
+      <link>/post/convert_na_num/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/convert_na_num/</guid>
+      <description>Converting NAs to obscure numbers to prevent the data from messing up the recoding. 1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.
+suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent awkward recoding situations that require &amp;amp; !is.na(&amp;lt;variable&amp;gt;) # Doesn&amp;#39;t work for factors #&amp;#39; @title Convert NA to obscure number #&amp;#39; @param dp_dataframe Dataframe in consideration #&amp;#39; @param np_obscure_num Numeric - Obscure number #&amp;#39; @param bp_na_to_num Boolean if TRUE, convert NA to num.</description>
+    </item>
+    
+    <item>
       <title>Loading excel data with correct variable types</title>
       <link>/post/load_data_with_correct_types/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
@@ -166,16 +176,6 @@ In my first month of deploying algo trading strategies, I focus mainly on mean-r
       <description>How I Find Country Pairs for Mean Reversion Strategy As mentioned in my previous post here, the first step for a mean reversion strategy is to conduct some background quantitative research.
 Step 1 First, I use a pair trading function to loop across 800+ country pairs (created from combination function),
 pair_trading = function(stock1, stock2, trade_amount, finance_rates, start_date, end_date, prop_train, enter_z_score, exit_z_score){ ## More codes here ## Return this key_info = list( ticker = c(stock1, stock2), start_date = start_date, trade_table = data_trade, sharpe = c(sharpeRatioTrainset, sharpeRatioTestset), half_life = half_life, profits = data_trade_stats, max_drawdown = c(table.</description>
-    </item>
-    
-    <item>
-      <title>Research to Production Pipeline for Mean Reversion</title>
-      <link>/post/research-to-production-pipeline-for-mean-reversion/</link>
-      <pubDate>Tue, 25 Dec 2018 18:07:19 +0800</pubDate>
-      
-      <guid>/post/research-to-production-pipeline-for-mean-reversion/</guid>
-      <description>Research to Production Pipeline for Mean Reversion Here is a high level overview of something that I&amp;rsquo;m working on.
-I&amp;rsquo;ve been grappling with the finite state automata Event Driven Computing transitions and I kinda sorted it out for production use.</description>
     </item>
     
   </channel>

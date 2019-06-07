@@ -82,7 +82,7 @@
   <meta property="og:description" content="Data scientist and Quantitative Investor/ Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-06-01T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-06-07T00:00:00&#43;00:00">
   
 
   
@@ -257,6 +257,16 @@
   
   
   <div>
+    <h2><a href="/post/convert_na_num/">Convert NAs to Obscure Number in Data Frame</a></h2>
+    <div class="article-style">
+      
+      Converting NAs to obscure numbers to prevent the data from messing up the recoding. 1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.
+suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent awkward recoding situations that require &amp; !is.na(&lt;variable&gt;) # Doesn&#39;t work for factors #&#39; @title Convert NA to obscure number #&#39; @param dp_dataframe Dataframe in consideration #&#39; @param np_obscure_num Numeric - Obscure number #&#39; @param bp_na_to_num Boolean if TRUE, convert NA to num.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/load_data_with_correct_types/">Loading excel data with correct variable types</a></h2>
     <div class="article-style">
       
@@ -355,17 +365,6 @@ Here&rsquo;s a simple explanation of the strategy,
 1 solution is to create a Python Environment dedicated to that project.
 First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),
 name: env channels: !!python/tuple - !!python/unicode &lsquo;defaults&rsquo; dependencies: - nb_conda=2.2.0=py27_0 - python=2.7.13=0 - cycler=0.10.0 - functools32=3.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/">Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</a></h2>
-    <div class="article-style">
-      
-      Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&rsquo;m really intrigued by Ernest Chan&rsquo;s approach in Quant Trading.
-Often in the retail trading space, what &lsquo;gurus&rsquo; preach often sounds really dubious. But Ernest Chan is different. He&rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
-In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.
       
     </div>
   </div>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="author" content="Huang Jirong">
+  <meta name="description" content="Data scientist and Quantitative Investor/ Trader">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/convert_na_num/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-116737154-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/convert_na_num/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Jirong&#39;s sandbox">
+  <meta property="og:url" content="/post/convert_na_num/">
+  <meta property="og:title" content="Convert NAs to Obscure Number in Data Frame | Jirong&#39;s sandbox">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-06-07T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-06-07T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Convert NAs to Obscure Number in Data Frame | Jirong&#39;s sandbox</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Jirong&#39;s sandbox</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/skin/skin-in-the-game">
+            
+            <span>Skin in the game</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/asset_allocation/asset_allocation">
+            
+            <span>Asset allocation</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/subscribe/subscribe">
+            
+            <span>Subscribe Here</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Convert NAs to Obscure Number in Data Frame</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 7, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/convert_na_num/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/data_cleaning">data_cleaning</a
+    >, 
+    
+    <a href="/categories/programming">programming</a
+    >, 
+    
+    <a href="/categories/r">R</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Convert%20NAs%20to%20Obscure%20Number%20in%20Data%20Frame&amp;url=%2fpost%2fconvert_na_num%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fconvert_na_num%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fconvert_na_num%2f&amp;title=Convert%20NAs%20to%20Obscure%20Number%20in%20Data%20Frame"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fconvert_na_num%2f&amp;title=Convert%20NAs%20to%20Obscure%20Number%20in%20Data%20Frame"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Convert%20NAs%20to%20Obscure%20Number%20in%20Data%20Frame&amp;body=%2fpost%2fconvert_na_num%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+
+<div id="converting-nas-to-obscure-numbers-to-prevent-the-data-from-messing-up-the-recoding." class="section level2">
+<h2>Converting NAs to obscure numbers to prevent the data from messing up the recoding.</h2>
+<p>1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.</p>
+<pre class="r"><code>suppressMessages(library(dplyr))
+
+# Converting NA to obscure number to prevent awkward recoding situations that require &amp; !is.na(&lt;variable&gt;)
+# Doesn&#39;t work for factors
+#&#39; @title Convert NA to obscure number
+#&#39; @param dp_dataframe Dataframe in consideration
+#&#39; @param np_obscure_num Numeric - Obscure number
+#&#39; @param bp_na_to_num Boolean if TRUE, convert NA to num. If FALSE, convert num to NA
+#&#39; @return A data frame with converted NAs
+#&#39; @export
+
+df_convertNAs_to_obscureNo = function(dp_dataframe, np_obscure_num, bp_na_to_num){
+
+  if(bp_na_to_num == T){
+
+    dConverted_data = dp_dataframe %&gt;%
+      mutate_if(is.integer, ~ replace(., is.na(.), np_obscure_num)) %&gt;%
+      mutate_if(is.numeric, ~ replace(., is.na(.), np_obscure_num)) %&gt;%
+      mutate_if(is.character, ~ replace(., is.na(.), as.character(np_obscure_num)))  
+
+  }else if(bp_na_to_num == F){
+    
+    bf_is_obscure_num = function(np_num){
+      return(np_num == np_obscure_num)
+    }
+
+    bf_is_obscure_num_string = function(np_num){
+      return(as.character(np_num) == as.character(np_obscure_num))
+    }
+
+    dConverted_data = dp_dataframe %&gt;%
+      mutate_if(is.integer, ~ replace(., bf_is_obscure_num(.), NA)) %&gt;%
+      mutate_if(is.numeric, ~ replace(., bf_is_obscure_num(.), NA)) %&gt;%
+      mutate_if(is.character, ~ replace(., bf_is_obscure_num_string(.), NA))
+  }
+  
+  return(dConverted_data)
+}</code></pre>
+<p>To illustrate how we could use the function, first, I load in the car dataset.</p>
+<p>Second, I insert NA values into 1 of the cells.</p>
+<pre class="r"><code>data(cars)
+data = head(cars)
+data$dist2 = data$dist
+str(data)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  3 variables:
+##  $ speed: num  4 4 7 7 8 9
+##  $ dist : num  2 10 4 22 16 10
+##  $ dist2: num  2 10 4 22 16 10</code></pre>
+<pre class="r"><code>data$dist[1] = NA
+print(data)</code></pre>
+<pre><code>##   speed dist dist2
+## 1     4   NA     2
+## 2     4   10    10
+## 3     7    4     4
+## 4     7   22    22
+## 5     8   16    16
+## 6     9   10    10</code></pre>
+<p>Third, I implement a recoding-logic as follows,</p>
+<pre class="r"><code>data$is_true = ifelse(data$speed == 4 &amp; data$dist != 0 &amp; data$dist2 == 2, 1, 0)</code></pre>
+<p>Notice in the first row that just because dist is NA, is_true returns NA. This holds true for even longer recoding rules. A mere NA would render the return value to be NA even if you would expect the result to be 1!</p>
+<p>Here comes the highlight of the post.</p>
+<p>By applying the df_convertNAs_to_obscureNo function I wrote above to the data frame with the following parameters,</p>
+<ul>
+<li>Data frame name;</li>
+<li>An obscure number that will never be used in recoding (e.g. -123456);</li>
+<li>And a boolean flag (will explain this later),</li>
+</ul>
+<p>You would be able to skirt the issue I highlighted above.</p>
+<pre class="r"><code>data(cars)
+data = head(cars)
+data$dist2 = data$dist
+str(data)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  3 variables:
+##  $ speed: num  4 4 7 7 8 9
+##  $ dist : num  2 10 4 22 16 10
+##  $ dist2: num  2 10 4 22 16 10</code></pre>
+<pre class="r"><code>data$dist[1] = NA
+
+data = df_convertNAs_to_obscureNo(data, -1234567, T)
+print(data)</code></pre>
+<pre><code>##   speed     dist dist2
+## 1     4 -1234567     2
+## 2     4       10    10
+## 3     7        4     4
+## 4     7       22    22
+## 5     8       16    16
+## 6     9       10    10</code></pre>
+<pre class="r"><code>#Recoding results
+data$is_true = ifelse(data$speed == 4 &amp; data$dist != 0 &amp; data$dist2 == 2, 1, 0)
+print(data)</code></pre>
+<pre><code>##   speed     dist dist2 is_true
+## 1     4 -1234567     2       1
+## 2     4       10    10       0
+## 3     7        4     4       0
+## 4     7       22    22       0
+## 5     8       16    16       0
+## 6     9       10    10       0</code></pre>
+<p>So instead of obtaining a NA value, it would return 1 instead!</p>
+<p>And you may ask me - how do I change -123457 back into NA?</p>
+<p>You could simply reuse the same function with a FALSE flag. And presto the obscure value is converted back into NA.</p>
+<pre class="r"><code>data = df_convertNAs_to_obscureNo(data, -1234567, F)
+print(data)</code></pre>
+<pre><code>##   speed dist dist2 is_true
+## 1     4   NA     2       1
+## 2     4   10    10       0
+## 3     7    4     4       0
+## 4     7   22    22       0
+## 5     8   16    16       0
+## 6     9   10    10       0</code></pre>
+</div>
+<div id="warning" class="section level2">
+<h2>Warning!!!</h2>
+<p>Developer/ Data Scientist/ Data Analysis would need to be absolutely sure that this is what he/ she wants. If NA value is expected instead of 1 in the above use case, please do not use the function!</p>
+</div>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/data_cleaning">data_cleaning</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/programming">programming</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/">R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</a></li>
+    
+    <li><a href="/post/shift-share-analysis-package/">Shift Share Analysis Package I developed</a></li>
+    
+    <li><a href="/post/load_data_with_correct_types/">Loading excel data with correct variable types</a></li>
+    
+    <li><a href="/post/cluster_descriptive_stats/">Function to describe clusters derived from unsupervised learning</a></li>
+    
+    <li><a href="/post/google_place_api/">Playing with Google Place API</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jirong" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://jironghuang.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//jirong.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
