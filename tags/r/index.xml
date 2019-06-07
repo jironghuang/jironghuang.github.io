@@ -7,33 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 26 Jan 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Oct 2018 11:39:24 +0800</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Martingale Strategy - Double Down</title>
-      <link>/post/martingale-strategy/</link>
-      <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
-      
-      <guid>/post/martingale-strategy/</guid>
-      <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
-Double down! That&amp;rsquo;s essentially the essence of it.
-Here&amp;rsquo;s a simple explanation of the strategy,
- The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?</description>
-    </item>
-    
-    <item>
-      <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
-      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
-      <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
-      
-      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
-      <description>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.
-Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
-In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.</description>
-    </item>
     
     <item>
       <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
