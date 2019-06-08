@@ -413,7 +413,15 @@ print(data)</code></pre>
 ## 5     8   16    16
 ## 6     9   10    10</code></pre>
 <p>Third, I implement a recoding-logic as follows,</p>
-<pre class="r"><code>data$is_true = ifelse(data$speed == 4 &amp; data$dist != 0 &amp; data$dist2 == 2, 1, 0)</code></pre>
+<pre class="r"><code>data$is_true = ifelse(data$speed == 4 &amp; data$dist != 0 &amp; data$dist2 == 2, 1, 0)
+print(data)</code></pre>
+<pre><code>##   speed dist dist2 is_true
+## 1     4   NA     2      NA
+## 2     4   10    10       0
+## 3     7    4     4       0
+## 4     7   22    22       0
+## 5     8   16    16       0
+## 6     9   10    10       0</code></pre>
 <p>Notice in the first row that just because dist is NA, is_true returns NA. This holds true for even longer recoding rules. A mere NA would render the return value to be NA even if you would expect the result to be 1!</p>
 <p>Here comes the highlight of the post.</p>
 <p>By applying the df_convertNAs_to_obscureNo function I wrote above to the data frame with the following parameters,</p>
