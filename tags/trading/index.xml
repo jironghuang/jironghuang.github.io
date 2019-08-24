@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 01 Jan 2019 00:15:53 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/trading/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Market Neutral Strategy - SnP500 to Berkshire Hathaway Ratio</title>
+      <link>/post/market_neutral/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/market_neutral/</guid>
+      <description>Market neutral strategy As the negative news pile up (trade wars, slump in economy growths, etc), I sought for market neutral stategies that could perform well in any market environment.
+An idea that struck me recently is to exploit the pair between Berkshire and SnP 500.
+The SnP500/ Berkshire ratio has been falling over the years - insinuating that Berkshire has lost its magic of outperforming the index over a couple of decades.</description>
+    </item>
     
     <item>
       <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
