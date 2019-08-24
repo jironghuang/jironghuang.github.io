@@ -1521,6 +1521,228 @@ NA
     </item>
     
     <item>
+      <title>Market neutral strategy - SnP 500 and Berkshire Hathaway</title>
+      <link>/post/market_neutral_strategy/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/market_neutral_strategy/</guid>
+      <description>
+
+
+&lt;div id=&#34;market-neutral-strategy&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Market neutral strategy&lt;/h2&gt;
+&lt;p&gt;As the negative news pile up (trade wars, slump in economy growths, etc), I sought for market neutral stategies that could perform well in any market environment.&lt;/p&gt;
+&lt;p&gt;An idea that struck me recently is to exploit the pair between Berkshire and SnP 500.&lt;/p&gt;
+&lt;p&gt;The SnP500/ Berkshire ratio has been falling over the years - insinuating that Berkshire has lost its magic of outperforming the index over a couple of decades.&lt;/p&gt;
+&lt;p&gt;That being said, it’s still widely regarded as a safe haven in times of trouble.&lt;/p&gt;
+&lt;div id=&#34;strategy&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Strategy&lt;/h3&gt;
+&lt;p&gt;As the market is facing headwind and I sought for a market neutral strategy. Here’s what I did,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I derive the SnP500/ Berkshire ratio&lt;/li&gt;
+&lt;li&gt;And I fix a Bollinger Band around the ratio with n = 200 days as the moving average parameter - with 2 SD as the lower (lb) and upper bound (ub) line. Bollinger band ratio accounts for the downward trend in the ratio over time.&lt;/li&gt;
+&lt;li&gt;If the ratio is below the lb, I will long SnP500 and short Berkshire Hathaway. And when it mean reverts and touches the middle moving average, I will exit the positions&lt;/li&gt;
+&lt;li&gt;Conversely if the ratio is above the ub, I will short SnP500 and long Berkshire Hathaway. Similarly, I will exit the position when it touches the moving average&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;p&gt;So how did the strategy fare? Fairly impressive I must say.&lt;/p&gt;
+&lt;p&gt;Sharpe ratio is around 0.8. Annualized return is around 5.7% with the positions only in the market 30% of the time!&lt;/p&gt;
+&lt;p&gt;That being said, I’m cherry picking here because the performance before this period is sub-par; probably because of a change in market regime. You may execute my code to stress-test this simple strategy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;disclosure&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Disclosure&lt;/h3&gt;
+&lt;p&gt;I may execute this strategy in the near term.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;running-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Running packages&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;##                  zoo                tidyr                 plyr 
+##                 TRUE                 TRUE                 TRUE 
+##                dplyr               gtools         googlesheets 
+##                 TRUE                 TRUE                 TRUE 
+##             quantmod                 urca PerformanceAnalytics 
+##                 TRUE                 TRUE                 TRUE 
+##             parallel                  TTR 
+##                 TRUE                 TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;function&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Function&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Function using bollinger band
+lf_bollinger_pair_trading = function(stock1, stock2, start_date, end_date, prop_res, bband_days){
+  
+#Start of function
+data1 = df_crawl_time_series(stock1, start_date, end_date)
+data1 = subset(data1, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
+names(data1) = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Close&amp;quot;)
+data1$Date = as.Date(data1$Date)
+
+data2 = df_crawl_time_series(stock2, start_date, end_date)
+data2 = subset(data2, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
+names(data2) = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Close&amp;quot;)
+data2$Date = as.Date(data2$Date)
+
+#Training and testing index
+data1 = xts(data1[, -1], order.by = data1[, 1])
+data2 = xts(data2[, -1], order.by = data2[, 1])
+
+data = merge(data1, data2)
+data = as.data.frame(data)
+data = subset(data, !is.na(data$Close) &amp;amp; !is.na(data$Close.1))
+
+data$ratio = data$Close/ data$Close.1
+
+# plot(data$ratio)
+bb_ratio = data.frame(BBands( data$ratio, n = bband_days))
+data = cbind(data, bb_ratio)
+data_sub = tail(data, round(nrow(data) * prop_res, 0))
+
+plot(data_sub$ratio)
+lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
+lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
+lines(data_sub$dn, col = &amp;quot;green&amp;quot;)
+
+#If lower than 
+data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
+data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
+
+#  exit any spread position when its value is at moving average
+data_sub$longExits   &amp;lt;- data_sub$ratio &amp;gt;= data_sub$mavg
+data_sub$shortExits &amp;lt;- data_sub$ratio &amp;lt;= data_sub$mavg
+
+
+# #  define indices for training and test sets
+# trainset &amp;lt;- 1:as.integer(nrow(data) * prop_train)
+# testset &amp;lt;- (length(trainset)+1):nrow(data)
+
+#Signal
+data_sub$posL1 = NA
+data_sub$posL2 = NA
+data_sub$posS1 = NA
+data_sub$posS2 = NA
+
+# initialize to 0
+data_sub$posL1[1] &amp;lt;- 0; data_sub$posL2[1] &amp;lt;- 0
+data_sub$posS1[1] &amp;lt;- 0; data_sub$posS2[1] &amp;lt;- 0
+
+data_sub$posL1[data_sub$longs] &amp;lt;- 1
+data_sub$posL2[data_sub$longs] &amp;lt;- -1
+
+data_sub$posS1[data_sub$shorts] &amp;lt;- -1
+data_sub$posS2[data_sub$shorts] &amp;lt;- 1
+
+data_sub$posL1[data_sub$longExits] &amp;lt;- 0
+data_sub$posL2[data_sub$longExits] &amp;lt;- 0
+data_sub$posS1[data_sub$shortExits] &amp;lt;- 0
+data_sub$posS2[data_sub$shortExits] &amp;lt;- 0
+
+#positions
+data_sub$posL1 &amp;lt;- zoo::na.locf(data_sub$posL1); data_sub$posL2 &amp;lt;- zoo::na.locf(data_sub$posL2)
+data_sub$posS1 &amp;lt;- zoo::na.locf(data_sub$posS1); data_sub$posS2 &amp;lt;- zoo::na.locf(data_sub$posS2)
+data_sub$position1 &amp;lt;- data_sub$posL1 + data_sub$posS1
+data_sub$position2 &amp;lt;- data_sub$posL2 + data_sub$posS2
+
+#Returns
+data_sub$dailyret1 &amp;lt;- ROC(data_sub$Close) #  last row is [385,] -0.0122636689 -0.0140365802
+data_sub$dailyret2 &amp;lt;- ROC(data_sub$Close.1) #  last row is [385,] -0.0122636689 -0.0140365802
+
+#Backshifting here. But signal is for following day returns!. So can still use latest Z-score
+data_sub$date = as.Date(row.names(data_sub))
+data_sub = xts(data_sub[,-which(names(data_sub) == &amp;quot;date&amp;quot;)], order.by = data_sub[, which(names(data_sub) == &amp;quot;date&amp;quot;)])
+
+#Doesn&amp;#39;t account for number of shares!!!!!
+data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$position2, 1) * data_sub$dailyret2
+
+#Performance analytics
+tryCatch({
+  # charts_perf = charts.PerformanceSummary(data_sub$pnl)
+  charts.PerformanceSummary(data_sub$pnl)
+}, error = function(e){})
+
+dd = table.Drawdowns(data_sub$pnl)
+ds_risk = table.DownsideRisk(data_sub$pnl)
+ret = table.AnnualizedReturns(data_sub$pnl)
+
+
+df_ret = list(data_sub = data_sub,
+              dd = dd,
+              ds_risk = ds_risk,
+              ret = ret
+              )
+
+return(df_ret)
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Parameters to be includded in function
+stock1 = &amp;quot;^GSPC&amp;quot;
+stock2 = &amp;quot;BRK-B&amp;quot;
+
+start_date = &amp;quot;2000-07-01&amp;quot;
+end_date = &amp;quot;2019-12-30&amp;quot;
+
+prop_res = 0.25     #Proportion of results to show
+bband_days = 200   #Bollinger band of ratio
+
+#Storing result to function
+res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, bband_days)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;getSymbols&amp;#39; currently uses auto.assign=TRUE by default, but will
+## use auto.assign=FALSE in 0.5-0. You will still be able to use
+## &amp;#39;loadSymbols&amp;#39; to automatically load data. getOption(&amp;quot;getSymbols.env&amp;quot;)
+## and getOption(&amp;quot;getSymbols.auto.assign&amp;quot;) will still be checked for
+## alternate defaults.
+## 
+## This message is shown once per session and may be disabled by setting 
+## options(&amp;quot;getSymbols.warning4.0&amp;quot;=FALSE). See ?getSymbols for details.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## WARNING: There have been significant changes to Yahoo Finance data.
+## Please see the Warning section of &amp;#39;?getSymbols.yahoo&amp;#39; for details.
+## 
+## This message is shown once per session and may be disabled by setting
+## options(&amp;quot;getSymbols.yahoo.warning&amp;quot;=FALSE).&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_strategy_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/market_neutral_strategy_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;displaying-of-results&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Displaying of results&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Drawdown period&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$dd&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
+## 1 2015-08-10 2015-12-10 2016-05-31 -0.0724    204        87      117
+## 2 2018-12-14 2018-12-31 2019-01-08 -0.0627     16        11        5
+## 3 2017-01-24 2017-03-09 2017-04-13 -0.0551     57        32       25
+## 4 2018-05-31 2018-07-17 2018-08-06 -0.0494     47        33       14
+## 5 2018-02-26 2018-03-09 2018-04-17 -0.0349     36        10       26&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Downside risk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ds_risk&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                   pnl
+## Semi Deviation                 0.0031
+## Gain Deviation                 0.0049
+## Loss Deviation                 0.0041
+## Downside Deviation (MAR=210%)  0.0092
+## Downside Deviation (Rf=0%)     0.0030
+## Downside Deviation (0%)        0.0030
+## Maximum Drawdown               0.0724
+## Historical VaR (95%)          -0.0071
+## Historical ES (95%)           -0.0106
+## Modified VaR (95%)            -0.0043
+## Modified ES (95%)             -0.0043&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Returns&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ret&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                              pnl
+## Annualized Return         0.0574
+## Annualized Std Dev        0.0736
+## Annualized Sharpe (Rf=0%) 0.7799&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Rolling out the Investment Compass interactive app that I promised eons ago</title>
       <link>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
