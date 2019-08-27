@@ -380,7 +380,10 @@
 </div>
 <div id="disclosure" class="section level3">
 <h3>Disclosure</h3>
-<p>I executed a long (BRK-B) short (SnP500) strategy on 26-August with approximately $8000 ob both positions. Target to close when ratio touches moving average.</p>
+<ul>
+<li>I executed a long (BRK-B) short (SnP500 index CFD) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars.</li>
+<li>I’m using an email notification system to inform me to close my positions when the ratio dips below moving average.</li>
+</ul>
 </div>
 </div>
 <div id="running-packages" class="section level2">
@@ -401,12 +404,12 @@ lf_bollinger_pair_trading = function(stock1, stock2, start_date, end_date, prop_
   
 #Start of function
 data1 = df_crawl_time_series(stock1, start_date, end_date)
-data1 = subset(data1, select = c(&quot;Date&quot;, &quot;Open&quot;, &quot;Adj.Close&quot;))
+data1 = base::subset(data1, select = c(&quot;Date&quot;, &quot;Open&quot;, &quot;Adj.Close&quot;))
 names(data1) = c(&quot;Date&quot;, &quot;Open&quot;, &quot;Close&quot;)
 data1$Date = as.Date(data1$Date)
 
 data2 = df_crawl_time_series(stock2, start_date, end_date)
-data2 = subset(data2, select = c(&quot;Date&quot;, &quot;Open&quot;, &quot;Adj.Close&quot;))
+data2 = base::subset(data2, select = c(&quot;Date&quot;, &quot;Open&quot;, &quot;Adj.Close&quot;))
 names(data2) = c(&quot;Date&quot;, &quot;Open&quot;, &quot;Close&quot;)
 data2$Date = as.Date(data2$Date)
 
@@ -562,9 +565,9 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 </ul>
 <pre class="r"><code>res$ret</code></pre>
 <pre><code>##                              pnl
-## Annualized Return         0.0574
-## Annualized Std Dev        0.0736
-## Annualized Sharpe (Rf=0%) 0.7793</code></pre>
+## Annualized Return         0.0584
+## Annualized Std Dev        0.0737
+## Annualized Sharpe (Rf=0%) 0.7928</code></pre>
 </div>
 
       </div>

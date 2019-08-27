@@ -44,7 +44,10 @@
 &lt;/div&gt;
 &lt;div id=&#34;disclosure&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Disclosure&lt;/h3&gt;
-&lt;p&gt;I executed a long (BRK-B) short (SnP500) strategy on 26-August with approximately $8000 ob both positions. Target to close when ratio touches moving average.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I executed a long (BRK-B) short (SnP500 index CFD) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars.&lt;/li&gt;
+&lt;li&gt;I’m using an email notification system to inform me to close my positions when the ratio dips below moving average.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;running-packages&#34; class=&#34;section level2&#34;&gt;
@@ -65,12 +68,12 @@ lf_bollinger_pair_trading = function(stock1, stock2, start_date, end_date, prop_
   
 #Start of function
 data1 = df_crawl_time_series(stock1, start_date, end_date)
-data1 = subset(data1, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
+data1 = base::subset(data1, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
 names(data1) = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Close&amp;quot;)
 data1$Date = as.Date(data1$Date)
 
 data2 = df_crawl_time_series(stock2, start_date, end_date)
-data2 = subset(data2, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
+data2 = base::subset(data2, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
 names(data2) = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Close&amp;quot;)
 data2$Date = as.Date(data2$Date)
 
@@ -226,9 +229,9 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ret&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                              pnl
-## Annualized Return         0.0574
-## Annualized Std Dev        0.0736
-## Annualized Sharpe (Rf=0%) 0.7793&lt;/code&gt;&lt;/pre&gt;
+## Annualized Return         0.0584
+## Annualized Std Dev        0.0737
+## Annualized Sharpe (Rf=0%) 0.7928&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
