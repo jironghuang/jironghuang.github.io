@@ -45,8 +45,8 @@
 &lt;div id=&#34;disclosure&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Disclosure&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;I executed a long (BRK-B) short (SnP500 index CFD) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars.&lt;/li&gt;
-&lt;li&gt;I’m using an email notification system to inform me to close my positions when the ratio dips below moving average.&lt;/li&gt;
+&lt;li&gt;I executed a long (BRK-B) short (SnP500 index CFD) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars. I entered at a ratio of 1.439.&lt;/li&gt;
+&lt;li&gt;I’m using an email notification system within my cron task scheduler to inform me in closing my positions when the ratio dips below moving average.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -229,9 +229,9 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ret&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                              pnl
-## Annualized Return         0.0584
+## Annualized Return         0.0571
 ## Annualized Std Dev        0.0737
-## Annualized Sharpe (Rf=0%) 0.7928&lt;/code&gt;&lt;/pre&gt;
+## Annualized Sharpe (Rf=0%) 0.7739&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
