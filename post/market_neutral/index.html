@@ -76,7 +76,7 @@
   
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
   <meta property="og:url" content="/post/market_neutral/">
-  <meta property="og:title" content="Market Neutral Strategy - SnP500 to Berkshire Hathaway Ratio | Jirong&#39;s sandbox">
+  <meta property="og:title" content="Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio | Jirong&#39;s sandbox">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
@@ -87,7 +87,7 @@
 
   
 
-  <title>Market Neutral Strategy - SnP500 to Berkshire Hathaway Ratio | Jirong&#39;s sandbox</title>
+  <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio | Jirong&#39;s sandbox</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +252,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">Market Neutral Strategy - SnP500 to Berkshire Hathaway Ratio</h1>
+      <h1 itemprop="name">Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</h1>
 
       
 
@@ -310,7 +310,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Market%20Neutral%20Strategy%20-%20SnP500%20to%20Berkshire%20Hathaway%20Ratio&amp;url=%2fpost%2fmarket_neutral%2f"
+         href="https://twitter.com/intent/tweet?text=Market%20Neutral%20Strategy%20-%20SnP500%20%28SPY%29%20to%20Berkshire%20Hathaway%20Ratio&amp;url=%2fpost%2fmarket_neutral%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
@@ -324,21 +324,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fmarket_neutral%2f&amp;title=Market%20Neutral%20Strategy%20-%20SnP500%20to%20Berkshire%20Hathaway%20Ratio"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fmarket_neutral%2f&amp;title=Market%20Neutral%20Strategy%20-%20SnP500%20%28SPY%29%20to%20Berkshire%20Hathaway%20Ratio"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fmarket_neutral%2f&amp;title=Market%20Neutral%20Strategy%20-%20SnP500%20to%20Berkshire%20Hathaway%20Ratio"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fmarket_neutral%2f&amp;title=Market%20Neutral%20Strategy%20-%20SnP500%20%28SPY%29%20to%20Berkshire%20Hathaway%20Ratio"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Market%20Neutral%20Strategy%20-%20SnP500%20to%20Berkshire%20Hathaway%20Ratio&amp;body=%2fpost%2fmarket_neutral%2f">
+         href="mailto:?subject=Market%20Neutral%20Strategy%20-%20SnP500%20%28SPY%29%20to%20Berkshire%20Hathaway%20Ratio&amp;body=%2fpost%2fmarket_neutral%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -358,15 +358,15 @@
 <div id="market-neutral-strategy" class="section level2">
 <h2>Market neutral strategy</h2>
 <p>As the negative news pile up (trade wars, slump in economy growths, etc), I sought for market neutral stategies that could perform well in any market environment.</p>
-<p>An idea that struck me recently is to exploit the pair between Berkshire and SnP 500.</p>
-<p>The SnP500/ Berkshire ratio has been falling over the years - insinuating that Berkshire still outperforms the index in the last couple of years.</p>
+<p>An idea that struck me recently is to exploit the pair between Berkshire and SnP 500 ETF.</p>
+<p>The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating that Berkshire still outperforms the index in the last couple of years.</p>
 <p>And what’s more impressive, it’s still widely regarded as a safe haven in times of trouble.</p>
 <div id="strategy" class="section level3">
 <h3>Strategy</h3>
 <p>As the market is facing headwind and I sought for a market neutral strategy.</p>
 <p>Here’s what I did,</p>
 <ul>
-<li>I derive the SnP500/ Berkshire ratio over last 5 years</li>
+<li>I derive the SnP500 ETF/ Berkshire ratio over last 5 years</li>
 <li>And I fix a Bollinger Band around the ratio with n = 200 days as the moving average parameter - with 2 SD as the lower (lb) and upper bound (ub) line. Bollinger band ratio accounts for the downward trend in the ratio over time.</li>
 <li>If the ratio is below the lb, I will long SnP500 and short Berkshire Hathaway. And when it mean reverts and touches the middle moving average, I will exit the positions</li>
 <li>Conversely if the ratio is above the ub, I will short SnP500 and long Berkshire Hathaway. Similarly, I will exit the position when it touches the moving average</li>
@@ -381,7 +381,7 @@
 <div id="disclosure" class="section level3">
 <h3>Disclosure</h3>
 <ul>
-<li>I executed a long (BRK-B) short (SnP500 index CFD) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars. I entered at a ratio of 1.439.</li>
+<li>I executed a long (BRK-B) short (SPY) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars. I entered at a ratio of 1.439.</li>
 <li>I’m using an email notification system within my cron task scheduler to inform me in closing my positions when the ratio dips below moving average.</li>
 </ul>
 </div>
@@ -505,7 +505,7 @@ return(df_ret)
 
 }</code></pre>
 <pre class="r"><code>#Parameters to be includded in function
-stock1 = &quot;^GSPC&quot;
+stock1 = &quot;SPY&quot;
 stock2 = &quot;BRK-B&quot;
 
 start_date = &quot;2000-07-01&quot;
@@ -539,35 +539,35 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 </ul>
 <pre class="r"><code>res$dd</code></pre>
 <pre><code>##         From     Trough         To   Depth Length To Trough Recovery
-## 1 2015-08-10 2015-12-10 2016-05-31 -0.0724    204        87      117
-## 2 2018-12-14 2018-12-31 2019-01-08 -0.0627     16        11        5
-## 3 2017-01-24 2017-03-09 2017-04-13 -0.0551     57        32       25
-## 4 2018-05-31 2018-07-17 2018-08-06 -0.0494     47        33       14
-## 5 2018-02-26 2018-03-09 2018-04-17 -0.0349     36        10       26</code></pre>
+## 1 2015-08-10 2015-12-10 2017-01-23 -0.0793    367        87      280
+## 2 2018-12-13 2018-12-31 2019-01-08 -0.0612     17        12        5
+## 3 2018-05-25 2018-07-17 2018-08-06 -0.0543     50        36       14
+## 4 2017-01-24 2017-03-09 2018-01-26 -0.0520    255        32      223
+## 5 2018-02-26 2018-02-27 2018-04-11 -0.0343     32         2       30</code></pre>
 <ul>
 <li>Downside risk</li>
 </ul>
 <pre class="r"><code>res$ds_risk</code></pre>
 <pre><code>##                                   pnl
-## Semi Deviation                 0.0031
-## Gain Deviation                 0.0049
+## Semi Deviation                 0.0029
+## Gain Deviation                 0.0050
 ## Loss Deviation                 0.0041
-## Downside Deviation (MAR=210%)  0.0092
-## Downside Deviation (Rf=0%)     0.0030
-## Downside Deviation (0%)        0.0030
-## Maximum Drawdown               0.0724
-## Historical VaR (95%)          -0.0071
-## Historical ES (95%)           -0.0106
-## Modified VaR (95%)            -0.0043
-## Modified ES (95%)             -0.0043</code></pre>
+## Downside Deviation (MAR=210%)  0.0091
+## Downside Deviation (Rf=0%)     0.0029
+## Downside Deviation (0%)        0.0029
+## Maximum Drawdown               0.0793
+## Historical VaR (95%)          -0.0066
+## Historical ES (95%)           -0.0105
+## Modified VaR (95%)            -0.0037
+## Modified ES (95%)             -0.0037</code></pre>
 <ul>
 <li>Returns</li>
 </ul>
 <pre class="r"><code>res$ret</code></pre>
 <pre><code>##                              pnl
-## Annualized Return         0.0571
-## Annualized Std Dev        0.0737
-## Annualized Sharpe (Rf=0%) 0.7739</code></pre>
+## Annualized Return         0.0458
+## Annualized Std Dev        0.0710
+## Annualized Sharpe (Rf=0%) 0.6450</code></pre>
 </div>
 
       </div>

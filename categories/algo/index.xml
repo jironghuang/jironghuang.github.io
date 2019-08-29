@@ -11,7 +11,7 @@
     <atom:link href="/categories/algo/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Market Neutral Strategy - SnP500 to Berkshire Hathaway Ratio</title>
+      <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
       <link>/post/market_neutral/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
@@ -22,15 +22,15 @@
 &lt;div id=&#34;market-neutral-strategy&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Market neutral strategy&lt;/h2&gt;
 &lt;p&gt;As the negative news pile up (trade wars, slump in economy growths, etc), I sought for market neutral stategies that could perform well in any market environment.&lt;/p&gt;
-&lt;p&gt;An idea that struck me recently is to exploit the pair between Berkshire and SnP 500.&lt;/p&gt;
-&lt;p&gt;The SnP500/ Berkshire ratio has been falling over the years - insinuating that Berkshire still outperforms the index in the last couple of years.&lt;/p&gt;
+&lt;p&gt;An idea that struck me recently is to exploit the pair between Berkshire and SnP 500 ETF.&lt;/p&gt;
+&lt;p&gt;The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating that Berkshire still outperforms the index in the last couple of years.&lt;/p&gt;
 &lt;p&gt;And what’s more impressive, it’s still widely regarded as a safe haven in times of trouble.&lt;/p&gt;
 &lt;div id=&#34;strategy&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Strategy&lt;/h3&gt;
 &lt;p&gt;As the market is facing headwind and I sought for a market neutral strategy.&lt;/p&gt;
 &lt;p&gt;Here’s what I did,&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;I derive the SnP500/ Berkshire ratio over last 5 years&lt;/li&gt;
+&lt;li&gt;I derive the SnP500 ETF/ Berkshire ratio over last 5 years&lt;/li&gt;
 &lt;li&gt;And I fix a Bollinger Band around the ratio with n = 200 days as the moving average parameter - with 2 SD as the lower (lb) and upper bound (ub) line. Bollinger band ratio accounts for the downward trend in the ratio over time.&lt;/li&gt;
 &lt;li&gt;If the ratio is below the lb, I will long SnP500 and short Berkshire Hathaway. And when it mean reverts and touches the middle moving average, I will exit the positions&lt;/li&gt;
 &lt;li&gt;Conversely if the ratio is above the ub, I will short SnP500 and long Berkshire Hathaway. Similarly, I will exit the position when it touches the moving average&lt;/li&gt;
@@ -45,7 +45,7 @@
 &lt;div id=&#34;disclosure&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Disclosure&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;I executed a long (BRK-B) short (SnP500 index CFD) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars. I entered at a ratio of 1.439.&lt;/li&gt;
+&lt;li&gt;I executed a long (BRK-B) short (SPY) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars. I entered at a ratio of 1.439.&lt;/li&gt;
 &lt;li&gt;I’m using an email notification system within my cron task scheduler to inform me in closing my positions when the ratio dips below moving average.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -169,7 +169,7 @@ return(df_ret)
 
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Parameters to be includded in function
-stock1 = &amp;quot;^GSPC&amp;quot;
+stock1 = &amp;quot;SPY&amp;quot;
 stock2 = &amp;quot;BRK-B&amp;quot;
 
 start_date = &amp;quot;2000-07-01&amp;quot;
@@ -203,35 +203,35 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$dd&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
-## 1 2015-08-10 2015-12-10 2016-05-31 -0.0724    204        87      117
-## 2 2018-12-14 2018-12-31 2019-01-08 -0.0627     16        11        5
-## 3 2017-01-24 2017-03-09 2017-04-13 -0.0551     57        32       25
-## 4 2018-05-31 2018-07-17 2018-08-06 -0.0494     47        33       14
-## 5 2018-02-26 2018-03-09 2018-04-17 -0.0349     36        10       26&lt;/code&gt;&lt;/pre&gt;
+## 1 2015-08-10 2015-12-10 2017-01-23 -0.0793    367        87      280
+## 2 2018-12-13 2018-12-31 2019-01-08 -0.0612     17        12        5
+## 3 2018-05-25 2018-07-17 2018-08-06 -0.0543     50        36       14
+## 4 2017-01-24 2017-03-09 2018-01-26 -0.0520    255        32      223
+## 5 2018-02-26 2018-02-27 2018-04-11 -0.0343     32         2       30&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;Downside risk&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ds_risk&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                                   pnl
-## Semi Deviation                 0.0031
-## Gain Deviation                 0.0049
+## Semi Deviation                 0.0029
+## Gain Deviation                 0.0050
 ## Loss Deviation                 0.0041
-## Downside Deviation (MAR=210%)  0.0092
-## Downside Deviation (Rf=0%)     0.0030
-## Downside Deviation (0%)        0.0030
-## Maximum Drawdown               0.0724
-## Historical VaR (95%)          -0.0071
-## Historical ES (95%)           -0.0106
-## Modified VaR (95%)            -0.0043
-## Modified ES (95%)             -0.0043&lt;/code&gt;&lt;/pre&gt;
+## Downside Deviation (MAR=210%)  0.0091
+## Downside Deviation (Rf=0%)     0.0029
+## Downside Deviation (0%)        0.0029
+## Maximum Drawdown               0.0793
+## Historical VaR (95%)          -0.0066
+## Historical ES (95%)           -0.0105
+## Modified VaR (95%)            -0.0037
+## Modified ES (95%)             -0.0037&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;Returns&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ret&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                              pnl
-## Annualized Return         0.0571
-## Annualized Std Dev        0.0737
-## Annualized Sharpe (Rf=0%) 0.7739&lt;/code&gt;&lt;/pre&gt;
+## Annualized Return         0.0458
+## Annualized Std Dev        0.0710
+## Annualized Sharpe (Rf=0%) 0.6450&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
