@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -375,14 +375,14 @@
 <div id="results" class="section level3">
 <h3>Results</h3>
 <p>So how did the strategy fare? Fairly impressive I must say.</p>
-<p>Sharpe ratio is around 0.8. Annualized return is around 5.7% with the positions only in the market 30% of the time!</p>
+<p>Sharpe ratio is around 0.65. Annualized return is around 4.5% with the positions only in the market 30% of the time!</p>
 <p>That being said, I’m cherry picking here because the performance before this period is sub-par; probably because of a change in market regime. You may execute my code to stress-test this simple strategy.</p>
 </div>
 <div id="disclosure" class="section level3">
 <h3>Disclosure</h3>
 <ul>
-<li>I executed a long (BRK-B) short (SPY) strategy on 26-August with approximately $8000 on both positions. As I’m using margin, the cash outlay is only 1600 dollars. I entered at a ratio of 1.439.</li>
-<li>I’m using an email notification system within my cron task scheduler to inform me in closing my positions when the ratio dips below moving average.</li>
+<li>I executed a long (BRK-B) short (SPY) strategy on 26-August with approximately $8000 on both positions. Cash outlay is only 8000 dollars on long side. I’m also earning further 2% interest on cash received from short sale held as collateral. I entered at a ratio of 1.439 with expected profits of 5-6% excluding further 2% p.a. of interest on short sale cash.</li>
+<li>I’m using pushoverr notification api linked to my phone app within my cron task scheduler. It will inform me to close my positions when the ratio dips below moving average.</li>
 </ul>
 </div>
 </div>
@@ -565,9 +565,9 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 </ul>
 <pre class="r"><code>res$ret</code></pre>
 <pre><code>##                              pnl
-## Annualized Return         0.0458
+## Annualized Return         0.0460
 ## Annualized Std Dev        0.0710
-## Annualized Sharpe (Rf=0%) 0.6450</code></pre>
+## Annualized Sharpe (Rf=0%) 0.6479</code></pre>
 </div>
 
       </div>
