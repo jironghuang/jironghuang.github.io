@@ -11,7 +11,7 @@
   <meta name="description" content="Data scientist and Quantitative Investor/ Trader">
 
   
-  <link rel="alternate" hreflang="en-us" href="/project/investment_compass_guidance/">
+  <link rel="alternate" hreflang="en-us" href="/project/what-is-low-regression-approach/">
 
   
   
@@ -70,24 +70,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/project/investment_compass_guidance/">
+  <link rel="canonical" href="/project/what-is-low-regression-approach/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
-  <meta property="og:url" content="/project/investment_compass_guidance/">
-  <meta property="og:title" content="Investment compass | Jirong&#39;s sandbox">
+  <meta property="og:url" content="/project/what-is-low-regression-approach/">
+  <meta property="og:title" content="What is low - Regression Approach | Jirong&#39;s sandbox">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-08-09T21:30:46&#43;08:00">
+  <meta property="article:published_time" content="2018-09-01T21:30:46&#43;08:00">
   
-  <meta property="article:modified_time" content="2018-08-09T21:30:46&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2018-09-01T21:30:46&#43;08:00">
   
 
-  <title>Investment compass | Jirong&#39;s sandbox</title>
+  
+
+  <title>What is low - Regression Approach | Jirong&#39;s sandbox</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -253,7 +253,7 @@
   <div class="article-container">
 
     <div class="pub-title">
-      <h1 itemprop="name">Investment compass</h1>
+      <h1 itemprop="name">What is low - Regression Approach</h1>
       <span class="pub-authors" itemprop="author">&nbsp;</span>
       <span class="pull-right">
         
@@ -261,35 +261,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Investment%20compass&amp;url=%2fproject%2finvestment_compass_guidance%2f"
+         href="https://twitter.com/intent/tweet?text=What%20is%20low%20-%20Regression%20Approach&amp;url=%2fproject%2fwhat-is-low-regression-approach%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fproject%2finvestment_compass_guidance%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fproject%2fwhat-is-low-regression-approach%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fproject%2finvestment_compass_guidance%2f&amp;title=Investment%20compass"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fproject%2fwhat-is-low-regression-approach%2f&amp;title=What%20is%20low%20-%20Regression%20Approach"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fproject%2finvestment_compass_guidance%2f&amp;title=Investment%20compass"
+         href="http://service.weibo.com/share/share.php?url=%2fproject%2fwhat-is-low-regression-approach%2f&amp;title=What%20is%20low%20-%20Regression%20Approach"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Investment%20compass&amp;body=%2fproject%2finvestment_compass_guidance%2f">
+         href="mailto:?subject=What%20is%20low%20-%20Regression%20Approach&amp;body=%2fproject%2fwhat-is-low-regression-approach%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -305,19 +305,110 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="investment-compass-kindly-wait-10-seconds-for-the-entire-app-to-load-best-viewed-in-desktop">Investment Compass (Kindly wait 10 seconds for the entire app to load. Best viewed in Desktop)</h2>
+<h2 id="what-is-low-regression-approach">What is low - Regression Approach</h2>
 
-<p>This serves as a compass for me to visualize the potential returns given the % fall from 52 week high. See my linkedin article <a href="https://www.linkedin.com/pulse/investment-compass-our-volatile-times-jirong-huang/">here</a> for further explanation on why I think this is a good indicator.</p>
+<p>This serves as an alternate compass for me to visualize what is low. See post <a href="https://jironghuang.github.io/project/investment_compass_guidance/">here</a> for my first version of compass.</p>
 
-<p>The app consists of 3 tabs. The &lsquo;Visualize&rsquo; tab contains 3 graphs plotting % fall from 52 week high against the expected returns 1 to 3 years later. And the value boxes are simply the fitted values from the best fit lines.</p>
+<p>I was inspired by a <a href="https://stestocksinvestingjourney.blogspot.com/2018/07/patience-is-your-biggest-investment.html">post</a> written by a local finance blogger. He used a regression line flanked by the intervals to inform whether the prices are low or not. I&rsquo;m unsure what sort of intervals of intervals he used in his plots, but for my purpose I will use prediction intervals instead. You may visit this <a href="https://stestocksinvestingjourney.blogspot.com/2018/07/patience-is-your-biggest-investment.html">link</a> to understand the statistical properties.</p>
 
-<p>The second tab contains the description of the indexes. For eg. ^STI refers to Straits Times Index. It will be useful for selection of the Index under Visualization tab.</p>
+<p>Another variation over the blogger&rsquo;s method is that I used Log of Prices as my Y-axis to normalize data across time. If I use the non-log version, the prices will be too low in the beginning and it will mess up the regression line.</p>
 
-<p>The third tab is just a summary of the Linkedin article.</p>
+<p>Here&rsquo;re some quick explanations on the diagrams,</p>
 
-<p>If you&rsquo;re interested in reading the codes, pls visit my github <a href="https://github.com/jironghuang/investment_compass">link</a>. At the moment, the lagging of indicators are done in a grossly inefficient way because I was just cobbling together some codes I did in the past. Will optimize it by using parallelized functions like mclapply in the future (used for crawling the stock process but not the computation).</p>
+<ul>
+<li>The highest red dotted line is +2SD which suggest that market is really overheated.</li>
+<li>The second highest blue dotted line is +1SD which suggest that market is moderately overheated.</li>
+<li>Blue line is best fit line. Market is currently at an average trajectory.</li>
+<li>The second lowest blue dotted line is -1SD which suggest that market is moderately undervalued.</li>
+<li>The lowest red dotted line is -2SD which suggest that market is really undervalued.</li>
+</ul>
 
-<iframe src="https://sef88.shinyapps.io/investment_compass/" width="1200" height="1500" style="border: none;"></iframe>
+<p>These diagrams below will aid me in understanding if I should deploy more cash or I might even consider leveraging when prices are -2SD.</p>
+
+<p>Without further ado, you may find the diagrams below for your reference pls.</p>
+
+<p>Note:</p>
+
+<ul>
+<li>I will schedule a cron job to update the diagrams at midnight every day.</li>
+<li>You may find the code after all the diagrams.</li>
+</ul>
+
+<h3 id="singapore">Singapore</h3>
+
+<p><img src="/project/img/^STI.png" alt="/project/img/^STI.png"></p>
+
+<h3 id="us-snp-500">US SnP 500</h3>
+
+<p><img src="/project/img/^GSPC.png" alt="/project/img/^GSPC.png"></p>
+
+<h3 id="uk-ftse">UK FTSE</h3>
+
+<p><img src="/project/img/^FTSE.png" alt="/project/img/^FTSE.png"></p>
+
+<h3 id="hk-hsi">HK HSI</h3>
+
+<p><img src="/project/img/^HSI.png" alt="/project/img/^HSI.png"></p>
+
+<h3 id="korea">Korea</h3>
+
+<p><img src="/project/img/^KS11.png" alt="/project/img/^KS11.png"></p>
+
+<h3 id="japan-nikkei">Japan Nikkei</h3>
+
+<p><img src="/project/img/^N225.png" alt="/project/img/^N225.png"></p>
+
+<h3 id="code-used-to-produce-the-diagrams">Code used to produce the diagrams</h3>
+
+<pre><code>sapply(c(&quot;ggplot2&quot;, &quot;plotly&quot;), require, character.only = T)
+
+source('util/extract_stock_prices.R')
+
+#define list of indices
+indices = c(&quot;^STI&quot;, &quot;^GSPC&quot;, &quot;^FTSE&quot;, &quot;^N225&quot;, &quot;^HSI&quot;, &quot;000001.SS&quot;, &quot;^JKSE&quot;, &quot;^KLSE&quot;, &quot;^KS11&quot;)
+
+for(i in 1:length(indices)){
+  
+stock = indices[i]
+start_date = &quot;1950-07-01&quot;
+end_date = &quot;2030-12-30&quot;
+
+data = df_crawl_time_series(stock, start_date, end_date)
+data = subset(data, !is.na(data$Adj.Close))
+data$Adj.Close = log(data$Adj.Close)
+data$Date = as.Date(data$Date)
+
+model1 &lt;- lm(data$Adj.Close ~ data$Date)
+
+temp_var &lt;- predict(model1, interval = &quot;prediction&quot;)
+temp_var1 &lt;- predict(model1, interval = &quot;prediction&quot;, level = 0.68)
+temp_var1 = data.frame(temp_var1); names(temp_var1) = c(&quot;fit1&quot;, &quot;lwr1&quot;, &quot;upr1&quot;)
+
+new_df &lt;- cbind(data, temp_var, temp_var1)
+
+p = ggplot(new_df, aes(x = Date, y = Adj.Close))+
+  geom_point(size = 0.1) +
+  geom_line(aes(y=lwr), color = &quot;red&quot;, linetype = &quot;dashed&quot;)+
+  geom_line(aes(y=upr), color = &quot;red&quot;, linetype = &quot;dashed&quot;)+
+  geom_line(aes(y=lwr1), color = &quot;blue&quot;, linetype = &quot;dashed&quot;)+
+  geom_line(aes(y=upr1), color = &quot;blue&quot;, linetype = &quot;dashed&quot;)+
+  geom_smooth(method=lm, se=TRUE) +
+  ylab(&quot;Log of Ticker&quot;) +
+  ggtitle(paste(stock,
+                &quot;Current&quot;, round(exp(new_df$Adj.Close[nrow(new_df)]), 0),
+                &quot;\n+1 SD&quot;, round(exp(new_df$upr1[nrow(new_df)]), 0),
+                &quot;\n+2 SD&quot;, round(exp(new_df$upr[nrow(new_df)]), 0),
+                &quot;\n-1 SD&quot;, round(exp(new_df$lwr1[nrow(new_df)]), 0),
+                &quot;\n-2 SD&quot;, round(exp(new_df$lwr[nrow(new_df)]), 0),
+                &quot;\nUpdated on&quot;, Sys.Date()
+                )
+         )
+p
+
+ggsave(filename = paste0(stock, &quot;.png&quot;) , plot = p)
+
+}
+</code></pre>
 
     </div>
 
@@ -360,12 +451,12 @@
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="/project/watch_list/"><span
-      aria-hidden="true">&larr;</span> ETFs watchlist</a></li>
+    <li class="previous"><a href="/project/investment_compass_guidance/"><span
+      aria-hidden="true">&larr;</span> Investment compass</a></li>
     
 
     
-    <li class="next"><a href="/project/what-is-low-regression-approach/">What is low - Regression Approach <span
+    <li class="next"><a href="/project/xirr_cpf/">What&#39;re the returns (XIRR) for my CPFIS Portfolio <span
       aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
