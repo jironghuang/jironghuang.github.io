@@ -29,7 +29,7 @@ The binary lens of evaluating the XIRR is as follows,
       <pubDate>Sat, 01 Sep 2018 21:30:46 +0800</pubDate>
       
       <guid>/project/what-is-low-regression-approach/</guid>
-      <description>What is low - Regression Approach This serves as an alternate compass for me to visualize what is low. See post here for my first version of compass.
+      <description>What is low - Regression Approach This serves as an alternate compass for me to visualize what is low. See post here for another version of compass.
 I was inspired by a post written by a local finance blogger. He used a regression line flanked by the intervals to inform whether the prices are low or not. I&amp;rsquo;m unsure what sort of intervals of intervals he used in his plots, but for my purpose I will use prediction intervals instead.</description>
     </item>
     
