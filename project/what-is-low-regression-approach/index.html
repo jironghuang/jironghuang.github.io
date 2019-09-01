@@ -395,14 +395,16 @@ p = ggplot(new_df, aes(x = Date, y = Adj.Close))+
   geom_smooth(method=lm, se=TRUE) +
   ylab(&quot;Log of Ticker&quot;) +
   ggtitle(paste(stock,
-                &quot;Current&quot;, round(exp(new_df$Adj.Close[nrow(new_df)]), 0),
-                &quot;\n+1 SD&quot;, round(exp(new_df$upr1[nrow(new_df)]), 0),
                 &quot;\n+2 SD&quot;, round(exp(new_df$upr[nrow(new_df)]), 0),
+                &quot;\n+1 SD&quot;, round(exp(new_df$upr1[nrow(new_df)]), 0),
+                &quot;\nCurrent&quot;, round(exp(new_df$Adj.Close[nrow(new_df)]), 0),
                 &quot;\n-1 SD&quot;, round(exp(new_df$lwr1[nrow(new_df)]), 0),
                 &quot;\n-2 SD&quot;, round(exp(new_df$lwr[nrow(new_df)]), 0),
                 &quot;\nUpdated on&quot;, Sys.Date()
                 )
          )
+p
+
 p
 
 ggsave(filename = paste0(stock, &quot;.png&quot;) , plot = p)
