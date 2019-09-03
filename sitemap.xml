@@ -230,7 +230,7 @@
     
     <url>
     
-      <loc>/asset_allocation/asset_allocation/</loc>
+      <loc>/portfolio/portfolio/</loc>
       <lastmod>2018-09-02T00:00:00+00:00</lastmod>
     </url>
     
@@ -419,16 +419,6 @@
     
     <url>
     
-      <loc>/asset_allocation/</loc>
-      <lastmod>2018-09-02T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/categories/</loc>
       <priority>0</priority>
     </url>
@@ -440,6 +430,16 @@
     
       <loc>/</loc>
       <lastmod>2016-04-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/portfolio/</loc>
+      <lastmod>2018-09-02T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

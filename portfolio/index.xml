@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolios on Jirong&#39;s sandbox</title>
+    <link>/portfolio/</link>
+    <description>Recent content in Portfolios on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Asset Allocation and Portfolio Performance</title>
+      <link>/portfolio/portfolio/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/portfolio/</guid>
+      <description>Yearly Performance I benchmark myself against VT (global benchmark) as my portfolio is globally diversified across regions. Since a couple of years ago, I&amp;rsquo;ve been &amp;lsquo;hugging&amp;rsquo; the global benchmark tighly. And I only overweight or underweight certain regions/ countries based on my analysis, watchlists and auto-generated signals.
+This aligns with my core belief that one should place their bets as widely as possible. Diversification is the only free lunch in the world and I ain&amp;rsquo;t gonna leave it on the table.</description>
+    </item>
+    
+  </channel>
+</rss>
