@@ -80,7 +80,7 @@
   <meta property="og:description" content="Data scientist and Quantitative Investor/ Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-08-24T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-09-10T11:46:49&#43;08:00">
   
 
   
@@ -253,6 +253,80 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/email_notification_python/" itemprop="url">ETF watchlist email notification Through Python</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-09-10 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+      Sep 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/email_notification_python/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >, 
+    
+    <a href="/categories/machine_learning">machine_learning</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Email notification I finally bit the bullet and updated my previously hideous email notification!
+You may find the updated email notification template here - alongside with the code.
+Feel free to ping me if you are keen to be on the watchlist too.
+~ Jirong
+import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv('/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv') data['Change_fr_52_week_high'] = round(100 * data['Change_fr_52_week_high'], 1) data = data[['Name', 'Price', 'Change_fr_52_week_high']].
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/email_notification_python/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -900,81 +974,6 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/hosting-a-flask-app-on-heroku/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/sampling-with-replacement-through-first-principles/" itemprop="url">Sampling With Replacement Through First Principles</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-02-27 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Feb 27, 2019
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/sampling-with-replacement-through-first-principles/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >, 
-    
-    <a href="/categories/statistics">statistics</a
-    >, 
-    
-    <a href="/categories/firstprinciples">firstPrinciples</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Sampling with replacement Hello! It&rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
-I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
-Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/sampling-with-replacement-through-first-principles/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

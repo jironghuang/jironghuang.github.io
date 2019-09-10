@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 08 Apr 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2019 11:46:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/machine_learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ETF watchlist email notification Through Python</title>
+      <link>/post/email_notification_python/</link>
+      <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/email_notification_python/</guid>
+      <description>Email notification I finally bit the bullet and updated my previously hideous email notification!
+You may find the updated email notification template here - alongside with the code.
+Feel free to ping me if you are keen to be on the watchlist too.
+~ Jirong
+import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv(&#39;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&#39;) data[&#39;Change_fr_52_week_high&#39;] = round(100 * data[&#39;Change_fr_52_week_high&#39;], 1) data = data[[&#39;Name&#39;, &#39;Price&#39;, &#39;Change_fr_52_week_high&#39;]].</description>
+    </item>
     
     <item>
       <title>Some thoughts on Reinforcement Learning - Q Learning</title>

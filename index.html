@@ -471,6 +471,97 @@
       
           
       
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/email_notification_python/" itemprop="url">ETF watchlist email notification Through Python</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-09-10 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+      Sep 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/email_notification_python/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >, 
+    
+    <a href="/categories/machine_learning">machine_learning</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Email notification I finally bit the bullet and updated my previously hideous email notification!
+You may find the updated email notification template here - alongside with the code.
+Feel free to ping me if you are keen to be on the watchlist too.
+~ Jirong
+import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv('/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv') data['Change_fr_52_week_high'] = round(100 * data['Change_fr_52_week_high'], 1) data = data[['Name', 'Price', 'Change_fr_52_week_high']].
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/email_notification_python/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
           
       
           
@@ -824,91 +915,6 @@ I chanced upon this really nifty concept at work to describe the clusters derive
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/google_place_api/" itemprop="url">Playing with Google Place API</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-05-14 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
-      May 14, 2019
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/google_place_api/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Google Place API I was playing around with the API to obtain lat-long for my geo analytics work.
-I entered my credit card info but it seems that I&rsquo;m not charged even with 9000+ API calls. Unsure if it&rsquo;s because I&rsquo;ve a 400+ dollars free cloud credit?
-Anyway, what I did here was to make API calls and storing the data into my local database.
-If you&rsquo;re interested, you may visit this stackoverflow link (https://stackoverflow.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/google_place_api/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1110,14 +1116,14 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/r" style="font-size:1.4234338452815438rem">R</a>
+          <a href="/tags/r" style="font-size:1.4134429714147012rem">R</a>
         
           
           
           
           
           
-          <a href="/tags/algo" style="font-size:1.5866859247431813rem">algo</a>
+          <a href="/tags/algo" style="font-size:1.5740788455696402rem">algo</a>
         
           
           
@@ -1131,14 +1137,14 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/asset_allocation" style="font-size:1.1933429623715908rem">asset_allocation</a>
+          <a href="/tags/asset_allocation" style="font-size:1.18703942278482rem">asset_allocation</a>
         
           
           
           
           
           
-          <a href="/tags/betting" style="font-size:1.4234338452815438rem">betting</a>
+          <a href="/tags/betting" style="font-size:1.4134429714147012rem">betting</a>
         
           
           
@@ -1152,7 +1158,7 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/dashboard" style="font-size:1.4234338452815438rem">dashboard</a>
+          <a href="/tags/dashboard" style="font-size:1.4134429714147012rem">dashboard</a>
         
           
           
@@ -1180,28 +1186,28 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/finance" style="font-size:2.255541920811111rem">finance</a>
+          <a href="/tags/finance" style="font-size:2.232216052559351rem">finance</a>
         
           
           
           
           
           
-          <a href="/tags/firstprinciples" style="font-size:1.1933429623715908rem">firstPrinciples</a>
+          <a href="/tags/firstprinciples" style="font-size:1.18703942278482rem">firstPrinciples</a>
         
           
           
           
           
           
-          <a href="/tags/investment" style="font-size:2.2975962638421947rem">investment</a>
+          <a href="/tags/investment" style="font-size:2.273596451370119rem">investment</a>
         
           
           
           
           
           
-          <a href="/tags/machine_learning" style="font-size:1.1933429623715908rem">machine_learning</a>
+          <a href="/tags/machine_learning" style="font-size:1.4134429714147012rem">machine_learning</a>
         
           
           
@@ -1215,28 +1221,28 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/momentum" style="font-size:1.1933429623715908rem">momentum</a>
+          <a href="/tags/momentum" style="font-size:1.18703942278482rem">momentum</a>
         
           
           
           
           
           
-          <a href="/tags/odds" style="font-size:1.1933429623715908rem">odds</a>
+          <a href="/tags/odds" style="font-size:1.18703942278482rem">odds</a>
         
           
           
           
           
           
-          <a href="/tags/probability" style="font-size:1.1933429623715908rem">probability</a>
+          <a href="/tags/probability" style="font-size:1.18703942278482rem">probability</a>
         
           
           
           
           
           
-          <a href="/tags/programming" style="font-size:2.4708923920776846rem">programming</a>
+          <a href="/tags/programming" style="font-size:2.472756555162702rem">programming</a>
         
           
           
@@ -1264,14 +1270,14 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/statistics" style="font-size:1.1933429623715908rem">statistics</a>
+          <a href="/tags/statistics" style="font-size:1.18703942278482rem">statistics</a>
         
           
           
           
           
           
-          <a href="/tags/trading" style="font-size:1.8167768076531345rem">trading</a>
+          <a href="/tags/trading" style="font-size:1.8004823941995214rem">trading</a>
         
       </div>
     
@@ -1316,14 +1322,14 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/r" style="font-size:1.4234338452815438rem">R</a>
+          <a href="/tags/r" style="font-size:1.4134429714147012rem">R</a>
         
           
           
           
           
           
-          <a href="/tags/algo" style="font-size:1.5866859247431813rem">algo</a>
+          <a href="/tags/algo" style="font-size:1.5740788455696402rem">algo</a>
         
           
           
@@ -1337,14 +1343,14 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/asset_allocation" style="font-size:1.1933429623715908rem">asset_allocation</a>
+          <a href="/tags/asset_allocation" style="font-size:1.18703942278482rem">asset_allocation</a>
         
           
           
           
           
           
-          <a href="/tags/betting" style="font-size:1.4234338452815438rem">betting</a>
+          <a href="/tags/betting" style="font-size:1.4134429714147012rem">betting</a>
         
           
           
@@ -1358,7 +1364,7 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/dashboard" style="font-size:1.4234338452815438rem">dashboard</a>
+          <a href="/tags/dashboard" style="font-size:1.4134429714147012rem">dashboard</a>
         
           
           
@@ -1386,28 +1392,28 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/finance" style="font-size:2.255541920811111rem">finance</a>
+          <a href="/tags/finance" style="font-size:2.232216052559351rem">finance</a>
         
           
           
           
           
           
-          <a href="/tags/firstprinciples" style="font-size:1.1933429623715908rem">firstPrinciples</a>
+          <a href="/tags/firstprinciples" style="font-size:1.18703942278482rem">firstPrinciples</a>
         
           
           
           
           
           
-          <a href="/tags/investment" style="font-size:2.2975962638421947rem">investment</a>
+          <a href="/tags/investment" style="font-size:2.273596451370119rem">investment</a>
         
           
           
           
           
           
-          <a href="/tags/machine_learning" style="font-size:1.1933429623715908rem">machine_learning</a>
+          <a href="/tags/machine_learning" style="font-size:1.4134429714147012rem">machine_learning</a>
         
           
           
@@ -1421,28 +1427,28 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/momentum" style="font-size:1.1933429623715908rem">momentum</a>
+          <a href="/tags/momentum" style="font-size:1.18703942278482rem">momentum</a>
         
           
           
           
           
           
-          <a href="/tags/odds" style="font-size:1.1933429623715908rem">odds</a>
+          <a href="/tags/odds" style="font-size:1.18703942278482rem">odds</a>
         
           
           
           
           
           
-          <a href="/tags/probability" style="font-size:1.1933429623715908rem">probability</a>
+          <a href="/tags/probability" style="font-size:1.18703942278482rem">probability</a>
         
           
           
           
           
           
-          <a href="/tags/programming" style="font-size:2.4708923920776846rem">programming</a>
+          <a href="/tags/programming" style="font-size:2.472756555162702rem">programming</a>
         
           
           
@@ -1470,14 +1476,14 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
           
           
           
-          <a href="/tags/statistics" style="font-size:1.1933429623715908rem">statistics</a>
+          <a href="/tags/statistics" style="font-size:1.18703942278482rem">statistics</a>
         
           
           
           
           
           
-          <a href="/tags/trading" style="font-size:1.8167768076531345rem">trading</a>
+          <a href="/tags/trading" style="font-size:1.8004823941995214rem">trading</a>
         
       </div>
     

@@ -7,8 +7,93 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 08 Apr 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2019 11:46:49 +0800</lastBuildDate>
     <atom:link href="/categories/machine_learning/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ETF watchlist email notification Through Python</title>
+      <link>/post/email_notification_python/</link>
+      <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/email_notification_python/</guid>
+      <description>
+
+&lt;h2 id=&#34;email-notification&#34;&gt;Email notification&lt;/h2&gt;
+
+&lt;p&gt;I finally bit the bullet and updated my previously hideous email notification!&lt;/p&gt;
+
+&lt;p&gt;You may find the updated email notification template here - alongside with the code.&lt;/p&gt;
+
+&lt;p&gt;Feel free to ping me if you are keen to be on the watchlist too.&lt;/p&gt;
+
+&lt;p&gt;~ Jirong&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/email.png&#34; alt=&#34;/post/img/email.png&#34;&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import smtplib, ssl
+import datetime
+import pandas as pd
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+#Format text
+data = pd.read_csv(&#39;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&#39;)
+data[&#39;Change_fr_52_week_high&#39;] = round(100 * data[&#39;Change_fr_52_week_high&#39;], 1) 
+data = data[[&#39;Name&#39;, &#39;Price&#39;, &#39;Change_fr_52_week_high&#39;]].head(20)
+data.rename(columns={&#39;Change_fr_52_week_high&#39;:&#39;Change from 52 week high (%)&#39;}, inplace=True)
+results = data.to_html()
+
+message = MIMEMultipart(&amp;quot;alternative&amp;quot;)
+message[&amp;quot;Subject&amp;quot;] = &amp;quot;ETF Watchlist&amp;quot;
+message[&amp;quot;From&amp;quot;] = &amp;quot;jironghuang88@gmail.com&amp;quot;
+message[&amp;quot;Bcc&amp;quot;] = &amp;quot;&amp;quot;
+
+# Create the plain-text and HTML version of your message
+html = &amp;quot;&amp;quot;&amp;quot;\
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p&amp;gt;Hey there!       
+       &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;    
+       &amp;lt;br&amp;gt;Pls click &amp;lt;a href=&amp;quot;https://jironghuang.github.io/project/watch_list/&amp;quot;&amp;gt;here&amp;lt;/a&amp;gt; for a complete updated ETF watchlist.&amp;lt;br&amp;gt;
+       
+       &amp;lt;br&amp;gt;For your convenience, I&#39;ve also appended the top 20 tickers with greatest fall over last 52 week high (potentially cheap but you should triangulate with other sources)&amp;lt;br&amp;gt;
+       {0}
+
+       &amp;lt;br&amp;gt;This is part of my daily automated ETF dashboard + Email notification (weekly for email notification) and I thought you may be interested in it.&amp;lt;br&amp;gt; 
+
+       &amp;lt;br&amp;gt;Do also check out my &#39;What is Low - Regression Approach&#39; &amp;lt;a href=&amp;quot;https://jironghuang.github.io/project/what-is-low-regression-approach/&amp;quot;&amp;gt;here&amp;lt;/a&amp;gt; to understand which are the markets that are under or overvalued.&amp;lt;br&amp;gt;
+       
+       &amp;lt;br&amp;gt;If this irritates you too much, let me know and I can take you out of this mailing list:)&amp;lt;br&amp;gt;
+
+       &amp;lt;br&amp;gt;Regards,&amp;lt;br&amp;gt;
+       &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;
+       Jirong
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&amp;quot;&amp;quot;&amp;quot;.format(data.to_html())
+
+# Turn these into plain/html MIMEText objects
+#part1 = MIMEText(text, &amp;quot;plain&amp;quot;)
+part2 = MIMEText(html, &amp;quot;html&amp;quot;)
+#part3 = MIMEText(results, &amp;quot;html&amp;quot;)
+
+# Add HTML/plain-text parts to MIMEMultipart message
+# The email client will try to render the last part first
+message.attach(part2)
+
+server = smtplib.SMTP(&#39;smtp.gmail.com&#39;, 587)
+server.starttls()
+server.login(&amp;quot;jironghuang88@gmail.com&amp;quot;, &amp;quot;&amp;quot;)
+
+recipients = [&amp;quot;jironghuang88@gmail.com&amp;quot;]
+
+server.sendmail(&amp;quot;jironghuang88@gmail.com&amp;quot;, recipients, message.as_string())
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Some thoughts on Reinforcement Learning - Q Learning</title>

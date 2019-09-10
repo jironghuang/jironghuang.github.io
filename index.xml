@@ -11,6 +11,19 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>ETF watchlist email notification Through Python</title>
+      <link>/post/email_notification_python/</link>
+      <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/email_notification_python/</guid>
+      <description>Email notification I finally bit the bullet and updated my previously hideous email notification!
+You may find the updated email notification template here - alongside with the code.
+Feel free to ping me if you are keen to be on the watchlist too.
+~ Jirong
+import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv(&#39;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&#39;) data[&#39;Change_fr_52_week_high&#39;] = round(100 * data[&#39;Change_fr_52_week_high&#39;], 1) data = data[[&#39;Name&#39;, &#39;Price&#39;, &#39;Change_fr_52_week_high&#39;]].</description>
+    </item>
+    
+    <item>
       <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
       <link>/post/market_neutral/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
@@ -165,17 +178,6 @@ Here&amp;rsquo;s a simple explanation of the strategy,
 1 solution is to create a Python Environment dedicated to that project.
 First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),
 name: env channels: !!python/tuple - !!python/unicode &#39;defaults&#39; dependencies: - nb_conda=2.2.0=py27_0 - python=2.7.13=0 - cycler=0.10.0 - functools32=3.</description>
-    </item>
-    
-    <item>
-      <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
-      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
-      <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
-      
-      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
-      <description>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.
-Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
-In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.</description>
     </item>
     
   </channel>
