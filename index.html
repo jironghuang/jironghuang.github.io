@@ -535,7 +535,7 @@
     
     Email notification I finally bit the bullet and updated my previously hideous email notification!
 You may find the updated email notification template here - alongside with the code.
-Feel free to ping me if you are keen to be on the watchlist too.
+Feel free to ping me if you are keen to be on the email list too.
 ~ Jirong
 import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv('/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv') data['Change_fr_52_week_high'] = round(100 * data['Change_fr_52_week_high'], 1) data = data[['Name', 'Price', 'Change_fr_52_week_high']].
     
