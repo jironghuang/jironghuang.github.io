@@ -82,7 +82,7 @@
   <meta property="og:description" content="Data scientist and Quantitative Investor/ Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-01-26T11:46:49&#43;08:00">
+  <meta property="og:updated_time" content="2018-08-26T14:09:02&#43;08:00">
   
 
   
@@ -257,102 +257,12 @@
   
   
   <div>
-    <h2><a href="/post/martingale-strategy/">Martingale Strategy - Double Down</a></h2>
+    <h2><a href="/post/jr-naming-conventions-in-r/">Naming Conventions in R. Let&#39;s call it JR Notations</a></h2>
     <div class="article-style">
       
-      Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&rsquo;s context to highlight the potential risks associated with this strategy.
-Double down! That&rsquo;s essentially the essence of it.
-Here&rsquo;s a simple explanation of the strategy,
- The croupier spins the ball. If it&rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/how-to-create-a-python-environment-in-ubuntu/">How to Create a Python Environment in Ubuntu or any Debian-based system</a></h2>
-    <div class="article-style">
-      
-      Often, certain projects or classes involving python require a set of modules/packages for the code to work.
-1 solution is to create a Python Environment dedicated to that project.
-First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),
-name: env channels: !!python/tuple - !!python/unicode &lsquo;defaults&rsquo; dependencies: - nb_conda=2.2.0=py27_0 - python=2.7.13=0 - cycler=0.10.0 - functools32=3.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/">Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</a></h2>
-    <div class="article-style">
-      
-      Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&rsquo;m really intrigued by Ernest Chan&rsquo;s approach in Quant Trading.
-Often in the retail trading space, what &lsquo;gurus&rsquo; preach often sounds really dubious. But Ernest Chan is different. He&rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
-In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/">Summary of My Computational Photography Module From Georgia Tech Computer Science Masters</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/colorization/">Colorization</a></h2>
-    <div class="article-style">
-      
-      Colorization The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.
-1.Input: I first read in the image using imread function.
-2.Find the difference: Next I compute the difference between the marked and grey scale image.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/architecture-and-process-flow-for-my-algorithmic-trading/">Architecture and Process Flow for My Algorithmic Trading</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/seam-carving/">Seam Carving</a></h2>
-    <div class="article-style">
-      
-      Snippet of my Seam Carving Report from my Msc Computer Science Georgia Tech&rsquo;s Computational Photography module Besides removing of streams, we can also add streams. We identify k streams for removal and duplicate by averaging the left and right neighbours. The computation of these averages is done by convolving the following matrix with the images’ colour channels.
-kernel = np.array([[0, 0, 0], [0.5, 0, 0.5], [0, 0, 0]])  In the implementation of my scaling_up algorithm, I first remove k streams (depending on ratio set by user) and recorded the coordinates and cumulative energy values of the original picture in each removal.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/">R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</a></h2>
-    <div class="article-style">
-      
-      Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,
- If you are an investor, you may use it to analyze impact of exchange rate on your investment positions. If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/shift-share-analysis-package/">Shift Share Analysis Package I developed</a></h2>
-    <div class="article-style">
-      
-      Shift-share Analysis Package I developed During my career, I often have to deal with compositional &amp; within group effects. For instance, the employment rate fell by 3% across 2 period. How much of it is due to an increase in employment rate within the sub-group and how much of it is due to compositional shift (for example ageing population).
-A formal way to explain these effects is known as shift-share analysis.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/automated_email_notification/">Automated Email Notification of my ETF watchlist</a></h2>
-    <div class="article-style">
-      
-      I wrote an automated email notification code to send out my daily ETF watchlist in csv - an extension of my ETF watchlist project here. I figured out that people will not visit my site. So why not blast out the watchlist instead:)
-And if you are interested in the code. Here you go.
-#Steps for sending watchlist library(&quot;rJava&quot;) library(&lsquo;mailR&rsquo;) source(&quot;./R/emails.R&quot;) # Write the content of your email msg &lt;- paste(&quot;Hey there, I&rsquo;m sending this ETF watchlist that is updated as of &quot;, &quot;\n&quot;, as.
+      Naming Conventions in R. Let&rsquo;s call it JR Notations. &lsquo;Naming conventions&rsquo; is a huge thing in many programming languages/ paradigms/ communities. But it&rsquo;s noticeably absent in the R programming community.
+With some inspiration from the Hungarian Notation, here&rsquo;s a blue-print that I came up with while working on a major R project over the last 2 months. Drumroll please&hellip;
+1. Naming conventions for R scripts  F_ for R scripts that contains functions.
       
     </div>
   </div>
@@ -362,10 +272,8 @@ And if you are interested in the code. Here you go.
 <nav>
   <ul class="pager">
     
-    <li><a href="/tags/programming/">&lt;</a></li>
+    <li><a href="/tags/programming/page/2/">&lt;</a></li>
     
-    
-    <li><a href="/tags/programming/page/3/">&gt;</a></li>
     
   </ul>
 </nav>

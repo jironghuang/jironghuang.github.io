@@ -7,8 +7,93 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 10 Sep 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Sep 2019 11:46:49 +0800</lastBuildDate>
     <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Asset allocation notification</title>
+      <link>/post/asset_allocation_notification/</link>
+      <pubDate>Thu, 12 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/asset_allocation_notification/</guid>
+      <description>
+
+&lt;h2 id=&#34;asset-allocation-notification&#34;&gt;Asset allocation notification&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m in the midst of automating/ guiding my life with algorithms (largely inspired by Ray Dalio) - and 1 of the guidelines that I set is on asset allocation,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Emerging market and Developed Market should be of the same proportion&lt;/li&gt;
+&lt;li&gt;Bonds + Cash proportion should be equivalent to my age. This can deviate in times of crisis when I want to be more opportunistic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If it deviates from the portfolio policy statement, it will send me a pushover notification to my phone:)&lt;/p&gt;
+
+&lt;p&gt;Here is a simple example of it works.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/asset_notify.jpeg&#34; alt=&#34;/post/img/asset_notify.jpeg&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;You may find my code below. Briefly this is what it does,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It ssh into my googlesheet&lt;/li&gt;
+&lt;li&gt;Pull out the asset allocation and compare against the policy statements&lt;/li&gt;
+&lt;li&gt;If it deviates, it will send me a notification&lt;/li&gt;
+&lt;li&gt;This is scheduled via a cronjob in linux that runs every midnight&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;#Comment on asset allocation
+dat = gs_title(&amp;quot;Investment&amp;quot;)
+gs_ws_ls(dat)   #tab names
+data &amp;lt;- gs_read(ss=dat, ws = &amp;quot;asset_allocation1&amp;quot;, skip=0)
+data = as.data.frame(data)
+
+if(data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)] &amp;gt; data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are overweight in Developed. Shift to Emerging\n&amp;quot;
+  msg = paste(msg, &amp;quot;World is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)])
+  msg = paste(msg, &amp;quot;Emerging is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+  )
+}
+
+if(data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)] &amp;gt; data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are overweight in Emerging. Shift to Developed\n&amp;quot;
+  msg = paste(msg, &amp;quot;World is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)])
+  msg = paste(msg, &amp;quot;Emerging is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+  )
+}
+
+if(100 * (data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)] + data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)]) &amp;gt; data$Prop[which(data$Assets == &amp;quot;Age&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are overweight in Bonds and Cash relative to your age. Shift it out!!!\n&amp;quot;
+  msg = paste(msg, &amp;quot;Bonds is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)])
+  msg = paste(msg, &amp;quot;Cash is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+  )
+}
+
+if(100 * (data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)] + data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)]) &amp;lt; data$Prop[which(data$Assets == &amp;quot;Age&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are underweight in Bonds and Cash relative to your age. Move out from equities!!!\n&amp;quot;
+  msg = paste(msg, &amp;quot;Bonds is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)])
+  msg = paste(msg, &amp;quot;Cash is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+  )
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>ETF watchlist email notification Through Python</title>
@@ -1015,20 +1100,6 @@ sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
 &lt;p&gt;&lt;img src=&#34;/post/img/baby.bmp&#34; alt=&#34;/post/img/baby.bmp&#34;&gt;
 &lt;img src=&#34;/post/img/baby_marked.bmp&#34; alt=&#34;/post/img/baby_marked.bmp&#34;&gt;
 &lt;img src=&#34;/post/img/baby_colorized.bmp&#34; alt=&#34;/post/img/baby_colorized.bmp&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Architecture and Process Flow for My Algorithmic Trading</title>
-      <link>/post/architecture-and-process-flow-for-my-algorithmic-trading/</link>
-      <pubDate>Sun, 04 Nov 2018 10:19:13 +0800</pubDate>
-      
-      <guid>/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
-      <description>
-
-&lt;h2 id=&#34;project-that-i-will-be-working-in-2018-2019&#34;&gt;Project that I will be working in 2018-2019&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;/post/img/mvp_algo_trading.png&#34; alt=&#34;/post/img/mvp_algo_trading.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

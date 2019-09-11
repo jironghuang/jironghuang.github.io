@@ -11,6 +11,16 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Asset allocation notification</title>
+      <link>/post/asset_allocation_notification/</link>
+      <pubDate>Thu, 12 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/asset_allocation_notification/</guid>
+      <description>Asset allocation notification I&amp;rsquo;m in the midst of automating/ guiding my life with algorithms (largely inspired by Ray Dalio) - and 1 of the guidelines that I set is on asset allocation,
+ Emerging market and Developed Market should be of the same proportion Bonds + Cash proportion should be equivalent to my age. This can deviate in times of crisis when I want to be more opportunistic.  If it deviates from the portfolio policy statement, it will send me a pushover notification to my phone:)</description>
+    </item>
+    
+    <item>
       <title>ETF watchlist email notification Through Python</title>
       <link>/post/email_notification_python/</link>
       <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
@@ -166,18 +176,6 @@ From this exercise, I had to rely on my knowledge on recursion, binary trees (in
 Double down! That&amp;rsquo;s essentially the essence of it.
 Here&amp;rsquo;s a simple explanation of the strategy,
  The croupier spins the ball. If it&amp;rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?</description>
-    </item>
-    
-    <item>
-      <title>How to Create a Python Environment in Ubuntu or any Debian-based system</title>
-      <link>/post/how-to-create-a-python-environment-in-ubuntu/</link>
-      <pubDate>Wed, 09 Jan 2019 23:39:22 +0800</pubDate>
-      
-      <guid>/post/how-to-create-a-python-environment-in-ubuntu/</guid>
-      <description>Often, certain projects or classes involving python require a set of modules/packages for the code to work.
-1 solution is to create a Python Environment dedicated to that project.
-First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),
-name: env channels: !!python/tuple - !!python/unicode &#39;defaults&#39; dependencies: - nb_conda=2.2.0=py27_0 - python=2.7.13=0 - cycler=0.10.0 - functools32=3.</description>
     </item>
     
   </channel>
