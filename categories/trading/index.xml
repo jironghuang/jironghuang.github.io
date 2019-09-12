@@ -45,7 +45,7 @@
 &lt;div id=&#34;disclosure&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Disclosure&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;I executed a long (BRK-B) short (SPY) strategy on 26-August with approximately $10000 on both positions. Cash outlay is only 11500 dollars on long side. I’m also earning further 2% interest on cash received from short sale held as collateral. I entered at a ratio of 1.439 with expected profits of 5-6% excluding further 2% p.a. of interest on short sale cash.&lt;/li&gt;
+&lt;li&gt;I executed a long (BRK-B) short (SPY) strategy on 26-August with approximately $11500 on both positions. Cash outlay is only 11500 dollars on long side. I’m also earning further 2% interest on cash received from short sale held as collateral. I entered at a ratio of 1.439 with expected profits of 5-6% excluding further 2% p.a. of interest on short sale cash.&lt;/li&gt;
 &lt;li&gt;I’m using pushoverr notification api linked to my phone app within my cron task scheduler. It will inform me to close my positions when the ratio dips below moving average.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -213,7 +213,7 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ds_risk&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                                   pnl
-## Semi Deviation                 0.0029
+## Semi Deviation                 0.0030
 ## Gain Deviation                 0.0050
 ## Loss Deviation                 0.0041
 ## Downside Deviation (MAR=210%)  0.0091
@@ -229,9 +229,9 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res$ret&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                              pnl
-## Annualized Return         0.0473
+## Annualized Return         0.0485
 ## Annualized Std Dev        0.0713
-## Annualized Sharpe (Rf=0%) 0.6632&lt;/code&gt;&lt;/pre&gt;
+## Annualized Sharpe (Rf=0%) 0.6807&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
