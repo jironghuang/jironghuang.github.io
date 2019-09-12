@@ -13,14 +13,12 @@
     
     
     <item>
-      <title>ETF watchlist email notification through python</title>
+      <title>Portfolio Performance</title>
       <link>/portfolio/portfolio/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/portfolio/portfolio/</guid>
-      <description>Email notification through python Ok. I finally bit the bullet and revamped my weekly ETF notification. This is a far better version that my previous one which I&amp;rsquo;m too ashamed too share.
-You may find my python code here.
-import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv(&#39;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&#39;) data[&#39;Change_fr_52_week_high&#39;] = round(100 * data[&#39;Change_fr_52_week_high&#39;], 1) data = data[[&#39;Name&#39;, &#39;Price&#39;, &#39;Change_fr_52_week_high&#39;]].</description>
+      <description> Portfolio Performance </description>
     </item>
     
   </channel>

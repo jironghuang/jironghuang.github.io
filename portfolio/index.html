@@ -257,12 +257,8 @@
   
   
   <div>
-    <h2><a href="/portfolio/portfolio/">ETF watchlist email notification through python</a></h2>
+    <h2><a href="/portfolio/portfolio/">Portfolio Performance</a></h2>
     <div class="article-style">
-      
-      Email notification through python Ok. I finally bit the bullet and revamped my weekly ETF notification. This is a far better version that my previous one which I&rsquo;m too ashamed too share.
-You may find my python code here.
-import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv(&lsquo;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&rsquo;) data[&lsquo;Change_fr_52_week_high&rsquo;] = round(100 * data[&lsquo;Change_fr_52_week_high&rsquo;], 1) data = data[[&lsquo;Name&rsquo;, &lsquo;Price&rsquo;, &lsquo;Change_fr_52_week_high&rsquo;]].
       
     </div>
   </div>

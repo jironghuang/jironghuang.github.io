@@ -76,7 +76,7 @@
   
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
   <meta property="og:url" content="/portfolio/portfolio/">
-  <meta property="og:title" content="ETF watchlist email notification through python | Jirong&#39;s sandbox">
+  <meta property="og:title" content="Portfolio Performance | Jirong&#39;s sandbox">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
@@ -87,7 +87,7 @@
 
   
 
-  <title>ETF watchlist email notification through python | Jirong&#39;s sandbox</title>
+  <title>Portfolio Performance | Jirong&#39;s sandbox</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +252,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">ETF watchlist email notification through python</h1>
+      <h1 itemprop="name">Portfolio Performance</h1>
 
       
 
@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    1 min read
   </span>
   
 
@@ -289,7 +289,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=ETF%20watchlist%20email%20notification%20through%20python&amp;url=%2fportfolio%2fportfolio%2f"
+         href="https://twitter.com/intent/tweet?text=Portfolio%20Performance&amp;url=%2fportfolio%2fportfolio%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
@@ -303,21 +303,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fportfolio%2fportfolio%2f&amp;title=ETF%20watchlist%20email%20notification%20through%20python"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fportfolio%2fportfolio%2f&amp;title=Portfolio%20Performance"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fportfolio%2fportfolio%2f&amp;title=ETF%20watchlist%20email%20notification%20through%20python"
+         href="http://service.weibo.com/share/share.php?url=%2fportfolio%2fportfolio%2f&amp;title=Portfolio%20Performance"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=ETF%20watchlist%20email%20notification%20through%20python&amp;body=%2fportfolio%2fportfolio%2f">
+         href="mailto:?subject=Portfolio%20Performance&amp;body=%2fportfolio%2fportfolio%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -333,78 +333,13 @@
       <div class="article-style" itemprop="articleBody">
         
 
-<h2 id="email-notification-through-python">Email notification through python</h2>
+<h2 id="portfolio-performance">Portfolio Performance</h2>
 
-<p>Ok. I finally bit the bullet and revamped my weekly ETF notification. This is a far better version that my previous one which I&rsquo;m too ashamed too share.</p>
+<p><img src="/portfolio/2019_portfolio_performance.png" alt="/portfolio/2019_portfolio_performance.png"></p>
 
-<p><img src="/post/img/email.png" alt="/post/img/email.png"></p>
+<p><img src="/portfolio/risk_2019.png" alt="/portfolio/risk_2019.png"></p>
 
-<p>You may find my python code here.</p>
-
-<pre><code>import smtplib, ssl
-import datetime
-import pandas as pd
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-
-#Format text
-data = pd.read_csv('/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv')
-data['Change_fr_52_week_high'] = round(100 * data['Change_fr_52_week_high'], 1) 
-data = data[['Name', 'Price', 'Change_fr_52_week_high']].head(20)
-data.rename(columns={'Change_fr_52_week_high':'Change from 52 week high (%)'}, inplace=True)
-results = data.to_html()
-
-message = MIMEMultipart(&quot;alternative&quot;)
-message[&quot;Subject&quot;] = &quot;ETF Watchlist&quot;
-message[&quot;From&quot;] = &quot;jironghuang88@gmail.com&quot;
-message[&quot;Bcc&quot;] = &quot;&lt;your recipients&gt;&quot;
-
-# Create the plain-text and HTML version of your message
-html = &quot;&quot;&quot;\
-&lt;html&gt;
-  &lt;head&gt;&lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;Hey there!       
-       &lt;br&gt;&lt;br&gt;    
-       &lt;br&gt;Pls click &lt;a href=&quot;https://jironghuang.github.io/project/watch_list/&quot;&gt;here&lt;/a&gt; for a complete updated ETF watchlist.&lt;br&gt;
-       
-       &lt;br&gt;For your convenience, I've also appended the top 20 tickers with greatest fall over last 52 week high (potentially cheap but you should triangulate with other sources)&lt;br&gt;
-       {0}
-
-       &lt;br&gt;This is part of my daily automated ETF dashboard + Email notification (weekly for email notification) and I thought you may be interested in it.&lt;br&gt; 
-
-       &lt;br&gt;Do also check out my 'What is Low - Regression Approach' &lt;a href=&quot;https://jironghuang.github.io/project/what-is-low-regression-approach/&quot;&gt;here&lt;/a&gt; to understand which are the markets that are under or overvalued.&lt;br&gt;
-       
-       &lt;br&gt;If this irritates you too much, let me know and I can take you out of this mailing list:)&lt;br&gt;
-
-       &lt;br&gt;Regards,&lt;br&gt;
-       &lt;br&gt;&lt;br&gt;
-       Jirong
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-
-&quot;&quot;&quot;.format(data.to_html())
-
-
-# Turn these into plain/html MIMEText objects
-#part1 = MIMEText(text, &quot;plain&quot;)
-part2 = MIMEText(html, &quot;html&quot;)
-#part3 = MIMEText(results, &quot;html&quot;)
-
-# Add HTML/plain-text parts to MIMEMultipart message
-# The email client will try to render the last part first
-message.attach(part2)
-
-server = smtplib.SMTP('smtp.gmail.com', 587)
-server.starttls()
-server.login(&quot;jironghuang88@gmail.com&quot;, &quot;&lt;fill in secret code of your own&gt;&quot;)
-
-recipients = [&quot;jironghuang88@gmail.com&quot;]
-
-server.sendmail(&quot;jironghuang88@gmail.com&quot;, recipients, message.as_string())
-server.quit()
-</code></pre>
+<p><img src="/portfolio/2018_portfolio_performance.png" alt="/portfolio/2018_portfolio_performance.png"></p>
 
       </div>
 
