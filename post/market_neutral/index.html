@@ -382,6 +382,7 @@
 <h3>Disclosure</h3>
 <ul>
 <li>I executed a long (BRK-B) short (SPY) strategy on 26-August with approximately $11500 on both positions. Cash outlay is only 11500 dollars on long side. I’m also earning further 2% interest on cash received from short sale held as collateral. I entered at a ratio of 1.439 with expected profits of 5-6% excluding further 2% p.a. of interest on short sale cash.</li>
+<li>Max holding period is 27 work days based on half life formula here (<a href="http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process" class="uri">http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process</a>) as advised by Ernest Chan. See his example for further explanation</li>
 <li>I’m using pushoverr notification api linked to my phone app within my cron task scheduler. It will inform me to close my positions when the ratio dips below moving average.</li>
 </ul>
 </div>
@@ -552,22 +553,22 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 ## Semi Deviation                 0.0030
 ## Gain Deviation                 0.0050
 ## Loss Deviation                 0.0041
-## Downside Deviation (MAR=210%)  0.0091
+## Downside Deviation (MAR=210%)  0.0092
 ## Downside Deviation (Rf=0%)     0.0029
 ## Downside Deviation (0%)        0.0029
 ## Maximum Drawdown               0.0793
 ## Historical VaR (95%)          -0.0066
-## Historical ES (95%)           -0.0105
-## Modified VaR (95%)            -0.0038
-## Modified ES (95%)             -0.0038</code></pre>
+## Historical ES (95%)           -0.0106
+## Modified VaR (95%)            -0.0039
+## Modified ES (95%)             -0.0039</code></pre>
 <ul>
 <li>Returns</li>
 </ul>
 <pre class="r"><code>res$ret</code></pre>
 <pre><code>##                              pnl
-## Annualized Return         0.0485
-## Annualized Std Dev        0.0713
-## Annualized Sharpe (Rf=0%) 0.6807</code></pre>
+## Annualized Return         0.0473
+## Annualized Std Dev        0.0717
+## Annualized Sharpe (Rf=0%) 0.6601</code></pre>
 </div>
 
       </div>
