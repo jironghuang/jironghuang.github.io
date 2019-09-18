@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 12 Sep 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
+      <link>/post/market_neutral_ewu/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/market_neutral_ewu/</guid>
+      <description>UK index and UK ETF I discovered another market neutral opportunity this month.
+And this is based on ratio between FTSE 100 index and MSCI based UK ETF (EWU)
+Based on backtest, sharpe ratio is close to 0.9.
+The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.
+The optimal lookback period for the MA component in bollinger band is approximately 40 days.</description>
+    </item>
     
     <item>
       <title>Asset allocation notification</title>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="author" content="Huang Jirong">
+  <meta name="description" content="Data scientist and Quantitative Investor/ Trader">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/market_neutral_ewu/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-116737154-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/market_neutral_ewu/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Jirong&#39;s sandbox">
+  <meta property="og:url" content="/post/market_neutral_ewu/">
+  <meta property="og:title" content="Market Neutral Strategy - FTSE Index and EWU ETF | Jirong&#39;s sandbox">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-09-18T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-09-18T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Market Neutral Strategy - FTSE Index and EWU ETF | Jirong&#39;s sandbox</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Jirong&#39;s sandbox</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/skin/skin-in-the-game">
+            
+            <span>Skin in the game</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/portfolio/portfolio">
+            
+            <span>Portfolio Performance</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/goals/goals">
+            
+            <span>Personal goals</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/subscribe/subscribe">
+            
+            <span>Subscribe Here</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Market Neutral Strategy - FTSE Index and EWU ETF</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-09-18 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Sep 18, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/market_neutral_ewu/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/investment">investment</a
+    >, 
+    
+    <a href="/categories/finance">finance</a
+    >, 
+    
+    <a href="/categories/trading">trading</a
+    >, 
+    
+    <a href="/categories/algo">algo</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Market%20Neutral%20Strategy%20-%20FTSE%20Index%20and%20EWU%20ETF&amp;url=%2fpost%2fmarket_neutral_ewu%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fmarket_neutral_ewu%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fmarket_neutral_ewu%2f&amp;title=Market%20Neutral%20Strategy%20-%20FTSE%20Index%20and%20EWU%20ETF"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fmarket_neutral_ewu%2f&amp;title=Market%20Neutral%20Strategy%20-%20FTSE%20Index%20and%20EWU%20ETF"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Market%20Neutral%20Strategy%20-%20FTSE%20Index%20and%20EWU%20ETF&amp;body=%2fpost%2fmarket_neutral_ewu%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+
+<div id="uk-index-and-uk-etf" class="section level2">
+<h2>UK index and UK ETF</h2>
+<p>I discovered another market neutral opportunity this month.</p>
+<p>And this is based on ratio between FTSE 100 index and MSCI based UK ETF (EWU)</p>
+<p>Based on backtest, sharpe ratio is close to 0.9.</p>
+<p>The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.</p>
+<p>The optimal lookback period for the MA component in bollinger band is approximately 40 days.</p>
+<p>As this is backed by stellar performance and economic reason, I’ve decided to deploy some capital to this strategy.</p>
+<div id="disclosure" class="section level3">
+<h3>Disclosure</h3>
+<ul>
+<li>I executed a long (FTSE 100) CFD short (EWU) strategy on 18-September with approximately $25000 on both positions. Equity to loan (with no cash) outlay is only 3750 dollars on long side. I entered at a ratio of 232 with expected profits of 2.4% excluding further 2% p.a. of interest on short sale cash. I expect a 3% long finance rate of approximately 2 dollars per day. Short interest gain rate is around 1.5% translating to 1 dollars per day. Net finance cost is around 1 dollar a day.</li>
+<li>Max holding period is 24 work days (ending on 22nd October 2019) based on half life formula here (<a href="http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process" class="uri">http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process</a>) as advised by Ernest Chan. See his example for further explanation</li>
+<li>I’m using pushoverr notification api linked to my phone app within my cron task scheduler. It will inform me to close my positions when the ratio dips below moving average.</li>
+</ul>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## Loading required package: tidyr</code></pre>
+<pre><code>## Loading required package: plyr</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:plyr&#39;:
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## Loading required package: gtools</code></pre>
+<pre><code>## Loading required package: googlesheets</code></pre>
+<pre><code>## Loading required package: quantmod</code></pre>
+<pre><code>## Loading required package: xts</code></pre>
+<pre><code>## 
+## Attaching package: &#39;xts&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, last</code></pre>
+<pre><code>## Loading required package: TTR</code></pre>
+<pre><code>## Version 0.4-0 included new data defaults. See ?getSymbols.</code></pre>
+<pre><code>## Loading required package: urca</code></pre>
+<pre><code>## Loading required package: PerformanceAnalytics</code></pre>
+<pre><code>## 
+## Attaching package: &#39;PerformanceAnalytics&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     legend</code></pre>
+<pre><code>## Loading required package: parallel</code></pre>
+<pre><code>## Loading required package: pushoverr</code></pre>
+<pre><code>##                  zoo                tidyr                 plyr 
+##                 TRUE                 TRUE                 TRUE 
+##                dplyr               gtools         googlesheets 
+##                 TRUE                 TRUE                 TRUE 
+##             quantmod                 urca PerformanceAnalytics 
+##                 TRUE                 TRUE                 TRUE 
+##             parallel                  TTR            pushoverr 
+##                 TRUE                 TRUE                 TRUE</code></pre>
+<pre><code>## &#39;getSymbols&#39; currently uses auto.assign=TRUE by default, but will
+## use auto.assign=FALSE in 0.5-0. You will still be able to use
+## &#39;loadSymbols&#39; to automatically load data. getOption(&quot;getSymbols.env&quot;)
+## and getOption(&quot;getSymbols.auto.assign&quot;) will still be checked for
+## alternate defaults.
+## 
+## This message is shown once per session and may be disabled by setting 
+## options(&quot;getSymbols.warning4.0&quot;=FALSE). See ?getSymbols for details.</code></pre>
+<pre><code>## 
+## WARNING: There have been significant changes to Yahoo Finance data.
+## Please see the Warning section of &#39;?getSymbols.yahoo&#39; for details.
+## 
+## This message is shown once per session and may be disabled by setting
+## options(&quot;getSymbols.yahoo.warning&quot;=FALSE).</code></pre>
+<pre><code>## Warning: ^FTSE contains missing values. Some functions will not work if
+## objects contain missing values in the middle of the series. Consider using
+## na.omit(), na.approx(), na.fill(), etc to remove or replace them.</code></pre>
+<p><img src="/post/market_neutral_ewu_files/figure-html/pressure-1.png" width="672" /><img src="/post/market_neutral_ewu_files/figure-html/pressure-2.png" width="672" /></p>
+<pre><code>##         From     Trough         To   Depth Length To Trough Recovery
+## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
+## 2 2015-12-18 2016-01-27 2016-03-03 -0.0626     50        25       25
+## 3 2016-10-06 2016-10-28 2016-12-15 -0.0509     50        17       33
+## 4 2016-06-29 2016-07-07 2016-10-05 -0.0471     68         6       62
+## 5 2019-07-15 2019-08-01       &lt;NA&gt; -0.0442     47        14       NA</code></pre>
+<pre><code>##                                   pnl
+## Semi Deviation                 0.0036
+## Gain Deviation                 0.0058
+## Loss Deviation                 0.0046
+## Downside Deviation (MAR=210%)  0.0095
+## Downside Deviation (Rf=0%)     0.0035
+## Downside Deviation (0%)        0.0035
+## Maximum Drawdown               0.0703
+## Historical VaR (95%)          -0.0083
+## Historical ES (95%)           -0.0127
+## Modified VaR (95%)            -0.0066
+## Modified ES (95%)             -0.0066</code></pre>
+<pre><code>##                              pnl
+## Annualized Return         0.0811
+## Annualized Std Dev        0.0883
+## Annualized Sharpe (Rf=0%) 0.9192</code></pre>
+</div>
+</div>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/investment">investment</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/finance">finance</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/trading">trading</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/algo">algo</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/market_neutral/">Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</a></li>
+    
+    <li><a href="/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/">Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</a></li>
+    
+    <li><a href="/post/how-i-find-country-pairs-for-mean-reversion-strategy/">How I Find Country Pairs for Mean Reversion Strategy</a></li>
+    
+    <li><a href="/post/research-to-production-pipeline-for-mean-reversion/">Research to Production Pipeline for Mean Reversion</a></li>
+    
+    <li><a href="/post/prototype-of-pair-trading-strategy-for-silver-etfs/">Prototype Pair Trading Strategy for Silver ETFs</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jirong" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://jironghuang.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//jirong.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

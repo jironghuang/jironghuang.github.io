@@ -7,8 +7,126 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/categories/finance/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
+      <link>/post/market_neutral_ewu/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/market_neutral_ewu/</guid>
+      <description>
+
+
+&lt;div id=&#34;uk-index-and-uk-etf&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;UK index and UK ETF&lt;/h2&gt;
+&lt;p&gt;I discovered another market neutral opportunity this month.&lt;/p&gt;
+&lt;p&gt;And this is based on ratio between FTSE 100 index and MSCI based UK ETF (EWU)&lt;/p&gt;
+&lt;p&gt;Based on backtest, sharpe ratio is close to 0.9.&lt;/p&gt;
+&lt;p&gt;The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.&lt;/p&gt;
+&lt;p&gt;The optimal lookback period for the MA component in bollinger band is approximately 40 days.&lt;/p&gt;
+&lt;p&gt;As this is backed by stellar performance and economic reason, I’ve decided to deploy some capital to this strategy.&lt;/p&gt;
+&lt;div id=&#34;disclosure&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Disclosure&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;I executed a long (FTSE 100) CFD short (EWU) strategy on 18-September with approximately $25000 on both positions. Equity to loan (with no cash) outlay is only 3750 dollars on long side. I entered at a ratio of 232 with expected profits of 2.4% excluding further 2% p.a. of interest on short sale cash. I expect a 3% long finance rate of approximately 2 dollars per day. Short interest gain rate is around 1.5% translating to 1 dollars per day. Net finance cost is around 1 dollar a day.&lt;/li&gt;
+&lt;li&gt;Max holding period is 24 work days (ending on 22nd October 2019) based on half life formula here (&lt;a href=&#34;http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process&#34; class=&#34;uri&#34;&gt;http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process&lt;/a&gt;) as advised by Ernest Chan. See his example for further explanation&lt;/li&gt;
+&lt;li&gt;I’m using pushoverr notification api linked to my phone app within my cron task scheduler. It will inform me to close my positions when the ratio dips below moving average.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: zoo&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;zoo&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     as.Date, as.Date.numeric&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: tidyr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: plyr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: dplyr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:plyr&amp;#39;:
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: gtools&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: googlesheets&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: quantmod&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: xts&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;xts&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     first, last&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: TTR&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Version 0.4-0 included new data defaults. See ?getSymbols.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: urca&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: PerformanceAnalytics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;PerformanceAnalytics&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:graphics&amp;#39;:
+## 
+##     legend&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: parallel&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: pushoverr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                  zoo                tidyr                 plyr 
+##                 TRUE                 TRUE                 TRUE 
+##                dplyr               gtools         googlesheets 
+##                 TRUE                 TRUE                 TRUE 
+##             quantmod                 urca PerformanceAnalytics 
+##                 TRUE                 TRUE                 TRUE 
+##             parallel                  TTR            pushoverr 
+##                 TRUE                 TRUE                 TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;getSymbols&amp;#39; currently uses auto.assign=TRUE by default, but will
+## use auto.assign=FALSE in 0.5-0. You will still be able to use
+## &amp;#39;loadSymbols&amp;#39; to automatically load data. getOption(&amp;quot;getSymbols.env&amp;quot;)
+## and getOption(&amp;quot;getSymbols.auto.assign&amp;quot;) will still be checked for
+## alternate defaults.
+## 
+## This message is shown once per session and may be disabled by setting 
+## options(&amp;quot;getSymbols.warning4.0&amp;quot;=FALSE). See ?getSymbols for details.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## WARNING: There have been significant changes to Yahoo Finance data.
+## Please see the Warning section of &amp;#39;?getSymbols.yahoo&amp;#39; for details.
+## 
+## This message is shown once per session and may be disabled by setting
+## options(&amp;quot;getSymbols.yahoo.warning&amp;quot;=FALSE).&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: ^FTSE contains missing values. Some functions will not work if
+## objects contain missing values in the middle of the series. Consider using
+## na.omit(), na.approx(), na.fill(), etc to remove or replace them.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/pressure-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/pressure-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
+## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
+## 2 2015-12-18 2016-01-27 2016-03-03 -0.0626     50        25       25
+## 3 2016-10-06 2016-10-28 2016-12-15 -0.0509     50        17       33
+## 4 2016-06-29 2016-07-07 2016-10-05 -0.0471     68         6       62
+## 5 2019-07-15 2019-08-01       &amp;lt;NA&amp;gt; -0.0442     47        14       NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                   pnl
+## Semi Deviation                 0.0036
+## Gain Deviation                 0.0058
+## Loss Deviation                 0.0046
+## Downside Deviation (MAR=210%)  0.0095
+## Downside Deviation (Rf=0%)     0.0035
+## Downside Deviation (0%)        0.0035
+## Maximum Drawdown               0.0703
+## Historical VaR (95%)          -0.0083
+## Historical ES (95%)           -0.0127
+## Modified VaR (95%)            -0.0066
+## Modified ES (95%)             -0.0066&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                              pnl
+## Annualized Return         0.0811
+## Annualized Std Dev        0.0883
+## Annualized Sharpe (Rf=0%) 0.9192&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
