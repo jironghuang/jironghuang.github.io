@@ -34,6 +34,9 @@
 &lt;li&gt;Max holding period is 24 work days (ending on 22nd October 2019) based on half life formula here (&lt;a href=&#34;http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process&#34; class=&#34;uri&#34;&gt;http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process&lt;/a&gt;) as advised by Ernest Chan. See his example for further explanation&lt;/li&gt;
 &lt;li&gt;I’m using pushoverr notification api linked to my phone app within my cron task scheduler. It will inform me to close my positions when the ratio dips below moving average.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sapply(c(&amp;quot;zoo&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;plyr&amp;quot;, &amp;quot;dplyr&amp;quot;,
+         &amp;quot;gtools&amp;quot;,&amp;quot;googlesheets&amp;quot;, &amp;quot;quantmod&amp;quot;, 
+         &amp;quot;urca&amp;quot;, &amp;quot;PerformanceAnalytics&amp;quot;, &amp;quot;parallel&amp;quot;, &amp;quot;TTR&amp;quot;, &amp;quot;pushoverr&amp;quot;), require, character.only = T)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Loading required package: zoo&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ## Attaching package: &amp;#39;zoo&amp;#39;&lt;/code&gt;&lt;/pre&gt;
@@ -83,6 +86,24 @@
 ##                 TRUE                 TRUE                 TRUE 
 ##             parallel                  TTR            pushoverr 
 ##                 TRUE                 TRUE                 TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;source(&amp;#39;util/calculateReturns.R&amp;#39;)
+source(&amp;#39;util/calculateMaxDD.R&amp;#39;)
+source(&amp;#39;util/backshift.R&amp;#39;)
+source(&amp;#39;util/extract_stock_prices.R&amp;#39;)
+source(&amp;#39;util/cointegration_pair.R&amp;#39;)
+
+stock1 = &amp;quot;^FTSE&amp;quot;
+stock2 = &amp;quot;EWU&amp;quot;
+
+n_days = 40
+
+prop_train = 0.7
+
+start_date = &amp;quot;2000-07-01&amp;quot;
+end_date = &amp;quot;2019-12-30&amp;quot;
+
+#Start of function
+data1 = df_crawl_time_series(stock1, start_date, end_date)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## &amp;#39;getSymbols&amp;#39; currently uses auto.assign=TRUE by default, but will
 ## use auto.assign=FALSE in 0.5-0. You will still be able to use
 ## &amp;#39;loadSymbols&amp;#39; to automatically load data. getOption(&amp;quot;getSymbols.env&amp;quot;)
@@ -100,13 +121,99 @@
 &lt;pre&gt;&lt;code&gt;## Warning: ^FTSE contains missing values. Some functions will not work if
 ## objects contain missing values in the middle of the series. Consider using
 ## na.omit(), na.approx(), na.fill(), etc to remove or replace them.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/pressure-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/pressure-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data1 = subset(data1, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
+names(data1) = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Close&amp;quot;)
+data1$Date = as.Date(data1$Date)
+
+data2 = df_crawl_time_series(stock2, start_date, end_date)
+data2 = subset(data2, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
+names(data2) = c(&amp;quot;Date&amp;quot;, &amp;quot;Open&amp;quot;, &amp;quot;Close&amp;quot;)
+data2$Date = as.Date(data2$Date)
+
+#Training and testing index
+data1 = xts(data1[, -1], order.by = data1[, 1])
+data2 = xts(data2[, -1], order.by = data2[, 1])
+
+data = merge(data1, data2)
+data = as.data.frame(data)
+data = subset(data, !is.na(data$Close) &amp;amp; !is.na(data$Close.1))
+
+data$ratio = data$Close/ data$Close.1
+
+# plot(data$ratio)
+bb_ratio = data.frame(BBands(data$ratio,n = n_days))
+data = cbind(data, bb_ratio)
+data_sub = tail(data, 1000)
+
+plot(data_sub$ratio)
+lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
+lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
+lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
+data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
+data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
+
+#  exit any spread position when its value is at moving average
+data_sub$longExits   &amp;lt;- data_sub$ratio &amp;gt;= data_sub$mavg
+data_sub$shortExits &amp;lt;- data_sub$ratio &amp;lt;= data_sub$mavg
+
+
+# #  define indices for training and test sets
+# trainset &amp;lt;- 1:as.integer(nrow(data) * prop_train)
+# testset &amp;lt;- (length(trainset)+1):nrow(data)
+
+#Signal
+data_sub$posL1 = NA
+data_sub$posL2 = NA
+data_sub$posS1 = NA
+data_sub$posS2 = NA
+
+# initialize to 0
+data_sub$posL1[1] &amp;lt;- 0; data_sub$posL2[1] &amp;lt;- 0
+data_sub$posS1[1] &amp;lt;- 0; data_sub$posS2[1] &amp;lt;- 0
+
+data_sub$posL1[data_sub$longs] &amp;lt;- 1
+data_sub$posL2[data_sub$longs] &amp;lt;- -1
+
+data_sub$posS1[data_sub$shorts] &amp;lt;- -1
+data_sub$posS2[data_sub$shorts] &amp;lt;- 1
+
+data_sub$posL1[data_sub$longExits] &amp;lt;- 0
+data_sub$posL2[data_sub$longExits] &amp;lt;- 0
+data_sub$posS1[data_sub$shortExits] &amp;lt;- 0
+data_sub$posS2[data_sub$shortExits] &amp;lt;- 0
+
+#positions
+data_sub$posL1 &amp;lt;- zoo::na.locf(data_sub$posL1); data_sub$posL2 &amp;lt;- zoo::na.locf(data_sub$posL2)
+data_sub$posS1 &amp;lt;- zoo::na.locf(data_sub$posS1); data_sub$posS2 &amp;lt;- zoo::na.locf(data_sub$posS2)
+data_sub$position1 &amp;lt;- data_sub$posL1 + data_sub$posS1
+data_sub$position2 &amp;lt;- data_sub$posL2 + data_sub$posS2
+
+#Returns
+data_sub$dailyret1 &amp;lt;- ROC(data_sub$Close) #  last row is [385,] -0.0122636689 -0.0140365802
+data_sub$dailyret2 &amp;lt;- ROC(data_sub$Close.1) #  last row is [385,] -0.0122636689 -0.0140365802
+
+#Backshifting here. But signal is for following day returns!. So can still use latest Z-score
+data_sub$date = as.Date(row.names(data_sub))
+data_sub = xts(data_sub[,-which(names(data_sub) == &amp;quot;date&amp;quot;)], order.by = data_sub[, which(names(data_sub) == &amp;quot;date&amp;quot;)])
+
+#Doesn&amp;#39;t account for number of shares!!!!!
+data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$position2, 1) * data_sub$dailyret2
+
+#Performance analytics
+tryCatch({
+  charts.PerformanceSummary(data_sub$pnl)
+}, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
 ## 2 2015-12-18 2016-01-27 2016-03-03 -0.0626     50        25       25
 ## 3 2016-10-06 2016-10-28 2016-12-15 -0.0509     50        17       33
 ## 4 2016-06-29 2016-07-07 2016-10-05 -0.0471     68         6       62
 ## 5 2019-07-15 2019-08-01       &amp;lt;NA&amp;gt; -0.0442     47        14       NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.DownsideRisk(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                                   pnl
 ## Semi Deviation                 0.0036
 ## Gain Deviation                 0.0058
@@ -119,10 +226,39 @@
 ## Historical ES (95%)           -0.0127
 ## Modified VaR (95%)            -0.0066
 ## Modified ES (95%)             -0.0066&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.AnnualizedReturns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                              pnl
 ## Annualized Return         0.0811
 ## Annualized Std Dev        0.0883
 ## Annualized Sharpe (Rf=0%) 0.9192&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Extract the moving average, ratio
+update = paste(stock1, stock2,
+               &amp;quot;Current ratio is:&amp;quot;, round(as.numeric(data_sub$ratio[nrow(data_sub)]), 3), 
+               &amp;quot;Moving average is&amp;quot;, round(as.numeric(data_sub$mavg[nrow(data_sub)]), 3),
+               &amp;quot;Expected profits left in %&amp;quot;, abs(round(100 * (as.numeric(data_sub$ratio[nrow(data_sub)]) - as.numeric(data_sub$mavg[nrow(data_sub)]))/as.numeric(data_sub$ratio[nrow(data_sub)]), 1)),
+               &amp;quot;UB is&amp;quot;, round(as.numeric(data_sub$up[nrow(data_sub)]), 3),
+               &amp;quot;LB is&amp;quot;, round(as.numeric(data_sub$dn[nrow(data_sub)]), 3)               
+)
+
+if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;lt; as.numeric(data_sub$dn[nrow(data_sub)])) {
+  update = paste(update, &amp;quot;Long ratio!&amp;quot;)
+} else{
+  update = paste(update, &amp;quot;\nDon&amp;#39;t enter\n&amp;quot;)
+}
+
+if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nrow(data_sub)])) {
+  update = paste(update, &amp;quot;Short ratio!&amp;quot;)
+} else{
+  update = paste(update, &amp;quot;Don&amp;#39;t enter&amp;quot;)
+}
+
+# if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;lt; as.numeric(data_sub$mavg[nrow(data_sub)])) {
+#   update = paste(update, &amp;quot;Liquidate position!&amp;quot;)
+# } else{
+#   update = paste(update, &amp;quot;Hold&amp;quot;)
+# }
+
+#pushover(message = update, user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
