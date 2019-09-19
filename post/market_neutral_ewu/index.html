@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    5 min read
   </span>
   
 
@@ -370,50 +370,9 @@
 <li>Max holding period is 24 work days (ending on 22nd October 2019) based on half life formula here (<a href="http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process" class="uri">http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process</a>) as advised by Ernest Chan. See his example for further explanation</li>
 <li>I’m using pushoverr notification api linked to my phone app within my cron task scheduler. It will inform me to close my positions when the ratio dips below moving average.</li>
 </ul>
-<pre class="r"><code>sapply(c(&quot;zoo&quot;, &quot;tidyr&quot;, &quot;plyr&quot;, &quot;dplyr&quot;,
+<pre class="r"><code>suppressMessages(sapply(c(&quot;zoo&quot;, &quot;tidyr&quot;, &quot;plyr&quot;, &quot;dplyr&quot;,
          &quot;gtools&quot;,&quot;googlesheets&quot;, &quot;quantmod&quot;, 
-         &quot;urca&quot;, &quot;PerformanceAnalytics&quot;, &quot;parallel&quot;, &quot;TTR&quot;, &quot;pushoverr&quot;), require, character.only = T)</code></pre>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre><code>## Loading required package: tidyr</code></pre>
-<pre><code>## Loading required package: plyr</code></pre>
-<pre><code>## Loading required package: dplyr</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:plyr&#39;:
-## 
-##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-##     summarize</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre><code>## Loading required package: gtools</code></pre>
-<pre><code>## Loading required package: googlesheets</code></pre>
-<pre><code>## Loading required package: quantmod</code></pre>
-<pre><code>## Loading required package: xts</code></pre>
-<pre><code>## 
-## Attaching package: &#39;xts&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     first, last</code></pre>
-<pre><code>## Loading required package: TTR</code></pre>
-<pre><code>## Version 0.4-0 included new data defaults. See ?getSymbols.</code></pre>
-<pre><code>## Loading required package: urca</code></pre>
-<pre><code>## Loading required package: PerformanceAnalytics</code></pre>
-<pre><code>## 
-## Attaching package: &#39;PerformanceAnalytics&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     legend</code></pre>
-<pre><code>## Loading required package: parallel</code></pre>
-<pre><code>## Loading required package: pushoverr</code></pre>
+         &quot;urca&quot;, &quot;PerformanceAnalytics&quot;, &quot;parallel&quot;, &quot;TTR&quot;, &quot;pushoverr&quot;), require, character.only = T))</code></pre>
 <pre><code>##                  zoo                tidyr                 plyr 
 ##                 TRUE                 TRUE                 TRUE 
 ##                dplyr               gtools         googlesheets 
