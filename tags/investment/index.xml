@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 18 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 11:46:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/investment/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Investment Jarvis</title>
+      <link>/post/jarvis/</link>
+      <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/jarvis/</guid>
+      <description>Jarvis Humans are imperfect.
+Humans are prone to biases.
+Humans are dumb.
+Humans have egos.
+And all these are blockers to sustainable positive performances in the area of investment portfolio management.
+But not all is lost&amp;hellip; I&amp;rsquo;ve found a way to aid me in my invesment decision making processes.
+I have coded my Jarvis! My expert advisor to advise me what to do in different scenarios.
+Here is how it works,</description>
+    </item>
     
     <item>
       <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
