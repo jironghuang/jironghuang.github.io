@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 20 Sep 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 23 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/investment/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
+      <link>/post/market_neutral_ewg/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/market_neutral_ewg/</guid>
+      <description>UK index and UK ETF I will keep it short in this post since I espoused on this strategy a couple of times.
+I discovered another market neutral opportunity this month.
+And this is based on ratio between Germany DAX index and MSCI based Germany ETF (EWG)
+Based on backtest, sharpe ratio is close to 1.16.
+The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.</description>
+    </item>
     
     <item>
       <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>

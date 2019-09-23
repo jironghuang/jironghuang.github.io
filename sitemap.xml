@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/market_neutral_ewg/</loc>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/jarvis/</loc>
       <lastmod>2019-09-20T11:46:49+08:00</lastmod>
     </url>
@@ -495,7 +504,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2019-09-20T11:46:49+08:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -574,7 +583,7 @@
     <url>
     
       <loc>/tags/algo/</loc>
-      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -584,7 +593,7 @@
     <url>
     
       <loc>/categories/algo/</loc>
-      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -724,7 +733,7 @@
     <url>
     
       <loc>/tags/finance/</loc>
-      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -734,7 +743,7 @@
     <url>
     
       <loc>/categories/finance/</loc>
-      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -764,7 +773,7 @@
     <url>
     
       <loc>/tags/investment/</loc>
-      <lastmod>2019-09-20T11:46:49+08:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -774,7 +783,7 @@
     <url>
     
       <loc>/categories/investment/</loc>
-      <lastmod>2019-09-20T11:46:49+08:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -954,7 +963,7 @@
     <url>
     
       <loc>/tags/trading/</loc>
-      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -964,7 +973,7 @@
     <url>
     
       <loc>/categories/trading/</loc>
-      <lastmod>2019-09-18T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

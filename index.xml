@@ -11,6 +11,19 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
+      <link>/post/market_neutral_ewg/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/market_neutral_ewg/</guid>
+      <description>UK index and UK ETF I will keep it short in this post since I espoused on this strategy a couple of times.
+I discovered another market neutral opportunity this month.
+And this is based on ratio between Germany DAX index and MSCI based Germany ETF (EWG)
+Based on backtest, sharpe ratio is close to 1.16.
+The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.</description>
+    </item>
+    
+    <item>
       <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>
       <link>/post/jarvis/</link>
       <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
@@ -171,17 +184,6 @@ I managed to deploy my python flask app in Heroku.
 from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &amp;quot;Hello World!&amp;quot; @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello_name(name): return &amp;quot;Hello {}!&amp;quot;.format(name) if __name__ == &#39;__main__&#39;: app.run()  You may visit the following link &amp;ndash;&amp;gt;https://jirong-stage.herokuapp.com/ &amp;amp; add a suffix to it.
 Example https://jirong-stage.herokuapp.com/jirong &amp;amp; this will return Hello jirong!
 Possibilites are immense! I can easily create APIs or host dashboard here.</description>
-    </item>
-    
-    <item>
-      <title>Sampling With Replacement Through First Principles</title>
-      <link>/post/sampling-with-replacement-through-first-principles/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/sampling-with-replacement-through-first-principles/</guid>
-      <description>Sampling with replacement Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
-I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
-Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.</description>
     </item>
     
   </channel>
