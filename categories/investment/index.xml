@@ -19,8 +19,8 @@
       <description>
 
 
-&lt;div id=&#34;uk-index-and-uk-etf&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;UK index and UK ETF&lt;/h2&gt;
+&lt;div id=&#34;dax-index-and-germany-etf&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;DAX index and Germany ETF&lt;/h2&gt;
 &lt;p&gt;I will keep it short in this post since I espoused on this strategy a couple of times.&lt;/p&gt;
 &lt;p&gt;I discovered another market neutral opportunity this month.&lt;/p&gt;
 &lt;p&gt;And this is based on ratio between Germany DAX index and MSCI based Germany ETF (EWG)&lt;/p&gt;
@@ -189,9 +189,9 @@ tryCatch({
 ## Modified ES (95%)             -0.0043&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.AnnualizedReturns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##                              pnl
-## Annualized Return         0.0897
+## Annualized Return         0.0898
 ## Annualized Std Dev        0.0773
-## Annualized Sharpe (Rf=0%) 1.1610&lt;/code&gt;&lt;/pre&gt;
+## Annualized Sharpe (Rf=0%) 1.1617&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Extract the moving average, ratio
 update = paste(stock1, stock2,
                &amp;quot;Current ratio is:&amp;quot;, round(as.numeric(data_sub$ratio[nrow(data_sub)]), 3), 
