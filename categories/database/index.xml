@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database on Jirong&#39;s sandbox</title>
+    <link>/categories/database/</link>
+    <description>Recent content in database on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 29 Sep 2019 11:46:49 +0800</lastBuildDate>
+    <atom:link href="/categories/database/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Setting up a database for my Jarvis</title>
+      <link>/post/jarvis_database/</link>
+      <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/jarvis_database/</guid>
+      <description>
+
+&lt;h2 id=&#34;setting-up-a-database-for-my-jarvis&#34;&gt;Setting up a database for my Jarvis&lt;/h2&gt;
+
+&lt;p&gt;As I run more sophiscated trading strategies, I require a proper database for training parameters and records.&lt;/p&gt;
+
+&lt;p&gt;Previously, I was using a mix of SQLite, RDA and CSV files - but going forward I will be using Mysql (workbench) to house my data.&lt;/p&gt;
+
+&lt;p&gt;Below is an example of database tables for my market neutral strategies. I will be using these tables for the following,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Store optimized training parameters&lt;/li&gt;
+&lt;li&gt;Store trading records&lt;/li&gt;
+&lt;li&gt;For my daily scheduled jobs to pull key info like parameters, number of trading days VS half life, etc.&lt;/li&gt;
+&lt;li&gt;In the intermediate to long term, if I choose to automate the trading process, MySql will be able to handle concurrent connections (unlike SQlite!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;database-schema-for-my-jarvis&#34;&gt;Database schema for my Jarvis&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;#Create hyperparameters table (with date of training)
+CREATE DATABASE IF NOT EXISTS jarvis 
+    DEFAULT CHARACTER SET utf8mb4 
+    DEFAULT COLLATE utf8mb4_unicode_ci;
+    
+USE jarvis; 
+ 
+#Hyper-parameters schema 
+CREATE TABLE `market_neutral_hyper_parameters` (
+
+  id int(16) unsigned NOT NULL AUTO_INCREMENT,
+  date_train date DEFAULT NULL,
+  ticker1 VARCHAR(100),
+  ticker2 VARCHAR(100),
+  start_date date DEFAULT NULL,
+  end_date date DEFAULT NULL,  
+  bband_days INT,
+  finance_rates DECIMAL,
+  path_rda VARCHAR(100),
+  is_coint_full INT,
+  is_coint_train INT,
+  is_coint_test INT,
+  half_life DECIMAL,
+  half_life_train DECIMAL,
+  half_life_test DECIMAL,
+  ret_yr DECIMAL,
+  ret_sharpe DECIMAL,
+  ret_yr_train DECIMAL,
+  ret_sharpe_train DECIMAL,  
+  ret_yr_test DECIMAL,
+  ret_sharpe_test DECIMAL,
+  prop_days_mkt_train DECIMAL,
+  prop_days_mkt_test DECIMAL,
+  perc_win_train DECIMAL,
+  perc_win_test DECIMAL,
+  
+  UNIQUE KEY id (id)  
+);
+
+#Existing positions 
+CREATE TABLE `positions` (
+  id int(16),    #linked to hyper-parameters
+  ticker1 VARCHAR(100),
+  ticker2 VARCHAR(100),
+  entry_date date DEFAULT NULL,
+  exit_date date DEFAULT NULL,
+  entry_price1 DECIMAL,
+  entry_price2 DECIMAL,
+  exit_price1 DECIMAL,
+  exit_price2 DECIMAL,
+  entry_ratio DECIMAL,
+  exit_expect_ratio DECIMAL,  #based on MA on entry day
+  exit_actual_ratio DECIMAL,
+  num_pos1 INT,
+  num_pos2 INT,
+  realised_profits DECIMAL,   #based on report
+  cost DECIMAL    
+)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

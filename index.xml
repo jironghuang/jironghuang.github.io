@@ -11,6 +11,17 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Setting up a database for my Jarvis</title>
+      <link>/post/jarvis_database/</link>
+      <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/jarvis_database/</guid>
+      <description>Setting up a database for my Jarvis As I run more sophiscated trading strategies, I require a proper database for training parameters and records.
+Previously, I was using a mix of SQLite, RDA and CSV files - but going forward I will be using Mysql (workbench) to house my data.
+Below is an example of database tables for my market neutral strategies. I will be using these tables for the following,</description>
+    </item>
+    
+    <item>
       <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
       <link>/post/market_neutral_ewg/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
@@ -171,19 +182,6 @@ The binary lens of evaluating the XIRR is as follows,
       <guid>/post/xirr_cpfis/</guid>
       <description>What’re the returns (XIRR) for my CPFIS Portfolio? Every employee in Singapore is bounded by the same set of CPF rules.
 As an ex-economist/ data geek who doesn’t shy away from having skin in the game. I asked myself this question back in 2015 when I was still a starry-eyed young man 2 years into the workforce - how do I set out to optimize my returns in my CPF OA with these given set of constraints,</description>
-    </item>
-    
-    <item>
-      <title>Hosting a Flask App on Heroku</title>
-      <link>/post/hosting-a-flask-app-on-heroku/</link>
-      <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
-      
-      <guid>/post/hosting-a-flask-app-on-heroku/</guid>
-      <description>Following the steps here &amp;ndash;&amp;gt; https://realpython.com/flask-by-example-part-1-project-setup/
-I managed to deploy my python flask app in Heroku.
-from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &amp;quot;Hello World!&amp;quot; @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello_name(name): return &amp;quot;Hello {}!&amp;quot;.format(name) if __name__ == &#39;__main__&#39;: app.run()  You may visit the following link &amp;ndash;&amp;gt;https://jirong-stage.herokuapp.com/ &amp;amp; add a suffix to it.
-Example https://jirong-stage.herokuapp.com/jirong &amp;amp; this will return Hello jirong!
-Possibilites are immense! I can easily create APIs or host dashboard here.</description>
     </item>
     
   </channel>

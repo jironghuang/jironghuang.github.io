@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/jarvis_database/</loc>
+      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/market_neutral_ewg/</loc>
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
     </url>
@@ -504,7 +513,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -722,6 +731,26 @@
     
     <url>
     
+      <loc>/tags/database/</loc>
+      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/database/</loc>
+      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/economics/</loc>
       <lastmod>2018-04-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -773,7 +802,7 @@
     <url>
     
       <loc>/tags/investment/</loc>
-      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -783,7 +812,7 @@
     <url>
     
       <loc>/categories/investment/</loc>
-      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     

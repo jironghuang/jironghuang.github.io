@@ -469,6 +469,95 @@
       
           
       
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/jarvis_database/" itemprop="url">Setting up a database for my Jarvis</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-09-29 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+      Sep 29, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/jarvis_database/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/investment">investment</a
+    >, 
+    
+    <a href="/categories/database">database</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Setting up a database for my Jarvis As I run more sophiscated trading strategies, I require a proper database for training parameters and records.
+Previously, I was using a mix of SQLite, RDA and CSV files - but going forward I will be using Mysql (workbench) to house my data.
+Below is an example of database tables for my market neutral strategies. I will be using these tables for the following,
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/jarvis_database/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
           
       
           
@@ -831,97 +920,6 @@ The optimal lookback period for the MA component in bollinger band is approximat
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/email_notification_python/" itemprop="url">ETF watchlist email notification Through Python</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-09-10 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
-      Sep 10, 2019
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/email_notification_python/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >, 
-    
-    <a href="/categories/machine_learning">machine_learning</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Email notification I finally bit the bullet and updated my previously hideous email notification!
-You may find the updated email notification template here - alongside with the code.
-Feel free to ping me if you are keen to be on the email list too.
-~ Jirong
-import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv('/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv') data['Change_fr_52_week_high'] = round(100 * data['Change_fr_52_week_high'], 1) data = data[['Name', 'Price', 'Change_fr_52_week_high']].
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/email_notification_python/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1186,6 +1184,13 @@ import smtplib, ssl import datetime import pandas as pd from email.mime.text imp
           
           
           
+          <a href="/tags/database" style="font-size:0.8rem">database</a>
+        
+          
+          
+          
+          
+          
           <a href="/tags/economics" style="font-size:0.8rem">economics</a>
         
           
@@ -1207,7 +1212,7 @@ import smtplib, ssl import datetime import pandas as pd from email.mime.text imp
           
           
           
-          <a href="/tags/investment" style="font-size:2.3248580046795126rem">investment</a>
+          <a href="/tags/investment" style="font-size:2.3582001080776616rem">investment</a>
         
           
           
@@ -1392,6 +1397,13 @@ import smtplib, ssl import datetime import pandas as pd from email.mime.text imp
           
           
           
+          <a href="/tags/database" style="font-size:0.8rem">database</a>
+        
+          
+          
+          
+          
+          
           <a href="/tags/economics" style="font-size:0.8rem">economics</a>
         
           
@@ -1413,7 +1425,7 @@ import smtplib, ssl import datetime import pandas as pd from email.mime.text imp
           
           
           
-          <a href="/tags/investment" style="font-size:2.3248580046795126rem">investment</a>
+          <a href="/tags/investment" style="font-size:2.3582001080776616rem">investment</a>
         
           
           
