@@ -11,6 +11,16 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Back to Basics - Birth of an idea in the jungle</title>
+      <link>/post/birth-of-an-idea-in-the-jungle/</link>
+      <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/birth-of-an-idea-in-the-jungle/</guid>
+      <description>Birth of an idea of all places: In the Jungle Having to juggle both work and masters in computer science at the same time, it&amp;rsquo;s really hard to afford any more time to my side projects.
+But back in August, I had a break away from both school and work by going back for reservist. As it&amp;rsquo;s really bored in there where I spent most of the time in a small building (with no aircon!</description>
+    </item>
+    
+    <item>
       <title>Setting up a database for my Jarvis</title>
       <link>/post/jarvis_database/</link>
       <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
@@ -172,16 +182,6 @@ Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summ
       <description>What’re the returns (XIRR) for my CPFIS Portfolio? I expounded my philosophy and calculated the returns of my CPFIS portfolio via XIRR (Extended Internal Rate of Returns) here.
 The binary lens of evaluating the XIRR is as follows,
  If XIRR &amp;gt; 2.5%, my investment decision paid off Else if XIRR &amp;lt; 2.5%, my invesment decision did not pay off (not to say it’s a bad decision. Pls do not confuse decision with outcome)  As an ex-economist/ data geek who doesn’t shy away from having skin in the game, I will be honest in sharing my returns and its stream of cashflow here,</description>
-    </item>
-    
-    <item>
-      <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>/post/xirr_cpfis/</link>
-      <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/xirr_cpfis/</guid>
-      <description>What’re the returns (XIRR) for my CPFIS Portfolio? Every employee in Singapore is bounded by the same set of CPF rules.
-As an ex-economist/ data geek who doesn’t shy away from having skin in the game. I asked myself this question back in 2015 when I was still a starry-eyed young man 2 years into the workforce - how do I set out to optimize my returns in my CPF OA with these given set of constraints,</description>
     </item>
     
   </channel>

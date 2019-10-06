@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thoughts on Jirong&#39;s sandbox</title>
+    <link>/categories/thoughts/</link>
+    <description>Recent content in thoughts on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 06 Oct 2019 11:46:49 +0800</lastBuildDate>
+    <atom:link href="/categories/thoughts/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Back to Basics - Birth of an idea in the jungle</title>
+      <link>/post/birth-of-an-idea-in-the-jungle/</link>
+      <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/birth-of-an-idea-in-the-jungle/</guid>
+      <description>
+
+&lt;h2 id=&#34;birth-of-an-idea-of-all-places-in-the-jungle&#34;&gt;Birth of an idea of all places: In the Jungle&lt;/h2&gt;
+
+&lt;p&gt;Having to juggle both work and masters in computer science at the same time, it&amp;rsquo;s really hard to afford any more time to my side projects.&lt;/p&gt;
+
+&lt;p&gt;But back in August, I had a break away from both school and work by going back for reservist. As it&amp;rsquo;s really bored in there where I spent most of the time in a small building (with no aircon!) in the middle of a jungle, I managed to revisit some of my past quant strategies, armed with my notebook.&lt;/p&gt;
+
+&lt;p&gt;Last Dec, I was exploring mean-reversion strategies with Kalman filter on spreads between 2 or more instruments. The math is elegant; backtest results are great but it&amp;rsquo;s really hard to operationalise it.&lt;/p&gt;
+
+&lt;p&gt;The issue is - after you do all the feature transformation, it&amp;rsquo;s hard to visualize and compute basic statistics like,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Expected profits&lt;/li&gt;
+&lt;li&gt;Stop loss&lt;/li&gt;
+&lt;li&gt;Checking feasibility based on real-market conditions such as bid-ask spreads&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sometimes as a data trained individual, you wish to employ all the cool things in your arsenal. But one should focus on the key question,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Does it really work?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In all honesty - across all disciplines - I think all of us should abide by the Occam&amp;rsquo;s Razor Philosphy: Translated from Latin, it means that Entities should not be multiplied beyond necessity.&lt;/p&gt;
+
+&lt;p&gt;In this current age where everyone tries to impress anyone with a brand new toy (techniques) such as deep learning, we&amp;rsquo;ve to always first think if the objective can be accomplished by simpler models. Do we really need complex models like Kalman Filter, Machine Learning, Deep Learning (LSTM for time series), Reinforcement Learning?&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve back-tested all the above mentioned models. And at this point - at least in the quant &amp;amp; systematic trading space - I still think it&amp;rsquo;s pretty much a fancy toy.&lt;/p&gt;
+
+&lt;p&gt;Really - what one should focus on for quant-based strategies is,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Is it profitable with a reasonable amount of risks?&lt;/li&gt;
+&lt;li&gt;Is it sustainable over a period of time across varying market conditions?&lt;/li&gt;
+&lt;li&gt;Is it market neutral?&lt;/li&gt;
+&lt;li&gt;With your ability, could you operationalise it?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;ve since stripped away all the glamour and glitz associated with fancy techniques and went back to basics - using simple concepts such as moving average and standard deviations for my mean reversion techniques between Cointegrated instruments.&lt;/p&gt;
+
+&lt;p&gt;Without further ado, please find the conceptualisation of a &amp;lsquo;still profitable&amp;rsquo; idea that I deployed since 3 months ago.&lt;/p&gt;
+
+&lt;p&gt;Current tech stack that I use are: IB TWS, Quandl API, R, Mysql and Pushover API to notify me of the signals.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/conceptualization.jpg&#34; alt=&#34;/post/img/conceptualization.jpg&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
