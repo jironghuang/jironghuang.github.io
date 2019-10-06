@@ -36,9 +36,9 @@
 &lt;h2 id=&#34;database-schema-for-my-jarvis&#34;&gt;Database schema for my Jarvis&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;#Create hyperparameters table (with date of training)
-CREATE DATABASE IF NOT EXISTS jarvis 
-    DEFAULT CHARACTER SET utf8mb4 
-    DEFAULT COLLATE utf8mb4_unicode_ci;
+#CREATE DATABASE IF NOT EXISTS jarvis 
+#    DEFAULT CHARACTER SET utf8mb4 
+#    DEFAULT COLLATE utf8mb4_unicode_ci;
     
 USE jarvis; 
  
@@ -49,49 +49,69 @@ CREATE TABLE `market_neutral_hyper_parameters` (
   date_train date DEFAULT NULL,
   ticker1 VARCHAR(100),
   ticker2 VARCHAR(100),
+  ticker1_cfd VARCHAR(100) DEFAULT NULL,
+  ticker2_cfd VARCHAR(100) DEFAULT NULL, 
+  ticker1_iscfd INT DEFAULT NULL,
+  ticker2_iscfd INT DEFAULT NULL,
+  ticker1_cur VARCHAR(100) DEFAULT NULL,
+  ticker2_cur VARCHAR(100) DEFAULT NULL,  
   start_date date DEFAULT NULL,
   end_date date DEFAULT NULL,  
   bband_days INT,
-  finance_rates DECIMAL,
+  finance_rates DECIMAL(18,4),
   path_rda VARCHAR(100),
   is_coint_full INT,
   is_coint_train INT,
   is_coint_test INT,
-  half_life DECIMAL,
-  half_life_train DECIMAL,
-  half_life_test DECIMAL,
-  ret_yr DECIMAL,
-  ret_sharpe DECIMAL,
-  ret_yr_train DECIMAL,
-  ret_sharpe_train DECIMAL,  
-  ret_yr_test DECIMAL,
-  ret_sharpe_test DECIMAL,
-  prop_days_mkt_train DECIMAL,
-  prop_days_mkt_test DECIMAL,
-  perc_win_train DECIMAL,
-  perc_win_test DECIMAL,
+  half_life DECIMAL(18,4),
+  half_life_train DECIMAL(18,4),
+  half_life_test DECIMAL(18,4),
+  ret_yr DECIMAL(18,4),
+  ret_sharpe DECIMAL(18,4),
+  ret_yr_train DECIMAL(18,4),
+  ret_sharpe_train DECIMAL(18,4),  
+  ret_yr_test DECIMAL(18,4),
+  ret_sharpe_test DECIMAL(18,4),
+  prop_days_mkt_train DECIMAL(18,4),
+  prop_days_mkt_test DECIMAL(18,4),
+  perc_win_train DECIMAL(18,4),
+  perc_win_test DECIMAL(18,4),
+  avg_days_mkt DECIMAL(18,4) DEFAULT NULL,
+  avg_days_mkt_train DECIMAL(18,4) DEFAULT NULL,
+  avg_days_mkt_test DECIMAL(18,4) DEFAULT NULL,
   
   UNIQUE KEY id (id)  
 );
 
 #Existing positions 
 CREATE TABLE `positions` (
+  pos_id int(16) unsigned NOT NULL AUTO_INCREMENT,
   id int(16),    #linked to hyper-parameters
   ticker1 VARCHAR(100),
   ticker2 VARCHAR(100),
+  ticker1_cfd VARCHAR(100) DEFAULT NULL,
+  ticker2_cfd VARCHAR(100) DEFAULT NULL, 
+  ticker1_iscfd INT DEFAULT NULL,
+  ticker2_iscfd INT DEFAULT NULL,
+  ticker1_cur VARCHAR(100) DEFAULT NULL,
+  ticker2_cur VARCHAR(100) DEFAULT NULL,
   entry_date date DEFAULT NULL,
   exit_date date DEFAULT NULL,
-  entry_price1 DECIMAL,
-  entry_price2 DECIMAL,
-  exit_price1 DECIMAL,
-  exit_price2 DECIMAL,
-  entry_ratio DECIMAL,
-  exit_expect_ratio DECIMAL,  #based on MA on entry day
-  exit_actual_ratio DECIMAL,
+  entry_price1 DECIMAL(18,4),
+  entry_price2 DECIMAL(18,4),
+  exit_price1 DECIMAL(18,4) DEFAULT NULL,
+  exit_price2 DECIMAL(18,4) DEFAULT NULL,
+  entry_ratio DECIMAL(18,4),
+  exit_expect_ratio DECIMAL(18,4),  #based on MA on entry day
+  exit_expect_profit DECIMAL(18,4),
+  exit_actual_ratio DECIMAL(18,4) DEFAULT NULL,
   num_pos1 INT,
   num_pos2 INT,
-  realised_profits DECIMAL,   #based on report
-  cost DECIMAL    
+  realised_profits DECIMAL(18,4) DEFAULT NULL,   #based on report
+  cost DECIMAL(18,4) DEFAULT NULL, 
+  is_active INT,
+  
+  UNIQUE KEY pos_id (pos_id)  
 )
 &lt;/code&gt;&lt;/pre&gt;
 </description>

@@ -65,5 +65,122 @@
 </description>
     </item>
     
+    <item>
+      <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>
+      <link>/post/jarvis/</link>
+      <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/jarvis/</guid>
+      <description>
+
+&lt;h2 id=&#34;jarvis&#34;&gt;Jarvis&lt;/h2&gt;
+
+&lt;p&gt;Humans are imperfect.&lt;/p&gt;
+
+&lt;p&gt;Humans are prone to biases.&lt;/p&gt;
+
+&lt;p&gt;Humans are dumb.&lt;/p&gt;
+
+&lt;p&gt;Humans have egos.&lt;/p&gt;
+
+&lt;p&gt;Humans rely on intuitions which are way way overrated.&lt;/p&gt;
+
+&lt;p&gt;And all these are blockers to sustainable positive performances in the area of investment portfolio management.&lt;/p&gt;
+
+&lt;p&gt;But not all is lost&amp;hellip; I&amp;rsquo;ve found a way to aid me in my invesment decision making processes.&lt;/p&gt;
+
+&lt;p&gt;And that&amp;rsquo;s Jarvis! My expert advisor to advise me what to do in different scenarios.&lt;/p&gt;
+
+&lt;p&gt;Here is how it works,&lt;/p&gt;
+
+&lt;h3 id=&#34;during-normal-market-conditions&#34;&gt;During normal market conditions&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;During normal market conditions, I will allocate Bonds and Cash % corresponding to my age. And this makes sense because as I grow older, my risk appetite should decrease.&lt;/li&gt;
+&lt;li&gt;I allocate 5% each to Singapore index, Gold/ Silver/ Commodities and Global Reits to hedge against different economic climate (see Ray Dalio&amp;rsquo;s explanation on all weather portfolio)&lt;/li&gt;
+&lt;li&gt;Lastly, I will allocate (100 – 15 - age)/ 2 % to developed and emerging market indexes/ stocks respectively&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;during-crisis-2-sd-scenario&#34;&gt;During crisis (-2 SD scenario)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Buy low sell high. That&amp;rsquo;s my mantra. In the absence of rules, humans tend to do the opposite.&lt;/li&gt;
+&lt;li&gt;During mayhem, when SnP 500 hits -2SD line in my project on what is low regression line for SnP 500 (see &lt;a href=&#34;https://jironghuang.github.io/project/what-is-low-regression-approach/&#34;&gt;here&lt;/a&gt; for more info), that&amp;rsquo;s when I will be greedy. I will do a 50% leverage over my portfolio size and allocate 25% each to developed and emerging section of my portfolio.&lt;/li&gt;
+&lt;li&gt;SnP 500 is chosen as my barometer because it has the longest time series. And when US sneezes, everyone tends to catch a cold.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;during-crisis-3-sd-scenario&#34;&gt;During crisis (-3 SD scenario)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This is the equivalent of an apocalypse. It has not even happened during the great recession&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m unsure if it will ever happen in my lifetime. But if it ever happens, I will be damn sure that I will leverage up till 100% of my portfolio.&lt;/li&gt;
+&lt;li&gt;50% each will be allocated to developed and emerging section of my portfolio.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;selection-of-stuff-to-purchase&#34;&gt;Selection of stuff to purchase&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I only rebalance my portfolio once a month&lt;/li&gt;
+&lt;li&gt;Using 2 compasses (what is low &amp;amp; my 52% week high watchlist), I will sieve out tickers that are cheap and purchase them&lt;/li&gt;
+&lt;li&gt;When any of the portfolio pie gets too large, I will sell them to restore the balance in my portfolio&lt;/li&gt;
+&lt;li&gt;Each counter with the exception of US, World and China will take up less than 5% of portfolio&lt;/li&gt;
+&lt;li&gt;Pls find my broad classification of developed and developing countries in diagram below&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;market-neutral-strategies&#34;&gt;Market neutral strategies&lt;/h3&gt;
+
+&lt;p&gt;On a separate note, I also run market neutral strategies to try and profit in all economic climates. Returns from this section will tend to be lesser than my overall portfolio unless I leverage significantly. These are documented under &lt;a href=&#34;https://jironghuang.github.io/skin/skin-in-the-game/&#34;&gt;&amp;lsquo;Skin in the game&amp;rsquo;&lt;/a&gt; section of my blog.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/jarvis.png&#34; alt=&#34;/post/img/jarvis.png&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;snippets-of-my-jarvis&#34;&gt;Snippets of my Jarvis&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;if(data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)] &amp;gt; data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are overweight in Developed. Shift to Emerging\n&amp;quot;
+  msg = paste(msg, &amp;quot;World is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)])
+  msg = paste(msg, &amp;quot;Emerging is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+           )
+}
+
+if(data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)] &amp;gt; data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are overweight in Emerging. Shift to Developed\n&amp;quot;
+  msg = paste(msg, &amp;quot;World is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;World + Developed (ex real estate)&amp;quot;)])
+  msg = paste(msg, &amp;quot;Emerging is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Emerging&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+  )
+}
+
+if(100 * (data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)] + data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)]) &amp;gt; data$Prop[which(data$Assets == &amp;quot;Age&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are overweight in Bonds and Cash relative to your age. Shift it out!!!\n&amp;quot;
+  msg = paste(msg, &amp;quot;Bonds is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)])
+  msg = paste(msg, &amp;quot;Cash is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+  )
+}
+
+if(100 * (data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)] + data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)]) &amp;lt; data$Prop[which(data$Assets == &amp;quot;Age&amp;quot;)]){
+  
+  msg = &amp;quot;Bro, you are underweight in Bonds and Cash relative to your age. Shift it out!!!\n&amp;quot;
+  msg = paste(msg, &amp;quot;Bonds is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)])
+  msg = paste(msg, &amp;quot;Cash is %&amp;quot;, 100 * data$Prop[which(data$Assets == &amp;quot;Cash&amp;quot;)])
+  
+  pushover(message = msg, 
+           user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;)
+  )
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
