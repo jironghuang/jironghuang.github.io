@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tax on Jirong&#39;s sandbox</title>
+    <link>/categories/tax/</link>
+    <description>Recent content in tax on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 27 Nov 2019 11:46:49 +0800</lastBuildDate>
+    <atom:link href="/categories/tax/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Free lunch does exist in Singapore - SRS analysis</title>
+      <link>/post/srs_analysis/</link>
+      <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/srs_analysis/</guid>
+      <description>
+
+&lt;h2 id=&#34;srs-analysis&#34;&gt;SRS analysis&lt;/h2&gt;
+
+&lt;p&gt;I haven&amp;rsquo;t paid much attention to SRS and CPF RA contributions as a way to reduce taxable income. But lately, I realised you could boost investment portfolio returns through this avenue at literally 0 cost.&lt;/p&gt;
+
+&lt;p&gt;I find this &lt;a href=&#34;https://newacademyoffinance.com/maximize-srs-contribution-and-withdrawal/&#34;&gt;blog post&lt;/a&gt; written by a local finance blogger to be really helpful in understanding the SRS contributions and withdrawl mechanics.&lt;/p&gt;
+
+&lt;p&gt;For my own understanding, I also did some quick analysis using google sheet (see &amp;lsquo;Analysis in google sheet&amp;rsquo; section) to evaluate if this works, and to my surprise, I found that free lunch does exist in Singapore!&lt;/p&gt;
+
+&lt;h2 id=&#34;assumptions&#34;&gt;Assumptions&lt;/h2&gt;
+
+&lt;p&gt;I wouldn&amp;rsquo;t bore you with the mechanics as the steps could be found in the google sheet but I will do a quick summary of my findings.&lt;/p&gt;
+
+&lt;p&gt;In my analysis, I assume 7% marginal tax rate because that&amp;rsquo;s the lower bound when contributing to SRS starts to make sense - accounting for the 5% penalty for early withdrawal.&lt;/p&gt;
+
+&lt;p&gt;For robustness, I did scenario analysis across 1-10% myriad of possible invesment returns.&lt;/p&gt;
+
+&lt;p&gt;For this example, I extended the cashflow only till the 10th year.&lt;/p&gt;
+
+&lt;p&gt;Maximum allowable contribution of $15.3k/ year is used here.&lt;/p&gt;
+
+&lt;h2 id=&#34;quick-summary-of-analysis&#34;&gt;Quick summary of analysis&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Comparing Row C and G: Over a 10 year period - assuming you invest out of SRS regime (Row G) over within SRS regime (Row C) - you enjoy an additional terminal value of $11k - 15k.&lt;/li&gt;
+&lt;li&gt;Comparing Row D and G: Assuming a 5% early withdrawal penalty (broad stroke here because taxable income in year of withdrawl and amount you withdraw matters), you enjoy an additional terminal value of $3.2k - 4.4k.&lt;/li&gt;
+&lt;li&gt;Comparing Row E and B: Investment returns wise, if you ignore early withdrawl penalty, you would enjoy additional returns of 1.5 - 1.6%.&lt;/li&gt;
+&lt;li&gt;Comparing Row F and B: Accouting for withdrawl penalty, you would enjoy additional returns of 0.4 - 0.5%.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;caveat&#34;&gt;Caveat&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You do lose some flexibility by contributing towards SRS because you aren&amp;rsquo;t able to liquidate entire SRS at a low cost. Because taxable income in year of withdrawl and amount you withdraw matter!&lt;/li&gt;
+&lt;li&gt;Investment returns could be further boosted if you withdraw only at age 62 because only 50% of SRS is taxed at the prevailing retirement age when you opened your SRS account (currently at 62).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;analysis-in-google-sheet&#34;&gt;Analysis in google sheet&lt;/h2&gt;
+
+&lt;iframe src=&#34;https://docs.google.com/spreadsheets/d/e/2PACX-1vQtSJfzakpUWRkryIoXaqJm7szd-g6R1SHr-aAXAlHNOFEDXYGhCBNC9UeYEYv8cYf8krgsS6LPpED9/pubhtml?gid=802197944&amp;single=true&#34; width=&#34;900&#34; height=&#34;780&#34; style=&#34;border: none;&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

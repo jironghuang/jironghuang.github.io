@@ -11,6 +11,17 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Free lunch does exist in Singapore - SRS analysis</title>
+      <link>/post/srs_analysis/</link>
+      <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/srs_analysis/</guid>
+      <description>SRS analysis I haven&amp;rsquo;t paid much attention to SRS and CPF RA contributions as a way to reduce taxable income. But lately, I realised you could boost investment portfolio returns through this avenue at literally 0 cost.
+I find this blog post written by a local finance blogger to be really helpful in understanding the SRS contributions and withdrawl mechanics.
+For my own understanding, I also did some quick analysis using google sheet (see &amp;lsquo;Analysis in google sheet&amp;rsquo; section) to evaluate if this works, and to my surprise, I found that free lunch does exist in Singapore!</description>
+    </item>
+    
+    <item>
       <title>Back to Basics - Birth of an idea in the jungle</title>
       <link>/post/birth-of-an-idea-in-the-jungle/</link>
       <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
@@ -171,17 +182,6 @@ Here’s the scenario with the accompanying assumptions
       <guid>/post/q_learning/</guid>
       <description>Q learning I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia here, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.
 Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future.</description>
-    </item>
-    
-    <item>
-      <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>/project/xirr_cpf/</link>
-      <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/project/xirr_cpf/</guid>
-      <description>What’re the returns (XIRR) for my CPFIS Portfolio? I expounded my philosophy and calculated the returns of my CPFIS portfolio via XIRR (Extended Internal Rate of Returns) here.
-The binary lens of evaluating the XIRR is as follows,
- If XIRR &amp;gt; 2.5%, my investment decision paid off Else if XIRR &amp;lt; 2.5%, my invesment decision did not pay off (not to say it’s a bad decision. Pls do not confuse decision with outcome)  As an ex-economist/ data geek who doesn’t shy away from having skin in the game, I will be honest in sharing my returns and its stream of cashflow here,</description>
     </item>
     
   </channel>
