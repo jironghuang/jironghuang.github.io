@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 12 Sep 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 11:46:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Latest lessons learnt from crawling</title>
+      <link>/post/crawling-insights/</link>
+      <pubDate>Sun, 08 Dec 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/crawling-insights/</guid>
+      <description>Lessons learnt I just realised that there&amp;rsquo;s a quick way to understand the xpaths&amp;rsquo; patterns
+In the past, usually what I did is to manually eyeball to infer the patterns from the page source or inspect page.
+Silly me!
+1 quick way to understand the pattern is through the following,
+ Right click on an element in a web page that you are interested in and click on &amp;lsquo;inspect&amp;rsquo; Right click on the node and click &amp;lsquo;copy&amp;rsquo; Copy full xpath  And paste to a notepad.</description>
+    </item>
     
     <item>
       <title>Asset allocation notification</title>

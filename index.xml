@@ -11,6 +11,19 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Latest lessons learnt from crawling</title>
+      <link>/post/crawling-insights/</link>
+      <pubDate>Sun, 08 Dec 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/crawling-insights/</guid>
+      <description>Lessons learnt I just realised that there&amp;rsquo;s a quick way to understand the xpaths&amp;rsquo; patterns
+In the past, usually what I did is to manually eyeball to infer the patterns from the page source or inspect page.
+Silly me!
+1 quick way to understand the pattern is through the following,
+ Right click on an element in a web page that you are interested in and click on &amp;lsquo;inspect&amp;rsquo; Right click on the node and click &amp;lsquo;copy&amp;rsquo; Copy full xpath  And paste to a notepad.</description>
+    </item>
+    
+    <item>
       <title>Free lunch does exist in Singapore - SRS analysis</title>
       <link>/post/srs_analysis/</link>
       <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
@@ -172,16 +185,6 @@ If you&amp;rsquo;re interested, you may visit this stackoverflow link (https://s
 Say you are an owner of a computer store and you would like to estimate the frequency of warranty repairs - and the ensuing costs.
 Here’s the scenario with the accompanying assumptions
  Each computer is expected to last an average of 7 years You only sell 1000 computers at the start of each year You sell computer from 2019 to 2025  First, I simulate an exponential distribution of 1000 points for 7 years; and place a time index of 2019 to 2025</description>
-    </item>
-    
-    <item>
-      <title>Some thoughts on Reinforcement Learning - Q Learning</title>
-      <link>/post/q_learning/</link>
-      <pubDate>Mon, 08 Apr 2019 11:46:49 +0800</pubDate>
-      
-      <guid>/post/q_learning/</guid>
-      <description>Q learning I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia here, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.
-Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future.</description>
     </item>
     
   </channel>

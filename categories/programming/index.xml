@@ -7,8 +7,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 12 Sep 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 11:46:49 +0800</lastBuildDate>
     <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Latest lessons learnt from crawling</title>
+      <link>/post/crawling-insights/</link>
+      <pubDate>Sun, 08 Dec 2019 11:46:49 +0800</pubDate>
+      
+      <guid>/post/crawling-insights/</guid>
+      <description>
+
+&lt;h2 id=&#34;lessons-learnt&#34;&gt;Lessons learnt&lt;/h2&gt;
+
+&lt;p&gt;I just realised that there&amp;rsquo;s a quick way to understand the xpaths&amp;rsquo; patterns&lt;/p&gt;
+
+&lt;p&gt;In the past, usually what I did is to manually eyeball to infer the patterns from the page source or inspect page.&lt;/p&gt;
+
+&lt;p&gt;Silly me!&lt;/p&gt;
+
+&lt;p&gt;1 quick way to understand the pattern is through the following,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Right click on an element in a web page that you are interested in and click on &amp;lsquo;inspect&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Right click on the node and click &amp;lsquo;copy&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Copy full xpath&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And paste to a notepad.&lt;/p&gt;
+
+&lt;p&gt;Do it for the series of elements that you wish to crawl.&lt;/p&gt;
+
+&lt;p&gt;And presto you are able to observe the patterns!&lt;/p&gt;
+
+&lt;h2 id=&#34;case-in-point&#34;&gt;Case in point&lt;/h2&gt;
+
+&lt;p&gt;With the increment in indexes in the following paths, I could easily do a loop to form the xpaths and feed it into python xpath function and do an &amp;lsquo;extract_first()&amp;lsquo;!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/html/body/div[4]/div[2]/div[1]/div[1]/div/div[2]/div[11]/div[1]/div/div/div/div[1]/div/div[1]/div[3]/a
+/html/body/div[4]/div[2]/div[1]/div[1]/div/div[2]/div[11]/div[2]/div/div/div/div[1]/div/div[1]/div[3]/a
+/html/body/div[4]/div[2]/div[1]/div[1]/div/div[2]/div[11]/div[3]/div/div/div/div[1]/div/div[1]/div[3]/a
+/html/body/div[4]/div[2]/div[1]/div[1]/div/div[2]/div[11]/div[4]/div/div/div/div[1]/div/div[1]/div[3]/a
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Asset allocation notification</title>
@@ -1062,44 +1104,6 @@ sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
 &lt;img src=&#34;/post/img/CP_7.png&#34; alt=&#34;/post/img/CP_7.png&#34;&gt;
 &lt;img src=&#34;/post/img/CP_8.png&#34; alt=&#34;/post/img/CP_8.png&#34;&gt;
 &lt;img src=&#34;/post/img/CP_9.png&#34; alt=&#34;/post/img/CP_9.png&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Colorization</title>
-      <link>/post/colorization/</link>
-      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/colorization/</guid>
-      <description>
-
-&lt;h2 id=&#34;colorization&#34;&gt;Colorization&lt;/h2&gt;
-
-&lt;p&gt;The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.&lt;/p&gt;
-
-&lt;p&gt;1.Input: I first read in the image using imread function.&lt;/p&gt;
-
-&lt;p&gt;2.Find the difference: Next I compute the difference between the marked and grey scale image. This would feed into step 5.&lt;/p&gt;
-
-&lt;p&gt;3.Transform to YIQ space: Then I convert the grey image and the marked version from RGB space to YIQ space 2 &amp;amp; 3 . I wrote a function, rgbToyiq in color_space.py to convert rgb dimension to that of YIQ.&lt;/p&gt;
-
-&lt;p&gt;4.Compute weight matrix:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The next step, also the most complicated one is to compute the weight matrix.&lt;/li&gt;
-&lt;li&gt;I first initialize 3 matrices of size height X width X size of window (9): row indices (i, j count), colIndices and values (weights) to hold key information during the loop&lt;/li&gt;
-&lt;li&gt;The algo will loop through each pixel. And it will compute the weights (using marked) according to formula below in a window of size 9 i.e. 9 pixels in a window (including the pixel).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;5.Solve Ax = B: Once the weights are obtained, I proceed to obtain a least square solution.&lt;/p&gt;
-
-&lt;p&gt;6.Lastly, I transform the YIQ output back to RGB space.&lt;/p&gt;
-
-&lt;p&gt;Here are the photographs.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/post/img/baby.bmp&#34; alt=&#34;/post/img/baby.bmp&#34;&gt;
-&lt;img src=&#34;/post/img/baby_marked.bmp&#34; alt=&#34;/post/img/baby_marked.bmp&#34;&gt;
-&lt;img src=&#34;/post/img/baby_colorized.bmp&#34; alt=&#34;/post/img/baby_colorized.bmp&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
