@@ -16,7 +16,7 @@
       <pubDate>Sun, 08 Dec 2019 11:46:49 +0800</pubDate>
       
       <guid>/post/crawling-insights/</guid>
-      <description>Lessons learnt I just realised that there&amp;rsquo;s a quick way to understand the xpaths&amp;rsquo; patterns
+      <description>Lessons learnt I just realised that there&amp;rsquo;s a quick way to understand the xpaths&amp;rsquo; patterns.
 In the past, usually what I did is to manually eyeball to infer the patterns from the page source or inspect page.
 Silly me!
 1 quick way to understand the pattern is through the following,
