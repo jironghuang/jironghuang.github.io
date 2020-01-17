@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.53" />
+  <meta name="author" content="Huang Jirong">
+  <meta name="description" content="Data scientist and Quantitative Investor/ Trader">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/fuzzy_matching_no_loops/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-116737154-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/fuzzy_matching_no_loops/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Jirong&#39;s sandbox">
+  <meta property="og:url" content="/post/fuzzy_matching_no_loops/">
+  <meta property="og:title" content="Fuzzy matching with many to many matches without loops | Jirong&#39;s sandbox">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-01-17T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2020-01-17T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Fuzzy matching with many to many matches without loops | Jirong&#39;s sandbox</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Jirong&#39;s sandbox</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/skin/skin-in-the-game">
+            
+            <span>Skin in the game</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/portfolio/portfolio">
+            
+            <span>Portfolio Performance</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/goals/goals">
+            
+            <span>Personal goals</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/subscribe/subscribe">
+            
+            <span>Subscribe Here</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Fuzzy matching with many to many matches without loops</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2020-01-17 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jan 17, 2020
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/fuzzy_matching_no_loops/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >, 
+    
+    <a href="/categories/r">R</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Fuzzy%20matching%20with%20many%20to%20many%20matches%20without%20loops&amp;url=%2fpost%2ffuzzy_matching_no_loops%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2ffuzzy_matching_no_loops%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ffuzzy_matching_no_loops%2f&amp;title=Fuzzy%20matching%20with%20many%20to%20many%20matches%20without%20loops"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2ffuzzy_matching_no_loops%2f&amp;title=Fuzzy%20matching%20with%20many%20to%20many%20matches%20without%20loops"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Fuzzy%20matching%20with%20many%20to%20many%20matches%20without%20loops&amp;body=%2fpost%2ffuzzy_matching_no_loops%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+
+<div id="fuzzy-matching" class="section level2">
+<h2>Fuzzy matching</h2>
+<p>As a computer scientist graduate, I always strive to reduce my computational complexity through parallelization or vectorization!</p>
+<p>Explicit loops in data science is the root of evil!</p>
+<p>For loops &amp; while loops have their places but definitely not in data science space (fairly broad statement here).</p>
+<p>In this post here, I hope to show a really cool example that avoids the dreaded O(n square) complexity.</p>
+<p>I will be using fuzzy matching to find the closet match of strings in data-frame 2, df2 against data-frame 1, df1.</p>
+<p>Note: I apologise beforehand for lack of documentation because I am simply lazy after a long Friday. Will beef this up with formal R documentation if I choose to wrap it with a R package next time.</p>
+<div id="creating-the-first-function-to-incorporate-indexing" class="section level3">
+<h3>Creating the first function to incorporate indexing</h3>
+<p>In this function, what I am trying to find is the Levenshtein distance i.e. minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.</p>
+<p>In the test case below, the difference between “abc” and “abcdef” is Levenshtein distance of 3.</p>
+<pre class="r"><code>suppressMessages(sapply(c(&quot;utils&quot;, &quot;dplyr&quot;), require, character.only = T))</code></pre>
+<pre><code>## utils dplyr 
+##  TRUE  TRUE</code></pre>
+<pre class="r"><code>adist_mod = function(df, index_col, index_row, string){
+  dist = adist(df[index_row, index_col], string)
+  return(as.numeric(dist))
+}
+
+df1 = data.frame(id = 1:7,
+                 places = c(&quot;abc&quot;, &quot;tzy&quot;, &quot;abcd&quot;, &quot;wxyz&quot;, &quot;sentosa&quot;, &quot;marina&quot;,&quot;marina2&quot;)
+                 )
+
+df1$places = as.character(df1$places)
+
+adist_mod(df1, 2, 1, &quot;abcdef&quot;)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="creating-the-next-function-to-find-the-smallest-levenshtein-distance-in-all-strings-in-df1-against-a-single-row-from-df2." class="section level3">
+<h3>Creating the next function to find the smallest Levenshtein distance in all strings in df1 against a single row from df2.</h3>
+<pre class="r"><code>#create best match function
+best_match = function(df, index_col, string){
+ 
+  dist = mapply(adist_mod, 
+         index_col = rep(index_col, nrow(df)),
+         index_row = 1:nrow(df),
+         string = rep(string),
+         MoreArgs = list(df)
+         )
+  
+  min_dist = data.frame(
+    place2 = rep(string, nrow(df)),
+    place1 = df[, index_col],
+    dist = dist
+  )
+  
+  min_dist$place2 = as.character(min_dist$place2)
+  min_dist$place1 = as.character(min_dist$place1)
+  
+  
+  #return a data frame with df2 and distance
+  min_dist = data.frame(dplyr::filter(min_dist,
+                                      dist == min(min_dist$dist)
+                        ))
+  
+  return(min_dist)
+}
+
+best_match(df1, 2, &quot;abcdef&quot;)</code></pre>
+<pre><code>##   place2 place1 dist
+## 1 abcdef   abcd    2</code></pre>
+<pre class="r"><code>best_match(df1, 2, &quot;ab&quot;)</code></pre>
+<pre><code>##   place2 place1 dist
+## 1     ab    abc    1</code></pre>
+<pre class="r"><code>best_match(df1, 2, &quot;sentosa1&quot;)</code></pre>
+<pre><code>##     place2  place1 dist
+## 1 sentosa1 sentosa    1</code></pre>
+<pre class="r"><code>best_match(df1, 2, &quot;marina1&quot;)</code></pre>
+<pre><code>##    place2  place1 dist
+## 1 marina1  marina    1
+## 2 marina1 marina2    1</code></pre>
+</div>
+<div id="last-but-not-the-least-find-n-to-m-matches-without-explicit-for-loops" class="section level3">
+<h3>Last but not the least, find n to m matches without explicit for loops</h3>
+<p>The final step with our favorite friend - mapply!</p>
+<p>If you wish to parallelize with more cores, please replace it with mcmapply beforehand. But do load parallel package beforehand.</p>
+<pre class="r"><code>best_match_all = function(df1, df2, col_index, col_index2){
+  
+res = mapply(best_match,
+       index_col = rep(col_index, nrow(df2)),
+       string = df2[, col_index2],
+       MoreArgs = list(df = df1),
+       SIMPLIFY = F
+       )
+
+res_bind = bind_rows(res)
+
+return(res_bind)
+
+}
+
+
+df2 = data.frame(
+  id = 1:3,
+  places2 = c(&quot;abcdef&quot;, &quot;sentosa1&quot;, &quot;marina1&quot;)
+)
+df2$places2 = as.character(df2$places2)
+
+best_match_all(df1, df2, 2, 2)</code></pre>
+<pre><code>##     place2  place1 dist
+## 1   abcdef    abcd    2
+## 2 sentosa1 sentosa    1
+## 3  marina1  marina    1
+## 4  marina1 marina2    1</code></pre>
+</div>
+</div>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/programming">programming</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/convert_na_num/">Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</a></li>
+    
+    <li><a href="/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/">R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</a></li>
+    
+    <li><a href="/post/shift-share-analysis-package/">Shift Share Analysis Package I developed</a></li>
+    
+    <li><a href="/post/crawling-insights/">Latest lessons learnt from crawling</a></li>
+    
+    <li><a href="/post/asset_allocation_notification/">Asset allocation notification</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jirong" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://jironghuang.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//jirong.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

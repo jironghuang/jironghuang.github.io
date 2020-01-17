@@ -1,0 +1,122 @@
+---
+title: "Fuzzy matching with many to many matches without loops"
+author: "Jirong"
+date: 2020-01-17
+categories: ["programming", "R"]
+tags: ["programming", "R"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Fuzzy matching
+
+As a computer scientist graduate, I always strive to reduce my computational complexity through parallelization or vectorization!
+
+Explicit loops in data science is the root of evil!
+
+For loops & while loops have their places but definitely not in data science space (fairly broad statement here).
+
+In this post here, I hope to show a really cool example that avoids the dreaded O(n square) complexity.
+
+I will be using fuzzy matching to find the closet match of strings in data-frame 2, df2 against data-frame 1, df1.
+
+Note: I apologise beforehand for lack of documentation because I am simply lazy after a long Friday. Will beef this up with formal R documentation if I choose to wrap it with a R package next time.
+
+
+
+### Creating the first function to incorporate indexing
+
+In this function, what I am trying to find is the Levenshtein distance i.e. minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.
+
+In the test case below, the difference between "abc" and "abcdef" is Levenshtein distance of 3.
+
+```{r}
+suppressMessages(sapply(c("utils", "dplyr"), require, character.only = T))
+
+adist_mod = function(df, index_col, index_row, string){
+  dist = adist(df[index_row, index_col], string)
+  return(as.numeric(dist))
+}
+
+df1 = data.frame(id = 1:7,
+                 places = c("abc", "tzy", "abcd", "wxyz", "sentosa", "marina","marina2")
+                 )
+
+df1$places = as.character(df1$places)
+
+adist_mod(df1, 2, 1, "abcdef")
+```
+
+
+### Creating the next function to find the smallest Levenshtein distance in all strings in df1 against a single row from df2.
+
+```{r}
+#create best match function
+best_match = function(df, index_col, string){
+ 
+  dist = mapply(adist_mod, 
+         index_col = rep(index_col, nrow(df)),
+         index_row = 1:nrow(df),
+         string = rep(string),
+         MoreArgs = list(df)
+         )
+  
+  min_dist = data.frame(
+    place2 = rep(string, nrow(df)),
+    place1 = df[, index_col],
+    dist = dist
+  )
+  
+  min_dist$place2 = as.character(min_dist$place2)
+  min_dist$place1 = as.character(min_dist$place1)
+  
+  
+  #return a data frame with df2 and distance
+  min_dist = data.frame(dplyr::filter(min_dist,
+                                      dist == min(min_dist$dist)
+                        ))
+  
+  return(min_dist)
+}
+
+best_match(df1, 2, "abcdef")
+best_match(df1, 2, "ab")
+best_match(df1, 2, "sentosa1")
+best_match(df1, 2, "marina1")
+```
+
+
+### Last but not the least, find n to m matches without explicit for loops
+
+The final step with our favorite friend - mapply!
+
+If you wish to parallelize with more cores, please replace it with mcmapply beforehand. But do load parallel package beforehand.
+
+```{r}
+best_match_all = function(df1, df2, col_index, col_index2){
+  
+res = mapply(best_match,
+       index_col = rep(col_index, nrow(df2)),
+       string = df2[, col_index2],
+       MoreArgs = list(df = df1),
+       SIMPLIFY = F
+       )
+
+res_bind = bind_rows(res)
+
+return(res_bind)
+
+}
+
+
+df2 = data.frame(
+  id = 1:3,
+  places2 = c("abcdef", "sentosa1", "marina1")
+)
+df2$places2 = as.character(df2$places2)
+
+best_match_all(df1, df2, 2, 2)
+```
+

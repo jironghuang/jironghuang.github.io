@@ -7,8 +7,127 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 08 Dec 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Fuzzy matching with many to many matches without loops</title>
+      <link>/post/fuzzy_matching_no_loops/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fuzzy_matching_no_loops/</guid>
+      <description>
+
+
+&lt;div id=&#34;fuzzy-matching&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Fuzzy matching&lt;/h2&gt;
+&lt;p&gt;As a computer scientist graduate, I always strive to reduce my computational complexity through parallelization or vectorization!&lt;/p&gt;
+&lt;p&gt;Explicit loops in data science is the root of evil!&lt;/p&gt;
+&lt;p&gt;For loops &amp;amp; while loops have their places but definitely not in data science space (fairly broad statement here).&lt;/p&gt;
+&lt;p&gt;In this post here, I hope to show a really cool example that avoids the dreaded O(n square) complexity.&lt;/p&gt;
+&lt;p&gt;I will be using fuzzy matching to find the closet match of strings in data-frame 2, df2 against data-frame 1, df1.&lt;/p&gt;
+&lt;p&gt;Note: I apologise beforehand for lack of documentation because I am simply lazy after a long Friday. Will beef this up with formal R documentation if I choose to wrap it with a R package next time.&lt;/p&gt;
+&lt;div id=&#34;creating-the-first-function-to-incorporate-indexing&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Creating the first function to incorporate indexing&lt;/h3&gt;
+&lt;p&gt;In this function, what I am trying to find is the Levenshtein distance i.e. minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.&lt;/p&gt;
+&lt;p&gt;In the test case below, the difference between “abc” and “abcdef” is Levenshtein distance of 3.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressMessages(sapply(c(&amp;quot;utils&amp;quot;, &amp;quot;dplyr&amp;quot;), require, character.only = T))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## utils dplyr 
+##  TRUE  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;adist_mod = function(df, index_col, index_row, string){
+  dist = adist(df[index_row, index_col], string)
+  return(as.numeric(dist))
+}
+
+df1 = data.frame(id = 1:7,
+                 places = c(&amp;quot;abc&amp;quot;, &amp;quot;tzy&amp;quot;, &amp;quot;abcd&amp;quot;, &amp;quot;wxyz&amp;quot;, &amp;quot;sentosa&amp;quot;, &amp;quot;marina&amp;quot;,&amp;quot;marina2&amp;quot;)
+                 )
+
+df1$places = as.character(df1$places)
+
+adist_mod(df1, 2, 1, &amp;quot;abcdef&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-the-next-function-to-find-the-smallest-levenshtein-distance-in-all-strings-in-df1-against-a-single-row-from-df2.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Creating the next function to find the smallest Levenshtein distance in all strings in df1 against a single row from df2.&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#create best match function
+best_match = function(df, index_col, string){
+ 
+  dist = mapply(adist_mod, 
+         index_col = rep(index_col, nrow(df)),
+         index_row = 1:nrow(df),
+         string = rep(string),
+         MoreArgs = list(df)
+         )
+  
+  min_dist = data.frame(
+    place2 = rep(string, nrow(df)),
+    place1 = df[, index_col],
+    dist = dist
+  )
+  
+  min_dist$place2 = as.character(min_dist$place2)
+  min_dist$place1 = as.character(min_dist$place1)
+  
+  
+  #return a data frame with df2 and distance
+  min_dist = data.frame(dplyr::filter(min_dist,
+                                      dist == min(min_dist$dist)
+                        ))
+  
+  return(min_dist)
+}
+
+best_match(df1, 2, &amp;quot;abcdef&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   place2 place1 dist
+## 1 abcdef   abcd    2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_match(df1, 2, &amp;quot;ab&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   place2 place1 dist
+## 1     ab    abc    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_match(df1, 2, &amp;quot;sentosa1&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     place2  place1 dist
+## 1 sentosa1 sentosa    1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_match(df1, 2, &amp;quot;marina1&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    place2  place1 dist
+## 1 marina1  marina    1
+## 2 marina1 marina2    1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;last-but-not-the-least-find-n-to-m-matches-without-explicit-for-loops&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Last but not the least, find n to m matches without explicit for loops&lt;/h3&gt;
+&lt;p&gt;The final step with our favorite friend - mapply!&lt;/p&gt;
+&lt;p&gt;If you wish to parallelize with more cores, please replace it with mcmapply beforehand. But do load parallel package beforehand.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_match_all = function(df1, df2, col_index, col_index2){
+  
+res = mapply(best_match,
+       index_col = rep(col_index, nrow(df2)),
+       string = df2[, col_index2],
+       MoreArgs = list(df = df1),
+       SIMPLIFY = F
+       )
+
+res_bind = bind_rows(res)
+
+return(res_bind)
+
+}
+
+
+df2 = data.frame(
+  id = 1:3,
+  places2 = c(&amp;quot;abcdef&amp;quot;, &amp;quot;sentosa1&amp;quot;, &amp;quot;marina1&amp;quot;)
+)
+df2$places2 = as.character(df2$places2)
+
+best_match_all(df1, df2, 2, 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     place2  place1 dist
+## 1   abcdef    abcd    2
+## 2 sentosa1 sentosa    1
+## 3  marina1  marina    1
+## 4  marina1 marina2    1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Latest lessons learnt from crawling</title>
@@ -1082,28 +1201,6 @@ df$ret[2] = 0
 #Sharpe ratio
 sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Summary of My Computational Photography Module From Georgia Tech Computer Science Masters</title>
-      <link>/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</link>
-      <pubDate>Sat, 08 Dec 2018 01:11:52 +0800</pubDate>
-      
-      <guid>/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</guid>
-      <description>&lt;p&gt;For what&amp;rsquo;s worth, here is a summary of what I went through for my Georgia Tech Computer Science Msc Computational Photography module.&lt;/p&gt;
-
-&lt;p&gt;And it&amp;rsquo;s really painful but rewarding!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/post/img/CP_1.png&#34; alt=&#34;/post/img/CP_1.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_2.png&#34; alt=&#34;/post/img/CP_2.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_3.png&#34; alt=&#34;/post/img/CP_3.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_4.png&#34; alt=&#34;/post/img/CP_4.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_5.png&#34; alt=&#34;/post/img/CP_5.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_6.png&#34; alt=&#34;/post/img/CP_6.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_7.png&#34; alt=&#34;/post/img/CP_7.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_8.png&#34; alt=&#34;/post/img/CP_8.png&#34;&gt;
-&lt;img src=&#34;/post/img/CP_9.png&#34; alt=&#34;/post/img/CP_9.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
