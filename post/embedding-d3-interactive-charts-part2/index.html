@@ -349,7 +349,7 @@
 
 <p>Just having fun - testing to see if I could embed D3 charts in my blog.</p>
 
-<p>Seems like it doesn&rsquo;t work.</p>
+<p>Seems like it works too! But I would have to upload the csv under public folder first.</p>
 
 <pre><code class="language-R">print(getwd())
 </code></pre>
@@ -381,7 +381,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("2_TwoNum.csv", function(data) {
+d3.csv("/post/data/2_TwoNum.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()

@@ -22,7 +22,7 @@
 
 &lt;p&gt;Just having fun - testing to see if I could embed D3 charts in my blog.&lt;/p&gt;
 
-&lt;p&gt;Seems like it doesn&amp;rsquo;t work.&lt;/p&gt;
+&lt;p&gt;Seems like it works too! But I would have to upload the csv under public folder first.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;print(getwd())
 &lt;/code&gt;&lt;/pre&gt;
@@ -54,7 +54,7 @@ var svg = d3.select(&#34;#my_dataviz&#34;)
           &#34;translate(&#34; + margin.left + &#34;,&#34; + margin.top + &#34;)&#34;);
 
 //Read the data
-d3.csv(&#34;2_TwoNum.csv&#34;, function(data) {
+d3.csv(&#34;/post/data/2_TwoNum.csv&#34;, function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()

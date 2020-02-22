@@ -17,8 +17,8 @@
       
       <guid>/post/embedding-d3-interactive-charts-part2/</guid>
       <description>Embedding D3 interactive charts Part 2 - Testing reading in of file from directory Just having fun - testing to see if I could embed D3 charts in my blog.
-Seems like it doesn&amp;rsquo;t work.
-print(getwd())     // set the dimensions and margins of the graph var margin = {top: 10, right: 30, bottom: 30, left: 60}, width = 460 - margin.left - margin.right, height = 450 - margin.</description>
+Seems like it works too! But I would have to upload the csv under public folder first.
+print(getwd())     // set the dimensions and margins of the graph var margin = {top: 10, right: 30, bottom: 30, left: 60}, width = 460 - margin.</description>
     </item>
     
     <item>
