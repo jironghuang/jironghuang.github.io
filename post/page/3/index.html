@@ -80,7 +80,7 @@
   <meta property="og:description" content="Data scientist and Quantitative Macro Investor">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-02-15T13:09:44&#43;08:00">
+  <meta property="og:updated_time" content="2019-02-28T23:34:32&#43;08:00">
   
 
   
@@ -253,6 +253,158 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/hosting-a-flask-app-on-heroku/" itemprop="url">Hosting a Flask App on Heroku</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-02-28 23:34:32 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+      Feb 28, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/hosting-a-flask-app-on-heroku/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >, 
+    
+    <a href="/categories/api">api</a
+    >, 
+    
+    <a href="/categories/python">python</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Following the steps here &ndash;&gt; https://realpython.com/flask-by-example-part-1-project-setup/
+I managed to deploy my python flask app in Heroku.
+from flask import Flask app = Flask(__name__) @app.route('/') def hello(): return &quot;Hello World!&quot; @app.route('/&lt;name&gt;') def hello_name(name): return &quot;Hello {}!&quot;.format(name) if __name__ == '__main__': app.run()  You may visit the following link &ndash;&gt;https://jirong-stage.herokuapp.com/ &amp; add a suffix to it.
+Example https://jirong-stage.herokuapp.com/jirong &amp; this will return Hello jirong!
+Possibilites are immense! I can easily create APIs or host dashboard here.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/hosting-a-flask-app-on-heroku/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/sampling-with-replacement-through-first-principles/" itemprop="url">Sampling With Replacement Through First Principles</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-02-27 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Feb 27, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/sampling-with-replacement-through-first-principles/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >, 
+    
+    <a href="/categories/statistics">statistics</a
+    >, 
+    
+    <a href="/categories/firstprinciples">firstPrinciples</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Sampling with replacement Hello! It&rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
+I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
+Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/sampling-with-replacement-through-first-principles/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -844,153 +996,6 @@ In the backtesting below (using a pair of silver ETFs as an example), I assumed 
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/colorization/" itemprop="url">Colorization</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-12-05 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Dec 5, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/colorization/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Colorization The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.
-1.Input: I first read in the image using imread function.
-2.Find the difference: Next I compute the difference between the marked and grey scale image.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/colorization/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/architecture-and-process-flow-for-my-algorithmic-trading/" itemprop="url">Architecture and Process Flow for My Algorithmic Trading</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-11-04 10:19:13 &#43;0800 &#43;08" itemprop="datePublished dateModified">
-      Nov 4, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/architecture-and-process-flow-for-my-algorithmic-trading/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >, 
-    
-    <a href="/categories/trading">trading</a
-    >, 
-    
-    <a href="/categories/operationalisation">operationalisation</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    
-
-<h2 id="project-that-i-will-be-working-in-2018-2019">Project that I will be working in 2018-2019</h2>
-
-<p><img src="/post/img/mvp_algo_trading.png" alt="/post/img/mvp_algo_trading.png"></p>
-
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/architecture-and-process-flow-for-my-algorithmic-trading/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

@@ -7,8 +7,340 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Feb 2020 11:50:49 +0800</lastBuildDate>
     <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Embedding D3 interactive charts part 2</title>
+      <link>/post/embedding-d3-interactive-charts-part2/</link>
+      <pubDate>Sun, 23 Feb 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/embedding-d3-interactive-charts-part2/</guid>
+      <description>
+
+&lt;h2 id=&#34;embedding-d3-interactive-charts-part-2-testing-reading-in-of-file-from-directory&#34;&gt;Embedding D3 interactive charts Part 2 - Testing reading in of file from directory&lt;/h2&gt;
+
+&lt;p&gt;Just having fun - testing to see if I could embed D3 charts in my blog.&lt;/p&gt;
+
+&lt;p&gt;Seems like it doesn&amp;rsquo;t work.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;print(getwd())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;meta charset=&#34;utf-8&#34;&gt;&lt;/p&gt;
+
+&lt;!-- Load d3.js --&gt;
+
+&lt;script src=&#34;https://d3js.org/d3.v4.js&#34;&gt;&lt;/script&gt;
+
+&lt;!-- Create a div where the graph will take place --&gt;
+
+&lt;div id=&#34;my_dataviz&#34;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select(&#34;#my_dataviz&#34;)
+  .append(&#34;svg&#34;)
+    .attr(&#34;width&#34;, width + margin.left + margin.right)
+    .attr(&#34;height&#34;, height + margin.top + margin.bottom)
+  .append(&#34;g&#34;)
+    .attr(&#34;transform&#34;,
+          &#34;translate(&#34; + margin.left + &#34;,&#34; + margin.top + &#34;)&#34;);
+
+//Read the data
+d3.csv(&#34;2_TwoNum.csv&#34;, function(data) {
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 3000])
+    .range([ 0, width ]);
+  svg.append(&#34;g&#34;)
+    .attr(&#34;transform&#34;, &#34;translate(0,&#34; + height + &#34;)&#34;)
+    .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 400000])
+    .range([ height, 0]);
+  svg.append(&#34;g&#34;)
+    .call(d3.axisLeft(y));
+
+  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
+  // Its opacity is set to 0: we don&#39;t see it by default.
+  var tooltip = d3.select(&#34;#my_dataviz&#34;)
+    .append(&#34;div&#34;)
+    .style(&#34;opacity&#34;, 0)
+    .attr(&#34;class&#34;, &#34;tooltip&#34;)
+    .style(&#34;background-color&#34;, &#34;white&#34;)
+    .style(&#34;border&#34;, &#34;solid&#34;)
+    .style(&#34;border-width&#34;, &#34;1px&#34;)
+    .style(&#34;border-radius&#34;, &#34;5px&#34;)
+    .style(&#34;padding&#34;, &#34;10px&#34;)
+
+
+
+  // A function that change this tooltip when the user hover a point.
+  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+  var mouseover = function(d) {
+    tooltip
+      .style(&#34;opacity&#34;, 1)
+  }
+
+  var mousemove = function(d) {
+    tooltip
+      .html(&#34;The exact value of&lt;br&gt;the Ground Living area is: &#34; + d.GrLivArea)
+      .style(&#34;left&#34;, (d3.mouse(this)[0]+90) + &#34;px&#34;) // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+      .style(&#34;top&#34;, (d3.mouse(this)[1]) + &#34;px&#34;)
+  }
+
+  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+  var mouseleave = function(d) {
+    tooltip
+      .transition()
+      .duration(200)
+      .style(&#34;opacity&#34;, 0)
+  }
+
+  // Add dots
+  svg.append(&#39;g&#39;)
+    .selectAll(&#34;dot&#34;)
+    .data(data.filter(function(d,i){return i&lt;50})) // the .filter part is just to keep a few dots on the chart, not all of them
+    .enter()
+    .append(&#34;circle&#34;)
+      .attr(&#34;cx&#34;, function (d) { return x(d.GrLivArea); } )
+      .attr(&#34;cy&#34;, function (d) { return y(d.SalePrice); } )
+      .attr(&#34;r&#34;, 7)
+      .style(&#34;fill&#34;, &#34;#69b3a2&#34;)
+      .style(&#34;opacity&#34;, 0.3)
+      .style(&#34;stroke&#34;, &#34;white&#34;)
+    .on(&#34;mouseover&#34;, mouseover )
+    .on(&#34;mousemove&#34;, mousemove )
+    .on(&#34;mouseleave&#34;, mouseleave )
+
+})
+
+&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Embedding D3 interactive charts</title>
+      <link>/post/embedding-d3-interactive-charts/</link>
+      <pubDate>Sun, 23 Feb 2020 11:46:40 +0800</pubDate>
+      
+      <guid>/post/embedding-d3-interactive-charts/</guid>
+      <description>
+
+&lt;h2 id=&#34;embedding-d3-interactive-charts&#34;&gt;Embedding D3 interactive charts&lt;/h2&gt;
+
+&lt;p&gt;Just having fun - testing to see if I could embed D3 charts in my blog.&lt;/p&gt;
+
+&lt;p&gt;Seems like it works!&lt;/p&gt;
+
+&lt;p&gt;&lt;meta charset=&#34;utf-8&#34;&gt;&lt;/p&gt;
+
+&lt;!-- Load d3.js --&gt;
+
+&lt;script src=&#34;https://d3js.org/d3.v4.js&#34;&gt;&lt;/script&gt;
+
+&lt;!-- Create a div where the graph will take place --&gt;
+
+&lt;div id=&#34;my_dataviz&#34;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select(&#34;#my_dataviz&#34;)
+  .append(&#34;svg&#34;)
+    .attr(&#34;width&#34;, width + margin.left + margin.right)
+    .attr(&#34;height&#34;, height + margin.top + margin.bottom)
+  .append(&#34;g&#34;)
+    .attr(&#34;transform&#34;,
+          &#34;translate(&#34; + margin.left + &#34;,&#34; + margin.top + &#34;)&#34;);
+
+//Read the data
+d3.csv(&#34;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&#34;, function(data) {
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 3000])
+    .range([ 0, width ]);
+  svg.append(&#34;g&#34;)
+    .attr(&#34;transform&#34;, &#34;translate(0,&#34; + height + &#34;)&#34;)
+    .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 400000])
+    .range([ height, 0]);
+  svg.append(&#34;g&#34;)
+    .call(d3.axisLeft(y));
+
+  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
+  // Its opacity is set to 0: we don&#39;t see it by default.
+  var tooltip = d3.select(&#34;#my_dataviz&#34;)
+    .append(&#34;div&#34;)
+    .style(&#34;opacity&#34;, 0)
+    .attr(&#34;class&#34;, &#34;tooltip&#34;)
+    .style(&#34;background-color&#34;, &#34;white&#34;)
+    .style(&#34;border&#34;, &#34;solid&#34;)
+    .style(&#34;border-width&#34;, &#34;1px&#34;)
+    .style(&#34;border-radius&#34;, &#34;5px&#34;)
+    .style(&#34;padding&#34;, &#34;10px&#34;)
+
+
+
+  // A function that change this tooltip when the user hover a point.
+  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+  var mouseover = function(d) {
+    tooltip
+      .style(&#34;opacity&#34;, 1)
+  }
+
+  var mousemove = function(d) {
+    tooltip
+      .html(&#34;The exact value of&lt;br&gt;the Ground Living area is: &#34; + d.GrLivArea)
+      .style(&#34;left&#34;, (d3.mouse(this)[0]+90) + &#34;px&#34;) // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+      .style(&#34;top&#34;, (d3.mouse(this)[1]) + &#34;px&#34;)
+  }
+
+  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+  var mouseleave = function(d) {
+    tooltip
+      .transition()
+      .duration(200)
+      .style(&#34;opacity&#34;, 0)
+  }
+
+  // Add dots
+  svg.append(&#39;g&#39;)
+    .selectAll(&#34;dot&#34;)
+    .data(data.filter(function(d,i){return i&lt;50})) // the .filter part is just to keep a few dots on the chart, not all of them
+    .enter()
+    .append(&#34;circle&#34;)
+      .attr(&#34;cx&#34;, function (d) { return x(d.GrLivArea); } )
+      .attr(&#34;cy&#34;, function (d) { return y(d.SalePrice); } )
+      .attr(&#34;r&#34;, 7)
+      .style(&#34;fill&#34;, &#34;#69b3a2&#34;)
+      .style(&#34;opacity&#34;, 0.3)
+      .style(&#34;stroke&#34;, &#34;white&#34;)
+    .on(&#34;mouseover&#34;, mouseover )
+    .on(&#34;mousemove&#34;, mousemove )
+    .on(&#34;mouseleave&#34;, mouseleave )
+
+})
+
+&lt;/script&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Load d3.js --&amp;gt;
+&amp;lt;script src=&amp;quot;https://d3js.org/d3.v4.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- Create a div where the graph will take place --&amp;gt;
+&amp;lt;div id=&amp;quot;my_dataviz&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select(&amp;quot;#my_dataviz&amp;quot;)
+  .append(&amp;quot;svg&amp;quot;)
+    .attr(&amp;quot;width&amp;quot;, width + margin.left + margin.right)
+    .attr(&amp;quot;height&amp;quot;, height + margin.top + margin.bottom)
+  .append(&amp;quot;g&amp;quot;)
+    .attr(&amp;quot;transform&amp;quot;,
+          &amp;quot;translate(&amp;quot; + margin.left + &amp;quot;,&amp;quot; + margin.top + &amp;quot;)&amp;quot;);
+
+//Read the data
+d3.csv(&amp;quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&amp;quot;, function(data) {
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 3000])
+    .range([ 0, width ]);
+  svg.append(&amp;quot;g&amp;quot;)
+    .attr(&amp;quot;transform&amp;quot;, &amp;quot;translate(0,&amp;quot; + height + &amp;quot;)&amp;quot;)
+    .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 400000])
+    .range([ height, 0]);
+  svg.append(&amp;quot;g&amp;quot;)
+    .call(d3.axisLeft(y));
+
+  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
+  // Its opacity is set to 0: we don&#39;t see it by default.
+  var tooltip = d3.select(&amp;quot;#my_dataviz&amp;quot;)
+    .append(&amp;quot;div&amp;quot;)
+    .style(&amp;quot;opacity&amp;quot;, 0)
+    .attr(&amp;quot;class&amp;quot;, &amp;quot;tooltip&amp;quot;)
+    .style(&amp;quot;background-color&amp;quot;, &amp;quot;white&amp;quot;)
+    .style(&amp;quot;border&amp;quot;, &amp;quot;solid&amp;quot;)
+    .style(&amp;quot;border-width&amp;quot;, &amp;quot;1px&amp;quot;)
+    .style(&amp;quot;border-radius&amp;quot;, &amp;quot;5px&amp;quot;)
+    .style(&amp;quot;padding&amp;quot;, &amp;quot;10px&amp;quot;)
+
+
+
+  // A function that change this tooltip when the user hover a point.
+  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+  var mouseover = function(d) {
+    tooltip
+      .style(&amp;quot;opacity&amp;quot;, 1)
+  }
+
+  var mousemove = function(d) {
+    tooltip
+      .html(&amp;quot;The exact value of&amp;lt;br&amp;gt;the Ground Living area is: &amp;quot; + d.GrLivArea)
+      .style(&amp;quot;left&amp;quot;, (d3.mouse(this)[0]+90) + &amp;quot;px&amp;quot;) // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+      .style(&amp;quot;top&amp;quot;, (d3.mouse(this)[1]) + &amp;quot;px&amp;quot;)
+  }
+
+  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+  var mouseleave = function(d) {
+    tooltip
+      .transition()
+      .duration(200)
+      .style(&amp;quot;opacity&amp;quot;, 0)
+  }
+
+  // Add dots
+  svg.append(&#39;g&#39;)
+    .selectAll(&amp;quot;dot&amp;quot;)
+    .data(data.filter(function(d,i){return i&amp;lt;50})) // the .filter part is just to keep a few dots on the chart, not all of them
+    .enter()
+    .append(&amp;quot;circle&amp;quot;)
+      .attr(&amp;quot;cx&amp;quot;, function (d) { return x(d.GrLivArea); } )
+      .attr(&amp;quot;cy&amp;quot;, function (d) { return y(d.SalePrice); } )
+      .attr(&amp;quot;r&amp;quot;, 7)
+      .style(&amp;quot;fill&amp;quot;, &amp;quot;#69b3a2&amp;quot;)
+      .style(&amp;quot;opacity&amp;quot;, 0.3)
+      .style(&amp;quot;stroke&amp;quot;, &amp;quot;white&amp;quot;)
+    .on(&amp;quot;mouseover&amp;quot;, mouseover )
+    .on(&amp;quot;mousemove&amp;quot;, mousemove )
+    .on(&amp;quot;mouseleave&amp;quot;, mouseleave )
+
+})
+
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Fuzzy matching with many to many matches without loops</title>
@@ -981,226 +1313,6 @@ sapply(rand_numbers, getValue, data = df)
 &lt;p&gt;In this strategy, you will win 100% of the time.&lt;/p&gt;
 
 &lt;p&gt;But the question is, do you have the money (or infinite bankroll) to tide through tough times?&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to Create a Python Environment in Ubuntu or any Debian-based system</title>
-      <link>/post/how-to-create-a-python-environment-in-ubuntu/</link>
-      <pubDate>Wed, 09 Jan 2019 23:39:22 +0800</pubDate>
-      
-      <guid>/post/how-to-create-a-python-environment-in-ubuntu/</guid>
-      <description>&lt;p&gt;Often, certain projects or classes involving python require a set of modules/packages for the code to work.&lt;/p&gt;
-
-&lt;p&gt;1 solution is to create a Python Environment dedicated to that project.&lt;/p&gt;
-
-&lt;p&gt;First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;name: env
-channels: !!python/tuple
-- !!python/unicode &#39;defaults&#39;
-dependencies:
-- nb_conda=2.2.0=py27_0
-- python=2.7.13=0
-- cycler=0.10.0
-- functools32=3.2.3.2
-- matplotlib=2.0.2
-- numpy=1.13.1
-- pandas=0.20.3
-- py=1.4.34
-- pyparsing=2.2.0
-- pytest=3.2.1
-- python-dateutil=2.6.1
-- pytz=2017.2
-- scipy=0.19.1
-- six=1.10.0
-- subprocess32=3.2.7
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you have anaconda installed, navigate to the folder with .yml; right click and select open in terminal. Then, type the following into bash&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;conda env create -f env.yml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Once installed, type the following into bash to bring up the environment,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;source activate env
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you wish to install a specific program in this environment - say spyder - you can install it directly. Example,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;conda install spyder
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To open spyder program, simply type spyder into terminal. And there you go!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
-      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
-      <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
-      
-      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
-      <description>
-
-&lt;h2 id=&#34;translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r&#34;&gt;Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.&lt;/p&gt;
-
-&lt;p&gt;Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).&lt;/p&gt;
-
-&lt;p&gt;In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs. What I learnt - with real capital - is that the hedge ratio is dynamic and will vary over time. In the early days, I fixed it through linear regression. But boy this doesn&amp;rsquo;t work! It&amp;rsquo;s not really market neutral because of the imbalance in values between pairs across time.&lt;/p&gt;
-
-&lt;p&gt;Then I chanced upon Kalman filter - something I learnt during my AI module in my Computer Science Degree days. I&amp;rsquo;ll spare the Math here. It&amp;rsquo;s a variant of the markov model, that uses a series of measurements over time (in this case, one of the pairs price), containing noise and produces estimates of unknown (here it&amp;rsquo;s the hedge ratio and intercept). Hedge ratio is updated in each time step.&lt;/p&gt;
-
-&lt;p&gt;I saw the Python code online for EWA-EWC pair strategy that returns a sharpe ratio of 2.4. I tried to search for a R version but to no avail!&lt;/p&gt;
-
-&lt;p&gt;Hence I decided to spend a day translating the python code into R code (for deployment purposes. Currently my algo trading stack is built around R). Thankfully I&amp;rsquo;m not translating the Matlab version because I do not have prior experience in that. And it would definitely take me more than a day for the translation.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve since,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Wrapped the code with a function&lt;/li&gt;
-&lt;li&gt;Loop through a 40 choose 2 combinations of country pairs&lt;/li&gt;
-&lt;li&gt;Triangulated with distance metrics like Correlation, Euclidean Distance and Manhattan Distance&lt;/li&gt;
-&lt;li&gt;Filtered out long half life (i.e. # of days before reverting to the mean)&lt;/li&gt;
-&lt;li&gt;Filtered by sharpe ratios, drawdown and average profits&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And so far, this market-neutral strategy is really promising!&lt;/p&gt;
-
-&lt;h3 id=&#34;translated-r-code-for-ewa-ewc-strategy&#34;&gt;Translated R code for EWA - EWC strategy&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;#Note: Try to put everything in a data-frame
-lapply(c(&amp;quot;zoo&amp;quot;, &amp;quot;tidyr&amp;quot;, &amp;quot;plyr&amp;quot;, &amp;quot;dplyr&amp;quot;,
-         &amp;quot;gtools&amp;quot;,&amp;quot;googlesheets&amp;quot;, &amp;quot;quantmod&amp;quot;, 
-         &amp;quot;urca&amp;quot;, &amp;quot;PerformanceAnalytics&amp;quot;, &amp;quot;parallel&amp;quot;), require, character.only = T)
-
-source(&#39;util/calculateReturns.R&#39;)
-source(&#39;util/calculateMaxDD.R&#39;)
-source(&#39;util/backshift.R&#39;)
-source(&#39;util/extract_stock_prices.R&#39;)
-source(&#39;util/cointegration_pair.R&#39;)
-
-
-#Reading in the data
-df = read.csv(&#39;kalman_filter/inputData_EWA_EWC.csv&#39;)
-df = subset(df, select = c(&amp;quot;Date&amp;quot;, &amp;quot;EWC&amp;quot;, &amp;quot;EWA&amp;quot;))
-
-# Augment x with ones to  accomodate possible offset in the regression between y vs x.
-# df$EWA_ones = 1
-
-# delta=1 gives fastest change in beta, delta=0.000....1 allows no change (like traditional linear regression).
-delta = 0.0001 
-
-#yhat=np.full(y.shape[0], np.nan) # measurement prediction
-df$yhat = NA
-
-#Initialize matrix
-df$e = df$yhat # e = yhat.copy(), residuals
-df$Q = df$yhat # Q = yhat.copy(), measurement variance
-
-# For clarity, we denote R(t|t) by P(t). Initialize R, P and beta.
-R = matrix(dat = rep(0, 4), nrow = 2, ncol = 2) #R = np.zeros((2,2))
-P = R   #P = R.copy()
-
-#Store beta in df and separately for computation
-beta = matrix(dat = rep(NA, nrow(df) * 2), nrow = 2, ncol = nrow(df))
-df$beta1 = NA; df$beta2 = NA  #beta = np.full((2, x.shape[0]), np.nan)
-
-Vw = delta/(1-delta) * diag(2) #Vw=delta/(1-delta)*np.eye(2)
-Ve = 0.001
-
-# Initialize beta(:, 1) to zero
-beta[, 1] = 0 #beta[:, 0]=0
-df$beta1 = beta[1, 1]; df$beta2 = beta[2, 1]
-
-#for t in range(len(y)):
-for (t in 1:nrow(df)){
- 
-  if(t &amp;gt; 1){
-    #Update matrix
-    beta[, t] = beta[, t-1]
-    R = P + Vw
-    
-    #Update df
-    df$beta1[t] = beta[1, t]
-    df$beta2[t] = beta[2, t]
-  }
-  
-  # yhat[t, ] = as.matrix(x[t, ]) %*% as.matrix(beta[, t])    #yhat[t]=np.dot(x[t, :], beta[:, t])
-  df$yhat[t] = as.matrix(data.frame(df$EWA[t], 1)) %*% as.matrix(beta[, t]) 
-  
-  # Q[t, ] = (as.matrix(x[t, ]) %*% R) %*% t(as.matrix(x[t, ])) + Ve  #Q[t] = np.dot(np.dot(x[t, :], R), x[t, :].T)+Ve
-  df$Q[t] = (as.matrix(data.frame(df$EWA[t], 1)) %*% R) %*% t(as.matrix(data.frame(df$EWA[t], 1))) + Ve
-  
-  # e[t, ] = y[t, ] - yhat[t, ] #e[t]=y[t]-yhat[t] # measurement prediction error
-  df$e[t] = df$EWC[t] - df$yhat[t]
-  
-  K = R %*% t(as.matrix(data.frame(df$EWA[t], 1))) / df$Q[t]  #K = np.dot(R, x[t, :].T)/Q[t] #  Kalman gain
-  beta[, t] = beta[, t] + K %*% as.matrix(df$e[t]) #beta[:, t]=beta[:, t]+np.dot(K, e[t]) #  State update. Equation 3.11
-  
-  #Update df
-  df$beta1[t] = beta[1, t]
-  df$beta2[t] = beta[2, t]
-  
-  # State covariance update. Euqation 3.12
-  P = R - ((K %*% as.matrix(data.frame(df$EWA[t], 1))) %*% R) #P = R-np.dot(np.dot(K, x[t, :]), R) 
-}
-
-#Generated signals
-df$Q_root = df$Q ^ 0.5
-df$longs &amp;lt;- df$e &amp;lt;= -df$Q ^ 0.5 # buy spread when its value drops below 2 standard deviations.
-df$shorts &amp;lt;- df$e &amp;gt;= df$Q ^ 0.5  # short spread when its value rises above 2 standard deviations.  Short EWC
-
-df$longExits  &amp;lt;- df$e &amp;gt; 0 
-df$shortExits &amp;lt;- df$e &amp;lt; 0
-
-# initialize to 0
-df$numUnitsLong = NA
-df$numUnitsShort = NA
-df$numUnitsLong[0]=0.
-df$numUnitsShort[0]=0.
-
-df$numUnitsLong[df$longs]=1.
-df$numUnitsLong[df$longsExit]=0
-df$numUnitsLong = ifelse(is.na(df$numUnitsLong), 0, df$numUnitsLong)
-
-df$numUnitsShort[df$shorts]=-1.
-df$numUnitsShort[df$shortsExit]=0
-df$numUnitsShort = ifelse(is.na(df$numUnitsShort), 0, df$numUnitsShort)
-
-df$numUnits = df$numUnitsLong + df$numUnitsShort 
-
-df$position1 = 0; df$position2 = 0 
-
-df$position1 = ifelse(df$numUnits == -1, -1, df$position1)   #short EWC, Long EWA --&amp;gt; df$e[t] = df$EWC[t] - df$yhat[t]
-df$position2 = ifelse(df$numUnits == -1, 1, df$position2)  #short EWC, Long EWA 
-
-df$position1 = ifelse(df$numUnits == 1, 1, df$position1)   #long EWC, short EWA 
-df$position2 = ifelse(df$numUnits == 1, -1, df$position2)  #long EWC, short EWA 
-
-# df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(-df$beta1, 1)) * data.frame(df$EWA, df$EWC)   #Adjusted price
-df$positions = data.frame(df$numUnits, df$numUnits) * (data.frame(1, -df$beta1)) * data.frame(df$EWC, df$EWA)   #Adjusted price
-
-#Returns
-df$dailyret1 &amp;lt;- c(NA, (df$EWC[2: nrow(df)] - df$EWC[1: (nrow(df) - 1)])/df$EWC[1: (nrow(df) - 1)])
-df$dailyret2 &amp;lt;- c(NA, (df$EWA[2: nrow(df)] - df$EWA[1: (nrow(df) - 1)])/df$EWA[1: (nrow(df) - 1)])
-
-#Daily returns
-# lag(df$position1, 1)
-# lag(df$position2, 1) * df$beta1
-df$pnl = lag(df$positions$df.numUnits, 1) * df$dailyret1  + lag(df$positions$df.numUnits.1, 1) * df$dailyret2
-
-df$ret = (df$pnl)/lag((df$positions$df.numUnits + df$positions$df.numUnits.1), 1)
-df$ret = ifelse(is.na(df$ret), 0, df$ret)
-df$ret[2] = 0
-
-#Sharpe ratio
-sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
