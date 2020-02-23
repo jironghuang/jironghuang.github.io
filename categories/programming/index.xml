@@ -24,9 +24,6 @@
 
 &lt;p&gt;Seems like it works too! But I would have to upload the csv under public folder first.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;print(getwd())
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;&lt;meta charset=&#34;utf-8&#34;&gt;&lt;/p&gt;
 
 &lt;!-- Load d3.js --&gt;
@@ -126,6 +123,106 @@ d3.csv(&#34;/post/data/2_TwoNum.csv&#34;, function(data) {
 })
 
 &lt;/script&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+
+&amp;lt;!-- Load d3.js --&amp;gt;
+&amp;lt;script src=&amp;quot;https://d3js.org/d3.v4.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- Create a div where the graph will take place --&amp;gt;
+&amp;lt;div id=&amp;quot;my_dataviz&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select(&amp;quot;#my_dataviz&amp;quot;)
+  .append(&amp;quot;svg&amp;quot;)
+    .attr(&amp;quot;width&amp;quot;, width + margin.left + margin.right)
+    .attr(&amp;quot;height&amp;quot;, height + margin.top + margin.bottom)
+  .append(&amp;quot;g&amp;quot;)
+    .attr(&amp;quot;transform&amp;quot;,
+          &amp;quot;translate(&amp;quot; + margin.left + &amp;quot;,&amp;quot; + margin.top + &amp;quot;)&amp;quot;);
+
+//Read the data
+d3.csv(&amp;quot;/post/data/2_TwoNum.csv&amp;quot;, function(data) {
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 3000])
+    .range([ 0, width ]);
+  svg.append(&amp;quot;g&amp;quot;)
+    .attr(&amp;quot;transform&amp;quot;, &amp;quot;translate(0,&amp;quot; + height + &amp;quot;)&amp;quot;)
+    .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 400000])
+    .range([ height, 0]);
+  svg.append(&amp;quot;g&amp;quot;)
+    .call(d3.axisLeft(y));
+
+  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
+  // Its opacity is set to 0: we don&#39;t see it by default.
+  var tooltip = d3.select(&amp;quot;#my_dataviz&amp;quot;)
+    .append(&amp;quot;div&amp;quot;)
+    .style(&amp;quot;opacity&amp;quot;, 0)
+    .attr(&amp;quot;class&amp;quot;, &amp;quot;tooltip&amp;quot;)
+    .style(&amp;quot;background-color&amp;quot;, &amp;quot;white&amp;quot;)
+    .style(&amp;quot;border&amp;quot;, &amp;quot;solid&amp;quot;)
+    .style(&amp;quot;border-width&amp;quot;, &amp;quot;1px&amp;quot;)
+    .style(&amp;quot;border-radius&amp;quot;, &amp;quot;5px&amp;quot;)
+    .style(&amp;quot;padding&amp;quot;, &amp;quot;10px&amp;quot;)
+
+
+
+  // A function that change this tooltip when the user hover a point.
+  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+  var mouseover = function(d) {
+    tooltip
+      .style(&amp;quot;opacity&amp;quot;, 1)
+  }
+
+  var mousemove = function(d) {
+    tooltip
+      .html(&amp;quot;The exact value of&amp;lt;br&amp;gt;the Ground Living area is: &amp;quot; + d.GrLivArea)
+      .style(&amp;quot;left&amp;quot;, (d3.mouse(this)[0]+90) + &amp;quot;px&amp;quot;) // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+      .style(&amp;quot;top&amp;quot;, (d3.mouse(this)[1]) + &amp;quot;px&amp;quot;)
+  }
+
+  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+  var mouseleave = function(d) {
+    tooltip
+      .transition()
+      .duration(200)
+      .style(&amp;quot;opacity&amp;quot;, 0)
+  }
+
+  // Add dots
+  svg.append(&#39;g&#39;)
+    .selectAll(&amp;quot;dot&amp;quot;)
+    .data(data.filter(function(d,i){return i&amp;lt;50})) // the .filter part is just to keep a few dots on the chart, not all of them
+    .enter()
+    .append(&amp;quot;circle&amp;quot;)
+      .attr(&amp;quot;cx&amp;quot;, function (d) { return x(d.GrLivArea); } )
+      .attr(&amp;quot;cy&amp;quot;, function (d) { return y(d.SalePrice); } )
+      .attr(&amp;quot;r&amp;quot;, 7)
+      .style(&amp;quot;fill&amp;quot;, &amp;quot;#69b3a2&amp;quot;)
+      .style(&amp;quot;opacity&amp;quot;, 0.3)
+      .style(&amp;quot;stroke&amp;quot;, &amp;quot;white&amp;quot;)
+    .on(&amp;quot;mouseover&amp;quot;, mouseover )
+    .on(&amp;quot;mousemove&amp;quot;, mousemove )
+    .on(&amp;quot;mouseleave&amp;quot;, mouseleave )
+
+})
+
+&amp;lt;/script&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
