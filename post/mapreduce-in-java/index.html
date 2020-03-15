@@ -361,27 +361,33 @@
 
 <p>Note: Mapreduce data types are different from Java data types! It could be confusing at times. But if you get accustomed to it, it&rsquo;s easier.</p>
 
-<p>```
-public class MapReuceJobs {</p>
+<pre><code>public class MapReuceJobs {
 
-<p>public static class TokenizerMapper
-extends Mapper<LongWritable, Text, Text, Text>
+public static class TokenizerMapper
+extends Mapper&lt;LongWritable, Text, Text, Text&gt;
 {
-<Deliberately left blank>
-&hellip;Each row of data is tokenize and assign a number
-}</p>
-
-<p>//Reducer
-public static class IntSumReducer
-extends Reducer<Text,Text,Text,Text> {
-&hellip;Aggregated data is collated here
-}</p>
-
-<p>//IntSumReducer<br />
-public static void main(String[] args) throws Exception {
-&hellip;Jobs are managed here
+&lt;Deliberately left blank&gt;
+...Each row of data is tokenize and assign a number
 }
-``</p>
+
+//Reducer
+public static class IntSumReducer
+extends Reducer&lt;Text,Text,Text,Text&gt; {
+
+&lt;Deliberately left blank&gt;
+...Aggregated data is collated here
+}
+
+
+
+//IntSumReducer  
+public static void main(String[] args) throws Exception {
+
+&lt;Deliberately left blank&gt;
+...Jobs are managed here
+}
+
+</code></pre>
 
       </div>
 

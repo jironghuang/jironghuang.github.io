@@ -34,27 +34,33 @@
 
 &lt;p&gt;Note: Mapreduce data types are different from Java data types! It could be confusing at times. But if you get accustomed to it, it&amp;rsquo;s easier.&lt;/p&gt;
 
-&lt;p&gt;```
-public class MapReuceJobs {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class MapReuceJobs {
 
-&lt;p&gt;public static class TokenizerMapper
-extends Mapper&lt;LongWritable, Text, Text, Text&gt;
+public static class TokenizerMapper
+extends Mapper&amp;lt;LongWritable, Text, Text, Text&amp;gt;
 {
-&lt;Deliberately left blank&gt;
-&amp;hellip;Each row of data is tokenize and assign a number
-}&lt;/p&gt;
-
-&lt;p&gt;//Reducer
-public static class IntSumReducer
-extends Reducer&lt;Text,Text,Text,Text&gt; {
-&amp;hellip;Aggregated data is collated here
-}&lt;/p&gt;
-
-&lt;p&gt;//IntSumReducer&lt;br /&gt;
-public static void main(String[] args) throws Exception {
-&amp;hellip;Jobs are managed here
+&amp;lt;Deliberately left blank&amp;gt;
+...Each row of data is tokenize and assign a number
 }
-``&lt;/p&gt;
+
+//Reducer
+public static class IntSumReducer
+extends Reducer&amp;lt;Text,Text,Text,Text&amp;gt; {
+
+&amp;lt;Deliberately left blank&amp;gt;
+...Aggregated data is collated here
+}
+
+
+
+//IntSumReducer  
+public static void main(String[] args) throws Exception {
+
+&amp;lt;Deliberately left blank&amp;gt;
+...Jobs are managed here
+}
+
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
