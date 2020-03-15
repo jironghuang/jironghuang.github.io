@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 23 Feb 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 11:50:49 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mapreduce using Java</title>
+      <link>/post/mapreduce-in-java/</link>
+      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/mapreduce-in-java/</guid>
+      <description>Mapreduce using java I haven&amp;rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me from my comfort zone.
+Java is something that I need to brush up before I take on the Software Development Process module that requires me to write an android app. Argh!
+Back to Mapreduce. It&amp;rsquo;s a useful frameework if you&amp;rsquo;ve to summarise huge datasets (gigabytes, terabytes).</description>
+    </item>
     
     <item>
       <title>Embedding D3 interactive charts part 2</title>
