@@ -24,6 +24,17 @@ Back to Mapreduce. It&amp;rsquo;s a useful frameework if you&amp;rsquo;ve to sum
     </item>
     
     <item>
+      <title>Regime detection through hidden markov model</title>
+      <link>/project/hidden_markov_model/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/hidden_markov_model/</guid>
+      <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - that hidden markov models are used for regime detection.
+Here I am few decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
+Hidden markov mode is a statistical model to model states.</description>
+    </item>
+    
+    <item>
       <title>Embedding D3 interactive charts part 2</title>
       <link>/post/embedding-d3-interactive-charts-part2/</link>
       <pubDate>Sun, 23 Feb 2020 11:50:49 +0800</pubDate>

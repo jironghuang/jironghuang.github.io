@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 27 Nov 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/investment/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Regime detection through hidden markov model</title>
+      <link>/project/hidden_markov_model/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/hidden_markov_model/</guid>
+      <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - that hidden markov models are used for regime detection.
+Here I am few decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
+Hidden markov mode is a statistical model to model states.</description>
+    </item>
     
     <item>
       <title>Free lunch does exist in Singapore - SRS analysis</title>
