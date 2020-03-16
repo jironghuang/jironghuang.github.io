@@ -23,6 +23,17 @@ Back to Mapreduce. It&amp;rsquo;s a useful framework if you&amp;rsquo;ve to summ
     
     <item>
       <title>Regime detection through hidden markov model</title>
+      <link>/post/hidden_markov_model/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hidden_markov_model/</guid>
+      <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.
+Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
+Hidden markov mode is a statistical unsupervised learning model used to model states.</description>
+    </item>
+    
+    <item>
+      <title>Regime detection through hidden markov model</title>
       <link>/project/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -175,17 +186,6 @@ You may find the updated email notification template here - alongside with the c
 Feel free to ping me if you are keen to be on the email list too.
 ~ Jirong
 import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv(&#39;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&#39;) data[&#39;Change_fr_52_week_high&#39;] = round(100 * data[&#39;Change_fr_52_week_high&#39;], 1) data = data[[&#39;Name&#39;, &#39;Price&#39;, &#39;Change_fr_52_week_high&#39;]].</description>
-    </item>
-    
-    <item>
-      <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
-      <link>/post/market_neutral/</link>
-      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/market_neutral/</guid>
-      <description>Market neutral strategy As the negative news pile up (trade wars, slump in economy growths, etc), I sought for market neutral stategies that could perform well in any market environment.
-An idea that struck me recently is to exploit the pair between Berkshire and SnP 500 ETF.
-The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating that Berkshire still outperforms the index in the last couple of years.</description>
     </item>
     
   </channel>

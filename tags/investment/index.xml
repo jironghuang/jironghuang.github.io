@@ -14,6 +14,17 @@
     
     <item>
       <title>Regime detection through hidden markov model</title>
+      <link>/post/hidden_markov_model/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hidden_markov_model/</guid>
+      <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.
+Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
+Hidden markov mode is a statistical unsupervised learning model used to model states.</description>
+    </item>
+    
+    <item>
+      <title>Regime detection through hidden markov model</title>
       <link>/project/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       

@@ -11,7 +11,7 @@
   <meta name="description" content="Data scientist and Quantitative Macro Investor">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/mapreduce-in-java/">
+  <link rel="alternate" hreflang="en-us" href="/post/hidden_markov_model/">
 
   
   
@@ -70,24 +70,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/mapreduce-in-java/">
+  <link rel="canonical" href="/post/hidden_markov_model/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
-  <meta property="og:url" content="/post/mapreduce-in-java/">
-  <meta property="og:title" content="Mapreduce using Java | Jirong&#39;s sandbox">
+  <meta property="og:url" content="/post/hidden_markov_model/">
+  <meta property="og:title" content="Regime detection through hidden markov model | Jirong&#39;s sandbox">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2020-03-15T11:50:49&#43;08:00">
+  <meta property="article:published_time" content="2020-03-15T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2020-03-15T11:50:49&#43;08:00">
-  
-
+  <meta property="article:modified_time" content="2020-03-15T00:00:00&#43;00:00">
   
 
-  <title>Mapreduce using Java | Jirong&#39;s sandbox</title>
+  
+
+  <title>Regime detection through hidden markov model | Jirong&#39;s sandbox</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +252,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">Mapreduce using Java</h1>
+      <h1 itemprop="name">Regime detection through hidden markov model</h1>
 
       
 
@@ -260,7 +260,7 @@
 
   <span class="article-date">
     
-    <time datetime="2020-03-15 11:50:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+    <time datetime="2020-03-15 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
       Mar 15, 2020
     </time>
   </span>
@@ -271,14 +271,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/mapreduce-in-java/#disqus_thread"></a>
+  <a href="/post/hidden_markov_model/#disqus_thread"></a>
   
 
   
@@ -288,7 +288,7 @@
   <span class="article-categories">
     <i class="fa fa-folder"></i>
     
-    <a href="/categories/programming">programming</a
+    <a href="/categories/investment">investment</a
     >
     
   </span>
@@ -301,35 +301,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Mapreduce%20using%20Java&amp;url=%2fpost%2fmapreduce-in-java%2f"
+         href="https://twitter.com/intent/tweet?text=Regime%20detection%20through%20hidden%20markov%20model&amp;url=%2fpost%2fhidden_markov_model%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fmapreduce-in-java%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fhidden_markov_model%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fmapreduce-in-java%2f&amp;title=Mapreduce%20using%20Java"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fhidden_markov_model%2f&amp;title=Regime%20detection%20through%20hidden%20markov%20model"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fmapreduce-in-java%2f&amp;title=Mapreduce%20using%20Java"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fhidden_markov_model%2f&amp;title=Regime%20detection%20through%20hidden%20markov%20model"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Mapreduce%20using%20Java&amp;body=%2fpost%2fmapreduce-in-java%2f">
+         href="mailto:?subject=Regime%20detection%20through%20hidden%20markov%20model&amp;body=%2fpost%2fhidden_markov_model%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -345,49 +345,145 @@
       <div class="article-style" itemprop="articleBody">
         
 
-<h2 id="mapreduce-using-java">Mapreduce using java</h2>
 
-<p>I haven&rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me out from my comfort zone.</p>
-
-<p>Java is something I need to brush up on before taking the Software Development Process module which requires me to write an android app. Argh!</p>
-
-<p>Back to Mapreduce. It&rsquo;s a useful framework if you&rsquo;ve to summarise huge datasets (gigabytes, terabytes). Here are some of the common steps in mapreduce,</p>
-
+<div id="regime-detection-through-hidden-markov-model" class="section level2">
+<h2>Regime detection through hidden markov model</h2>
+<p>It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.</p>
+<p>Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.</p>
+<p>Hidden markov mode is a statistical unsupervised learning model used to model states. It’s often used in speech, bioinformatics, computational finance, etc. See wiki post (<a href="https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications" class="uri">https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications</a>) for more info.</p>
+<p>And you would have guessed it; I’m using it for quant strategies.</p>
+</div>
+<div id="output-as-of-16-march-2020" class="section level2">
+<h2>Output as of 16 March 2020</h2>
+<p>In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.</p>
+<p><img src="/project/img/hmm.png" alt="/project/img/hmm.png"></p>
+<p>Note:</p>
 <ul>
-<li>In Mapper method, each entity of data (e.g. row, word) is tokenized and assigned values</li>
-<li>In Reduce method, data is aggregated (e.g sum, average, etc.)</li>
-<li>In Main function, mapreduce jobs are managed through certain parameters</li>
+<li>I wouldn’t want to claim credit over the code. I adapted mostly from this post (<a href="https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7" class="uri">https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7</a>). Changes made are mostly connection to APIs and output files.</li>
+<li>Output that’s updated daily will be in this link instead –&gt; <a href="https://jironghuang.github.io/project/hidden_markov_model/" class="uri">https://jironghuang.github.io/project/hidden_markov_model/</a></li>
 </ul>
+</div>
+<div id="code" class="section level2">
+<h2>Code</h2>
+<pre><code>#import packages for use later in the HMM code
 
-<p>Note: Mapreduce data types are different from Java data types! It could be confusing at times. But if you get used to it, it will be easier.</p>
+import pandas as pd
+import sklearn.mixture as mix
 
-<pre><code>public class MapReuceJobs {
+import numpy as np
+import scipy.stats as scs
 
-public static class TokenizerMapper
-extends Mapper&lt;LongWritable, Text, Text, Text&gt;
-{
-&lt;Deliberately left blank&gt;
-...Each row of data is tokenize and assign a number
-}
+import datetime as dt
 
-//Reducer
-public static class IntSumReducer
-extends Reducer&lt;Text,Text,Text,Text&gt; {
+import matplotlib as mpl
+from matplotlib import cm
+import matplotlib.pyplot as plt
+from matplotlib.dates import YearLocator, MonthLocator
 
-&lt;Deliberately left blank&gt;
-...Aggregated data is collated here
-}
+import seaborn as sns
+
+from iex import Stock
+import yfinance as yf
+
+data = yf.Ticker(&quot;SPY&quot;)
+data.info 
+all_historic_data = data.history(period=&quot;max&quot;)
+
+ticker_data_clean = all_historic_data[[&quot;Close&quot;, &quot;High&quot;, &quot;Low&quot;]]
+ticker_data_clean[&quot;date&quot;] = ticker_data_clean.index 
+ticker_data_clean[&quot;date&quot;] = pd.to_datetime(ticker_data_clean[&quot;date&quot;])
+ticker_data_clean[&quot;range&quot;] = (ticker_data_clean[&quot;High&quot;]/ticker_data_clean[&quot;Low&quot;])-1
+ticker_data_clean[&quot;return&quot;] = ticker_data_clean[&quot;Close&quot;].pct_change()
+ticker_data_clean[&quot;close&quot;] = ticker_data_clean[&quot;Close&quot;]
+del ticker_data_clean[&quot;High&quot;]
+del ticker_data_clean[&quot;Low&quot;]
+del ticker_data_clean[&quot;Close&quot;]
 
 
+ticker_data_clean = ticker_data_clean[[&quot;date&quot;, &quot;return&quot;, &quot;range&quot;, &quot;close&quot;]]
+ticker_data_clean.dropna(how=&quot;any&quot;, inplace=True)
 
-//IntSumReducer  
-public static void main(String[] args) throws Exception {
+#create train and test sets
+#this methodology will randomly select 80% of our data
 
-&lt;Deliberately left blank&gt;
-...Jobs are managed here
-}
+#msk = np.random.rand(len(ticker_data_clean)) &lt; 0.8
+#train = ticker_data_clean[msk]
+#test = ticker_data_clean[~msk]
 
-</code></pre>
+#X_train = train[[&quot;date&quot;, &quot;return&quot;, &quot;range&quot;, &quot;close&quot;]].set_index(&quot;date&quot;)
+#X_test = test[[&quot;date&quot;, &quot;return&quot;, &quot;range&quot;, &quot;close&quot;]].set_index(&quot;date&quot;)
+
+X_train = ticker_data_clean[[&quot;date&quot;, &quot;return&quot;, &quot;range&quot;, &quot;close&quot;]].set_index(&quot;date&quot;)
+X_test = ticker_data_clean[[&quot;date&quot;, &quot;return&quot;, &quot;range&quot;, &quot;close&quot;]].set_index(&quot;date&quot;)
+
+
+model = mix.GaussianMixture(n_components=3, 
+                            covariance_type=&quot;full&quot;, 
+                            n_init=100, 
+                            random_state=7).fit(X_train)
+
+# Predict the optimal sequence of internal hidden state
+hidden_states = model.predict(X_test)
+
+print(&quot;Means and vars of each hidden state&quot;)
+for i in range(model.n_components):
+    print(&quot;{0}th hidden state&quot;.format(i))
+    print(&quot;mean = &quot;, model.means_[i])
+    print(&quot;var = &quot;, np.diag(model.covariances_[i]))
+    print()
+    
+    
+sns.set(font_scale=1.25)
+style_kwds = {&#39;xtick.major.size&#39;: 3, &#39;ytick.major.size&#39;: 3,
+              &#39;font.family&#39;:u&#39;courier prime code&#39;, &#39;legend.frameon&#39;: True}
+sns.set_style(&#39;white&#39;, style_kwds)
+
+fig, axs = plt.subplots(model.n_components, sharex=True, sharey=True, figsize=(12,9))
+colors = cm.rainbow(np.linspace(0, 1, model.n_components))
+
+for i, (ax, color) in enumerate(zip(axs, colors)):
+    # Use fancy indexing to plot data in each state.
+    mask = hidden_states == i
+    ax.plot_date(X_test.index.values[mask],
+                 X_test[&quot;close&quot;].values[mask],
+                 &quot;.-&quot;, c=color)
+    ax.set_title(&quot;{0}th hidden state&quot;.format(i), fontsize=16, fontweight=&#39;demi&#39;)
+
+    # Format the ticks.
+    ax.xaxis.set_major_locator(YearLocator())
+    ax.xaxis.set_minor_locator(MonthLocator())
+    sns.despine(offset=10)
+
+plt.tight_layout()
+
+
+sns.set(font_scale=1.5)
+states = (pd.DataFrame(hidden_states, columns=[&#39;states&#39;], index=X_test.index)
+          .join(X_test, how=&#39;inner&#39;)
+          .reset_index(drop=False)
+          .rename(columns={&#39;index&#39;:&#39;Date&#39;}))
+states.head()
+
+#Identify state in 2020-03-12--&gt;Crisis state--&gt;Embed in title
+row_index = states[states[&#39;date&#39;] == &#39;2020-03-12&#39;].index.tolist()
+crisis_state = states.iloc[row_index][&#39;states&#39;].tolist()[0]
+
+
+#suppressing warnings because of some issues with the font package
+#in general, would not rec turning off warnings.
+import warnings
+warnings.filterwarnings(&quot;ignore&quot;)
+
+sns.set_style(&#39;white&#39;, style_kwds)
+order = [0, 1, 2]
+fg = sns.FacetGrid(data=states, hue=&#39;states&#39;, hue_order=order,
+                   palette=colors, aspect=1.31, height=12)
+fg.map(plt.scatter, &#39;date&#39;, &quot;close&quot;, alpha=0.8).add_legend()
+sns.despine(offset=10)
+fg.fig.suptitle(&#39;Historical SPY Regimes&#39; + &#39;, Crisis State is &#39; + str(crisis_state), fontsize=24, fontweight=&#39;demi&#39;)
+
+plt.savefig(&#39;&#39;)</code></pre>
+</div>
 
       </div>
 
@@ -395,6 +491,10 @@ public static void main(String[] args) throws Exception {
 
 
 <div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/investment">investment</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/finance">finance</a>
   
   <a class="btn btn-primary btn-outline" href="/tags/programming">programming</a>
   
@@ -416,13 +516,13 @@ public static void main(String[] args) throws Exception {
     
     <li><a href="/project/hidden_markov_model/">Regime detection through hidden markov model</a></li>
     
-    <li><a href="/post/hidden_markov_model/">Regime detection through hidden markov model</a></li>
+    <li><a href="/post/market_neutral_ewg/">Market Neutral Strategy - DAX Index and EWG ETF</a></li>
     
-    <li><a href="/post/embedding-d3-interactive-charts-part2/">Embedding D3 interactive charts part 2</a></li>
+    <li><a href="/post/market_neutral_ewu/">Market Neutral Strategy - FTSE Index and EWU ETF</a></li>
     
-    <li><a href="/post/embedding-d3-interactive-charts/">Embedding D3 interactive charts</a></li>
+    <li><a href="/post/market_neutral/">Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</a></li>
     
-    <li><a href="/post/fuzzy_matching_no_loops/">Fuzzy matching with many to many matches without loops</a></li>
+    <li><a href="/project/what-is-low-regression-approach/">What is low - Regression Approach</a></li>
     
   </ul>
 </div>
