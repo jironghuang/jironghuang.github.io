@@ -20,19 +20,19 @@
 
 &lt;h2 id=&#34;mapreduce-using-java&#34;&gt;Mapreduce using java&lt;/h2&gt;
 
-&lt;p&gt;I haven&amp;rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me from my comfort zone.&lt;/p&gt;
+&lt;p&gt;I haven&amp;rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me out from my comfort zone.&lt;/p&gt;
 
-&lt;p&gt;Java is something that I need to brush up before I take on the Software Development Process module that requires me to write an android app. Argh!&lt;/p&gt;
+&lt;p&gt;Java is something I need to brush up on before taking the Software Development Process module which requires me to write an android app. Argh!&lt;/p&gt;
 
-&lt;p&gt;Back to Mapreduce. It&amp;rsquo;s a useful frameework if you&amp;rsquo;ve to summarise huge datasets (gigabytes, terabytes). To summarise, these are the steps,&lt;/p&gt;
+&lt;p&gt;Back to Mapreduce. It&amp;rsquo;s a useful framework if you&amp;rsquo;ve to summarise huge datasets (gigabytes, terabytes). Here are some of the common steps in mapreduce,&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;In Mapper method, each entity of data (e.g. row) is tokenize and assign values&lt;/li&gt;
-&lt;li&gt;In Reduce method, data is aggregated (e.g sum)&lt;/li&gt;
-&lt;li&gt;In main functions, mapreduce jobs are managed with certain parameters&lt;/li&gt;
+&lt;li&gt;In Mapper method, each entity of data (e.g. row, word) is tokenized and assigned values&lt;/li&gt;
+&lt;li&gt;In Reduce method, data is aggregated (e.g sum, average, etc.)&lt;/li&gt;
+&lt;li&gt;In Main function, mapreduce jobs are managed through certain parameters&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Note: Mapreduce data types are different from Java data types! It could be confusing at times. But if you get accustomed to it, it&amp;rsquo;s easier.&lt;/p&gt;
+&lt;p&gt;Note: Mapreduce data types are different from Java data types! It could be confusing at times. But if you get used to it, it will be easier.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;public class MapReuceJobs {
 

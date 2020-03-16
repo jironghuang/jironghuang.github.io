@@ -21,16 +21,16 @@
 
 &lt;div id=&#34;regime-detection-through-hidden-markov-model&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Regime detection through hidden markov model&lt;/h2&gt;
-&lt;p&gt;It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - that hidden markov models are used for regime detection.&lt;/p&gt;
-&lt;p&gt;Here I am few decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.&lt;/p&gt;
-&lt;p&gt;Hidden markov mode is a statistical model to model states. It’s often used in speech, bioinformatics, computational finance, etc. See wiki post (&lt;a href=&#34;https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications&lt;/a&gt;) for more info.&lt;/p&gt;
+&lt;p&gt;It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.&lt;/p&gt;
+&lt;p&gt;Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.&lt;/p&gt;
+&lt;p&gt;Hidden markov mode is a statistical unsupervised learning model used to model states. It’s often used in speech, bioinformatics, computational finance, etc. See wiki post (&lt;a href=&#34;https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications&lt;/a&gt;) for more info.&lt;/p&gt;
 &lt;p&gt;And you would have guessed it; I’m using it for quant strategies.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;output-that-will-be-updated-daily-if-i-commit-files-to-github&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Output that will be updated daily if I commit files to github&lt;/h2&gt;
 &lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Note: I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Note: I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;code&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Code&lt;/h2&gt;

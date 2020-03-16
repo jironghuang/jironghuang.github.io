@@ -16,9 +16,9 @@
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
       
       <guid>/post/mapreduce-in-java/</guid>
-      <description>Mapreduce using java I haven&amp;rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me from my comfort zone.
-Java is something that I need to brush up before I take on the Software Development Process module that requires me to write an android app. Argh!
-Back to Mapreduce. It&amp;rsquo;s a useful frameework if you&amp;rsquo;ve to summarise huge datasets (gigabytes, terabytes).</description>
+      <description>Mapreduce using java I haven&amp;rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me out from my comfort zone.
+Java is something I need to brush up on before taking the Software Development Process module which requires me to write an android app. Argh!
+Back to Mapreduce. It&amp;rsquo;s a useful framework if you&amp;rsquo;ve to summarise huge datasets (gigabytes, terabytes).</description>
     </item>
     
     <item>
@@ -27,9 +27,9 @@ Back to Mapreduce. It&amp;rsquo;s a useful frameework if you&amp;rsquo;ve to sum
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/project/hidden_markov_model/</guid>
-      <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - that hidden markov models are used for regime detection.
-Here I am few decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
-Hidden markov mode is a statistical model to model states.</description>
+      <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.
+Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
+Hidden markov mode is a statistical unsupervised learning model used to model states.</description>
     </item>
     
     <item>
