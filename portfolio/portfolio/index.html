@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -350,7 +350,7 @@
 <li>Lowest max drawdowns against benchmarks</li>
 <li>Shortest recovery to previous watermark</li>
 <li>Positive alpha against all benchmarks</li>
-<li>Low beta against benchmarks (&lt;= 0.5): Target to maintain beta at around 0.15-0.25 range. May employ shorting of overvalued counters to achieve targets. Seek to reduce by beta by 0.15 during crisis (space out over X days (e.g. 5 days) - depending on hmm. Increase hedge count by 1 if crisis state. Reduce hedge count by 1 if non crisis state.)</li>
+<li>Low beta against benchmarks (&lt;= 0.5): Target to maintain beta at around 0.15-0.25 range. May employ shorting of overvalued counters to achieve targets (hidden markov model is used for guidance to understand market state). I will dynamically reduce volatility by shorting market indexes. The key is to limit the volatility analagous to the odds of flipping a biased coin towards your favour with equal payout. At any day, you wouldn&rsquo;t know if you will win or lose but you do know you will 65-70% of the time. The key is to limit downside risk of a negative skew (see Robert Carver systematic trading book)</li>
 </ul>
 
 <p>Goal of my portfolio is to go against conventional wisdom of higher risk, higher returns through a risk parity approach. It&rsquo;s entirely possible to engineer higher returns with lower risk (lower standard deviation, downward deviation and drawdowns).</p>
