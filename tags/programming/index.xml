@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>Integrating volatility targeting info Jarvis, my expert advisor</title>
+      <link>/post/volatility-targeting/</link>
+      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/volatility-targeting/</guid>
+      <description>Volatility targeting Currently, I&amp;rsquo;ve a suite of toolkits integrated into my Jarvis that advises me on the investing decisions that I&amp;rsquo;ve to make on a daily basis.
+On the latest feature I cobbled together on a Saturday evening, 2 weeks ago, I&amp;rsquo;ve decided to measure the volatility of my portfolio formally.
+Why I&amp;rsquo;m doing this is because managing risks in the form of volatility is easier than targeting returns.</description>
+    </item>
+    
+    <item>
       <title>Mapreduce using Java</title>
       <link>/post/mapreduce-in-java/</link>
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>

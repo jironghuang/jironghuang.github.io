@@ -100,6 +100,15 @@
     </item>
     
     <item>
+      <title>investing</title>
+      <link>/categories/investing/</link>
+      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/categories/investing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>investment</title>
       <link>/categories/investment/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
@@ -132,15 +141,6 @@
       <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
       
       <guid>/categories/philosophy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>/categories/programming/</link>
-      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
-      
-      <guid>/categories/programming/</guid>
       <description></description>
     </item>
     

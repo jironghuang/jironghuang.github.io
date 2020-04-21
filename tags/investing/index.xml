@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>investing on Jirong&#39;s sandbox</title>
+    <link>/tags/investing/</link>
+    <description>Recent content in investing on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Mar 2020 11:50:49 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/investing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Integrating volatility targeting info Jarvis, my expert advisor</title>
+      <link>/post/volatility-targeting/</link>
+      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/volatility-targeting/</guid>
+      <description>Volatility targeting Currently, I&amp;rsquo;ve a suite of toolkits integrated into my Jarvis that advises me on the investing decisions that I&amp;rsquo;ve to make on a daily basis.
+On the latest feature I cobbled together on a Saturday evening, 2 weeks ago, I&amp;rsquo;ve decided to measure the volatility of my portfolio formally.
+Why I&amp;rsquo;m doing this is because managing risks in the form of volatility is easier than targeting returns.</description>
+    </item>
+    
+  </channel>
+</rss>

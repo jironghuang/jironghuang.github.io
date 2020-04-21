@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/volatility-targeting/</loc>
+      <lastmod>2020-03-15T11:50:49+08:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/mapreduce-in-java/</loc>
       <lastmod>2020-03-15T11:50:49+08:00</lastmod>
     </url>
@@ -882,6 +891,26 @@
     
     <url>
     
+      <loc>/tags/investing/</loc>
+      <lastmod>2020-03-15T11:50:49+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/investing/</loc>
+      <lastmod>2020-03-15T11:50:49+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/investment/</loc>
       <lastmod>2020-03-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -1024,6 +1053,26 @@
     
       <loc>/categories/python/</loc>
       <lastmod>2019-02-28T23:34:32+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/quant/</loc>
+      <lastmod>2020-03-15T11:50:49+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/quant/</loc>
+      <lastmod>2020-03-15T11:50:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     

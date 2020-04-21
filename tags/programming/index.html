@@ -257,6 +257,17 @@
   
   
   <div>
+    <h2><a href="/post/volatility-targeting/">Integrating volatility targeting info Jarvis, my expert advisor</a></h2>
+    <div class="article-style">
+      
+      Volatility targeting Currently, I&rsquo;ve a suite of toolkits integrated into my Jarvis that advises me on the investing decisions that I&rsquo;ve to make on a daily basis.
+On the latest feature I cobbled together on a Saturday evening, 2 weeks ago, I&rsquo;ve decided to measure the volatility of my portfolio formally.
+Why I&rsquo;m doing this is because managing risks in the form of volatility is easier than targeting returns.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/mapreduce-in-java/">Mapreduce using Java</a></h2>
     <div class="article-style">
       
@@ -356,16 +367,6 @@ You may find the updated email notification template here - alongside with the c
 Feel free to ping me if you are keen to be on the email list too.
 ~ Jirong
 import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv(&lsquo;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&rsquo;) data[&lsquo;Change_fr_52_week_high&rsquo;] = round(100 * data[&lsquo;Change_fr_52_week_high&rsquo;], 1) data = data[[&lsquo;Name&rsquo;, &lsquo;Price&rsquo;, &lsquo;Change_fr_52_week_high&rsquo;]].
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/convert_na_num/">Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</a></h2>
-    <div class="article-style">
-      
-      Converting NAs to obscure numbers to prevent the data from messing up the recoding. 1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.
-suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent awkward recoding situations that require &amp; !is.na(&lt;variable&gt;) # Doesn&#39;t work for factors #&#39; @title Convert NA to obscure number #&#39; @param dp_dataframe Dataframe in consideration #&#39; @param np_obscure_num Numeric - Obscure number #&#39; @param bp_na_to_num Boolean if TRUE, convert NA to num.
       
     </div>
   </div>

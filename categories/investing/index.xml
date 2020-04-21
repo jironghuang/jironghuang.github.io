@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>investing on Jirong&#39;s sandbox</title>
+    <link>/categories/investing/</link>
+    <description>Recent content in investing on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Mar 2020 11:50:49 +0800</lastBuildDate>
+    <atom:link href="/categories/investing/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Integrating volatility targeting info Jarvis, my expert advisor</title>
+      <link>/post/volatility-targeting/</link>
+      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/volatility-targeting/</guid>
+      <description>
+
+&lt;h2 id=&#34;volatility-targeting&#34;&gt;Volatility targeting&lt;/h2&gt;
+
+&lt;p&gt;Currently, I&amp;rsquo;ve a suite of toolkits integrated into my Jarvis that advises me on the investing decisions that I&amp;rsquo;ve to make on a daily basis.&lt;/p&gt;
+
+&lt;p&gt;On the latest feature I cobbled together on a Saturday evening, 2 weeks ago, I&amp;rsquo;ve decided to measure the volatility of my portfolio formally.&lt;/p&gt;
+
+&lt;p&gt;Why I&amp;rsquo;m doing this is because managing risks in the form of volatility is easier than targeting returns.&lt;/p&gt;
+
+&lt;p&gt;On any given day, it&amp;rsquo;s easier to predict volatility than returns itself because of its persistent nature.&lt;/p&gt;
+
+&lt;p&gt;Think of it as a coin flips with Binomal distribution: B ~ (n, p).&lt;/p&gt;
+
+&lt;p&gt;P is the probability for which you expect a positive expected payout.&lt;/p&gt;
+
+&lt;p&gt;And variance of this win-lose distribution is n * p * (1-p). This variance is easier to &amp;lsquo;predict&amp;rsquo; based on your win rates.&lt;/p&gt;
+
+&lt;p&gt;But market is not simply a binomial distribution, it also needs to take into consideration the portfolio size exposed to market risks and sequence of returns (autocorrelation here) at any given day.&lt;/p&gt;
+
+&lt;p&gt;Current distribution of my portfolio win rate is around 65 to 70%. But because of some negative skew in returns, my portfolio is languishing at status quo (0%) since start of the year.&lt;/p&gt;
+
+&lt;p&gt;Though my portfolio have outperformed the indexes by a factor of 2 to 3, the steep drawdown during March period of my portfolio could have been prevented if I&amp;rsquo;ve put a hedge early on (if I&amp;rsquo;ve done it through a systematic quant way) to maintain a fixed volatility target.&lt;/p&gt;
+
+&lt;p&gt;Hence, I decided to integrate the volatility targeting feature into Jarvis that advises me daily on the amount of hedge to place to maintain my portfolio at a constant volatility target; not a perfect way to maintain volatility target (since it&amp;rsquo;s adjusted based on market risk beta) but I find it cumbersome to sell off multiple counters on a daily basis. I used a global etf as a proxy to maintain my risk level since my portfolio has a global tilt.&lt;/p&gt;
+
+&lt;p&gt;Here is the volatility of my unlevered portfolio. Notice how it spiked up 5 times in the month of March this year.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;What volatility targeting does is to supposedly to turn the volatility curve into a straight line.&lt;/p&gt;
+
+&lt;p&gt;You may find the code below. I won&amp;rsquo;t delve into the details but this is essentially what it does,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Obtain my current positions from googlesheet&lt;/li&gt;
+&lt;li&gt;Compute my portfolio value converted into SGD now and historically based on current positions&lt;/li&gt;
+&lt;li&gt;Compute annual standard deviation of my portfolio based on past 25 days daily returns. Annual standard deviation of returns of portfolio = Daily standard deviation of returns of portfolio * sqrt(252)&lt;/li&gt;
+&lt;li&gt;Compute beta of my portfolio against VT, global benchmark (at the moment around 0.2)&lt;/li&gt;
+&lt;li&gt;Compute &amp;lsquo;imperfect&amp;rsquo; hedge required through beta to achieve volatility target of 15%&lt;/li&gt;
+&lt;li&gt;Pushes a notification to me on how much additional/ lesser hedge is required&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;#Note: Volatility targeting
+
+#Initialization
+sapply(c(&amp;quot;ggplot2&amp;quot;, &amp;quot;plotly&amp;quot;, &amp;quot;quantmod&amp;quot;, &amp;quot;pushoverr&amp;quot;, &amp;quot;zoo&amp;quot;, &amp;quot;dplyr&amp;quot;, &amp;quot;roll&amp;quot;, &amp;quot;PerformanceAnalytics&amp;quot;, &amp;quot;pushoverr&amp;quot;, &amp;quot;googlesheets&amp;quot;), require, character.only = T)
+source(&#39;util/extract_stock_prices.R&#39;)
+
+rsd_file = Sys.getenv(&amp;quot;GOOGLESHEET&amp;quot;)
+gs_auth(token = rsd_file)
+suppressMessages(gs_auth(token = rsd_file, verbose = FALSE))
+
+dat = gs_title(&amp;quot;Investment&amp;quot;)
+gs_ws_ls(dat)   #tab names
+data &amp;lt;- gs_read(ss=dat, ws = &amp;quot;debt_to_equity&amp;quot;, skip=0)
+leverage = 1 + data$Ratio[3]
+current_hedge_value = data$Ratio[nrow(data)]
+
+num_units = 10
+currency = &amp;quot;SGD=X&amp;quot;
+last_date = Sys.Date() - 252
+
+##########################Format data function##########################
+
+data_format = function(ticker, num_units, currency, last_date){
+  
+#Read data
+data = df_crawl_time_series(ticker, &amp;quot;1970-07-01&amp;quot;, &amp;quot;2030-12-30&amp;quot;)
+  
+#Fill NAs
+data$Adj.Close = na.locf(data$Adj.Close)
+
+#Subset out data-frame
+df = data.frame(Date = data$Date, Price = data$Adj.Close, stringsAsFactors = F)
+
+#Read in num_units
+df$num_units = num_units
+
+#Read in currency
+currency = df_crawl_time_series(currency, &amp;quot;1970-07-01&amp;quot;, &amp;quot;2030-12-30&amp;quot;)
+currency$Adj.Close = na.locf(currency$Adj.Close)
+currency = subset(currency, select = c(&amp;quot;Date&amp;quot;, &amp;quot;Adj.Close&amp;quot;))
+
+#Merge in currency
+df = df %&amp;gt;%
+      left_join(., currency, by = c(&amp;quot;Date&amp;quot;))
+
+#Convert to local currency
+df$local_unit_value = df$Price * df$Adj.Close
+df$local_value = df$local_unit_value * df$num_units
+
+#Return date, portfolio value     
+df$Date = as.Date(df$Date)
+
+#ticker
+df$ticker = ticker
+
+df_sub = subset(df, df$Date &amp;gt;= last_date)
+
+return(df_sub)    
+}
+
+##########################Format_portfolio##########################
+# df_tickers = data.frame(tickers = c(&amp;quot;TLT&amp;quot;, &amp;quot;IEF&amp;quot;, &amp;quot;SPY&amp;quot;, ))
+df_tickers = read.csv(&amp;quot;positions.csv&amp;quot;, stringsAsFactors = F) 
+df_tickers = filter(df_tickers, num_units &amp;gt; 0)
+df_tickers = subset(df_tickers, df_tickers$Ticker != &amp;quot;CNYB.AS&amp;quot;)
+
+portfolio_format = function(df_tickers, last_date){
+
+i = 1
+ticker_agg = data_format(df_tickers$Ticker[i], df_tickers$num_units[i], df_tickers$exch_rate_type[i], last_date)  
+  
+for(i in 2:nrow(df_tickers)){
+  print(i)
+  ticker_ind = data_format(df_tickers$Ticker[i], df_tickers$num_units[i], df_tickers$exch_rate_type[i], last_date)  
+  ticker_agg = rbind(ticker_agg, ticker_ind)
+}
+  
+# portfolio = mapply(data_format, 
+#                ticker = df_tickers[1:2,]$Ticker, 
+#                num_units = df_tickers[1:2,]$num_units, 
+#                currency = df_tickers[1:2,]$exch_rate_type, 
+#                last_date = c(last_date, 2)
+#                #,
+#                #SIMPLIFY = F
+#                )  
+  
+portfolio = ticker_agg %&amp;gt;%
+              group_by(Date) %&amp;gt;%
+              summarize(portfolio_value = sum(local_value, na.rm = T),
+                        num_counters = n()
+                        )
+
+portfolio$portfolio_value_adj = ifelse(portfolio$num_counters &amp;lt; 23, NA, portfolio$portfolio_value)
+
+portfolio$upper_sd = mean(portfolio$portfolio_value_adj, na.rm = T) + 0.4 * sd(portfolio$portfolio_value_adj, na.rm = T)
+portfolio$lower_sd = mean(portfolio$portfolio_value_adj, na.rm = T) - 0.4 * sd(portfolio$portfolio_value_adj, na.rm = T)
+portfolio$portfolio_value_adj2 = ifelse((portfolio$portfolio_value_adj  &amp;gt; portfolio$upper_sd) | (portfolio$portfolio_value_adj  &amp;lt; portfolio$lower_sd),
+                                             NA,
+                                             portfolio$portfolio_value_adj)
+portfolio$portfolio_value_adj2 = na.locf(portfolio$portfolio_value_adj2)
+portfolio$returns = ROC(portfolio$portfolio_value_adj2) 
+portfolio$returns_100 = portfolio$returns * 100
+
+portfolio$roll_std = roll_sd(portfolio$returns, 25)
+portfolio$roll_std_annual = portfolio$roll_std * (252 ^ 0.5)
+
+return(portfolio)
+
+}
+
+
+df = portfolio_format(df_tickers, last_date = &amp;quot;2019-04-13&amp;quot;)
+df$roll_std_annnual = as.numeric(df$roll_std_annual)
+plot(df$roll_std_annual)
+
+reduce_times = leverage *df$roll_std_annual[nrow(df)]/ 0.15
+
+#Consolidate portfolio and find beta aginst VT and SPY
+#Portfolio value / number of times to reduce
+benchmark = &amp;quot;VT&amp;quot;
+
+##########################Find beta of portfolio######################################3
+find_beta = function(df, benchmark){
+
+price_bench = data_format(benchmark, num_units, currency, last_date)
+price_bench$returns = ROC(price_bench$local_value)
+price_bench = subset(price_bench, select = c(&amp;quot;Date&amp;quot;, &amp;quot;returns&amp;quot;))    
+names(price_bench)[2] = &amp;quot;returns_benchmark&amp;quot;
+# price_bench$returns[0] = 0
+#price_bench$returns = na.locf(price_bench$returns)
+
+df_agg = df %&amp;gt;%
+      left_join(., price_bench, by = &amp;quot;Date&amp;quot;)
+
+reg = lm(df_agg$returns ~ df_agg$returns_benchmark)
+return(as.numeric(reg$coefficients[2]))
+
+}
+
+beta = find_beta(df, benchmark)
+
+
+##########################Find hedge required to target risk######################################3
+hedge = (df$portfolio_value_adj2[nrow(df)] - (df$portfolio_value_adj2[nrow(df)]/ reduce_times)) * beta
+
+
+##########################Pushing notifications to inform how much hedge is required######################################3
+pushover(message = paste0(&amp;quot;You should hedge &amp;quot;, hedge, 
+                          &amp;quot; Current hedge value is &amp;quot;, current_hedge_value,
+                          &amp;quot; Additional hedge required &amp;quot;, (hedge - current_hedge_value)
+                          ), 
+         user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;))
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

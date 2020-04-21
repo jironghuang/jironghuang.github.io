@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -13,7 +11,7 @@
   <meta name="description" content="Data scientist and Quantitative Macro Investor">
 
   
-  <link rel="alternate" hreflang="en-us" href="/categories/">
+  <link rel="alternate" hreflang="en-us" href="/post/">
 
   
   
@@ -64,30 +62,30 @@
   
 
   
-  <link rel="alternate" href="/categories/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
-  <link rel="feed" href="/categories/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/categories/">
+  <link rel="canonical" href="/post/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
-  <meta property="og:url" content="/categories/">
-  <meta property="og:title" content="Categories | Jirong&#39;s sandbox">
+  <meta property="og:url" content="/post/">
+  <meta property="og:title" content="Posts | Jirong&#39;s sandbox">
   <meta property="og:description" content="Data scientist and Quantitative Macro Investor">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-03-15T11:50:49&#43;08:00">
+  <meta property="og:updated_time" content="2018-03-28T21:13:14-05:00">
   
 
   
 
-  <title>Categories | Jirong&#39;s sandbox</title>
+  <title>Posts | Jirong&#39;s sandbox</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,91 +248,89 @@
 
 <div class="universal-wrapper">
 
-  <h1>Categories</h1>
+  <h1>Posts</h1>
 
   
 
   
   
-  <div>
-    <h2><a href="/categories/investing/">investing</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
   
-  <div>
-    <h2><a href="/categories/investment/">investment</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
   
-  <div>
-    <h2><a href="/categories/machine_learning/">machine_learning</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/elapse_strat/" itemprop="url">Days elapsed strategy</a>
+  </h3>
   
-  <div>
-    <h2><a href="/categories/operationalisation/">operationalisation</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-03-28 21:13:14 -0500 -0500" itemprop="datePublished dateModified">
+      Mar 28, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
   
-  <div>
-    <h2><a href="/categories/philosophy/">philosophy</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
   
-  <div>
-    <h2><a href="/categories/programming/">programming</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/categories/python/">python</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
   
-  <div>
-    <h2><a href="/categories/quant/">quant</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <a href="/post/elapse_strat/#disqus_thread"></a>
   
-  <div>
-    <h2><a href="/categories/risk/">risk</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/categories/simulation/">simulation</a></h2>
-    <div class="article-style">
-      
-    </div>
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/trading">trading</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    I simply adapted the code in this post here (https://www.r-bloggers.com/backtesting-a-simple-stock-trading-strategy/) for the following momentum strategy.
+This is a momentum based strategy: Long if current day is &lt;50 days of 200 days high. Nil position otherwise.
+Returns are pretty impressive for Singapore market. That being said, it will be useful to try it with different parameters and different markets!
+#Inspired by the blog post here--&gt;https://www.r-bloggers.com/backtesting-a-simple-stock-trading-strategy/ #http://etfprophet.com/days-since-200-day-highs/ #Simple momentum strategy rm(list = ls(all = TRUE)) library(quantmod) ## Loading required package: xts ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
+    
   </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/elapse_strat/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
 
   
 <nav>
   <ul class="pager">
     
-    <li><a href="/categories/">&lt;</a></li>
+    <li><a href="/post/page/5/">&lt;</a></li>
     
-    
-    <li><a href="/categories/page/3/">&gt;</a></li>
     
   </ul>
 </nav>
@@ -426,6 +422,4 @@
 
   </body>
 </html>
-
-
 
