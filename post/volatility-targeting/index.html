@@ -386,16 +386,14 @@
 <ul>
 <li>Obtain my current positions from googlesheet</li>
 <li>Compute my portfolio value converted into SGD now and historically based on current positions</li>
-<li>Compute annual standard deviation of my portfolio based on past 25 days daily returns. Annual standard deviation of returns of portfolio = Daily standard deviation of returns of portfolio * sqrt(252)</li>
+<li>Compute annual standard deviation (normal and exponential version shared by Robert Carver) of my portfolio based on past 36 days daily returns. Annual standard deviation of returns of portfolio = Daily standard deviation of returns of portfolio * sqrt(252)</li>
 <li>Compute beta of my portfolio against VT, global benchmark (at the moment around 0.2)</li>
 <li>Compute &lsquo;imperfect&rsquo; hedge required through beta to achieve volatility target of 15%</li>
 <li>Pushes a notification to me on how much additional/ lesser hedge is required</li>
 </ul>
 
-<pre><code>#Note: Volatility targeting
-
-#Initialization
-sapply(c(&quot;ggplot2&quot;, &quot;plotly&quot;, &quot;quantmod&quot;, &quot;pushoverr&quot;, &quot;zoo&quot;, &quot;dplyr&quot;, &quot;roll&quot;, &quot;PerformanceAnalytics&quot;, &quot;pushoverr&quot;, &quot;googlesheets&quot;), require, character.only = T)
+<pre><code>#Initialization
+sapply(c(&quot;ggplot2&quot;, &quot;plotly&quot;, &quot;quantmod&quot;, &quot;pushoverr&quot;, &quot;zoo&quot;, &quot;dplyr&quot;, &quot;roll&quot;, &quot;PerformanceAnalytics&quot;, &quot;pushoverr&quot;, &quot;googlesheets&quot;, &quot;pracma&quot;), require, character.only = T)
 source('util/extract_stock_prices.R')
 
 rsd_file = Sys.getenv(&quot;GOOGLESHEET&quot;)
@@ -454,9 +452,17 @@ return(df_sub)
 
 ##########################Format_portfolio##########################
 # df_tickers = data.frame(tickers = c(&quot;TLT&quot;, &quot;IEF&quot;, &quot;SPY&quot;, ))
-df_tickers = read.csv(&quot;positions.csv&quot;, stringsAsFactors = F) 
+df_tickers &lt;- gs_read(ss=dat, ws = &quot;investment_live&quot;, skip=0)
+
+# df_tickers = read.csv(&quot;positions.csv&quot;, stringsAsFactors = F) 
 df_tickers = filter(df_tickers, num_units &gt; 0)
 df_tickers = subset(df_tickers, df_tickers$Ticker != &quot;CNYB.AS&quot;)
+
+current_value = sum(df_tickers$value)
+
+df_tickers = df_tickers[, 1:5]
+df_tickers[which(df_tickers$exch_rate_type == &quot;SGDHKD=X&quot;), 5] = &quot;HKDSGD=X&quot;
+
 
 portfolio_format = function(df_tickers, last_date){
 
@@ -492,10 +498,15 @@ portfolio$portfolio_value_adj2 = ifelse((portfolio$portfolio_value_adj  &gt; por
                                              NA,
                                              portfolio$portfolio_value_adj)
 portfolio$portfolio_value_adj2 = na.locf(portfolio$portfolio_value_adj2)
+
+if(!is.na(current_value)){
+  portfolio$portfolio_value_adj2[nrow(portfolio)] = current_value
+}
+
 portfolio$returns = ROC(portfolio$portfolio_value_adj2) 
 portfolio$returns_100 = portfolio$returns * 100
 
-portfolio$roll_std = roll_sd(portfolio$returns, 25)
+portfolio$roll_std = roll_sd(portfolio$returns, 30)
 portfolio$roll_std_annual = portfolio$roll_std * (252 ^ 0.5)
 
 return(portfolio)
@@ -503,11 +514,11 @@ return(portfolio)
 }
 
 
-df = portfolio_format(df_tickers, last_date = &quot;2019-04-13&quot;)
+df = portfolio_format(df_tickers, last_date = (Sys.Date()-365))
 df$roll_std_annnual = as.numeric(df$roll_std_annual)
 plot(df$roll_std_annual)
 
-reduce_times = leverage *df$roll_std_annual[nrow(df)]/ 0.15
+reduce_times = leverage *df$roll_std_annual[nrow(df) - 0]/ 0.15
 
 #Consolidate portfolio and find beta aginst VT and SPY
 #Portfolio value / number of times to reduce
@@ -533,17 +544,31 @@ return(as.numeric(reg$coefficients[2]))
 
 beta = find_beta(df, benchmark)
 
+##########################EMA of volatility######################################3
+df$square_returns = df$returns ^ 2
+df$square_returns[1] = df$square_returns[2]
+df$ema_vol =  movavg(df$square_returns, 36, type = &quot;e&quot;)
+df$ema_sd = df$ema_vol ^ 0.5 * (252 ^ 0.5)
+
+reduce_times_exp = leverage * df$ema_sd[nrow(df) - 0]/ 0.15
+
 
 ##########################Find hedge required to target risk######################################3
-hedge = (df$portfolio_value_adj2[nrow(df)] - (df$portfolio_value_adj2[nrow(df)]/ reduce_times)) * beta
+hedge = (df$portfolio_value_adj2[nrow(df)] - (df$portfolio_value_adj2[nrow(df)]/ reduce_times_exp)) * beta
+hedge = round(hedge, 0)
 
+##########################Pushing notifications to inform how much hedge is required######################################
+msg = paste0(&quot;You should hedge &quot;, hedge, 
+             &quot; Current hedge value is &quot;, current_hedge_value,
+             &quot; Additional hedge required &quot;, (hedge - current_hedge_value)
+)
 
-##########################Pushing notifications to inform how much hedge is required######################################3
-pushover(message = paste0(&quot;You should hedge &quot;, hedge, 
-                          &quot; Current hedge value is &quot;, current_hedge_value,
-                          &quot; Additional hedge required &quot;, (hedge - current_hedge_value)
-                          ), 
+print(msg)
+
+pushover(message = msg, 
          user = Sys.getenv(&quot;pushover_user&quot;), app = Sys.getenv(&quot;pushover_app&quot;))
+
+plot(df$ema_sd)
 
 </code></pre>
 
@@ -578,9 +603,9 @@ pushover(message = paste0(&quot;You should hedge &quot;, hedge,
     
     <li><a href="/post/mapreduce-in-java/">Mapreduce using Java</a></li>
     
-    <li><a href="/post/hidden_markov_model/">Regime detection through hidden markov model</a></li>
-    
     <li><a href="/project/hidden_markov_model/">Regime detection through hidden markov model</a></li>
+    
+    <li><a href="/post/hidden_markov_model/">Regime detection through hidden markov model</a></li>
     
     <li><a href="/post/embedding-d3-interactive-charts-part2/">Embedding D3 interactive charts part 2</a></li>
     
