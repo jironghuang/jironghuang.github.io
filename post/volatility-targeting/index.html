@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -373,7 +373,7 @@
 
 <p>Though my portfolio have outperformed the indexes by a factor of 2 to 3, the steep drawdown during March period of my portfolio could have been prevented if I&rsquo;ve put a hedge early on (if I&rsquo;ve done it through a systematic quant way) to maintain a fixed volatility target.</p>
 
-<p>Hence, I decided to integrate the volatility targeting feature into Jarvis that advises me daily on the amount of hedge to place to maintain my portfolio at a constant volatility target; not a perfect way to maintain volatility target (since it&rsquo;s adjusted based on market risk beta) but I find it cumbersome to sell off multiple counters on a daily basis. I used a global etf as a proxy to maintain my risk level since my portfolio has a global tilt.</p>
+<p>Hence, I decided to integrate the volatility targeting feature into Jarvis that advises me daily on the amount of index hedge to place to maintain my portfolio at a constant volatility target; not a perfect way to maintain volatility target (since my portfolio is not perfectly correlated to index) but I find it cumbersome and potentially costly to sell off multiple counters on a daily basis. I used a global etf as a proxy to maintain my risk level since my portfolio has a global tilt.</p>
 
 <p>Here is the volatility of my unlevered portfolio. Notice how it spiked up 5 times in the month of March this year.</p>
 
@@ -386,14 +386,16 @@
 <ul>
 <li>Obtain my current positions from googlesheet</li>
 <li>Compute my portfolio value converted into SGD now and historically based on current positions</li>
-<li>Compute annual standard deviation (normal and exponential version shared by Robert Carver) of my portfolio based on past 36 days daily returns. Annual standard deviation of returns of portfolio = Daily standard deviation of returns of portfolio * sqrt(252)</li>
-<li>Compute beta of my portfolio against VT, global benchmark (at the moment around 0.2)</li>
-<li>Compute &lsquo;imperfect&rsquo; hedge required through beta to achieve volatility target of 15%</li>
+<li>Compute annual standard deviation (normal and exponential version shared by Robert Carver) of my portfolio based on past 36 days daily returns. Annual non exponential standard deviation returns of portfolio = Daily standard deviation of returns of portfolio * sqrt(252)</li>
+<li>Compute benchmark (VT) volatility</li>
+<li>Compute &lsquo;imperfect&rsquo; hedge required to achieve volatility target of 15%</li>
 <li>Pushes a notification to me on how much additional/ lesser hedge is required</li>
 </ul>
 
-<pre><code>#Initialization
-sapply(c(&quot;ggplot2&quot;, &quot;plotly&quot;, &quot;quantmod&quot;, &quot;pushoverr&quot;, &quot;zoo&quot;, &quot;dplyr&quot;, &quot;roll&quot;, &quot;PerformanceAnalytics&quot;, &quot;pushoverr&quot;, &quot;googlesheets&quot;, &quot;pracma&quot;), require, character.only = T)
+<pre><code>#Note: Volatility targeting
+
+#Initialization
+sapply(c(&quot;ggplot2&quot;, &quot;plotly&quot;, &quot;quantmod&quot;, &quot;pushoverr&quot;, &quot;zoo&quot;, &quot;dplyr&quot;, &quot;roll&quot;, &quot;PerformanceAnalytics&quot;, &quot;pushoverr&quot;, &quot;googlesheets&quot;, &quot;pracma&quot;, &quot;timeDate&quot;, &quot;riingo&quot;), require, character.only = T)
 source('util/extract_stock_prices.R')
 
 rsd_file = Sys.getenv(&quot;GOOGLESHEET&quot;)
@@ -404,171 +406,210 @@ dat = gs_title(&quot;Investment&quot;)
 gs_ws_ls(dat)   #tab names
 data &lt;- gs_read(ss=dat, ws = &quot;debt_to_equity&quot;, skip=0)
 leverage = 1 + data$Ratio[3]
+# leverage = 1
 current_hedge_value = data$Ratio[nrow(data)]
 
-num_units = 10
 currency = &quot;SGD=X&quot;
-last_date = Sys.Date() - 252
+last_date = Sys.Date() - 200
+benchmark = &quot;VT&quot;
+num_counters = 24
 
-##########################Format data function##########################
-
-data_format = function(ticker, num_units, currency, last_date){
-  
-#Read data
-data = df_crawl_time_series(ticker, &quot;1970-07-01&quot;, &quot;2030-12-30&quot;)
-  
-#Fill NAs
-data$Adj.Close = na.locf(data$Adj.Close)
-
-#Subset out data-frame
-df = data.frame(Date = data$Date, Price = data$Adj.Close, stringsAsFactors = F)
-
-#Read in num_units
-df$num_units = num_units
-
-#Read in currency
-currency = df_crawl_time_series(currency, &quot;1970-07-01&quot;, &quot;2030-12-30&quot;)
-currency$Adj.Close = na.locf(currency$Adj.Close)
-currency = subset(currency, select = c(&quot;Date&quot;, &quot;Adj.Close&quot;))
-
-#Merge in currency
-df = df %&gt;%
-      left_join(., currency, by = c(&quot;Date&quot;))
-
-#Convert to local currency
-df$local_unit_value = df$Price * df$Adj.Close
-df$local_value = df$local_unit_value * df$num_units
-
-#Return date, portfolio value     
-df$Date = as.Date(df$Date)
-
-#ticker
-df$ticker = ticker
-
-df_sub = subset(df, df$Date &gt;= last_date)
-
-return(df_sub)    
-}
-
-##########################Format_portfolio##########################
+##########################Obtain portfolio info##########################
 # df_tickers = data.frame(tickers = c(&quot;TLT&quot;, &quot;IEF&quot;, &quot;SPY&quot;, ))
 df_tickers &lt;- gs_read(ss=dat, ws = &quot;investment_live&quot;, skip=0)
-
-# df_tickers = read.csv(&quot;positions.csv&quot;, stringsAsFactors = F) 
+# df_tickers = subset(df_tickers, df_tickers$Ticker != &quot;CNYB.AS&quot;)
 df_tickers = filter(df_tickers, num_units &gt; 0)
-df_tickers = subset(df_tickers, df_tickers$Ticker != &quot;CNYB.AS&quot;)
 
 current_value = sum(df_tickers$value)
 
 df_tickers = df_tickers[, 1:5]
 df_tickers[which(df_tickers$exch_rate_type == &quot;SGDHKD=X&quot;), 5] = &quot;HKDSGD=X&quot;
 
+##########################Format data function##########################
+#Create a time series of data, then merge in. Just filter out weekend only
+data_format = function(ticker, num_units, currency, last_date){
 
+  #Create date range
+  create_date = function(i){
+    return(last_date + i)
+  }
+  
+  df = data.frame(Date = sapply(0:(Sys.Date() - last_date), create_date))
+  df$Date = as.Date(df$Date, origin = &quot;1970-01-1&quot;)
+  df$isWeekend = isWeekend(df$Date)
+  df$Date = as.character(df$Date)
+  
+  #Read data
+  data_temp = df_crawl_time_series(ticker, &quot;1970-07-01&quot;, &quot;2030-12-30&quot;)
+  data_temp = subset(data_temp, data_temp$Date &gt;= last_date &amp; data_temp$Date &lt;= Sys.Date())
+  data = merge(df, data_temp, by = c(&quot;Date&quot;), all.x = T)
+
+  #Fill NAs
+  data = subset(data, data$isWeekend == F)
+  
+  if(is.na(data$Adj.Close[1])){
+    data$Adj.Close[1] = data$Adj.Close[2]
+  }
+
+  if(is.na(data$Adj.Close[1])){
+    data$Adj.Close[1] = data$Adj.Close[3]
+  }
+  
+  if(is.na(data$Adj.Close[1])){
+    data$Adj.Close[1] = data$Adj.Close[4]
+  }
+  
+    
+  data$Adj.Close = na.locf(data$Adj.Close)
+  
+  #Subset out data-frame
+  df = data.frame(Date = data$Date, Price = data$Adj.Close, stringsAsFactors = F)
+  
+  #Read in num_units
+  df$num_units = num_units
+  
+  #Subset date range
+  df = subset(df, df$Date &gt;= last_date &amp; df$Date &lt;= Sys.Date())
+  
+  #Read in currency
+  currency = df_crawl_time_series(currency, &quot;1970-07-01&quot;, &quot;2030-12-30&quot;)
+  currency$Adj.Close = na.locf(currency$Adj.Close)
+  currency = subset(currency, select = c(&quot;Date&quot;, &quot;Adj.Close&quot;))
+  
+  #Merge in currency
+  df = df %&gt;%
+    left_join(., currency, by = c(&quot;Date&quot;))
+  
+  #Convert to local currency
+  df$local_unit_value = df$Price * df$Adj.Close
+  df$local_value = df$local_unit_value * df$num_units
+  
+  #Return date, portfolio value     
+  df$Date = as.Date(df$Date)
+  
+  #ticker
+  df$ticker = ticker
+  
+  df_sub = subset(df, df$Date &gt;= last_date &amp; df$Date &lt;= Sys.Date())
+    
+  return(df_sub)    
+}
+
+########################Formatting portfolio function####################
 portfolio_format = function(df_tickers, last_date){
 
 i = 1
 ticker_agg = data_format(df_tickers$Ticker[i], df_tickers$num_units[i], df_tickers$exch_rate_type[i], last_date)  
-  
+
 for(i in 2:nrow(df_tickers)){
   print(i)
   ticker_ind = data_format(df_tickers$Ticker[i], df_tickers$num_units[i], df_tickers$exch_rate_type[i], last_date)  
   ticker_agg = rbind(ticker_agg, ticker_ind)
 }
-  
-# portfolio = mapply(data_format, 
-#                ticker = df_tickers[1:2,]$Ticker, 
-#                num_units = df_tickers[1:2,]$num_units, 
-#                currency = df_tickers[1:2,]$exch_rate_type, 
-#                last_date = c(last_date, 2)
-#                #,
-#                #SIMPLIFY = F
-#                )  
-  
-portfolio = ticker_agg %&gt;%
-              group_by(Date) %&gt;%
-              summarize(portfolio_value = sum(local_value, na.rm = T),
-                        num_counters = n()
-                        )
 
-portfolio$portfolio_value_adj = ifelse(portfolio$num_counters &lt; 23, NA, portfolio$portfolio_value)
+portfolio = ticker_agg %&gt;%
+  group_by(Date) %&gt;%
+  summarize(portfolio_value = sum(local_value, na.rm = T),
+            num_counters = n()
+  )
+
+portfolio$portfolio_value_adj = ifelse(portfolio$num_counters &lt; num_counters, NA, portfolio$portfolio_value)
 
 portfolio$upper_sd = mean(portfolio$portfolio_value_adj, na.rm = T) + 0.4 * sd(portfolio$portfolio_value_adj, na.rm = T)
 portfolio$lower_sd = mean(portfolio$portfolio_value_adj, na.rm = T) - 0.4 * sd(portfolio$portfolio_value_adj, na.rm = T)
 portfolio$portfolio_value_adj2 = ifelse((portfolio$portfolio_value_adj  &gt; portfolio$upper_sd) | (portfolio$portfolio_value_adj  &lt; portfolio$lower_sd),
-                                             NA,
-                                             portfolio$portfolio_value_adj)
+                                        NA,
+                                        portfolio$portfolio_value_adj)
 portfolio$portfolio_value_adj2 = na.locf(portfolio$portfolio_value_adj2)
 
 if(!is.na(current_value)){
   portfolio$portfolio_value_adj2[nrow(portfolio)] = current_value
 }
 
-portfolio$returns = ROC(portfolio$portfolio_value_adj2) 
+portfolio$returns = ROC(portfolio$portfolio_value_adj2) * leverage
 portfolio$returns_100 = portfolio$returns * 100
 
-portfolio$roll_std = roll_sd(portfolio$returns, 30)
+portfolio$roll_std = roll_sd(portfolio$returns, 36)
 portfolio$roll_std_annual = portfolio$roll_std * (252 ^ 0.5)
 
-return(portfolio)
+df = portfolio
+
+return(df)
 
 }
 
-
-df = portfolio_format(df_tickers, last_date = (Sys.Date()-365))
-df$roll_std_annnual = as.numeric(df$roll_std_annual)
-plot(df$roll_std_annual)
-
-reduce_times = leverage *df$roll_std_annual[nrow(df) - 0]/ 0.15
-
-#Consolidate portfolio and find beta aginst VT and SPY
-#Portfolio value / number of times to reduce
-benchmark = &quot;VT&quot;
-
-##########################Find beta of portfolio######################################3
+##########################Find beta of portfolio######################################
+#Find out how much of local_unit_value needed
 find_beta = function(df, benchmark){
+  
+  price_bench = data_format(benchmark, num_units = 10, currency, last_date)
+  price_bench$returns = ROC(price_bench$local_value)
+  price_bench = subset(price_bench, select = c(&quot;Date&quot;, &quot;returns&quot;, &quot;local_unit_value&quot;))    
+  names(price_bench)[2] = &quot;returns_benchmark&quot;
 
-price_bench = data_format(benchmark, num_units, currency, last_date)
-price_bench$returns = ROC(price_bench$local_value)
-price_bench = subset(price_bench, select = c(&quot;Date&quot;, &quot;returns&quot;))    
-names(price_bench)[2] = &quot;returns_benchmark&quot;
-# price_bench$returns[0] = 0
-#price_bench$returns = na.locf(price_bench$returns)
-
-df_agg = df %&gt;%
-      left_join(., price_bench, by = &quot;Date&quot;)
-
-reg = lm(df_agg$returns ~ df_agg$returns_benchmark)
-return(as.numeric(reg$coefficients[2]))
-
+  df_agg = df %&gt;%
+    left_join(., price_bench, by = &quot;Date&quot;)
+  
+  reg = lm(df_agg$returns ~ df_agg$returns_benchmark)
+  return(as.numeric(reg$coefficients[2]))
+  
 }
 
+##########################Pure vol targeting######################################
+#Find out how much of local_unit_value needed
+#Account for leveraged %
+
+find_vol_units = function(df, benchmark, leverage){
+  
+  price_bench = data_format(benchmark, num_units=10, currency, last_date)
+  price_bench$returns = ROC(price_bench$local_value)
+  price_bench = subset(price_bench, select = c(&quot;Date&quot;, &quot;returns&quot;, &quot;local_unit_value&quot;))    
+  names(price_bench)[2] = &quot;returns_benchmark&quot;
+
+  df_agg = df %&gt;%
+              left_join(., price_bench, by = &quot;Date&quot;)
+  
+  #Compute EMA of VT price. Loop number of units. And iteratively compute new portfolio value and EMA of SD. Find out closest number of VT units required.
+  df_agg$square_returns_target = df_agg$returns_benchmark ^ 2
+  df_agg$square_returns_target[1] = df_agg$square_returns_target[2]
+  df_agg$ema_vol_target =  movavg(df_agg$square_returns_target, 36, type = &quot;e&quot;)
+  df_agg$ema_sd_target = df_agg$ema_vol_target ^ 0.5 * (252 ^ 0.5)
+  
+  df_agg$square_returns = (df_agg$returns) ^ 2
+  df_agg$square_returns[1] = df_agg$square_returns[2]
+  df_agg$ema_vol =  movavg(df_agg$square_returns, 36, type = &quot;e&quot;)
+  df_agg$ema_sd = df_agg$ema_vol ^ 0.5 * (252 ^ 0.5)
+  
+  
+  return(df_agg)
+}
+
+##########################Generate df######################################
+df = portfolio_format(df_tickers, last_date)
 beta = find_beta(df, benchmark)
+df = find_vol_units(df, benchmark, leverage)
+reduce_times_exp = df$ema_sd[nrow(df) - 0]/ 0.15
 
-##########################EMA of volatility######################################3
-df$square_returns = df$returns ^ 2
-df$square_returns[1] = df$square_returns[2]
-df$ema_vol =  movavg(df$square_returns, 36, type = &quot;e&quot;)
-df$ema_sd = df$ema_vol ^ 0.5 * (252 ^ 0.5)
-
-reduce_times_exp = leverage * df$ema_sd[nrow(df) - 0]/ 0.15
-
-
-##########################Find hedge required to target risk######################################3
-hedge = (df$portfolio_value_adj2[nrow(df)] - (df$portfolio_value_adj2[nrow(df)]/ reduce_times_exp)) * beta
+##########################Find hedge required to target risk######################################
+hedge = (df$portfolio_value_adj2[nrow(df)] - (df$portfolio_value_adj2[nrow(df)]/ reduce_times_exp)) * (df$ema_sd[nrow(df)] / df$ema_sd_target[nrow(df)])
 hedge = round(hedge, 0)
 
 ##########################Pushing notifications to inform how much hedge is required######################################
 msg = paste0(&quot;You should hedge &quot;, hedge, 
              &quot; Current hedge value is &quot;, current_hedge_value,
-             &quot; Additional hedge required &quot;, (hedge - current_hedge_value)
+             &quot; Additional hedge required &quot;, (hedge - current_hedge_value),
+             &quot; Portfolio vol is &quot;, round(df$ema_sd[nrow(df)], 3),
+             &quot; Benchmark vol is &quot;, round(df$ema_sd_target[nrow(df)], 3)
 )
 
 print(msg)
-
-pushover(message = msg, 
-         user = Sys.getenv(&quot;pushover_user&quot;), app = Sys.getenv(&quot;pushover_app&quot;))
-
 plot(df$ema_sd)
+
+if(abs(hedge - current_hedge_value) &gt; 3000){
+  pushover(message = msg, 
+           user = Sys.getenv(&quot;pushover_user&quot;), app = Sys.getenv(&quot;pushover_app&quot;))
+  
+}
 
 </code></pre>
 
