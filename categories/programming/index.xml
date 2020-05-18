@@ -42,7 +42,7 @@
 
 &lt;p&gt;Hence, I decided to integrate the volatility targeting feature into Jarvis that advises me daily on the amount of index hedge to place to maintain my portfolio at a constant volatility target; not a perfect way to maintain volatility target (since my portfolio is not perfectly correlated to index) but I find it cumbersome and potentially costly to sell off multiple counters on a daily basis. I used a global etf as a proxy to maintain my risk level since my portfolio has a global tilt.&lt;/p&gt;
 
-&lt;p&gt;Here is the volatility of my unlevered portfolio. Notice how it spiked up 5 times in the month of March this year.&lt;/p&gt;
+&lt;p&gt;Here is the volatility of my levered portfolio. Notice how it spiked up 5 times in the month of March this year.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
 

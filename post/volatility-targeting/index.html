@@ -8,7 +8,7 @@
   <meta name="theme" content="hugo-academic">
   <meta name="generator" content="Hugo 0.53" />
   <meta name="author" content="Huang Jirong">
-  <meta name="description" content="Data scientist and Quantitative Macro Investor">
+  <meta name="description" content="Data Scientist and Quantitative Investor and Trader">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/volatility-targeting/">
@@ -29,7 +29,7 @@
     
     
       
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
       
     
   
@@ -90,7 +90,7 @@
   <title>Integrating volatility targeting into Jarvis, my expert advisor | Jirong&#39;s sandbox</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" class="dark">
 
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
   <div class="container">
@@ -375,7 +375,7 @@
 
 <p>Hence, I decided to integrate the volatility targeting feature into Jarvis that advises me daily on the amount of index hedge to place to maintain my portfolio at a constant volatility target; not a perfect way to maintain volatility target (since my portfolio is not perfectly correlated to index) but I find it cumbersome and potentially costly to sell off multiple counters on a daily basis. I used a global etf as a proxy to maintain my risk level since my portfolio has a global tilt.</p>
 
-<p>Here is the volatility of my unlevered portfolio. Notice how it spiked up 5 times in the month of March this year.</p>
+<p>Here is the volatility of my levered portfolio. Notice how it spiked up 5 times in the month of March this year.</p>
 
 <p><img src="/post/img/vol_target.png" alt="/post/img/vol_target.png"></p>
 
@@ -644,9 +644,9 @@ if(abs(hedge - current_hedge_value) &gt; 3000){
     
     <li><a href="/post/mapreduce-in-java/">Mapreduce using Java</a></li>
     
-    <li><a href="/post/hidden_markov_model/">Regime detection through hidden markov model</a></li>
-    
     <li><a href="/project/hidden_markov_model/">Regime detection through hidden markov model</a></li>
+    
+    <li><a href="/post/hidden_markov_model/">Regime detection through hidden markov model</a></li>
     
     <li><a href="/post/embedding-d3-interactive-charts-part2/">Embedding D3 interactive charts part 2</a></li>
     
@@ -656,6 +656,20 @@ if(abs(hedge - current_hedge_value) &gt; 3000){
 </div>
 
 
+
+<div class="container article-widget">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="/post/mapreduce-in-java/"><span
+      aria-hidden="true">&larr;</span> Mapreduce using Java</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
 
 
 <div class="article-container">
