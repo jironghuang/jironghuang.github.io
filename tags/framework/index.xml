@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>quant on Jirong&#39;s sandbox</title>
-    <link>/tags/quant/</link>
-    <description>Recent content in quant on Jirong&#39;s sandbox</description>
+    <title>framework on Jirong&#39;s sandbox</title>
+    <link>/tags/framework/</link>
+    <description>Recent content in framework on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Thu, 16 Jul 2020 11:50:49 +0800</lastBuildDate>
     
-	<atom:link href="/tags/quant/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/framework/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,17 +20,6 @@
       <guid>/post/framework-for-capital-allocation/</guid>
       <description>Framework for capital allocation In this resource starved world, capital is scarced. Every dollar that you owned has its place and deserved to be allocated properly.
 Currently, I already have a huge chunk of capital tied up in a diversified portfolio levered up to 1.4 times. Portfolio is expected to outperform/ match up to market returns with 2 to 3 times lower risk - in terms of standard deviation and drawdown.</description>
-    </item>
-    
-    <item>
-      <title>Integrating volatility targeting into Jarvis, my expert advisor</title>
-      <link>/post/volatility-targeting/</link>
-      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
-      
-      <guid>/post/volatility-targeting/</guid>
-      <description>Volatility targeting Currently, I&amp;rsquo;ve a suite of toolkits integrated into my Jarvis that advises me on the investing decisions that I&amp;rsquo;ve to make on a daily basis.
-On the latest feature I cobbled together on a Saturday evening, 2 weeks ago, I&amp;rsquo;ve decided to measure the volatility of my portfolio formally.
-Why I&amp;rsquo;m doing this is because managing risks in the form of volatility is easier than targeting returns.</description>
     </item>
     
   </channel>

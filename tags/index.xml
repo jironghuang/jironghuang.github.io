@@ -139,9 +139,18 @@
     </item>
     
     <item>
+      <title>framework</title>
+      <link>/tags/framework/</link>
+      <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/tags/framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>investing</title>
       <link>/tags/investing/</link>
-      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
+      <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
       
       <guid>/tags/investing/</guid>
       <description></description>
@@ -231,7 +240,7 @@
     <item>
       <title>quant</title>
       <link>/tags/quant/</link>
-      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
+      <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
       
       <guid>/tags/quant/</guid>
       <description></description>

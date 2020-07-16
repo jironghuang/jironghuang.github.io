@@ -7,8 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 15 Mar 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 11:50:49 +0800</lastBuildDate>
     <atom:link href="/categories/investing/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Framework for capital allocation</title>
+      <link>/post/framework-for-capital-allocation/</link>
+      <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/framework-for-capital-allocation/</guid>
+      <description>
+
+&lt;h2 id=&#34;framework-for-capital-allocation&#34;&gt;Framework for capital allocation&lt;/h2&gt;
+
+&lt;p&gt;In this resource starved world, capital is scarced. Every dollar that you owned has its place and deserved to be allocated properly.&lt;/p&gt;
+
+&lt;p&gt;Currently, I already have a huge chunk of capital tied up in a diversified portfolio levered up to 1.4 times. Portfolio is expected to outperform/ match up to market returns with 2 to 3 times lower risk - in terms of standard deviation and drawdown.&lt;/p&gt;
+
+&lt;p&gt;But going forward, if I discover a strategy that exhibits appealing characteristics (e.g reasonably high returns with low or inverse correlation to broad markets, crisis alpha), how do I allocate capital to this strategy without increasing my leverage?&lt;/p&gt;
+
+&lt;p&gt;To answer this question, I developed a framework that I will adopt for each strategy.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://app.lucidchart.com/documents/embeddedchart/75c86678-fec4-49cb-b4f8-568a9412e87e&#34; width=&#34;1200&#34; height=&#34;1200&#34; style=&#34;border: none;&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>Integrating volatility targeting into Jarvis, my expert advisor</title>
