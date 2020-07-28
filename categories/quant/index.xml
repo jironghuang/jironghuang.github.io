@@ -7,8 +7,152 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 16 Jul 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 11:50:49 +0800</lastBuildDate>
     <atom:link href="/categories/quant/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
+      <link>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
+      <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
+      <description>
+
+&lt;h2 id=&#34;volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-quantitative-strategies&#34;&gt;Volatility targeting could potentially increase risk-adjusted returns for quantitative strategies&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Man AHL&amp;rsquo;s framework in this &lt;a href=&#34;https://www.man.com/maninstitute/volatility-is-back-better-to-target-returns-or-target-risk&#34;&gt;paper&lt;/a&gt; is used in the write-up here.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say you researched and managed to find a quantitative strategy that suits your risk-reward preferences. How do you further improve your strategy while managing your risk?&lt;/p&gt;
+
+&lt;p&gt;A common way in the trend-following and risk parity space is to target risk - also known as volatility targeting.&lt;/p&gt;
+
+&lt;p&gt;In this article, I will present some simulations to bring you through my thought process on how I apply volatility targeting to my strategies.&lt;/p&gt;
+
+&lt;p&gt;My simulations in this article showed that by applying volatility targeting, I could potentially increase my risk-adjusted returns by 10% (risk adjusted metric sharpe ratio increase from 1.62 to 1.79).&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-volatility-targeting&#34;&gt;What is volatility targeting?&lt;/h3&gt;
+
+&lt;p&gt;Volatility targeted funds are usually pegged to annualized volatility/ standard deviation. To provide some context, I will provide some intuition on how annualized standard deviation is derived.&lt;/p&gt;
+
+&lt;p&gt;Assuming variance of daily portfolio returns are independent (ignore serial correlation of returns), you could sum up variance of returns across days as follows,&lt;/p&gt;
+
+&lt;p&gt;Variance of portfolio returns across a year (252 trading days) = Var(ret1): Variance of return on day 1 + &amp;hellip;. + Var(ret252): Variance of return on day 252.&lt;/p&gt;
+
+&lt;p&gt;If the variance of daily returns are the same, you could multiply variance of daily returns by 252 to obtain annualized variance of portfolio returns, Annual Variance = 252 * Var(ret)&lt;/p&gt;
+
+&lt;p&gt;To normalize it to annual standard deviation, you&amp;rsquo;ve to take a square root of Annual Variance.&lt;/p&gt;
+
+&lt;p&gt;How do you interpret this metric? Let&amp;rsquo;s say a strategy has an expected returns of 8% with annual standard deviation of 10%. Based on naive normality assumptions, there&amp;rsquo;s a 68% chance that the fund&amp;rsquo;s annualized return will be between -2% to 18%; and 95% chance that the fund&amp;rsquo;s returns will be between -12% to 28%.&lt;/p&gt;
+
+&lt;p&gt;There are couple of ways for fund managers to derive the volatilities,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One way is to simply find the standard deviation of returns over last X days and annualize it.&lt;/li&gt;
+&lt;li&gt;A second way is to find the exponentially weighted standard deviation. See here (&lt;a href=&#34;https://financetrain.com/calculate-historical-volatility-using-ewma/&#34; target=&#34;_blank&#34;&gt;https://financetrain.com/calculate-historical-volatility-using-ewma/&lt;/a&gt;) for further explanation. In my simulations below, I&amp;rsquo;m using this variation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;are-we-leaving-chips-on-the-table-can-we-afford-more-risk-when-should-we-take-chips-off-the-table&#34;&gt;Are we leaving chips on the table? Can we afford more risk? When should we take chips off the table?&lt;/h3&gt;
+
+&lt;p&gt;Below, I simulate a non volatility-targeted risk-parity portfolio rebalanced monthly i.e. portfolio is allocated across different asset classes based on risk rather than dollar value. Within asset classes, tickers are also risk-weighted. See here (&lt;a href=&#34;https://en.wikipedia.org/wiki/Risk_parity&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Risk_parity&lt;/a&gt;) for further explanation.&lt;/p&gt;
+
+&lt;p&gt;Rolling standard deviation of raw portfolio is plotted below to illustrate the portfolio risk across time. From the diagram below, you would notice that there are periods where the portfolio risk is significantly below the 10% volatility target. Are there chips left on the table? Could you afford more risk?&lt;/p&gt;
+
+&lt;p&gt;There are periods where portfolio risk is significantly above the 10% volatility target. Case in point during Covid sell-off? Should you be reducing risk instead?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Equity curves and portfolio statistics are included below for benchmarking purposes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Portfolio&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Annualized returns&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Volatility&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Sharpe&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return/Max Drawdown&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Benchmark&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8.97%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.5%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-7.96%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;what-if-we-target-risk-i-e-undertake-more-risk-during-calm-periods-and-less-risk-during-turbulent-periods&#34;&gt;What if we target risk? i.e. undertake more risk during calm periods and less risk during turbulent periods?&lt;/h3&gt;
+
+&lt;p&gt;So does taking more risk during calm periods and reducing risk during turbulent periods pay off?&lt;/p&gt;
+
+&lt;p&gt;Before, we proceed further, here are some assumptions I included in the simulations,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Portfolio is rebalanced monthly at the start of the trading day.&lt;/li&gt;
+&lt;li&gt;On a daily basis, the algorithm checks for the current standard deviation of portfolio based on lookback period of 36 days. If it&amp;rsquo;s lesser than 10%, it will leverage proportionately (to a cap of 1.6 times). If it&amp;rsquo;s more than 10%, leverage will be reduced.&lt;/li&gt;
+&lt;li&gt;Leverage financing costs and commission fees are included.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Portfolio&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Annualized returns&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Volatility&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Sharpe&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return/Max Drawdown&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Benchmark&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8.97%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.5%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-7.96%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.12&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Vol target (10%, max leverage of 1.6 times)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;13.92%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.4%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.79&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-8.02%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.73&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;risk-reward-preferences&#34;&gt;Risk-reward preferences&lt;/h3&gt;
+
+&lt;p&gt;Above example is all but a single scenario. You could carry out a grid search to find the appropiate volatility target and leverage possibility space.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve included the possibility space with respect to annualized returns, sharpe ratio, max drawdown to understand the risk-reward preferences.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
+&lt;img src=&#34;/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
+&lt;img src=&#34;/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;caveat&#34;&gt;Caveat&lt;/h3&gt;
+
+&lt;p&gt;Note: Above portfolio is currently in incubation prior to deployment.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Framework for capital allocation</title>

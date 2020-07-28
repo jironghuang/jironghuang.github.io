@@ -7,8 +7,152 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 15 Mar 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 11:50:49 +0800</lastBuildDate>
     <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
+      <link>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
+      <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
+      <description>
+
+&lt;h2 id=&#34;volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-quantitative-strategies&#34;&gt;Volatility targeting could potentially increase risk-adjusted returns for quantitative strategies&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Man AHL&amp;rsquo;s framework in this &lt;a href=&#34;https://www.man.com/maninstitute/volatility-is-back-better-to-target-returns-or-target-risk&#34;&gt;paper&lt;/a&gt; is used in the write-up here.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say you researched and managed to find a quantitative strategy that suits your risk-reward preferences. How do you further improve your strategy while managing your risk?&lt;/p&gt;
+
+&lt;p&gt;A common way in the trend-following and risk parity space is to target risk - also known as volatility targeting.&lt;/p&gt;
+
+&lt;p&gt;In this article, I will present some simulations to bring you through my thought process on how I apply volatility targeting to my strategies.&lt;/p&gt;
+
+&lt;p&gt;My simulations in this article showed that by applying volatility targeting, I could potentially increase my risk-adjusted returns by 10% (risk adjusted metric sharpe ratio increase from 1.62 to 1.79).&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-volatility-targeting&#34;&gt;What is volatility targeting?&lt;/h3&gt;
+
+&lt;p&gt;Volatility targeted funds are usually pegged to annualized volatility/ standard deviation. To provide some context, I will provide some intuition on how annualized standard deviation is derived.&lt;/p&gt;
+
+&lt;p&gt;Assuming variance of daily portfolio returns are independent (ignore serial correlation of returns), you could sum up variance of returns across days as follows,&lt;/p&gt;
+
+&lt;p&gt;Variance of portfolio returns across a year (252 trading days) = Var(ret1): Variance of return on day 1 + &amp;hellip;. + Var(ret252): Variance of return on day 252.&lt;/p&gt;
+
+&lt;p&gt;If the variance of daily returns are the same, you could multiply variance of daily returns by 252 to obtain annualized variance of portfolio returns, Annual Variance = 252 * Var(ret)&lt;/p&gt;
+
+&lt;p&gt;To normalize it to annual standard deviation, you&amp;rsquo;ve to take a square root of Annual Variance.&lt;/p&gt;
+
+&lt;p&gt;How do you interpret this metric? Let&amp;rsquo;s say a strategy has an expected returns of 8% with annual standard deviation of 10%. Based on naive normality assumptions, there&amp;rsquo;s a 68% chance that the fund&amp;rsquo;s annualized return will be between -2% to 18%; and 95% chance that the fund&amp;rsquo;s returns will be between -12% to 28%.&lt;/p&gt;
+
+&lt;p&gt;There are couple of ways for fund managers to derive the volatilities,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One way is to simply find the standard deviation of returns over last X days and annualize it.&lt;/li&gt;
+&lt;li&gt;A second way is to find the exponentially weighted standard deviation. See here (&lt;a href=&#34;https://financetrain.com/calculate-historical-volatility-using-ewma/&#34; target=&#34;_blank&#34;&gt;https://financetrain.com/calculate-historical-volatility-using-ewma/&lt;/a&gt;) for further explanation. In my simulations below, I&amp;rsquo;m using this variation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;are-we-leaving-chips-on-the-table-can-we-afford-more-risk-when-should-we-take-chips-off-the-table&#34;&gt;Are we leaving chips on the table? Can we afford more risk? When should we take chips off the table?&lt;/h3&gt;
+
+&lt;p&gt;Below, I simulate a non volatility-targeted risk-parity portfolio rebalanced monthly i.e. portfolio is allocated across different asset classes based on risk rather than dollar value. Within asset classes, tickers are also risk-weighted. See here (&lt;a href=&#34;https://en.wikipedia.org/wiki/Risk_parity&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Risk_parity&lt;/a&gt;) for further explanation.&lt;/p&gt;
+
+&lt;p&gt;Rolling standard deviation of raw portfolio is plotted below to illustrate the portfolio risk across time. From the diagram below, you would notice that there are periods where the portfolio risk is significantly below the 10% volatility target. Are there chips left on the table? Could you afford more risk?&lt;/p&gt;
+
+&lt;p&gt;There are periods where portfolio risk is significantly above the 10% volatility target. Case in point during Covid sell-off? Should you be reducing risk instead?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Equity curves and portfolio statistics are included below for benchmarking purposes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Portfolio&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Annualized returns&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Volatility&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Sharpe&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return/Max Drawdown&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Benchmark&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8.97%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.5%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-7.96%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;what-if-we-target-risk-i-e-undertake-more-risk-during-calm-periods-and-less-risk-during-turbulent-periods&#34;&gt;What if we target risk? i.e. undertake more risk during calm periods and less risk during turbulent periods?&lt;/h3&gt;
+
+&lt;p&gt;So does taking more risk during calm periods and reducing risk during turbulent periods pay off?&lt;/p&gt;
+
+&lt;p&gt;Before, we proceed further, here are some assumptions I included in the simulations,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Portfolio is rebalanced monthly at the start of the trading day.&lt;/li&gt;
+&lt;li&gt;On a daily basis, the algorithm checks for the current standard deviation of portfolio based on lookback period of 36 days. If it&amp;rsquo;s lesser than 10%, it will leverage proportionately (to a cap of 1.6 times). If it&amp;rsquo;s more than 10%, leverage will be reduced.&lt;/li&gt;
+&lt;li&gt;Leverage financing costs and commission fees are included.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Portfolio&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Annualized returns&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Volatility&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Sharpe&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Return/Max Drawdown&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Benchmark&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8.97%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.5%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-7.96%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.12&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Vol target (10%, max leverage of 1.6 times)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;13.92%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.4%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.79&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-8.02%&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.73&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;risk-reward-preferences&#34;&gt;Risk-reward preferences&lt;/h3&gt;
+
+&lt;p&gt;Above example is all but a single scenario. You could carry out a grid search to find the appropiate volatility target and leverage possibility space.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve included the possibility space with respect to annualized returns, sharpe ratio, max drawdown to understand the risk-reward preferences.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
+&lt;img src=&#34;/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
+&lt;img src=&#34;/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;caveat&#34;&gt;Caveat&lt;/h3&gt;
+
+&lt;p&gt;Note: Above portfolio is currently in incubation prior to deployment.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Integrating volatility targeting into Jarvis, my expert advisor</title>
@@ -1551,107 +1695,6 @@ if __name__ == &#39;__main__&#39;:
 &lt;p&gt;Example &lt;a href=&#34;https://jirong-stage.herokuapp.com/jirong&#34; target=&#34;_blank&#34;&gt;https://jirong-stage.herokuapp.com/jirong&lt;/a&gt; &amp;amp; this will return Hello jirong!&lt;/p&gt;
 
 &lt;p&gt;Possibilites are immense! I can easily create APIs or host dashboard here. Pretty exciting to me:)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Sampling With Replacement Through First Principles</title>
-      <link>/post/sampling-with-replacement-through-first-principles/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/sampling-with-replacement-through-first-principles/</guid>
-      <description>
-
-&lt;h1 id=&#34;sampling-with-replacement&#34;&gt;Sampling with replacement&lt;/h1&gt;
-
-&lt;p&gt;Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.&lt;/p&gt;
-
-&lt;p&gt;I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.&lt;/p&gt;
-
-&lt;p&gt;Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals. Haven&amp;rsquo;t figured that part out yet.&lt;/p&gt;
-
-&lt;p&gt;There&amp;rsquo;re definitely packages out there that does sort of stuff but this forces me to understand the underlying theory from scratch.&lt;/p&gt;
-
-&lt;p&gt;So here is the idea, I&amp;rsquo;ve a dataset with 4 individuals, tagged to respective weights that corresponds to the population. And I wish to do a bootstrap i.e. sampling with replacement to get a sample size of N = 100&lt;/p&gt;
-
-&lt;p&gt;See Wikipedia page on advantages of Bootstrapping &amp;ndash;&amp;gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Bootstrapping_(statistics&#34; target=&#34;_blank&#34;&gt;https://en.wikipedia.org/wiki/Bootstrapping_(statistics&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s what I will do. I will first line up the individuals and find the Probability Mass Function (PMF) for each individual accounting for its weight. Second, I will add up the PMF to obtain the Cumulative Density Function (cumulative proportion)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;df
-id weight PMF     CDF
-1  2      20%    [0, 20]
-2  3      30%    (20, 50]
-3  3      30%    (50, 80]
-4  2      20%    (80, 100]
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next, I will do a loop of 100 times. At the start of each loop I will obtain a float of between 0 to 1. If the value lies between a certain range, I will add that individual to the dataset. Given that num is random, it will lie between the various ranges without order, accouting for length of the interval.&lt;/p&gt;
-
-&lt;p&gt;Note that sampling with replacement means there&amp;rsquo;s a chance that an individual may be represented more than once in the dataset.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for (i in 1:100){
-
-  num = randint(0, 1)
-  
-  if(num &amp;lt; 0.2){
-    add_to_new_dataset(id = 1)
-  }else if (num between 0.2 to 0.5){
-    add_to_new_dataset(id = 2)
-  }else if (num between 0.5 to 0.8){
-    add_to_new_dataset(id = 3)
-  }else{
-    add_to_new_dataset(id = 3)
-  }
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Of course! In R, you should avoid an explicit loop at all costs. The solution is to embed it in a function and use a lapply function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;bootstrap_weights = function(i){
-
-num = randint(0, 1)
-
-  if(num &amp;lt; 0.2){
-    id = 1
-  }else if (num between 0.2 to 0.5){
-    id = 2 
-  }else if (num between 0.5 to 0.8){
-    id = 3
-  }else{
-    id = 4
-  }
-  
-  data_row = data[id, ]
-  return (data_row)
-}
-
-bootstrapped_data = rbind.fill(lapply(1: 100, bootstrap_weights))
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I hope this is useful!&lt;/p&gt;
-
-&lt;h2 id=&#34;latest-developments&#34;&gt;Latest developments&lt;/h2&gt;
-
-&lt;p&gt;Courtesy of this post here &amp;ndash;&amp;gt; &lt;a href=&#34;https://stackoverflow.com/questions/24766104/checking-if-value-in-vector-is-in-range-of-values-in-different-length-vector&#34; target=&#34;_blank&#34;&gt;https://stackoverflow.com/questions/24766104/checking-if-value-in-vector-is-in-range-of-values-in-different-length-vector&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s the simple solution to link a value to an interval,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;getValue &amp;lt;- function(x, data) {
-  tmp &amp;lt;- data %&amp;gt;%
-    filter(CDF1 &amp;lt;= x, x &amp;lt;= CDF2)
-  return(tmp$id)
-}
-
-# Using rand function to get a list of numbers
-rand_numbers &amp;lt;- c(0.1, 0.173, 0.235)
-sapply(rand_numbers, getValue, data = df)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Cheers!&lt;/p&gt;
 </description>
     </item>
     

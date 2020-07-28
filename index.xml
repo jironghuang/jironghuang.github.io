@@ -11,6 +11,17 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
+      <link>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
+      <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
+      <description>Volatility targeting could potentially increase risk-adjusted returns for quantitative strategies Note: Man AHL&amp;rsquo;s framework in this paper is used in the write-up here.
+Let&amp;rsquo;s say you researched and managed to find a quantitative strategy that suits your risk-reward preferences. How do you further improve your strategy while managing your risk?
+A common way in the trend-following and risk parity space is to target risk - also known as volatility targeting.</description>
+    </item>
+    
+    <item>
       <title>Framework for capital allocation</title>
       <link>/post/framework-for-capital-allocation/</link>
       <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
@@ -171,19 +182,6 @@ Humans rely on intuitions which are way way overrated.
 And all these are blockers to sustainable positive performances in the area of investment portfolio management.
 But not all is lost&amp;hellip; I&amp;rsquo;ve found a way to aid me in my invesment decision making processes.
 And that&amp;rsquo;s Jarvis! My expert advisor to advise me what to do in different scenarios.</description>
-    </item>
-    
-    <item>
-      <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
-      <link>/post/market_neutral_ewu/</link>
-      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/market_neutral_ewu/</guid>
-      <description>UK index and UK ETF I discovered another market neutral opportunity this month.
-And this is based on ratio between FTSE 100 index and MSCI based UK ETF (EWU)
-Based on backtest, sharpe ratio is close to 0.9.
-The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.
-The optimal lookback period for the MA component in bollinger band is approximately 40 days.</description>
     </item>
     
   </channel>
