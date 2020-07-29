@@ -72,8 +72,9 @@
 &lt;th align=&#34;center&#34;&gt;Annualized returns&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;Volatility&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;Sharpe&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Return&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Max Drawdown&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;Return/Max Drawdown&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Skewness&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 
@@ -85,6 +86,7 @@
 &lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;-7.96%&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1.12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-1.14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -101,7 +103,7 @@
 &lt;li&gt;Leverage financing costs and commission fees are included.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher.&lt;/p&gt;
+&lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher. You would also notice that the negative skewness of the strategy improved considerably from -1.14 to -0.8.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
 
@@ -112,8 +114,9 @@
 &lt;th align=&#34;center&#34;&gt;Annualized returns&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;Volatility&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;Sharpe&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Return&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Max Drawdown&lt;/th&gt;
 &lt;th align=&#34;right&#34;&gt;Return/Max Drawdown&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Skewness&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 
@@ -125,6 +128,7 @@
 &lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;-7.96%&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1.12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-1.14&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -134,6 +138,7 @@
 &lt;td align=&#34;right&#34;&gt;1.79&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;-8.02%&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1.73&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-0.8&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
