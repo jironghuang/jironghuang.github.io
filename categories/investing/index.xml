@@ -145,13 +145,15 @@
 
 &lt;h3 id=&#34;risk-reward-preferences&#34;&gt;Risk-reward preferences&lt;/h3&gt;
 
-&lt;p&gt;Above example is all but a single scenario. You could carry out a grid search to find the appropiate volatility target and leverage possibility space.&lt;/p&gt;
+&lt;p&gt;Above example is all but a single scenario. You could carry out a grid search to find the appropriate volatility target and leverage possibility space.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;ve included the possibility space with respect to annualized returns, sharpe ratio, max drawdown to understand the risk-reward preferences.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
 &lt;img src=&#34;/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
-&lt;img src=&#34;/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
+&lt;img src=&#34;/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
+&lt;img src=&#34;/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;caveat&#34;&gt;Caveat&lt;/h3&gt;
 
