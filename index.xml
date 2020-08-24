@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
+      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <description>Designing, Building and Deploying a Fully Automated Algorithmic Trading System I wrote an article on Designing, Building and Deploying a Fully Automated Algorithmic Trading System. You may find the article in Medium link.</description>
+    </item>
+    
+    <item>
       <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
       <link>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
       <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
@@ -166,22 +175,6 @@ I discovered another market neutral opportunity this month.
 And this is based on ratio between Germany DAX index and MSCI based Germany ETF (EWG)
 Based on backtest, sharpe ratio is close to 1.16.
 The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.</description>
-    </item>
-    
-    <item>
-      <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>
-      <link>/post/jarvis/</link>
-      <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
-      
-      <guid>/post/jarvis/</guid>
-      <description>Jarvis Humans are imperfect.
-Humans are prone to biases.
-Humans are dumb.
-Humans have egos.
-Humans rely on intuitions which are way way overrated.
-And all these are blockers to sustainable positive performances in the area of investment portfolio management.
-But not all is lost&amp;hellip; I&amp;rsquo;ve found a way to aid me in my invesment decision making processes.
-And that&amp;rsquo;s Jarvis! My expert advisor to advise me what to do in different scenarios.</description>
     </item>
     
   </channel>

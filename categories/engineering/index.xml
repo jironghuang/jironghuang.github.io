@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>engineering on Jirong&#39;s sandbox</title>
+    <link>/categories/engineering/</link>
+    <description>Recent content in engineering on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 24 Aug 2020 11:50:49 +0800</lastBuildDate>
+    <atom:link href="/categories/engineering/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
+      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <description>
+
+&lt;h2 id=&#34;designing-building-and-deploying-a-fully-automated-algorithmic-trading-system&#34;&gt;Designing, Building and Deploying a Fully Automated Algorithmic Trading System&lt;/h2&gt;
+
+&lt;p&gt;I wrote an article on Designing, Building and Deploying a Fully Automated Algorithmic Trading System. You may find the article in Medium &lt;a href=&#34;https://medium.com/@jironghuang/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620&#34;&gt;link.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
