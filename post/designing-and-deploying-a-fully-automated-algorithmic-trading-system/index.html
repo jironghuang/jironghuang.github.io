@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    4 min read
   </span>
   
 
@@ -353,7 +353,65 @@
 
 <h2 id="designing-building-and-deploying-a-fully-automated-algorithmic-trading-system">Designing, Building and Deploying a Fully Automated Algorithmic Trading System</h2>
 
-<p>I wrote an article on Designing, Building and Deploying a Fully Automated Algorithmic Trading System. You may find the article in Medium <a href="https://medium.com/@jironghuang/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620">link.</a></p>
+<p>As I developed several inter-day trading/ portfolio management algorithms, I also embarked on a journey in parallel to develop a fully automated execution framework that could satisfy my requirements.</p>
+
+<p><em>Previously orders were executed manually after signals are generated automatically.</em></p>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+<li>A relatively slow trading system triggered by an hourly task scheduler during trading hours. I’m using Linux cron jobs for this.</li>
+<li>A non event-driven framework. I’m relying on ib_sync framework for my algorithms executed in interactive brokers. The alternative is an event-driven framework (e.g. official IB framework based on asyncio) based on my experience is hard to debug and would be an overkill for my low to medium frequency trading/ portfolio management system.</li>
+<li>Automated trading execution and portfolio adjustments in relation to risks, signals and leverage cap.</li>
+<li>Data ingestion from multiple data sources/ APIs for signal processing, trade executions and logs.</li>
+<li>Inclusion of safeguards and circuit breakers in place before firing any trades.</li>
+<li>Notification through email for errors and daily updates @ start, middle and end of trading day.
+-Able to integrate the above steps through Python.</li>
+</ul>
+
+<h3 id="steps-taken">Steps taken</h3>
+
+<ol>
+<li>Without diving into the details of the code, here is the the general flow of my framework. The ‘main’ programs and execution flowcharts are appended at the end of the article.</li>
+<li>Connect to my brokerage account as a new session.
+Cancel any open orders. I adopt this option instead of ‘modifying orders’ as it’s much easier. If I were to modify orders, I would have to keep track of the number of filled orders and unfilled orders. As my algorithm is triggered hourly, any unfilled orders in that hourly slot are deemed to deviate significantly from the current price and the chance of being executed at the limit price is pretty low. That being said, in my next iteration, I would prefer to invest time in writing code to ‘modify orders’ instead of a simplistic ‘cancel orders’.</li>
+<li>Generate forecast i.e. Required leverage and weightage from different tickers. I currently write them as local files instead of committing them to a database or storing them as variables as they are more robust during live trading. I do not have to worry about concurrency issues (else codes have to consider mutex and locks), database downtime.</li>
+<li>Obtain net liquidation value of account.</li>
+<li>Read in ticker weights and leverage from file written out in step 3.</li>
+<li>Create order files for different tickers including actions such as ‘Buy’, ‘Sell’ or ‘Do nothing’, Quantity and Limit price. At the moment, I’m using Adaptive Limit 7. Order from Interactive Brokers — which based on my understanding is a discretionary order with limit price as an upper bound. At the moment, I’m unwilling to invest more time on this to gain any further execution alpha as it could be a non-trivial task to dig into the bid-ask order books.</li>
+<li>Check if there are any errors from step 1 to 4 through an error flag. If there is any error, orders will not be sent. If everything cleared, the program will send the orders to the exchange.</li>
+<li>Trades, if any are recorded into a csv file.</li>
+<li>Save current snapshot which includes current positions, trades, net liquidation value and leverage utilized and margins.</li>
+<li>If errors are encountered, an alert will be sent to my gmail.</li>
+<li>Daily updates/ snapshots are sent to my gmail at the start, middle and end of session.</li>
+<li>If the program is triggered at 5am SGT (after US trading hours), the snapshots and trades information are committed to my database.</li>
+<li>Disconnect from current session.</li>
+</ol>
+
+<h3 id="technology-stack">Technology stack</h3>
+
+<p>If you are keen to know my technology stack, I’m currently using the following,</p>
+
+<ul>
+<li>Linux Mint</li>
+<li>Mint Box, 8GB RAM (but any laptop or virtual private server would suffice)</li>
+<li>Interactive brokers brokerage account (but the framework could be adapted to any brokerages with APIs)</li>
+<li>Interactive brokers gateway (IB Trade Worker Station is an alternative but I do not require any graphical user interface for my purpose)</li>
+<li>ib_insync framework</li>
+</ul>
+
+<h3 id="word-of-caution">Word of Caution</h3>
+
+<ul>
+<li>This framework is not ideal for tick by tick or even bar by bar (seconds or minutes) trading algorithm since it’s not predicated on speed. An event-driven framework would be a better alternative if speed is required.</li>
+<li>I’m relying on brokerage server side to keep track of the current positions, margins, leverage and orders. In the next stage of development beyond this Minimum Viable Product, I’m keen to develop my own accounting system.</li>
+</ul>
+
+<h3 id="appendix">Appendix</h3>
+
+<p><img src="/post/img/prog1.png" alt="/post/img/prog1.png">
+<img src="/post/img/prog2.png" alt="/post/img/prog2.png">
+<img src="/post/img/flow1.jpeg" alt="/post/img/flow1.jpeg"></p>
 
       </div>
 

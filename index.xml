@@ -16,7 +16,9 @@
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
       <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
-      <description>Designing, Building and Deploying a Fully Automated Algorithmic Trading System I wrote an article on Designing, Building and Deploying a Fully Automated Algorithmic Trading System. You may find the article in Medium link.</description>
+      <description>Designing, Building and Deploying a Fully Automated Algorithmic Trading System As I developed several inter-day trading/ portfolio management algorithms, I also embarked on a journey in parallel to develop a fully automated execution framework that could satisfy my requirements.
+Previously orders were executed manually after signals are generated automatically.
+Requirements  A relatively slow trading system triggered by an hourly task scheduler during trading hours. I’m using Linux cron jobs for this.</description>
     </item>
     
     <item>

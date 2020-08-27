@@ -1247,6 +1247,7 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 
 &lt;div id=&#34;whatre-the-returns-xirr-for-my-cpfis-portfolio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What’re the returns (XIRR) for my CPFIS Portfolio?&lt;/h2&gt;
+&lt;p&gt;Note: This section is archived because I’ve diverted my CPF OA funds to Endowus (40-60 portfolio) instead. It aligns more with my philosophy of global diversification to seek higher risk adjusted returns. I realized an annualized loss of approximately of -1.5% a year. With opportunity cost of 2.5% from CPF OA, that amounts to 4% loss a year.&lt;/p&gt;
 &lt;p&gt;I expounded my philosophy and calculated the returns of my CPFIS portfolio via XIRR (Extended Internal Rate of Returns) &lt;a href=&#34;https://jironghuang.github.io/post/xirr_cpfis/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The binary lens of evaluating the XIRR is as follows,&lt;/p&gt;
 &lt;ul&gt;
@@ -1254,8 +1255,6 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 &lt;li&gt;Else if XIRR &amp;lt; 2.5%, my invesment decision did not pay off (not to say it’s a bad decision. Pls do not confuse decision with outcome)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;As an ex-economist/ data geek who doesn’t shy away from having skin in the game, I will be honest in sharing my returns and its stream of cashflow here,&lt;/p&gt;
-&lt;iframe src=&#34;https://docs.google.com/spreadsheets/d/e/2PACX-1vQtSJfzakpUWRkryIoXaqJm7szd-g6R1SHr-aAXAlHNOFEDXYGhCBNC9UeYEYv8cYf8krgsS6LPpED9/pubhtml?gid=267342954&amp;amp;single=true&amp;amp;widget=true&amp;amp;headers=false&#34; width=&#34;1000&#34; height=&#34;780&#34; style=&#34;border: none;&#34;&gt;
-&lt;/iframe&gt;
 &lt;/div&gt;
 </description>
     </item>
