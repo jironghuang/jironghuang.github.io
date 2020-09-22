@@ -80,7 +80,7 @@
   <meta property="og:description" content="Data Scientist and Quantitative Investor and Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-06-01T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-06-07T00:00:00&#43;00:00">
   
 
   
@@ -253,6 +253,80 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/convert_na_num/" itemprop="url">Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 7, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/convert_na_num/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/data_cleaning">data_cleaning</a
+    >, 
+    
+    <a href="/categories/programming">programming</a
+    >, 
+    
+    <a href="/categories/r">R</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Converting NAs to obscure numbers to prevent the data from messing up the recoding. 1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.
+suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent awkward recoding situations that require &amp; !is.na(&lt;variable&gt;) # Doesn&#39;t work for factors #&#39; @title Convert NA to obscure number #&#39; @param dp_dataframe Dataframe in consideration #&#39; @param np_obscure_num Numeric - Obscure number #&#39; @param bp_na_to_num Boolean if TRUE, convert NA to num.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/convert_na_num/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -892,85 +966,6 @@ From this exercise, I had to rely on my knowledge on recursion, binary trees (in
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/building-adecision-tree-from-scratch/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/martingale-strategy/" itemprop="url">Martingale Strategy - Double Down</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-01-26 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
-      Jan 26, 2019
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/martingale-strategy/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/betting">betting</a
-    >, 
-    
-    <a href="/categories/simulation">simulation</a
-    >, 
-    
-    <a href="/categories/programming">programming</a
-    >, 
-    
-    <a href="/categories/risk">risk</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&rsquo;s context to highlight the potential risks associated with this strategy.
-Double down! That&rsquo;s essentially the essence of it.
-Here&rsquo;s a simple explanation of the strategy,
- The croupier spins the ball. If it&rsquo;s red you win the amount you bet, black you lose the same amount If you win, you continue to bet the same amount (same as your 1st bet amount) If you lose, you double your bet amount And if your accumulated winnings hits a certain amount, you stop and leave the casino  So how would the strategy fare?
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/martingale-strategy/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

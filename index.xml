@@ -11,6 +11,17 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Crawling data from basektball-reference and espn</title>
+      <link>/post/crawling-data-from-basektball-reference-and-espn/</link>
+      <pubDate>Tue, 22 Sep 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/crawling-data-from-basektball-reference-and-espn/</guid>
+      <description> Crawling data from basektball-reference and espn As I required some data for my ML assignment, I thought that predicting NBA player salaries based on previous seasons&amp;rsquo; game stats would be cool.
+Here&amp;rsquo;re the codes used for crawling the data from basektball-reference and espn.
+Codes </description>
+    </item>
+    
+    <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
       <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
@@ -164,19 +175,6 @@ But back in August, I had a break away from both school and work by going back f
       <description>Setting up a database for my Jarvis As I run more sophiscated trading strategies, I require a proper database for training parameters and records.
 Previously, I was using a mix of SQLite, RDA and CSV files - but going forward I will be using Mysql (workbench) to house my data.
 Below is an example of database tables for my market neutral strategies. I will be using these tables for the following,</description>
-    </item>
-    
-    <item>
-      <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
-      <link>/post/market_neutral_ewg/</link>
-      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/market_neutral_ewg/</guid>
-      <description>DAX index and Germany ETF I will keep it short in this post since I espoused on this strategy a couple of times.
-I discovered another market neutral opportunity this month.
-And this is based on ratio between Germany DAX index and MSCI based Germany ETF (EWG)
-Based on backtest, sharpe ratio is close to 1.16.
-The composition between these 2 indexes are largely similar and any significant deviation shouldn’t persist for long.</description>
     </item>
     
   </channel>

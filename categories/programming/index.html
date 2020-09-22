@@ -82,7 +82,7 @@
   <meta property="og:description" content="Data Scientist and Quantitative Investor and Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-08-24T11:50:49&#43;08:00">
+  <meta property="og:updated_time" content="2020-09-22T11:50:49&#43;08:00">
   
 
   
@@ -257,6 +257,13 @@
   
   
   <div>
+    <h2><a href="/post/crawling-data-from-basektball-reference-and-espn/">Crawling data from basektball-reference and espn</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/">Designing, Building and Deploying a Fully Automated Algorithmic Trading System</a></h2>
     <div class="article-style">
       
@@ -354,19 +361,6 @@ Silly me!
       
       Asset allocation notification I&rsquo;m in the midst of automating/ guiding my life with algorithms (largely inspired by Ray Dalio) - and 1 of the guidelines that I set is on asset allocation,
  Emerging market and Developed Market should be of the same proportion Bonds + Cash proportion should be equivalent to my age. This can deviate in times of crisis when I want to be more opportunistic.  If it deviates from the portfolio policy statement, it will send me a pushover notification to my phone:)
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/email_notification_python/">ETF watchlist email notification Through Python</a></h2>
-    <div class="article-style">
-      
-      Email notification I finally bit the bullet and updated my previously hideous email notification!
-You may find the updated email notification template here - alongside with the code.
-Feel free to ping me if you are keen to be on the email list too.
-~ Jirong
-import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv(&lsquo;/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv&rsquo;) data[&lsquo;Change_fr_52_week_high&rsquo;] = round(100 * data[&lsquo;Change_fr_52_week_high&rsquo;], 1) data = data[[&lsquo;Name&rsquo;, &lsquo;Price&rsquo;, &lsquo;Change_fr_52_week_high&rsquo;]].
       
     </div>
   </div>

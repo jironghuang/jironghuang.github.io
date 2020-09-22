@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 24 Aug 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2020 11:50:49 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Crawling data from basektball-reference and espn</title>
+      <link>/post/crawling-data-from-basektball-reference-and-espn/</link>
+      <pubDate>Tue, 22 Sep 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/crawling-data-from-basektball-reference-and-espn/</guid>
+      <description> Crawling data from basektball-reference and espn As I required some data for my ML assignment, I thought that predicting NBA player salaries based on previous seasons&amp;rsquo; game stats would be cool.
+Here&amp;rsquo;re the codes used for crawling the data from basektball-reference and espn.
+Codes </description>
+    </item>
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
