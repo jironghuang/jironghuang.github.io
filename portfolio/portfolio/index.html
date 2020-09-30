@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -343,13 +343,13 @@
 
 <ul>
 <li>As of Aug 2020, I&rsquo;ve fully automated my trading &amp; portfolio management. See here (<a href="https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620" target="_blank">https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620</a>) for the full architecture.</li>
-<li>As much as possible, I will try to live by this motto: Anything that can&rsquo;t be automated doesn&rsquo;t belong to my portfolio.</li>
+<li>As much as possible, I will try to live by this mantra: Anything that can&rsquo;t be automated doesn&rsquo;t have a place in my portfolio.</li>
 <li>This radical approach was undertaken to completely remove my cognitive bias/ emotions for better sustainable investment performance.</li>
 </ul>
 
 <h2 id="investment-framework">Investment framework</h2>
 
-<p>The objective of the portfolio is to achieve the following against the benchmarks,</p>
+<p>The objective of the portfolio is to achieve the following against the benchmarks in a year,</p>
 
 <ul>
 <li>Highest daily win rates in positive periods</li>
@@ -358,22 +358,22 @@
 <li>Lowest max drawdowns against benchmarks</li>
 <li>Shortest recovery to previous watermark</li>
 <li>Positive alpha against all benchmarks</li>
-<li>Low beta against benchmarks (&lt;= 0.5): Target to maintain beta at around 0.15-0.25 range.</li>
-<li>10% volatility target or less: The key is to limit the volatility analagous to the odds of flipping a biased coin towards your favour with equal payout. At any day, you wouldn&rsquo;t know if you will win or lose but you do know you will win 60-70% of the time. The key is to limit downside risk of a negative skew (see Robert Carver systematic trading book)</li>
+<li>Low beta against benchmarks (&lt;= 0.25): Target to maintain beta at around 0.15-0.25 range.</li>
+<li>10% volatility target or less: The key is to limit the volatility analagous to the odds of flipping a biased coin towards your favour with equal payout. At any day, you wouldn&rsquo;t know if you will win or lose but you do know you will win 60-70% of the time.</li>
 </ul>
 
 <p>Goal of my portfolio is to go against conventional wisdom of higher risk, higher returns through a risk parity approach. It&rsquo;s entirely possible to engineer higher returns with lower risk (lower standard deviation, downward deviation and drawdowns).</p>
 
 <p>My methodology is based on Quant Finance, Finance, Statistics and Economics. And heavily influenced by Ray Dalio, David Swensen, Robert Carver and Ernest Chan.</p>
 
-<p>Note that I&rsquo;m not aiming for the highest absolute returns but for the highest risk adjusted returns!</p>
+<p>Note that I&rsquo;m not aiming for the highest absolute returns but for the highest risk adjusted returns.</p>
 
 <p>I&rsquo;ll add a counter to my financial goals for the month if I manage to achieve all the abovementioned criteria for year-to-date.</p>
 
 <p>As it stands, my portfolio is made up of these components,</p>
 
 <ul>
-<li>Core asset allocation is inspired by Ray Dalio and determined programatically by risk parity algorithms</li>
+<li>Core asset allocation is inspired by Ray Dalio and determined programatically by risk parity algorithms.<br /></li>
 <li>Volatility risk premium tail hedge strategy (5% of portfolio)</li>
 <li>Momentum trading in commodities</li>
 <li>Mean reversion market neutral strategies</li>
@@ -394,7 +394,7 @@
 <p>Note:</p>
 
 <ul>
-<li>As it stands, 100% of my net worth is devoted to this strategy. It aligns with my core belief that any analysis should be accompanied with skin in the game. There&rsquo;s no room for armchair economist talk that is so prevalent in this environment. How you structure your portfolio should reflect your view of the world.<br /></li>
+<li>As it stands, 100% of my net worth is devoted to mentioned strategies above. It aligns with my core belief that any analysis should be accompanied with skin in the game. There&rsquo;s no room for armchair economist talk that is so prevalent in this environment. How you structure your portfolio should reflect your view of the world.<br /></li>
 </ul>
 
 <h3 id="future-developments">Future developments</h3>
@@ -411,6 +411,7 @@
 <li>Cryptocurrency</li>
 <li>Economic data</li>
 <li>Fundamentals data</li>
+<li>HFT order book depth</li>
 </ul>
 
 <h3 id="2020">2020</h3>
@@ -425,9 +426,10 @@
 <li>Mar 2020 (+1, monthly change -6.3%) - Negative month. -5.9% this month. Employed hedge during the month to reduce volatility. Haven&rsquo;t integrated formally into Jarvis but will do so to reduce volatility such that volatility is constant across time. That being said, I&rsquo;ve outperformed the index manifold with 3 times smaller drawdown.</li>
 <li>April 2020 (+1, monthly change +3.3%) - Positive month. Volatility targeting formally built into Jarvis. Rebound is slower than benchmarks but upward trajectory is smoother.</li>
 <li>May 2020 (+1, monthly change +0.34%) - Positive month. Hedges to reach volatility target of 15% completely removed as portfolio volatility dwindles. Far out of the money put options (30% below market price) that costs around 0.1% on a monthly basis is integrated into the portfolio. Changed benchmark of SnP 500 to EWS (Singapore etf) as I think it&rsquo;s a better benchmark given that&rsquo;s my home country.</li>
-<li>June 2020 (+1, monthly change +2.07%) - Positive month. Added covered call strategy (potentially additional 6% inversely correlated returns stream to market) Tweaked the system in such a way that if put options are cheap enough to be purchased, use 15% volatility target. Else use 10% volatility target.</li>
+<li>June 2020 (+1, monthly change +2.07%) - Positive month. Added covered call strategy (potentially additional 6% inversely correlated returns stream to market) Tweaked the system in such a way that if put options are cheap enough to be purchased, use 15% volatility target. Else use 10% volatility target. Removed far out of the money options strategy because it&rsquo;s too costly to hedge.<br /></li>
 <li>July 2020 (+1, monthly change +6.69%) - Positive record-breaking month. Developed a full risk parity model (equal risk across asset classes) in incubation period. To be deployed after Aug 21. Signals are generated programmatically daily and to be deployed manually. Automated deployment infrastructure is still in the works.</li>
-<li>Aug 2020 (+1, monthly change -1.09%) - Negative month because of Gold and Market Neutral Strategies. Deployed a Minimimum Viable Product for fully automated algorithmic trading infrastructure. Additional features in the backlog. Deploying Volatility Risk Premium model for hedging purposes next. To keep an approximate 5% of portfolio in this strategy.</li>
+<li>Aug 2020 (+1, monthly change -1.09%) - Negative month because of Gold and Market Neutral Strategies. Deployed a Minimimum Viable Product for fully automated algorithmic trading infrastructure. Additional features in the backlog. Deploying Volatility Risk Premium model for hedging purposes next. To keep an approximate 5% of portfolio in this strategy. Phased out covered call strategy because it can&rsquo;t be automated.</li>
+<li>Sep 2020 (+1, monthly change -1.52%) - Negative month due to correction in equties but still approx 5.5% year to date. Drawdown is 3 times lesser than global benchmark. 2nd month of implementing 2 fully automated algorithmic trading strategies. Keen to add a third one using expiring CFDs in Saxo based on Time Series Momentum (TSMOM) and ex-MAN AHL quant Robert Carver Systematic trading framework. Probably based on a continuous forecasting based system rather than a binary take profit - stop loss system. Expected sharpe of 0.5 - seems low but it has positive expected returns with low to inverse correlation with core risk parity portfolio. In addition, commodities other than Gold is missing from my portfolio and an active strategy for this asset class of approx 5-7.5% would be a good fit in jarvis.</li>
 </ul>
 
 <h4 id="portfolio-in-blue-benchmarks-in-other-colours">Portfolio in blue. Benchmarks in other colours</h4>
