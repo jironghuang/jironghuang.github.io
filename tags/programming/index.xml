@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 22 Sep 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2020 11:50:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
+      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <description>Developing a performance monitoring system for my algorithmic trading system It&amp;rsquo;s one thing to backtest your signals and forecasts on historical data but it&amp;rsquo;s a completely different animal in terms of execution. I have written about this here.
+Another important component of setting up an algorithmic trading system is performance monitoring. Some important questions I had in mind while developing this component,
+ How do I measure my slippage? Commissions paid?</description>
+    </item>
     
     <item>
       <title>Crawling data from basketball-reference and espn</title>
@@ -25,10 +36,10 @@ Codes </description>
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
-      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <link>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <guid>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>Designing, Building and Deploying a Fully Automated Algorithmic Trading System As I developed several inter-day trading/ portfolio management algorithms, I also embarked on a journey in parallel to develop a fully automated execution framework that could satisfy my requirements.
 Previously orders were executed manually after signals are generated automatically.
 Requirements  A relatively slow trading system triggered by an hourly task scheduler during trading hours. I’m using Linux cron jobs for this.</description>

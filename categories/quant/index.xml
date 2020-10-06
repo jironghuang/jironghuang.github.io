@@ -7,15 +7,92 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 24 Aug 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2020 11:50:49 +0800</lastBuildDate>
     <atom:link href="/categories/quant/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
+      <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
       <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
-      <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
+      <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
       <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <description>
+
+&lt;h2 id=&#34;developing-a-performance-monitoring-system-for-my-algorithmic-trading-system&#34;&gt;Developing a performance monitoring system for my algorithmic trading system&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s one thing to backtest your signals and forecasts on historical data but it&amp;rsquo;s a completely different animal in terms of execution. I have written about this &lt;a href=&#34;https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another important component of setting up an algorithmic trading system is performance monitoring. Some important questions I had in mind while developing this component,&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;How do I measure my slippage? Commissions paid?&lt;/li&gt;
+&lt;li&gt;What are my daily returns? And how do I measure performance of my strategy while accounting for inflow and outflow of cash into the account?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;how-do-i-measure-my-slippage&#34;&gt;How do I measure my slippage?&lt;/h3&gt;
+
+&lt;p&gt;On this front, I use &lt;a href=&#34;https://ib-insync.readthedocs.io/_modules/ib_insync/flexreport.html&#34;&gt;FlexReport&lt;/a&gt;
+function (using REST API) from ib_insync to query the trades made on that day. The function will query the XML report from Interactive Brokers which I subsequently format for daily reporting purposes. The queryId specification had to be set up via IB web account management system. Unfortunately this expires annually which means you have to find a way to remind yourself to refresh this queryId manually every year.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## Code for querying from IB
+report = FlexReport(token, queryId) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Some trivial code is then written to format the XML into this format below for my email notification,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;what-are-my-daily-returns-how-do-i-measure-performance-of-my-strategy-while-accounting-for-inflow-and-outflow-of-cash-into-the-account&#34;&gt;What are my daily returns? How do I measure performance of my strategy while accounting for inflow and outflow of cash into the account?&lt;/h3&gt;
+
+&lt;p&gt;In the past, I de-prioritised and placed development of performance monitoring at the bottom of my backlog as I could easily query sophiscated performance figures from IB. You may find some of the figures in my blog &lt;a href=&#34;https://jironghuang.github.io/portfolio/portfolio/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Increasingly, however, I found that it is important to understand the performance drivers of portfolio performance by instruments and strategies. To analyze at this granular level, I would have to capture the daily/ hourly levels and returns of instruments and strategies.&lt;/p&gt;
+
+&lt;p&gt;To do that, the system triggers a request to take an accounting snapshot of the portfolio every hour,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;But what if there is inflow and outflow of cash - you may ask? I simply rely on Time Weighted Return Formula.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TWR = [(1+HP1) X&amp;hellip;.(1+HPN)] - 1&lt;/li&gt;
+&lt;li&gt;where TWR = Time weighted return&lt;/li&gt;
+&lt;li&gt;n = Number of sub-periods&lt;/li&gt;
+&lt;li&gt;HP = (End Value of Day- Initial Value of Day + Cash Flow)/ (Initial Value + Cashflow)&lt;/li&gt;
+&lt;li&gt;HPN = Return for sub period n&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At the portfolio level, the inflow and outflow would the net cash inflow into the account. At the instrument level, the inflow and outflow would be the net buy/sell trades on that day. You would also have to adjust the instrument asset value to &amp;lsquo;the equity value&amp;rsquo; by downsizing through the overall portfolio leverage factor.&lt;/p&gt;
+
+&lt;p&gt;You may find the implementation of measuring time weighted returns at overall portfolio level in the appendix.&lt;/p&gt;
+
+&lt;p&gt;After all that is mentioned and done, what could I do? I could plot some fancy equity curves as shown below,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
+&lt;img src=&#34;/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;I could also measure realized rolling volatility and do crazy stuff (but unimportant in my opinion) like fama-french 3, 5, or gazillion factors analysis.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-in-my-backlog-for-further-enhancement-of-performance-monitoring&#34;&gt;What is in my backlog for further enhancement of performance monitoring?&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Understanding performance drivers systematically with data captured i.e. break down overall portfolio returns into weighted performance drivers by strategies, instruments and time-frame.&lt;/li&gt;
+&lt;li&gt;Pushing data files into a relational or non-relational database. But as much as possible, I will try to limit interaction between the trading system and databases during trading hours. In the past, I observed concurrency issues while using SQLite and database server &amp;lsquo;hanging&amp;rsquo; while using relational database such as Mysql. Another alternative would be to host the servers in the cloud. But that would mean I have to pay for extra costs and worry about connectivity issues. Sometimes plain old files could just work?&lt;/li&gt;
+&lt;li&gt;Impact of exchange rate effect on portfolio performance. I wrote and created a repository on this in the past. You may visit the link &lt;a href=&#34;https://github.com/jironghuang/RemoveExchangeRateEffects&#34;&gt;here&lt;/a&gt; for more information.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
+      <link>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
+      <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>
 
 &lt;h2 id=&#34;designing-building-and-deploying-a-fully-automated-algorithmic-trading-system&#34;&gt;Designing, Building and Deploying a Fully Automated Algorithmic Trading System&lt;/h2&gt;

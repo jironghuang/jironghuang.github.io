@@ -11,6 +11,17 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
+      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <description>Developing a performance monitoring system for my algorithmic trading system It&amp;rsquo;s one thing to backtest your signals and forecasts on historical data but it&amp;rsquo;s a completely different animal in terms of execution. I have written about this here.
+Another important component of setting up an algorithmic trading system is performance monitoring. Some important questions I had in mind while developing this component,
+ How do I measure my slippage? Commissions paid?</description>
+    </item>
+    
+    <item>
       <title>Crawling data from basketball-reference and espn</title>
       <link>/post/crawling-data-from-basektball-reference-and-espn/</link>
       <pubDate>Tue, 22 Sep 2020 11:50:49 +0800</pubDate>
@@ -23,10 +34,10 @@ Codes </description>
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
-      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <link>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <guid>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>Designing, Building and Deploying a Fully Automated Algorithmic Trading System As I developed several inter-day trading/ portfolio management algorithms, I also embarked on a journey in parallel to develop a fully automated execution framework that could satisfy my requirements.
 Previously orders were executed manually after signals are generated automatically.
 Requirements  A relatively slow trading system triggered by an hourly task scheduler during trading hours. I’m using Linux cron jobs for this.</description>
@@ -164,17 +175,6 @@ For my own understanding, I also did some quick analysis using google sheet (see
       <guid>/post/birth-of-an-idea-in-the-jungle/</guid>
       <description>Birth of an idea of all places: In the Jungle Having to juggle both work and masters in computer science at the same time, it&amp;rsquo;s really hard to afford any more time to my side projects.
 But back in August, I had a break away from both school and work by going back for reservist. As it&amp;rsquo;s really bored in there where I spent most of the time in a small building (with no aircon!</description>
-    </item>
-    
-    <item>
-      <title>Setting up a database for my Jarvis</title>
-      <link>/post/jarvis_database/</link>
-      <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
-      
-      <guid>/post/jarvis_database/</guid>
-      <description>Setting up a database for my Jarvis As I run more sophiscated trading strategies, I require a proper database for training parameters and records.
-Previously, I was using a mix of SQLite, RDA and CSV files - but going forward I will be using Mysql (workbench) to house my data.
-Below is an example of database tables for my market neutral strategies. I will be using these tables for the following,</description>
     </item>
     
   </channel>
