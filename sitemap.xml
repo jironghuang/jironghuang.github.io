@@ -676,7 +676,7 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
+      <loc>/tags/r/</loc>
       <lastmod>2020-01-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -686,7 +686,7 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
+      <loc>/categories/r/</loc>
       <lastmod>2020-01-17T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -726,16 +726,6 @@
     
     <url>
     
-      <loc>/categories/algo/</loc>
-      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/algo/</loc>
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -746,8 +736,8 @@
     
     <url>
     
-      <loc>/categories/api/</loc>
-      <lastmod>2019-02-28T23:34:32+08:00</lastmod>
+      <loc>/categories/algo/</loc>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -757,6 +747,16 @@
     <url>
     
       <loc>/tags/api/</loc>
+      <lastmod>2019-02-28T23:34:32+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/api/</loc>
       <lastmod>2019-02-28T23:34:32+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -776,16 +776,6 @@
     
     <url>
     
-      <loc>/categories/betting/</loc>
-      <lastmod>2019-01-26T11:46:49+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/betting/</loc>
       <lastmod>2019-01-26T11:46:49+08:00</lastmod>
       <priority>0</priority>
@@ -796,8 +786,8 @@
     
     <url>
     
-      <loc>/categories/coding/</loc>
-      <lastmod>2018-08-26T14:09:02+08:00</lastmod>
+      <loc>/categories/betting/</loc>
+      <lastmod>2019-01-26T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -807,6 +797,16 @@
     <url>
     
       <loc>/tags/coding/</loc>
+      <lastmod>2018-08-26T14:09:02+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/coding/</loc>
       <lastmod>2018-08-26T14:09:02+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -826,16 +826,6 @@
     
     <url>
     
-      <loc>/categories/data_analytics/</loc>
-      <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/data_analytics/</loc>
       <lastmod>2019-06-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -846,8 +836,8 @@
     
     <url>
     
-      <loc>/categories/data_cleaning/</loc>
-      <lastmod>2019-06-07T00:00:00+00:00</lastmod>
+      <loc>/categories/data_analytics/</loc>
+      <lastmod>2019-06-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -866,8 +856,8 @@
     
     <url>
     
-      <loc>/categories/database/</loc>
-      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
+      <loc>/categories/data_cleaning/</loc>
+      <lastmod>2019-06-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -877,6 +867,16 @@
     <url>
     
       <loc>/tags/database/</loc>
+      <lastmod>2019-09-29T11:46:49+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/database/</loc>
       <lastmod>2019-09-29T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -896,16 +896,6 @@
     
     <url>
     
-      <loc>/categories/engineering/</loc>
-      <lastmod>2020-10-06T11:50:49+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/engineering/</loc>
       <lastmod>2020-10-06T11:50:49+08:00</lastmod>
       <priority>0</priority>
@@ -916,8 +906,8 @@
     
     <url>
     
-      <loc>/categories/finance/</loc>
-      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+      <loc>/categories/engineering/</loc>
+      <lastmod>2020-10-06T11:50:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -936,8 +926,8 @@
     
     <url>
     
-      <loc>/categories/firstprinciples/</loc>
-      <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+      <loc>/categories/finance/</loc>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -956,8 +946,8 @@
     
     <url>
     
-      <loc>/categories/framework/</loc>
-      <lastmod>2020-07-16T11:50:49+08:00</lastmod>
+      <loc>/categories/firstprinciples/</loc>
+      <lastmod>2019-05-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -976,8 +966,8 @@
     
     <url>
     
-      <loc>/categories/investing/</loc>
-      <lastmod>2020-07-29T11:50:49+08:00</lastmod>
+      <loc>/categories/framework/</loc>
+      <lastmod>2020-07-16T11:50:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -996,8 +986,8 @@
     
     <url>
     
-      <loc>/categories/investment/</loc>
-      <lastmod>2020-03-15T00:00:00+00:00</lastmod>
+      <loc>/categories/investing/</loc>
+      <lastmod>2020-07-29T11:50:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1016,8 +1006,8 @@
     
     <url>
     
-      <loc>/categories/machine_learning/</loc>
-      <lastmod>2019-09-10T11:46:49+08:00</lastmod>
+      <loc>/categories/investment/</loc>
+      <lastmod>2020-03-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1027,6 +1017,16 @@
     <url>
     
       <loc>/tags/machine_learning/</loc>
+      <lastmod>2019-09-10T11:46:49+08:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/machine_learning/</loc>
       <lastmod>2019-09-10T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -1076,7 +1076,7 @@
     
     <url>
     
-      <loc>/categories/philosophy/</loc>
+      <loc>/tags/philosophy/</loc>
       <lastmod>2019-10-06T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -1086,7 +1086,7 @@
     
     <url>
     
-      <loc>/tags/philosophy/</loc>
+      <loc>/categories/philosophy/</loc>
       <lastmod>2019-10-06T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -1106,16 +1106,6 @@
     
     <url>
     
-      <loc>/categories/programming/</loc>
-      <lastmod>2020-10-06T11:50:49+08:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/programming/</loc>
       <lastmod>2020-10-06T11:50:49+08:00</lastmod>
       <priority>0</priority>
@@ -1126,8 +1116,8 @@
     
     <url>
     
-      <loc>/categories/python/</loc>
-      <lastmod>2019-02-28T23:34:32+08:00</lastmod>
+      <loc>/categories/programming/</loc>
+      <lastmod>2020-10-06T11:50:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1146,8 +1136,8 @@
     
     <url>
     
-      <loc>/categories/quant/</loc>
-      <lastmod>2020-10-06T11:50:49+08:00</lastmod>
+      <loc>/categories/python/</loc>
+      <lastmod>2019-02-28T23:34:32+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1166,8 +1156,8 @@
     
     <url>
     
-      <loc>/categories/risk/</loc>
-      <lastmod>2019-01-26T11:46:49+08:00</lastmod>
+      <loc>/categories/quant/</loc>
+      <lastmod>2020-10-06T11:50:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1186,7 +1176,7 @@
     
     <url>
     
-      <loc>/categories/simulation/</loc>
+      <loc>/categories/risk/</loc>
       <lastmod>2019-01-26T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
@@ -1206,8 +1196,8 @@
     
     <url>
     
-      <loc>/categories/statistics/</loc>
-      <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+      <loc>/categories/simulation/</loc>
+      <lastmod>2019-01-26T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1226,8 +1216,8 @@
     
     <url>
     
-      <loc>/categories/tax/</loc>
-      <lastmod>2019-11-27T11:46:49+08:00</lastmod>
+      <loc>/categories/statistics/</loc>
+      <lastmod>2019-05-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1246,8 +1236,8 @@
     
     <url>
     
-      <loc>/categories/thoughts/</loc>
-      <lastmod>2019-10-06T11:46:49+08:00</lastmod>
+      <loc>/categories/tax/</loc>
+      <lastmod>2019-11-27T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1266,8 +1256,8 @@
     
     <url>
     
-      <loc>/categories/trading/</loc>
-      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+      <loc>/categories/thoughts/</loc>
+      <lastmod>2019-10-06T11:46:49+08:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1277,6 +1267,16 @@
     <url>
     
       <loc>/tags/trading/</loc>
+      <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/trading/</loc>
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
