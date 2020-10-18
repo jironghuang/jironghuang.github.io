@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>investment on Jirong&#39;s sandbox</title>
-    <link>/tags/investment/</link>
+    <link>jironghuang.github.io/tags/investment/</link>
     <description>Recent content in investment on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/investment/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="jironghuang.github.io/tags/investment/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>/post/hidden_markov_model/</link>
+      <link>jironghuang.github.io/post/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/hidden_markov_model/</guid>
+      <guid>jironghuang.github.io/post/hidden_markov_model/</guid>
       <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.
 Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
 Hidden markov mode is a statistical unsupervised learning model used to model states.</description>
@@ -25,10 +25,10 @@ Hidden markov mode is a statistical unsupervised learning model used to model st
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>/project/hidden_markov_model/</link>
+      <link>jironghuang.github.io/project/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/project/hidden_markov_model/</guid>
+      <guid>jironghuang.github.io/project/hidden_markov_model/</guid>
       <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.
 Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
 Hidden markov mode is a statistical unsupervised learning model used to model states.</description>
@@ -36,10 +36,10 @@ Hidden markov mode is a statistical unsupervised learning model used to model st
     
     <item>
       <title>Free lunch does exist in Singapore - SRS analysis</title>
-      <link>/post/srs_analysis/</link>
+      <link>jironghuang.github.io/post/srs_analysis/</link>
       <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/srs_analysis/</guid>
+      <guid>jironghuang.github.io/post/srs_analysis/</guid>
       <description>SRS analysis I haven&amp;rsquo;t paid much attention to SRS contributions as a way to reduce taxable income. But lately, I realised you could boost investment portfolio returns through this avenue at literally 0 cost.
 I find this blog post written by a local finance blogger to be really helpful in understanding the SRS contributions and withdrawal mechanics.
 For my own understanding, I also did some quick analysis using google sheet (see &amp;lsquo;Analysis in google sheet&amp;rsquo; section) to evaluate if this works, and to my surprise, I found that free lunch does exist in Singapore!</description>
@@ -47,10 +47,10 @@ For my own understanding, I also did some quick analysis using google sheet (see
     
     <item>
       <title>Setting up a database for my Jarvis</title>
-      <link>/post/jarvis_database/</link>
+      <link>jironghuang.github.io/post/jarvis_database/</link>
       <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/jarvis_database/</guid>
+      <guid>jironghuang.github.io/post/jarvis_database/</guid>
       <description>Setting up a database for my Jarvis As I run more sophiscated trading strategies, I require a proper database for training parameters and records.
 Previously, I was using a mix of SQLite, RDA and CSV files - but going forward I will be using Mysql (workbench) to house my data.
 Below is an example of database tables for my market neutral strategies. I will be using these tables for the following,</description>
@@ -58,10 +58,10 @@ Below is an example of database tables for my market neutral strategies. I will 
     
     <item>
       <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
-      <link>/post/market_neutral_ewg/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewg/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewg/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewg/</guid>
       <description>DAX index and Germany ETF I will keep it short in this post since I espoused on this strategy a couple of times.
 I discovered another market neutral opportunity this month.
 And this is based on ratio between Germany DAX index and MSCI based Germany ETF (EWG)
@@ -71,10 +71,10 @@ The composition between these 2 indexes are largely similar and any significant 
     
     <item>
       <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>
-      <link>/post/jarvis/</link>
+      <link>jironghuang.github.io/post/jarvis/</link>
       <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/jarvis/</guid>
+      <guid>jironghuang.github.io/post/jarvis/</guid>
       <description>Jarvis Humans are imperfect.
 Humans are prone to biases.
 Humans are dumb.
@@ -87,10 +87,10 @@ And that&amp;rsquo;s Jarvis! My expert advisor to advise me what to do in differ
     
     <item>
       <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
-      <link>/post/market_neutral_ewu/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewu/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewu/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewu/</guid>
       <description>UK index and UK ETF I discovered another market neutral opportunity this month.
 And this is based on ratio between FTSE 100 index and MSCI based UK ETF (EWU)
 Based on backtest, sharpe ratio is close to 0.9.
@@ -100,10 +100,10 @@ The optimal lookback period for the MA component in bollinger band is approximat
     
     <item>
       <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
-      <link>/post/market_neutral/</link>
+      <link>jironghuang.github.io/post/market_neutral/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral/</guid>
+      <guid>jironghuang.github.io/post/market_neutral/</guid>
       <description>Market neutral strategy As the negative news pile up (trade wars, slump in economy growths, etc), I sought for market neutral stategies that could perform well in any market environment.
 An idea that struck me recently is to exploit the pair between Berkshire and SnP 500 ETF.
 The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating that Berkshire still outperforms the index in the last couple of years.</description>
@@ -111,60 +111,60 @@ The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating th
     
     <item>
       <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>/project/xirr_cpf/</link>
+      <link>jironghuang.github.io/project/xirr_cpf/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/project/xirr_cpf/</guid>
+      <guid>jironghuang.github.io/project/xirr_cpf/</guid>
       <description>What’re the returns (XIRR) for my CPFIS Portfolio? Note: This section is archived because I’ve diverted my CPF OA funds to Endowus (40-60 portfolio) instead. It aligns more with my philosophy of global diversification to seek higher risk adjusted returns. I realized an annualized loss of approximately of -1.5% a year. With opportunity cost of 2.5% from CPF OA, that amounts to 4% loss a year.
 I expounded my philosophy and calculated the returns of my CPFIS portfolio via XIRR (Extended Internal Rate of Returns) here.</description>
     </item>
     
     <item>
       <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>/post/xirr_cpfis/</link>
+      <link>jironghuang.github.io/post/xirr_cpfis/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/xirr_cpfis/</guid>
+      <guid>jironghuang.github.io/post/xirr_cpfis/</guid>
       <description>What’re the returns (XIRR) for my CPFIS Portfolio? Every employee in Singapore is bounded by the same set of CPF rules.
 As an ex-economist/ data geek who doesn’t shy away from having skin in the game. I asked myself this question back in 2015 when I was still a starry-eyed young man 2 years into the workforce - how do I set out to optimize my returns in my CPF OA with these given set of constraints,</description>
     </item>
     
     <item>
       <title>What is low - Regression Approach</title>
-      <link>/project/what-is-low-regression-approach/</link>
+      <link>jironghuang.github.io/project/what-is-low-regression-approach/</link>
       <pubDate>Sat, 01 Sep 2018 21:30:46 +0800</pubDate>
       
-      <guid>/project/what-is-low-regression-approach/</guid>
+      <guid>jironghuang.github.io/project/what-is-low-regression-approach/</guid>
       <description>What is low - Regression Approach This serves as an alternate compass for me to visualize what is low. See post here for another version of compass.
 I was inspired by a post written by a local finance blogger. He used a regression line flanked by the intervals to inform whether the prices are low or not. I&amp;rsquo;m unsure what sort of intervals of intervals he used in his plots, but for my purpose I will use prediction intervals instead.</description>
     </item>
     
     <item>
       <title>Investment compass</title>
-      <link>/project/investment_compass_guidance/</link>
+      <link>jironghuang.github.io/project/investment_compass_guidance/</link>
       <pubDate>Thu, 09 Aug 2018 21:30:46 +0800</pubDate>
       
-      <guid>/project/investment_compass_guidance/</guid>
+      <guid>jironghuang.github.io/project/investment_compass_guidance/</guid>
       <description>Investment Compass (Kindly wait 10 seconds for the entire app to load. Best viewed in Desktop) This serves as a compass for me to visualize the potential returns given the % fall from 52 week high. See my linkedin article here for further explanation on why I think this is a good indicator.
 The app consists of 3 tabs. The &amp;lsquo;Visualize&amp;rsquo; tab contains 3 graphs plotting % fall from 52 week high against the expected returns 1 to 3 years later.</description>
     </item>
     
     <item>
       <title>Rolling out the Investment Compass interactive app that I promised eons ago</title>
-      <link>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
+      <link>jironghuang.github.io/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</guid>
+      <guid>jironghuang.github.io/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</guid>
       <description>Finally I had some time to sit down to work on the interactive app. From what was an hideous app to a somewhat Minimum Viable Product (MVP) version of an app. (Shhh&amp;hellip;I&amp;rsquo;m not really a User Interface, UI person).
 This serves as a compass for me to visualize the potential returns given the % fall from 52 week high. See my linkedin article here for further explanation on why I think this is a good indicator.</description>
     </item>
     
     <item>
       <title>Updated ETF project codes</title>
-      <link>/post/etf_watchlist_project/</link>
+      <link>jironghuang.github.io/post/etf_watchlist_project/</link>
       <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/etf_watchlist_project/</guid>
+      <guid>jironghuang.github.io/post/etf_watchlist_project/</guid>
       <description>Updated ETF watchlist project While watching a world cup match today, I updated my ETF watchlist project (you may click here if you haven’t seen it yet)
 You may find the github code here. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.
 To create your own watchlist. Follow these steps,
@@ -173,10 +173,10 @@ To create your own watchlist. Follow these steps,
     
     <item>
       <title>Updated ETF Watchlist Codes</title>
-      <link>/post/updated-etf-watchlist-codes/</link>
+      <link>jironghuang.github.io/post/updated-etf-watchlist-codes/</link>
       <pubDate>Sat, 07 Jul 2018 01:37:53 +0800</pubDate>
       
-      <guid>/post/updated-etf-watchlist-codes/</guid>
+      <guid>jironghuang.github.io/post/updated-etf-watchlist-codes/</guid>
       <description>Updated ETF watchlist project While watching a world cup match today, I updated my ETF watchlist project (you may click here if you haven&amp;rsquo;t seen it yet)
 You may find the github code here. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.
 To create your own watchlist. Follow these steps,
@@ -185,40 +185,40 @@ To create your own watchlist. Follow these steps,
     
     <item>
       <title>Analyzing Warren Buffett Cash Level</title>
-      <link>/post/buffett/</link>
+      <link>jironghuang.github.io/post/buffett/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/buffett/</guid>
+      <guid>jironghuang.github.io/post/buffett/</guid>
       <description>Warren Buffett the sage It’s always interesting to understand investment gurus’ thought process. And one of the ways is to look at their companies’ balance sheet.
 Warren Buffett, the Sage &amp;amp; CEO of Berkshire, in recent decade has always been known to hoard cash. And before the 2008 crisis, he held cash level of 40-50% relative to its equity - probably trying to stay out of the overvalued market and waiting for the right opportunity to swoop in for a ‘BIG CATCH’.</description>
     </item>
     
     <item>
       <title>ETFs watchlist</title>
-      <link>/project/watch_list/</link>
+      <link>jironghuang.github.io/project/watch_list/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/project/watch_list/</guid>
+      <guid>jironghuang.github.io/project/watch_list/</guid>
       <description>ETFs watchlist In my Ubunutu - Linux laptop, I wrote some R scripts to crawl the yahoo financial data. When the clock strikes midnight, my cronjob task scheduler will execute these scripts in a parallel fashion to extract the data.
 Then my script will log into my google account via SSH and paste the crawled data into 1 of the googlesheet tabs. And this is linked to my portfolio allocation, computation and milestones.</description>
     </item>
     
     <item>
       <title>Permanent Portfolio that I Implemented</title>
-      <link>/project/perm_port_proj/</link>
+      <link>jironghuang.github.io/project/perm_port_proj/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/project/perm_port_proj/</guid>
+      <guid>jironghuang.github.io/project/perm_port_proj/</guid>
       <description>Portfolio Performance since 2 April 18  Include Google Sheet iframe link in future.   An all weather portfolio Note: I carried out a similar analysis as 1 of the posts I’ve written (https://jirong-huang.netlify.com/post/perm_port/). The difference is that I considered 4 assets (including T-bills) instead of 3. The performance in the post is more reflective of stress-test perfromance (Sharpe, Drawdown Ratio, etc.)
 Based on the literature, permanent portfolio is an investment strategy that is able to yield moderate returns and relatively low volatility.</description>
     </item>
     
     <item>
       <title>Investigating Faber Sector Rotation Strategy</title>
-      <link>/post/sector_rotation/</link>
+      <link>jironghuang.github.io/post/sector_rotation/</link>
       <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/sector_rotation/</guid>
+      <guid>jironghuang.github.io/post/sector_rotation/</guid>
       <description>Does sector rotation - momentum strategy work? Faber sector rotation strategy is touted as a superior Tactical Asset Allocation strategy that could generate positive Alpha. This is evident in the post here http://stockcharts.com/school/doku.php?id=chart_school:trading_strategies:sector_rotation_roc.
 The strategy is pretty simple. Here is how it works,
  First, you choose 9 sectors Second, compute the 6 month returns Third, you only ‘trade’ once a month. For simiplicity I choose end of the month Fourth, you invest in 3 sectors with the highest past 6 month returns.</description>
@@ -226,10 +226,10 @@ The strategy is pretty simple. Here is how it works,
     
     <item>
       <title>Permanent Portfolio</title>
-      <link>/post/perm_port/</link>
+      <link>jironghuang.github.io/post/perm_port/</link>
       <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/perm_port/</guid>
+      <guid>jironghuang.github.io/post/perm_port/</guid>
       <description>An all weather portfolio Based on the literature, permanent portfolio is an investment strategy that is able to yield moderate returns and relatively low volatility. Investor is recommended to invest equally (25%) into GLD, Index, Bond and Cash and rebalance it back to this proportion on regular intervals.
 This approach is something that I’m keen to adopt for a portion of my portfolio.
 To investigate the feasibility, I simulated a portfolio starting at $300 on Nov 2004.</description>

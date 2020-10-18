@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Jirong&#39;s sandbox</title>
-    <link>/post/</link>
+    <link>jironghuang.github.io/post/</link>
     <description>Recent content in Posts on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Tue, 06 Oct 2020 11:50:49 +0800</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="jironghuang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
-      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <link>jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <guid>jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
       <description>Developing a performance monitoring system for my algorithmic trading system It&amp;rsquo;s one thing to backtest your signals and forecasts on historical data but it&amp;rsquo;s a completely different animal in terms of execution. I have written about this here.
 Another important component of setting up an algorithmic trading system is performance monitoring. Some important questions I had in mind while developing this component,
  How do I measure my slippage? Commissions paid?</description>
@@ -25,10 +25,10 @@ Another important component of setting up an algorithmic trading system is perfo
     
     <item>
       <title>Crawling data from basketball-reference and espn</title>
-      <link>/post/crawling-data-from-basektball-reference-and-espn/</link>
+      <link>jironghuang.github.io/post/crawling-data-from-basektball-reference-and-espn/</link>
       <pubDate>Tue, 22 Sep 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/crawling-data-from-basektball-reference-and-espn/</guid>
+      <guid>jironghuang.github.io/post/crawling-data-from-basektball-reference-and-espn/</guid>
       <description> Crawling data from basketball-reference and espn As I required some data for my ML assignment, I thought that predicting NBA player salaries based on previous seasons&amp;rsquo; game stats would be cool.
 Here&amp;rsquo;re the codes used for crawling the data from basektball-reference and espn.
 Codes </description>
@@ -36,10 +36,10 @@ Codes </description>
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
-      <link>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
+      <link>jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
+      <guid>jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>Designing, Building and Deploying a Fully Automated Algorithmic Trading System As I developed several inter-day trading/ portfolio management algorithms, I also embarked on a journey in parallel to develop a fully automated execution framework that could satisfy my requirements.
 Previously orders were executed manually after signals are generated automatically.
 Requirements  A relatively slow trading system triggered by an hourly task scheduler during trading hours. I’m using Linux cron jobs for this.</description>
@@ -47,10 +47,10 @@ Requirements  A relatively slow trading system triggered by an hourly task sched
     
     <item>
       <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
-      <link>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
+      <link>jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
       <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
+      <guid>jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
       <description>Volatility targeting could potentially increase risk-adjusted returns for quantitative strategies Note: Man AHL&amp;rsquo;s framework in this paper is used in the write-up here.
 Let&amp;rsquo;s say you researched and managed to find a quantitative strategy that suits your risk-reward preferences. How do you further improve your strategy while managing your risk?
 A common way in the trend-following and risk parity space is to target risk - also known as volatility targeting.</description>
@@ -58,20 +58,20 @@ A common way in the trend-following and risk parity space is to target risk - al
     
     <item>
       <title>Framework for capital allocation</title>
-      <link>/post/framework-for-capital-allocation/</link>
+      <link>jironghuang.github.io/post/framework-for-capital-allocation/</link>
       <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/framework-for-capital-allocation/</guid>
+      <guid>jironghuang.github.io/post/framework-for-capital-allocation/</guid>
       <description>Framework for capital allocation In this resource starved world, capital is scarce. Every dollar that you own has its place and deserves to be allocated properly.
 Currently, I already have a huge chunk of capital tied up in a diversified portfolio levered up to 1.4 times. Portfolio has (&amp;amp; expected to) outperformed/ matched up to market returns with 2 to 3 times lower risk - in terms of standard deviation and drawdown.</description>
     </item>
     
     <item>
       <title>Integrating volatility targeting into Jarvis, my expert advisor</title>
-      <link>/post/volatility-targeting/</link>
+      <link>jironghuang.github.io/post/volatility-targeting/</link>
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/volatility-targeting/</guid>
+      <guid>jironghuang.github.io/post/volatility-targeting/</guid>
       <description>Volatility targeting Currently, I&amp;rsquo;ve a suite of toolkits integrated into my Jarvis that advises me on the investing decisions that I&amp;rsquo;ve to make on a daily basis.
 On the latest feature I cobbled together on a Saturday evening, 2 weeks ago, I&amp;rsquo;ve decided to measure the volatility of my portfolio formally.
 Why I&amp;rsquo;m doing this is because managing risks in the form of volatility is easier than targeting returns.</description>
@@ -79,10 +79,10 @@ Why I&amp;rsquo;m doing this is because managing risks in the form of volatility
     
     <item>
       <title>Mapreduce using Java</title>
-      <link>/post/mapreduce-in-java/</link>
+      <link>jironghuang.github.io/post/mapreduce-in-java/</link>
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/mapreduce-in-java/</guid>
+      <guid>jironghuang.github.io/post/mapreduce-in-java/</guid>
       <description>Mapreduce using java I haven&amp;rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me out from my comfort zone.
 Java is something I need to brush up on before taking the Software Development Process module which requires me to write an android app. Argh!
 Back to Mapreduce. It&amp;rsquo;s a useful framework if you&amp;rsquo;ve to summarise huge datasets (gigabytes, terabytes).</description>
@@ -90,10 +90,10 @@ Back to Mapreduce. It&amp;rsquo;s a useful framework if you&amp;rsquo;ve to summ
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>/post/hidden_markov_model/</link>
+      <link>jironghuang.github.io/post/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/hidden_markov_model/</guid>
+      <guid>jironghuang.github.io/post/hidden_markov_model/</guid>
       <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.
 Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
 Hidden markov mode is a statistical unsupervised learning model used to model states.</description>
@@ -101,10 +101,10 @@ Hidden markov mode is a statistical unsupervised learning model used to model st
     
     <item>
       <title>Embedding D3 interactive charts part 2</title>
-      <link>/post/embedding-d3-interactive-charts-part2/</link>
+      <link>jironghuang.github.io/post/embedding-d3-interactive-charts-part2/</link>
       <pubDate>Sun, 23 Feb 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/embedding-d3-interactive-charts-part2/</guid>
+      <guid>jironghuang.github.io/post/embedding-d3-interactive-charts-part2/</guid>
       <description>Embedding D3 interactive charts Part 2 - Testing reading in of file from directory Just having fun - testing to see if I could embed D3 charts in my blog.
 Seems like it works too! But I would have to upload the csv under public folder first.
    // set the dimensions and margins of the graph var margin = {top: 10, right: 30, bottom: 30, left: 60}, width = 460 - margin.</description>
@@ -112,10 +112,10 @@ Seems like it works too! But I would have to upload the csv under public folder 
     
     <item>
       <title>Embedding D3 interactive charts</title>
-      <link>/post/embedding-d3-interactive-charts/</link>
+      <link>jironghuang.github.io/post/embedding-d3-interactive-charts/</link>
       <pubDate>Sun, 23 Feb 2020 11:46:40 +0800</pubDate>
       
-      <guid>/post/embedding-d3-interactive-charts/</guid>
+      <guid>jironghuang.github.io/post/embedding-d3-interactive-charts/</guid>
       <description>Embedding D3 interactive charts Just having fun - testing to see if I could embed D3 charts in my blog.
 Seems like it works!
    // set the dimensions and margins of the graph var margin = {top: 10, right: 30, bottom: 30, left: 60}, width = 460 - margin.left - margin.right, height = 450 - margin.top - margin.bottom; // append the svg object to the body of the page var svg = d3.</description>
@@ -123,10 +123,10 @@ Seems like it works!
     
     <item>
       <title>Fuzzy matching with many to many matches without loops</title>
-      <link>/post/fuzzy_matching_no_loops/</link>
+      <link>jironghuang.github.io/post/fuzzy_matching_no_loops/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/fuzzy_matching_no_loops/</guid>
+      <guid>jironghuang.github.io/post/fuzzy_matching_no_loops/</guid>
       <description>Fuzzy matching As a computer scientist graduate, I always strive to reduce my computational complexity through parallelization or vectorization!
 Explicit loops in data science is the root of evil!
 For loops &amp;amp; while loops have their places but definitely not in data science space (fairly broad statement here).
@@ -136,10 +136,10 @@ I will be using fuzzy matching to find the closet match of strings in data-frame
     
     <item>
       <title>Latest lessons learnt from crawling</title>
-      <link>/post/crawling-insights/</link>
+      <link>jironghuang.github.io/post/crawling-insights/</link>
       <pubDate>Sun, 08 Dec 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/crawling-insights/</guid>
+      <guid>jironghuang.github.io/post/crawling-insights/</guid>
       <description>Lessons learnt I just realised that there&amp;rsquo;s a quick way to understand the xpaths&amp;rsquo; patterns.
 In the past, usually what I did is to manually eyeball to infer the patterns from the page source or inspect page.
 Silly me!
@@ -149,10 +149,10 @@ Silly me!
     
     <item>
       <title>Free lunch does exist in Singapore - SRS analysis</title>
-      <link>/post/srs_analysis/</link>
+      <link>jironghuang.github.io/post/srs_analysis/</link>
       <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/srs_analysis/</guid>
+      <guid>jironghuang.github.io/post/srs_analysis/</guid>
       <description>SRS analysis I haven&amp;rsquo;t paid much attention to SRS contributions as a way to reduce taxable income. But lately, I realised you could boost investment portfolio returns through this avenue at literally 0 cost.
 I find this blog post written by a local finance blogger to be really helpful in understanding the SRS contributions and withdrawal mechanics.
 For my own understanding, I also did some quick analysis using google sheet (see &amp;lsquo;Analysis in google sheet&amp;rsquo; section) to evaluate if this works, and to my surprise, I found that free lunch does exist in Singapore!</description>
@@ -160,20 +160,20 @@ For my own understanding, I also did some quick analysis using google sheet (see
     
     <item>
       <title>Back to Basics - Birth of an idea in the jungle</title>
-      <link>/post/birth-of-an-idea-in-the-jungle/</link>
+      <link>jironghuang.github.io/post/birth-of-an-idea-in-the-jungle/</link>
       <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/birth-of-an-idea-in-the-jungle/</guid>
+      <guid>jironghuang.github.io/post/birth-of-an-idea-in-the-jungle/</guid>
       <description>Birth of an idea of all places: In the Jungle Having to juggle both work and masters in computer science at the same time, it&amp;rsquo;s really hard to afford any more time to my side projects.
 But back in August, I had a break away from both school and work by going back for reservist. As it&amp;rsquo;s really bored in there where I spent most of the time in a small building (with no aircon!</description>
     </item>
     
     <item>
       <title>Setting up a database for my Jarvis</title>
-      <link>/post/jarvis_database/</link>
+      <link>jironghuang.github.io/post/jarvis_database/</link>
       <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/jarvis_database/</guid>
+      <guid>jironghuang.github.io/post/jarvis_database/</guid>
       <description>Setting up a database for my Jarvis As I run more sophiscated trading strategies, I require a proper database for training parameters and records.
 Previously, I was using a mix of SQLite, RDA and CSV files - but going forward I will be using Mysql (workbench) to house my data.
 Below is an example of database tables for my market neutral strategies. I will be using these tables for the following,</description>
@@ -181,10 +181,10 @@ Below is an example of database tables for my market neutral strategies. I will 
     
     <item>
       <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
-      <link>/post/market_neutral_ewg/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewg/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewg/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewg/</guid>
       <description>DAX index and Germany ETF I will keep it short in this post since I espoused on this strategy a couple of times.
 I discovered another market neutral opportunity this month.
 And this is based on ratio between Germany DAX index and MSCI based Germany ETF (EWG)
@@ -194,10 +194,10 @@ The composition between these 2 indexes are largely similar and any significant 
     
     <item>
       <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>
-      <link>/post/jarvis/</link>
+      <link>jironghuang.github.io/post/jarvis/</link>
       <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/jarvis/</guid>
+      <guid>jironghuang.github.io/post/jarvis/</guid>
       <description>Jarvis Humans are imperfect.
 Humans are prone to biases.
 Humans are dumb.
@@ -210,10 +210,10 @@ And that&amp;rsquo;s Jarvis! My expert advisor to advise me what to do in differ
     
     <item>
       <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
-      <link>/post/market_neutral_ewu/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewu/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewu/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewu/</guid>
       <description>UK index and UK ETF I discovered another market neutral opportunity this month.
 And this is based on ratio between FTSE 100 index and MSCI based UK ETF (EWU)
 Based on backtest, sharpe ratio is close to 0.9.
@@ -223,20 +223,20 @@ The optimal lookback period for the MA component in bollinger band is approximat
     
     <item>
       <title>Asset allocation notification</title>
-      <link>/post/asset_allocation_notification/</link>
+      <link>jironghuang.github.io/post/asset_allocation_notification/</link>
       <pubDate>Thu, 12 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/asset_allocation_notification/</guid>
+      <guid>jironghuang.github.io/post/asset_allocation_notification/</guid>
       <description>Asset allocation notification I&amp;rsquo;m in the midst of automating/ guiding my life with algorithms (largely inspired by Ray Dalio) - and 1 of the guidelines that I set is on asset allocation,
  Emerging market and Developed Market should be of the same proportion Bonds + Cash proportion should be equivalent to my age. This can deviate in times of crisis when I want to be more opportunistic.  If it deviates from the portfolio policy statement, it will send me a pushover notification to my phone:)</description>
     </item>
     
     <item>
       <title>ETF watchlist email notification Through Python</title>
-      <link>/post/email_notification_python/</link>
+      <link>jironghuang.github.io/post/email_notification_python/</link>
       <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/email_notification_python/</guid>
+      <guid>jironghuang.github.io/post/email_notification_python/</guid>
       <description>Email notification I finally bit the bullet and updated my previously hideous email notification!
 You may find the updated email notification template here - alongside with the code.
 Feel free to ping me if you are keen to be on the email list too.
@@ -246,10 +246,10 @@ import smtplib, ssl import datetime import pandas as pd from email.mime.text imp
     
     <item>
       <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
-      <link>/post/market_neutral/</link>
+      <link>jironghuang.github.io/post/market_neutral/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral/</guid>
+      <guid>jironghuang.github.io/post/market_neutral/</guid>
       <description>Market neutral strategy As the negative news pile up (trade wars, slump in economy growths, etc), I sought for market neutral stategies that could perform well in any market environment.
 An idea that struck me recently is to exploit the pair between Berkshire and SnP 500 ETF.
 The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating that Berkshire still outperforms the index in the last couple of years.</description>
@@ -257,20 +257,20 @@ The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating th
     
     <item>
       <title>Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</title>
-      <link>/post/convert_na_num/</link>
+      <link>jironghuang.github.io/post/convert_na_num/</link>
       <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/convert_na_num/</guid>
+      <guid>jironghuang.github.io/post/convert_na_num/</guid>
       <description>Converting NAs to obscure numbers to prevent the data from messing up the recoding. 1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.
 suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent awkward recoding situations that require &amp;amp; !is.na(&amp;lt;variable&amp;gt;) # Doesn&amp;#39;t work for factors #&amp;#39; @title Convert NA to obscure number #&amp;#39; @param dp_dataframe Dataframe in consideration #&amp;#39; @param np_obscure_num Numeric - Obscure number #&amp;#39; @param bp_na_to_num Boolean if TRUE, convert NA to num.</description>
     </item>
     
     <item>
       <title>Loading excel data with correct variable types</title>
-      <link>/post/load_data_with_correct_types/</link>
+      <link>jironghuang.github.io/post/load_data_with_correct_types/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/load_data_with_correct_types/</guid>
+      <guid>jironghuang.github.io/post/load_data_with_correct_types/</guid>
       <description>Loading data with data types When reading static files into R or Python, most of the times we are lazy as we load the data with no regard to the data types.
 But in mission critical ETL jobs or Data analytics workflow, data types are quintessential and there’s a fine line between life and death. Ok, I’m exaggerating here.
 What I’ve written below is a swiss army knife function to read an excel file: 1st tab is data and 2nd tab is the variable types (e.</description>
@@ -278,10 +278,10 @@ What I’ve written below is a swiss army knife function to read an excel file: 
     
     <item>
       <title>Function to describe clusters derived from unsupervised learning</title>
-      <link>/post/cluster_descriptive_stats/</link>
+      <link>jironghuang.github.io/post/cluster_descriptive_stats/</link>
       <pubDate>Fri, 24 May 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/cluster_descriptive_stats/</guid>
+      <guid>jironghuang.github.io/post/cluster_descriptive_stats/</guid>
       <description>Describing unsupervised learning clusters As a data scientist / analyst, besides doing cool modelling stuff, we&amp;rsquo;re often asked to churn out descriptive statistics. Yes, we know. It&amp;rsquo;s part of the process.
 I chanced upon this really nifty concept at work to describe the clusters derived from unsupervised learnig. Here&amp;rsquo;s how it goes,
  Say it&amp;rsquo;s a nominal or ordinal variable. First, I find the proportion of the feature across the X clusters Second, I rank this proportion through percentiles across these X values The cluster with the highest percentile will earn its right to be represented by the feature And if it&amp;rsquo;s a scale variable, you may find the mean of the feature for each cluster and repeat the steps.</description>
@@ -289,10 +289,10 @@ I chanced upon this really nifty concept at work to describe the clusters derive
     
     <item>
       <title>Playing with Google Place API</title>
-      <link>/post/google_place_api/</link>
+      <link>jironghuang.github.io/post/google_place_api/</link>
       <pubDate>Tue, 14 May 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/google_place_api/</guid>
+      <guid>jironghuang.github.io/post/google_place_api/</guid>
       <description>Google Place API I was playing around with the API to obtain lat-long for my geo analytics work.
 I entered my credit card info but it seems that I&amp;rsquo;m not charged even with 9000+ API calls. Unsure if it&amp;rsquo;s because I&amp;rsquo;ve a 400+ dollars free cloud credit?
 Anyway, what I did here was to make API calls and storing the data into my local database.
@@ -301,10 +301,10 @@ If you&amp;rsquo;re interested, you may visit this stackoverflow link (https://s
     
     <item>
       <title>Using exponential distribution to estimate frequency of occurence</title>
-      <link>/post/exp_distrib/</link>
+      <link>jironghuang.github.io/post/exp_distrib/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/exp_distrib/</guid>
+      <guid>jironghuang.github.io/post/exp_distrib/</guid>
       <description>Simulating product failures I’m inspired by this post here (http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/). And decided to expand on the example.
 Say you are an owner of a computer store and you would like to estimate the frequency of warranty repairs - and the ensuing costs.
 Here’s the scenario with the accompanying assumptions
@@ -313,30 +313,30 @@ Here’s the scenario with the accompanying assumptions
     
     <item>
       <title>Some thoughts on Reinforcement Learning - Q Learning</title>
-      <link>/post/q_learning/</link>
+      <link>jironghuang.github.io/post/q_learning/</link>
       <pubDate>Mon, 08 Apr 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/q_learning/</guid>
+      <guid>jironghuang.github.io/post/q_learning/</guid>
       <description>Q learning I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia here, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.
 Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future.</description>
     </item>
     
     <item>
       <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>/post/xirr_cpfis/</link>
+      <link>jironghuang.github.io/post/xirr_cpfis/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/xirr_cpfis/</guid>
+      <guid>jironghuang.github.io/post/xirr_cpfis/</guid>
       <description>What’re the returns (XIRR) for my CPFIS Portfolio? Every employee in Singapore is bounded by the same set of CPF rules.
 As an ex-economist/ data geek who doesn’t shy away from having skin in the game. I asked myself this question back in 2015 when I was still a starry-eyed young man 2 years into the workforce - how do I set out to optimize my returns in my CPF OA with these given set of constraints,</description>
     </item>
     
     <item>
       <title>Hosting a Flask App on Heroku</title>
-      <link>/post/hosting-a-flask-app-on-heroku/</link>
+      <link>jironghuang.github.io/post/hosting-a-flask-app-on-heroku/</link>
       <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
       
-      <guid>/post/hosting-a-flask-app-on-heroku/</guid>
+      <guid>jironghuang.github.io/post/hosting-a-flask-app-on-heroku/</guid>
       <description>Following the steps here &amp;ndash;&amp;gt; https://realpython.com/flask-by-example-part-1-project-setup/
 I managed to deploy my python flask app in Heroku.
 from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &amp;quot;Hello World!&amp;quot; @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello_name(name): return &amp;quot;Hello {}!&amp;quot;.format(name) if __name__ == &#39;__main__&#39;: app.run()  You may visit the following link &amp;ndash;&amp;gt;https://jirong-stage.herokuapp.com/ &amp;amp; add a suffix to it.
@@ -346,10 +346,10 @@ Possibilites are immense! I can easily create APIs or host dashboard here.</desc
     
     <item>
       <title>Sampling With Replacement Through First Principles</title>
-      <link>/post/sampling-with-replacement-through-first-principles/</link>
+      <link>jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</link>
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/sampling-with-replacement-through-first-principles/</guid>
+      <guid>jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</guid>
       <description>Sampling with replacement Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
 I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
 Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.</description>
@@ -357,10 +357,10 @@ Earlier in the week, I attempted to write a simple function from scratch but I g
     
     <item>
       <title>Building a decision tree algorithm from scratch</title>
-      <link>/post/building-adecision-tree-from-scratch/</link>
+      <link>jironghuang.github.io/post/building-adecision-tree-from-scratch/</link>
       <pubDate>Fri, 15 Feb 2019 13:09:44 +0800</pubDate>
       
-      <guid>/post/building-adecision-tree-from-scratch/</guid>
+      <guid>jironghuang.github.io/post/building-adecision-tree-from-scratch/</guid>
       <description>Building a decision tree from scratch Sometimes to truly understand and internalise an algorithm, it&amp;rsquo;s always useful to build from scratch. Rather than relying on a module or library written by someone else.
 I&amp;rsquo;m fortunate to be given the chance to do it in 1 of my assignments for decision trees.
 From this exercise, I had to rely on my knowledge on recursion, binary trees (in-order traversal) and object oriented programming.</description>
@@ -368,10 +368,10 @@ From this exercise, I had to rely on my knowledge on recursion, binary trees (in
     
     <item>
       <title>Martingale Strategy - Double Down</title>
-      <link>/post/martingale-strategy/</link>
+      <link>jironghuang.github.io/post/martingale-strategy/</link>
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/martingale-strategy/</guid>
+      <guid>jironghuang.github.io/post/martingale-strategy/</guid>
       <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
 Double down! That&amp;rsquo;s essentially the essence of it.
 Here&amp;rsquo;s a simple explanation of the strategy,
@@ -380,10 +380,10 @@ Here&amp;rsquo;s a simple explanation of the strategy,
     
     <item>
       <title>How to Create a Python Environment in Ubuntu or any Debian-based system</title>
-      <link>/post/how-to-create-a-python-environment-in-ubuntu/</link>
+      <link>jironghuang.github.io/post/how-to-create-a-python-environment-in-ubuntu/</link>
       <pubDate>Wed, 09 Jan 2019 23:39:22 +0800</pubDate>
       
-      <guid>/post/how-to-create-a-python-environment-in-ubuntu/</guid>
+      <guid>jironghuang.github.io/post/how-to-create-a-python-environment-in-ubuntu/</guid>
       <description>Often, certain projects or classes involving python require a set of modules/packages for the code to work.
 1 solution is to create a Python Environment dedicated to that project.
 First set up a folder, and include a .yml file with the specific modules and environment that you wish to install. Here is an example (env.yml),
@@ -392,10 +392,10 @@ name: env channels: !!python/tuple - !!python/unicode &#39;defaults&#39; depende
     
     <item>
       <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
-      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
+      <link>jironghuang.github.io/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
       <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
       
-      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
+      <guid>jironghuang.github.io/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
       <description>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R I&amp;rsquo;m really intrigued by Ernest Chan&amp;rsquo;s approach in Quant Trading.
 Often in the retail trading space, what &amp;lsquo;gurus&amp;rsquo; preach often sounds really dubious. But Ernest Chan is different. He&amp;rsquo;s sincere, down-to-earth and earnest (meant to be a pun here).
 In my first month of deploying algo trading strategies, I focus mainly on mean-reversion strategies - paricularly amongst pairs.</description>
@@ -403,10 +403,10 @@ In my first month of deploying algo trading strategies, I focus mainly on mean-r
     
     <item>
       <title>How I Find Country Pairs for Mean Reversion Strategy</title>
-      <link>/post/how-i-find-country-pairs-for-mean-reversion-strategy/</link>
+      <link>jironghuang.github.io/post/how-i-find-country-pairs-for-mean-reversion-strategy/</link>
       <pubDate>Wed, 26 Dec 2018 12:30:03 +0800</pubDate>
       
-      <guid>/post/how-i-find-country-pairs-for-mean-reversion-strategy/</guid>
+      <guid>jironghuang.github.io/post/how-i-find-country-pairs-for-mean-reversion-strategy/</guid>
       <description>How I Find Country Pairs for Mean Reversion Strategy As mentioned in my previous post here, the first step for a mean reversion strategy is to conduct some background quantitative research.
 Step 1 First, I use a pair trading function to loop across 800+ country pairs (created from combination function),
 pair_trading = function(stock1, stock2, trade_amount, finance_rates, start_date, end_date, prop_train, enter_z_score, exit_z_score){ ## More codes here ## Return this key_info = list( ticker = c(stock1, stock2), start_date = start_date, trade_table = data_trade, sharpe = c(sharpeRatioTrainset, sharpeRatioTestset), half_life = half_life, profits = data_trade_stats, max_drawdown = c(table.</description>
@@ -414,20 +414,20 @@ pair_trading = function(stock1, stock2, trade_amount, finance_rates, start_date,
     
     <item>
       <title>Research to Production Pipeline for Mean Reversion</title>
-      <link>/post/research-to-production-pipeline-for-mean-reversion/</link>
+      <link>jironghuang.github.io/post/research-to-production-pipeline-for-mean-reversion/</link>
       <pubDate>Tue, 25 Dec 2018 18:07:19 +0800</pubDate>
       
-      <guid>/post/research-to-production-pipeline-for-mean-reversion/</guid>
+      <guid>jironghuang.github.io/post/research-to-production-pipeline-for-mean-reversion/</guid>
       <description>Research to Production Pipeline for Mean Reversion Here is a high level overview of something that I&amp;rsquo;m working on.
 I&amp;rsquo;ve been grappling with the finite state automata Event Driven Computing transitions and I kinda sorted it out for production use.</description>
     </item>
     
     <item>
       <title>Prototype Pair Trading Strategy for Silver ETFs</title>
-      <link>/post/prototype-of-pair-trading-strategy-for-silver-etfs/</link>
+      <link>jironghuang.github.io/post/prototype-of-pair-trading-strategy-for-silver-etfs/</link>
       <pubDate>Tue, 18 Dec 2018 13:03:44 +0800</pubDate>
       
-      <guid>/post/prototype-of-pair-trading-strategy-for-silver-etfs/</guid>
+      <guid>jironghuang.github.io/post/prototype-of-pair-trading-strategy-for-silver-etfs/</guid>
       <description>In these 2 weeks, I&amp;rsquo;ll deploy my pair trading algo strategy into my server.
 I modified the code below from a renowned quant trader, Ernest Chan. The basic idea is to find z-scores through moving average &amp;amp; moving SD of spread. If it&amp;rsquo;s more than absolute of z-score, I will either short or long the spread depending on the polarity.
 In the backtesting below (using a pair of silver ETFs as an example), I assumed a hypothetical amount of 10,000 dollars per trade.</description>
@@ -435,20 +435,20 @@ In the backtesting below (using a pair of silver ETFs as an example), I assumed 
     
     <item>
       <title>Summary of My Computational Photography Module From Georgia Tech Computer Science Masters</title>
-      <link>/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</link>
+      <link>jironghuang.github.io/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</link>
       <pubDate>Sat, 08 Dec 2018 01:11:52 +0800</pubDate>
       
-      <guid>/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</guid>
+      <guid>jironghuang.github.io/post/summary-of-my-computational-photography-from-georgia-tech-computer-science-masters/</guid>
       <description>For what&amp;rsquo;s worth, here is a summary of what I went through for my Georgia Tech Computer Science Msc Computational Photography module.
 And it&amp;rsquo;s really painful but rewarding!</description>
     </item>
     
     <item>
       <title>Colorization</title>
-      <link>/post/colorization/</link>
+      <link>jironghuang.github.io/post/colorization/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/colorization/</guid>
+      <guid>jironghuang.github.io/post/colorization/</guid>
       <description>Colorization The following is a high level project pipeline of my Computational Photography Colorization report. The project scope involves minimizing a quadratic cost function. An artist would only need to make a few colour scribble on a grey photograph and the algorithm will automatically populate the entire photograph with the associated colours.
 1.Input: I first read in the image using imread function.
 2.Find the difference: Next I compute the difference between the marked and grey scale image.</description>
@@ -456,49 +456,49 @@ And it&amp;rsquo;s really painful but rewarding!</description>
     
     <item>
       <title>Architecture and Process Flow for My Algorithmic Trading</title>
-      <link>/post/architecture-and-process-flow-for-my-algorithmic-trading/</link>
+      <link>jironghuang.github.io/post/architecture-and-process-flow-for-my-algorithmic-trading/</link>
       <pubDate>Sun, 04 Nov 2018 10:19:13 +0800</pubDate>
       
-      <guid>/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
+      <guid>jironghuang.github.io/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
       <description> Project that I will be working in 2018-2019 </description>
     </item>
     
     <item>
       <title>Seam Carving</title>
-      <link>/post/seam-carving/</link>
+      <link>jironghuang.github.io/post/seam-carving/</link>
       <pubDate>Thu, 25 Oct 2018 13:23:23 +0800</pubDate>
       
-      <guid>/post/seam-carving/</guid>
+      <guid>jironghuang.github.io/post/seam-carving/</guid>
       <description>Snippet of my Seam Carving Report from my Msc Computer Science Georgia Tech&amp;rsquo;s Computational Photography module Besides removing of streams, we can also add streams. We identify k streams for removal and duplicate by averaging the left and right neighbours. The computation of these averages is done by convolving the following matrix with the images’ colour channels.
 kernel = np.array([[0, 0, 0], [0.5, 0, 0.5], [0, 0, 0]])  In the implementation of my scaling_up algorithm, I first remove k streams (depending on ratio set by user) and recorded the coordinates and cumulative energy values of the original picture in each removal.</description>
     </item>
     
     <item>
       <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
-      <link>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
+      <link>jironghuang.github.io/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
       <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
       
-      <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
+      <guid>jironghuang.github.io/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
       <description>Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects If you are someone with a stake in foreign positions, this package I wrote here may be a useful tool to help you understand the impact of foreign currency on your positions. For instance,
  If you are an investor, you may use it to analyze impact of exchange rate on your investment positions. If you are in the treasury department, you may wish to analyze the impact of exchange rates on your bonds.</description>
     </item>
     
     <item>
       <title>Shift Share Analysis Package I developed</title>
-      <link>/post/shift-share-analysis-package/</link>
+      <link>jironghuang.github.io/post/shift-share-analysis-package/</link>
       <pubDate>Sat, 22 Sep 2018 12:23:28 +0800</pubDate>
       
-      <guid>/post/shift-share-analysis-package/</guid>
+      <guid>jironghuang.github.io/post/shift-share-analysis-package/</guid>
       <description>Shift-share Analysis Package I developed During my career, I often have to deal with compositional &amp;amp; within group effects. For instance, the employment rate fell by 3% across 2 period. How much of it is due to an increase in employment rate within the sub-group and how much of it is due to compositional shift (for example ageing population).
 A formal way to explain these effects is known as shift-share analysis.</description>
     </item>
     
     <item>
       <title>Automated Email Notification of my ETF watchlist</title>
-      <link>/post/automated_email_notification/</link>
+      <link>jironghuang.github.io/post/automated_email_notification/</link>
       <pubDate>Tue, 04 Sep 2018 01:37:53 +0800</pubDate>
       
-      <guid>/post/automated_email_notification/</guid>
+      <guid>jironghuang.github.io/post/automated_email_notification/</guid>
       <description>I wrote an automated email notification code to send out my daily ETF watchlist in csv - an extension of my ETF watchlist project here. I figured out that people will not visit my site. So why not blast out the watchlist instead:)
 And if you are interested in the code. Here you go.
 #Steps for sending watchlist library(&amp;quot;rJava&amp;quot;) library(&#39;mailR&#39;) source(&amp;quot;./R/emails.R&amp;quot;) # Write the content of your email msg &amp;lt;- paste(&amp;quot;Hey there, I&#39;m sending this ETF watchlist that is updated as of &amp;quot;, &amp;quot;\n&amp;quot;, as.</description>
@@ -506,10 +506,10 @@ And if you are interested in the code. Here you go.
     
     <item>
       <title>Naming Conventions in R. Let&#39;s call it JR Notations</title>
-      <link>/post/jr-naming-conventions-in-r/</link>
+      <link>jironghuang.github.io/post/jr-naming-conventions-in-r/</link>
       <pubDate>Sun, 26 Aug 2018 14:09:02 +0800</pubDate>
       
-      <guid>/post/jr-naming-conventions-in-r/</guid>
+      <guid>jironghuang.github.io/post/jr-naming-conventions-in-r/</guid>
       <description>Naming Conventions in R. Let&amp;rsquo;s call it JR Notations. &amp;lsquo;Naming conventions&amp;rsquo; is a huge thing in many programming languages/ paradigms/ communities. But it&amp;rsquo;s noticeably absent in the R programming community.
 With some inspiration from the Hungarian Notation, here&amp;rsquo;s a blue-print that I came up with while working on a major R project over the last 2 months. Drumroll please&amp;hellip;
 1. Naming conventions for R scripts  F_ for R scripts that contains functions.</description>
@@ -517,20 +517,20 @@ With some inspiration from the Hungarian Notation, here&amp;rsquo;s a blue-print
     
     <item>
       <title>Rolling out the Investment Compass interactive app that I promised eons ago</title>
-      <link>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
+      <link>jironghuang.github.io/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</guid>
+      <guid>jironghuang.github.io/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</guid>
       <description>Finally I had some time to sit down to work on the interactive app. From what was an hideous app to a somewhat Minimum Viable Product (MVP) version of an app. (Shhh&amp;hellip;I&amp;rsquo;m not really a User Interface, UI person).
 This serves as a compass for me to visualize the potential returns given the % fall from 52 week high. See my linkedin article here for further explanation on why I think this is a good indicator.</description>
     </item>
     
     <item>
       <title>Updated ETF project codes</title>
-      <link>/post/etf_watchlist_project/</link>
+      <link>jironghuang.github.io/post/etf_watchlist_project/</link>
       <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/etf_watchlist_project/</guid>
+      <guid>jironghuang.github.io/post/etf_watchlist_project/</guid>
       <description>Updated ETF watchlist project While watching a world cup match today, I updated my ETF watchlist project (you may click here if you haven’t seen it yet)
 You may find the github code here. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.
 To create your own watchlist. Follow these steps,
@@ -539,10 +539,10 @@ To create your own watchlist. Follow these steps,
     
     <item>
       <title>Updated ETF Watchlist Codes</title>
-      <link>/post/updated-etf-watchlist-codes/</link>
+      <link>jironghuang.github.io/post/updated-etf-watchlist-codes/</link>
       <pubDate>Sat, 07 Jul 2018 01:37:53 +0800</pubDate>
       
-      <guid>/post/updated-etf-watchlist-codes/</guid>
+      <guid>jironghuang.github.io/post/updated-etf-watchlist-codes/</guid>
       <description>Updated ETF watchlist project While watching a world cup match today, I updated my ETF watchlist project (you may click here if you haven&amp;rsquo;t seen it yet)
 You may find the github code here. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.
 To create your own watchlist. Follow these steps,
@@ -551,40 +551,40 @@ To create your own watchlist. Follow these steps,
     
     <item>
       <title>Analyzing Warren Buffett Cash Level</title>
-      <link>/post/buffett/</link>
+      <link>jironghuang.github.io/post/buffett/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/buffett/</guid>
+      <guid>jironghuang.github.io/post/buffett/</guid>
       <description>Warren Buffett the sage It’s always interesting to understand investment gurus’ thought process. And one of the ways is to look at their companies’ balance sheet.
 Warren Buffett, the Sage &amp;amp; CEO of Berkshire, in recent decade has always been known to hoard cash. And before the 2008 crisis, he held cash level of 40-50% relative to its equity - probably trying to stay out of the overvalued market and waiting for the right opportunity to swoop in for a ‘BIG CATCH’.</description>
     </item>
     
     <item>
       <title>World Cup - Singapore Pools odds</title>
-      <link>/post/odds_analysis_worldcup/</link>
+      <link>jironghuang.github.io/post/odds_analysis_worldcup/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/odds_analysis_worldcup/</guid>
+      <guid>jironghuang.github.io/post/odds_analysis_worldcup/</guid>
       <description>Hey it’s the world cup season - Tapping into a Machine Learning based paper Once again as a Singaporean citizen, there’re no other choices but to place my bets in Singapore pools. Betting in SG is not my preferred way to grow my wealth because of the crazy ~15% spread in Sg pools. In international sites, the spread is usually close to 3-5%. Oh well, that’s illegal.
 But because this is the world cup season, I decide to make some small punts!</description>
     </item>
     
     <item>
       <title>Journey of a non coder to a budding computer scientist</title>
-      <link>/post/journey-from-a-non-coder-to-a-budding-computer-scientist/</link>
+      <link>jironghuang.github.io/post/journey-from-a-non-coder-to-a-budding-computer-scientist/</link>
       <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/journey-from-a-non-coder-to-a-budding-computer-scientist/</guid>
+      <guid>jironghuang.github.io/post/journey-from-a-non-coder-to-a-budding-computer-scientist/</guid>
       <description>Here&amp;rsquo;s a true story. And it happens on 1 faithful night during the wee hours&amp;hellip; when I was inspired to write a statement of purpose for my Msc Georgia Tech application.
 I am currently an analyst, working in Korn Ferry Institute, a research and analytics arm of Korn Ferry. At the same time, I&amp;rsquo;m &amp;lsquo;juggling&amp;rsquo; my work-study-life balance as a Part-Time student, studying Post-Graduate Diploma Computer Science in University of Adelaide.</description>
     </item>
     
     <item>
       <title>Betting in Singapore Pools</title>
-      <link>/post/odds_analysis/</link>
+      <link>jironghuang.github.io/post/odds_analysis/</link>
       <pubDate>Wed, 11 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/odds_analysis/</guid>
+      <guid>jironghuang.github.io/post/odds_analysis/</guid>
       <description>Finding value in Singapore Pools Of all places, this is the last place I expect to find value. But I found it - supposedly!
 I compared the Singapore Pools Odds against Fivethirtyeight blog probabilities of teams’ winning various leagues.
 The spread in Singpore Pools is often insane. In a typical 1X2 game, the odds is around 15% - as compared to a spread of 3% in overseas betting houses - which btw is illegal in Singapore.</description>
@@ -592,10 +592,10 @@ The spread in Singpore Pools is often insane. In a typical 1X2 game, the odds is
     
     <item>
       <title>Investigating Faber Sector Rotation Strategy</title>
-      <link>/post/sector_rotation/</link>
+      <link>jironghuang.github.io/post/sector_rotation/</link>
       <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/sector_rotation/</guid>
+      <guid>jironghuang.github.io/post/sector_rotation/</guid>
       <description>Does sector rotation - momentum strategy work? Faber sector rotation strategy is touted as a superior Tactical Asset Allocation strategy that could generate positive Alpha. This is evident in the post here http://stockcharts.com/school/doku.php?id=chart_school:trading_strategies:sector_rotation_roc.
 The strategy is pretty simple. Here is how it works,
  First, you choose 9 sectors Second, compute the 6 month returns Third, you only ‘trade’ once a month. For simiplicity I choose end of the month Fourth, you invest in 3 sectors with the highest past 6 month returns.</description>
@@ -603,20 +603,20 @@ The strategy is pretty simple. Here is how it works,
     
     <item>
       <title>Macroeconomic Analysis - Country&#39;s Market Capitalization to GDP ratio</title>
-      <link>/post/mkt_cap_gdp/</link>
+      <link>jironghuang.github.io/post/mkt_cap_gdp/</link>
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/mkt_cap_gdp/</guid>
+      <guid>jironghuang.github.io/post/mkt_cap_gdp/</guid>
       <description>Analysis of Market Cap to GDP Warren Buffett, the world’s greatest investor once remarked that Country’s Total Market Capitalization to GDP ratio is a good indicator to measure the ‘temperature’ of the market. My wild guess is - he draws his inspiration from P/E ratio where price correspondes to the Total Market Cap and GDP to Earnings.
  Key points  By historical standards, the Market Cap to GDP ratios are currently way above the average, 5-year and 10-year averages This may spell some bad news in the near term.</description>
     </item>
     
     <item>
       <title>Permanent Portfolio</title>
-      <link>/post/perm_port/</link>
+      <link>jironghuang.github.io/post/perm_port/</link>
       <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/perm_port/</guid>
+      <guid>jironghuang.github.io/post/perm_port/</guid>
       <description>An all weather portfolio Based on the literature, permanent portfolio is an investment strategy that is able to yield moderate returns and relatively low volatility. Investor is recommended to invest equally (25%) into GLD, Index, Bond and Cash and rebalance it back to this proportion on regular intervals.
 This approach is something that I’m keen to adopt for a portion of my portfolio.
 To investigate the feasibility, I simulated a portfolio starting at $300 on Nov 2004.</description>
@@ -624,10 +624,10 @@ To investigate the feasibility, I simulated a portfolio starting at $300 on Nov 
     
     <item>
       <title>Days elapsed strategy</title>
-      <link>/post/elapse_strat/</link>
+      <link>jironghuang.github.io/post/elapse_strat/</link>
       <pubDate>Wed, 28 Mar 2018 21:13:14 -0500</pubDate>
       
-      <guid>/post/elapse_strat/</guid>
+      <guid>jironghuang.github.io/post/elapse_strat/</guid>
       <description>I simply adapted the code in this post here (https://www.r-bloggers.com/backtesting-a-simple-stock-trading-strategy/) for the following momentum strategy.
 This is a momentum based strategy: Long if current day is &amp;lt;50 days of 200 days high. Nil position otherwise.
 Returns are pretty impressive for Singapore market. That being said, it will be useful to try it with different parameters and different markets!

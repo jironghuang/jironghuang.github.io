@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>algo on Jirong&#39;s sandbox</title>
-    <link>/categories/algo/</link>
+    <link>jironghuang.github.io/categories/algo/</link>
     <description>Recent content in algo on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Mon, 23 Sep 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/algo/" rel="self" type="application/rss+xml" />
+    <atom:link href="jironghuang.github.io/categories/algo/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
-      <link>/post/market_neutral_ewg/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewg/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewg/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewg/</guid>
       <description>
 
 
@@ -110,7 +110,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -166,7 +166,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-05-11 2017-08-02 2018-01-09 -0.0622    164        57      107
@@ -227,10 +227,10 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
     
     <item>
       <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
-      <link>/post/market_neutral_ewu/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewu/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewu/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewu/</guid>
       <description>
 
 
@@ -323,7 +323,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -379,7 +379,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
@@ -440,10 +440,10 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
     
     <item>
       <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
-      <link>/post/market_neutral/</link>
+      <link>jironghuang.github.io/post/market_neutral/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral/</guid>
+      <guid>jironghuang.github.io/post/market_neutral/</guid>
       <description>
 
 
@@ -623,7 +623,7 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 ## 
 ## This message is shown once per session and may be disabled by setting
 ## options(&amp;quot;getSymbols.yahoo.warning&amp;quot;=FALSE).&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;displaying-of-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Displaying of results&lt;/h2&gt;
@@ -667,10 +667,10 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
     
     <item>
       <title>Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R</title>
-      <link>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
+      <link>jironghuang.github.io/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</link>
       <pubDate>Tue, 01 Jan 2019 00:15:53 +0800</pubDate>
       
-      <guid>/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
+      <guid>jironghuang.github.io/post/translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r/</guid>
       <description>
 
 &lt;h2 id=&#34;translating-ernest-chan-kalman-filter-strategy-matlab-and-python-code-into-r&#34;&gt;Translating Ernest Chan Kalman Filter Strategy Matlab and Python Code Into R&lt;/h2&gt;
@@ -834,10 +834,10 @@ sqrt(252)*mean(df$pnl, na.rm = TRUE)/sd(df$pnl, na.rm = TRUE)
     
     <item>
       <title>How I Find Country Pairs for Mean Reversion Strategy</title>
-      <link>/post/how-i-find-country-pairs-for-mean-reversion-strategy/</link>
+      <link>jironghuang.github.io/post/how-i-find-country-pairs-for-mean-reversion-strategy/</link>
       <pubDate>Wed, 26 Dec 2018 12:30:03 +0800</pubDate>
       
-      <guid>/post/how-i-find-country-pairs-for-mean-reversion-strategy/</guid>
+      <guid>jironghuang.github.io/post/how-i-find-country-pairs-for-mean-reversion-strategy/</guid>
       <description>
 
 &lt;h2 id=&#34;how-i-find-country-pairs-for-mean-reversion-strategy&#34;&gt;How I Find Country Pairs for Mean Reversion Strategy&lt;/h2&gt;
@@ -890,7 +890,7 @@ return(key_info)
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Then I went on to IShares website to get the respective tickers&amp;rsquo; industries&amp;rsquo; composition.
-&lt;img src=&#34;/post/img/country_composition.png&#34; alt=&#34;/post/img/country_composition.png&#34;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;img src=&#34;jironghuang.github.io/post/img/country_composition.png&#34; alt=&#34;/post/img/country_composition.png&#34;&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;With this new piece of information, I went on to compute the manhattan distance, euclidean distance and correlation between these country pairs.&lt;/p&gt;&lt;/li&gt;
 
@@ -919,7 +919,7 @@ return(key_info)
 
 &lt;p&gt;And ta-dah! This is the final selected country pairs that I will be using for my mean reversion strategy.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/final_selection.png&#34; alt=&#34;/post/img/final_selection.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/final_selection.png&#34; alt=&#34;/post/img/final_selection.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;further-improvement&#34;&gt;Further improvement&lt;/h3&gt;
 
@@ -929,10 +929,10 @@ return(key_info)
     
     <item>
       <title>Research to Production Pipeline for Mean Reversion</title>
-      <link>/post/research-to-production-pipeline-for-mean-reversion/</link>
+      <link>jironghuang.github.io/post/research-to-production-pipeline-for-mean-reversion/</link>
       <pubDate>Tue, 25 Dec 2018 18:07:19 +0800</pubDate>
       
-      <guid>/post/research-to-production-pipeline-for-mean-reversion/</guid>
+      <guid>jironghuang.github.io/post/research-to-production-pipeline-for-mean-reversion/</guid>
       <description>
 
 &lt;h2 id=&#34;research-to-production-pipeline-for-mean-reversion&#34;&gt;Research to Production Pipeline for Mean Reversion&lt;/h2&gt;
@@ -941,7 +941,7 @@ return(key_info)
 
 &lt;p&gt;I&amp;rsquo;ve been grappling with the finite state automata Event Driven Computing transitions and I kinda sorted it out for production use.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/research_to_production.png&#34; alt=&#34;/post/img/research_to_production.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/research_to_production.png&#34; alt=&#34;/post/img/research_to_production.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

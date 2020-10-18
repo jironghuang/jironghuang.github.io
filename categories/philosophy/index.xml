@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>philosophy on Jirong&#39;s sandbox</title>
-    <link>/categories/philosophy/</link>
+    <link>jironghuang.github.io/categories/philosophy/</link>
     <description>Recent content in philosophy on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 06 Oct 2019 11:46:49 +0800</lastBuildDate>
-    <atom:link href="/categories/philosophy/" rel="self" type="application/rss+xml" />
+    <atom:link href="jironghuang.github.io/categories/philosophy/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Back to Basics - Birth of an idea in the jungle</title>
-      <link>/post/birth-of-an-idea-in-the-jungle/</link>
+      <link>jironghuang.github.io/post/birth-of-an-idea-in-the-jungle/</link>
       <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/birth-of-an-idea-in-the-jungle/</guid>
+      <guid>jironghuang.github.io/post/birth-of-an-idea-in-the-jungle/</guid>
       <description>
 
 &lt;h2 id=&#34;birth-of-an-idea-of-all-places-in-the-jungle&#34;&gt;Birth of an idea of all places: In the Jungle&lt;/h2&gt;
@@ -61,16 +61,16 @@
 
 &lt;p&gt;Current tech stack that I use are: IB TWS, Quandl API, R, Mysql and Pushover API to notify me of the signals.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/conceptualization.jpg&#34; alt=&#34;/post/img/conceptualization.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/conceptualization.jpg&#34; alt=&#34;/post/img/conceptualization.jpg&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>
-      <link>/post/jarvis/</link>
+      <link>jironghuang.github.io/post/jarvis/</link>
       <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/jarvis/</guid>
+      <guid>jironghuang.github.io/post/jarvis/</guid>
       <description>
 
 &lt;h2 id=&#34;jarvis&#34;&gt;Jarvis&lt;/h2&gt;
@@ -131,7 +131,7 @@
 
 &lt;p&gt;On a separate note, I also run market neutral strategies to try and profit in all economic climates. Returns from this section will tend to be lesser than my overall portfolio unless I leverage significantly. These are documented under &lt;a href=&#34;https://jironghuang.github.io/skin/skin-in-the-game/&#34;&gt;&amp;lsquo;Skin in the game&amp;rsquo;&lt;/a&gt; section of my blog.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/jarvis.png&#34; alt=&#34;/post/img/jarvis.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/jarvis.png&#34; alt=&#34;/post/img/jarvis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;snippets-of-my-jarvis&#34;&gt;Snippets of my Jarvis&lt;/h2&gt;
 

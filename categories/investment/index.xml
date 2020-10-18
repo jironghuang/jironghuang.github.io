@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>investment on Jirong&#39;s sandbox</title>
-    <link>/categories/investment/</link>
+    <link>jironghuang.github.io/categories/investment/</link>
     <description>Recent content in investment on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/investment/" rel="self" type="application/rss+xml" />
+    <atom:link href="jironghuang.github.io/categories/investment/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>/post/hidden_markov_model/</link>
+      <link>jironghuang.github.io/post/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/hidden_markov_model/</guid>
+      <guid>jironghuang.github.io/post/hidden_markov_model/</guid>
       <description>
 
 
@@ -29,7 +29,7 @@
 &lt;div id=&#34;output-as-of-16-march-2020&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Output as of 16 March 2020&lt;/h2&gt;
 &lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/li&gt;
@@ -162,10 +162,10 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>/project/hidden_markov_model/</link>
+      <link>jironghuang.github.io/project/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/project/hidden_markov_model/</guid>
+      <guid>jironghuang.github.io/project/hidden_markov_model/</guid>
       <description>
 
 
@@ -179,7 +179,7 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;output-updated-daily&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Output updated daily&lt;/h2&gt;
 &lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note: I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;code&#34; class=&#34;section level2&#34;&gt;
@@ -308,10 +308,10 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Free lunch does exist in Singapore - SRS analysis</title>
-      <link>/post/srs_analysis/</link>
+      <link>jironghuang.github.io/post/srs_analysis/</link>
       <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/srs_analysis/</guid>
+      <guid>jironghuang.github.io/post/srs_analysis/</guid>
       <description>
 
 &lt;h2 id=&#34;srs-analysis&#34;&gt;SRS analysis&lt;/h2&gt;
@@ -359,10 +359,10 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Setting up a database for my Jarvis</title>
-      <link>/post/jarvis_database/</link>
+      <link>jironghuang.github.io/post/jarvis_database/</link>
       <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/jarvis_database/</guid>
+      <guid>jironghuang.github.io/post/jarvis_database/</guid>
       <description>
 
 &lt;h2 id=&#34;setting-up-a-database-for-my-jarvis&#34;&gt;Setting up a database for my Jarvis&lt;/h2&gt;
@@ -466,10 +466,10 @@ CREATE TABLE `positions` (
     
     <item>
       <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
-      <link>/post/market_neutral_ewg/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewg/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewg/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewg/</guid>
       <description>
 
 
@@ -564,7 +564,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -620,7 +620,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-05-11 2017-08-02 2018-01-09 -0.0622    164        57      107
@@ -681,10 +681,10 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
     
     <item>
       <title>My Investment Jarvis (In Ray Dalio&#39;s words, My Investment Principles)</title>
-      <link>/post/jarvis/</link>
+      <link>jironghuang.github.io/post/jarvis/</link>
       <pubDate>Fri, 20 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/jarvis/</guid>
+      <guid>jironghuang.github.io/post/jarvis/</guid>
       <description>
 
 &lt;h2 id=&#34;jarvis&#34;&gt;Jarvis&lt;/h2&gt;
@@ -745,7 +745,7 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
 
 &lt;p&gt;On a separate note, I also run market neutral strategies to try and profit in all economic climates. Returns from this section will tend to be lesser than my overall portfolio unless I leverage significantly. These are documented under &lt;a href=&#34;https://jironghuang.github.io/skin/skin-in-the-game/&#34;&gt;&amp;lsquo;Skin in the game&amp;rsquo;&lt;/a&gt; section of my blog.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/jarvis.png&#34; alt=&#34;/post/img/jarvis.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/jarvis.png&#34; alt=&#34;/post/img/jarvis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;snippets-of-my-jarvis&#34;&gt;Snippets of my Jarvis&lt;/h2&gt;
 
@@ -798,10 +798,10 @@ if(100 * (data$Prop[which(data$Assets == &amp;quot;Bonds&amp;quot;)] + data$Prop
     
     <item>
       <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
-      <link>/post/market_neutral_ewu/</link>
+      <link>jironghuang.github.io/post/market_neutral_ewu/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral_ewu/</guid>
+      <guid>jironghuang.github.io/post/market_neutral_ewu/</guid>
       <description>
 
 
@@ -894,7 +894,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -950,7 +950,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
@@ -1011,10 +1011,10 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
     
     <item>
       <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
-      <link>/post/market_neutral/</link>
+      <link>jironghuang.github.io/post/market_neutral/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/market_neutral/</guid>
+      <guid>jironghuang.github.io/post/market_neutral/</guid>
       <description>
 
 
@@ -1194,7 +1194,7 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 ## 
 ## This message is shown once per session and may be disabled by setting
 ## options(&amp;quot;getSymbols.yahoo.warning&amp;quot;=FALSE).&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;displaying-of-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Displaying of results&lt;/h2&gt;
@@ -1238,10 +1238,10 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
     
     <item>
       <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>/project/xirr_cpf/</link>
+      <link>jironghuang.github.io/project/xirr_cpf/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/project/xirr_cpf/</guid>
+      <guid>jironghuang.github.io/project/xirr_cpf/</guid>
       <description>
 
 
@@ -1261,10 +1261,10 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
     
     <item>
       <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>/post/xirr_cpfis/</link>
+      <link>jironghuang.github.io/post/xirr_cpfis/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/xirr_cpfis/</guid>
+      <guid>jironghuang.github.io/post/xirr_cpfis/</guid>
       <description>
 
 
@@ -2747,10 +2747,10 @@ NA
     
     <item>
       <title>Rolling out the Investment Compass interactive app that I promised eons ago</title>
-      <link>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
+      <link>jironghuang.github.io/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</link>
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</guid>
+      <guid>jironghuang.github.io/post/rolling-out-the-investment-compass-interactive-app-that-i-promised-to-myself-eons-ago/</guid>
       <description>&lt;p&gt;Finally I had some time to sit down to work on the interactive app. From what was an hideous app to a somewhat Minimum Viable Product (MVP) version of an app. (Shhh&amp;hellip;I&amp;rsquo;m not really a User Interface, UI person).&lt;/p&gt;
 
 &lt;p&gt;This serves as a compass for me to visualize the potential returns given the % fall from 52 week high. See my linkedin article &lt;a href=&#34;https://www.linkedin.com/pulse/investment-compass-our-volatile-times-jirong-huang/&#34;&gt;here&lt;/a&gt; for further explanation on why I think this is a good indicator.&lt;/p&gt;
@@ -2769,16 +2769,16 @@ NA
     
     <item>
       <title>Updated ETF project codes</title>
-      <link>/post/etf_watchlist_project/</link>
+      <link>jironghuang.github.io/post/etf_watchlist_project/</link>
       <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/etf_watchlist_project/</guid>
+      <guid>jironghuang.github.io/post/etf_watchlist_project/</guid>
       <description>
 
 
 &lt;div id=&#34;updated-etf-watchlist-project&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Updated ETF watchlist project&lt;/h2&gt;
-&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;/project/watch_list&#34;&gt;here&lt;/a&gt; if you haven’t seen it yet)&lt;/p&gt;
+&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;jironghuang.github.io/project/watch_list&#34;&gt;here&lt;/a&gt; if you haven’t seen it yet)&lt;/p&gt;
 &lt;p&gt;You may find the github code &lt;a href=&#34;https://github.com/jironghuang/ETF_watchlist&#34;&gt;here&lt;/a&gt;. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.&lt;/p&gt;
 &lt;p&gt;To create your own watchlist. Follow these steps,&lt;/p&gt;
 &lt;ul&gt;
@@ -2797,15 +2797,15 @@ NA
     
     <item>
       <title>Updated ETF Watchlist Codes</title>
-      <link>/post/updated-etf-watchlist-codes/</link>
+      <link>jironghuang.github.io/post/updated-etf-watchlist-codes/</link>
       <pubDate>Sat, 07 Jul 2018 01:37:53 +0800</pubDate>
       
-      <guid>/post/updated-etf-watchlist-codes/</guid>
+      <guid>jironghuang.github.io/post/updated-etf-watchlist-codes/</guid>
       <description>
 
 &lt;h2 id=&#34;updated-etf-watchlist-project&#34;&gt;Updated ETF watchlist project&lt;/h2&gt;
 
-&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;/project/watch_list&#34;&gt;here&lt;/a&gt; if you haven&amp;rsquo;t seen it yet)&lt;/p&gt;
+&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;jironghuang.github.io/project/watch_list&#34;&gt;here&lt;/a&gt; if you haven&amp;rsquo;t seen it yet)&lt;/p&gt;
 
 &lt;p&gt;You may find the github code &lt;a href=&#34;https://github.com/jironghuang/ETF_watchlist&#34;&gt;here&lt;/a&gt;. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.&lt;/p&gt;
 
@@ -2827,10 +2827,10 @@ NA
     
     <item>
       <title>Analyzing Warren Buffett Cash Level</title>
-      <link>/post/buffett/</link>
+      <link>jironghuang.github.io/post/buffett/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/buffett/</guid>
+      <guid>jironghuang.github.io/post/buffett/</guid>
       <description>
 
 
@@ -2863,17 +2863,17 @@ ggplot(data = dat_long,
        aes(x = year, y = value, colour = variable)) +
        geom_line() + scale_x_continuous(breaks = seq(1990, 2017, 2)) +
        labs(x=&amp;quot;Year&amp;quot;,y=&amp;quot;Percentage&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/buffett_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/buffett_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>ETFs watchlist</title>
-      <link>/project/watch_list/</link>
+      <link>jironghuang.github.io/project/watch_list/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/project/watch_list/</guid>
+      <guid>jironghuang.github.io/project/watch_list/</guid>
       <description>
 
 

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data_cleaning on Jirong&#39;s sandbox</title>
-    <link>/categories/data_cleaning/</link>
+    <link>jironghuang.github.io/categories/data_cleaning/</link>
     <description>Recent content in data_cleaning on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Fri, 07 Jun 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/data_cleaning/" rel="self" type="application/rss+xml" />
+    <atom:link href="jironghuang.github.io/categories/data_cleaning/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</title>
-      <link>/post/convert_na_num/</link>
+      <link>jironghuang.github.io/post/convert_na_num/</link>
       <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/convert_na_num/</guid>
+      <guid>jironghuang.github.io/post/convert_na_num/</guid>
       <description>
 
 

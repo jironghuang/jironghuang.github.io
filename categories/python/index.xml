@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on Jirong&#39;s sandbox</title>
-    <link>/categories/python/</link>
+    <link>jironghuang.github.io/categories/python/</link>
     <description>Recent content in python on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Thu, 28 Feb 2019 23:34:32 +0800</lastBuildDate>
-    <atom:link href="/categories/python/" rel="self" type="application/rss+xml" />
+    <atom:link href="jironghuang.github.io/categories/python/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hosting a Flask App on Heroku</title>
-      <link>/post/hosting-a-flask-app-on-heroku/</link>
+      <link>jironghuang.github.io/post/hosting-a-flask-app-on-heroku/</link>
       <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
       
-      <guid>/post/hosting-a-flask-app-on-heroku/</guid>
+      <guid>jironghuang.github.io/post/hosting-a-flask-app-on-heroku/</guid>
       <description>&lt;p&gt;Following the steps here &amp;ndash;&amp;gt; &lt;a href=&#34;https://realpython.com/flask-by-example-part-1-project-setup/&#34; target=&#34;_blank&#34;&gt;https://realpython.com/flask-by-example-part-1-project-setup/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I managed to deploy my python flask app in Heroku.&lt;/p&gt;
