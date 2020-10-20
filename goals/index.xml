@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Goals on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/goals/</link>
+    <link>/jironghuang.github.io/goals/</link>
     <description>Recent content in Goals on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 08 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="jironghuang.github.io/goals/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/goals/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Goals</title>
-      <link>jironghuang.github.io/goals/goals/</link>
+      <link>/jironghuang.github.io/goals/goals/</link>
       <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/goals/goals/</guid>
+      <guid>/jironghuang.github.io/goals/goals/</guid>
       <description>Goals One of the main motivations in starting this blog - beside experimenting and toying with different technologies &amp;amp; concepts - is to keep myself accountable of the goals that I set for myself.
 Here are the areas that I will include in my blog,
  Financial goals Education goals Code development goals Number of books read goals Articles written goals Number of exercise sessions goals  Yearly goals This is &amp;lsquo;goals&amp;rsquo; disguised as a system.</description>

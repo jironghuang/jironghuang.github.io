@@ -11,7 +11,7 @@
   <meta name="description" content="Data Scientist and Quantitative Investor and Trader">
 
   
-  <link rel="alternate" hreflang="en-us" href="jironghuang.github.io/post/">
+  <link rel="alternate" hreflang="en-us" href="/jironghuang.github.io/post/">
 
   
   
@@ -62,25 +62,25 @@
   
 
   
-  <link rel="alternate" href="jironghuang.github.io/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
-  <link rel="feed" href="jironghuang.github.io/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="alternate" href="/jironghuang.github.io/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
+  <link rel="feed" href="/jironghuang.github.io/post/index.xml" type="application/rss+xml" title="Jirong&#39;s sandbox">
   
 
   <link rel="manifest" href="/jironghuang.github.io/site.webmanifest">
   <link rel="icon" type="image/png" href="/jironghuang.github.io/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/jironghuang.github.io/img/icon-192.png">
 
-  <link rel="canonical" href="jironghuang.github.io/post/">
+  <link rel="canonical" href="/jironghuang.github.io/post/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Jirong&#39;s sandbox">
-  <meta property="og:url" content="jironghuang.github.io/post/">
+  <meta property="og:url" content="/jironghuang.github.io/post/">
   <meta property="og:title" content="Posts | Jirong&#39;s sandbox">
   <meta property="og:description" content="Data Scientist and Quantitative Investor and Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-08-24T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-09-10T11:46:49&#43;08:00">
   
 
   
@@ -261,7 +261,81 @@
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/market_neutral/" itemprop="url">Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</a>
+    <a href="/jironghuang.github.io/post/email_notification_python/" itemprop="url">ETF watchlist email notification Through Python</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-09-10 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+      Sep 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/jironghuang.github.io/post/email_notification_python/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/jironghuang.github.io/categories/programming">programming</a
+    >, 
+    
+    <a href="/jironghuang.github.io/categories/machine_learning">machine_learning</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Email notification I finally bit the bullet and updated my previously hideous email notification!
+You may find the updated email notification template here - alongside with the code.
+Feel free to ping me if you are keen to be on the email list too.
+~ Jirong
+import smtplib, ssl import datetime import pandas as pd from email.mime.text import MIMEText from email.mime.multipart import MIMEMultipart #Format text data = pd.read_csv('/home/jirong/Desktop/github/ETF_watchlist/Output/yahoo_crawled_data.csv') data['Change_fr_52_week_high'] = round(100 * data['Change_fr_52_week_high'], 1) data = data[['Name', 'Price', 'Change_fr_52_week_high']].
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/jironghuang.github.io/post/email_notification_python/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/jironghuang.github.io/post/market_neutral/" itemprop="url">Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</a>
   </h3>
   
 
@@ -287,7 +361,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/market_neutral/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/market_neutral/#disqus_thread"></a>
   
 
   
@@ -325,7 +399,7 @@ The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating th
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/market_neutral/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/market_neutral/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -339,7 +413,7 @@ The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating th
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/convert_na_num/" itemprop="url">Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</a>
+    <a href="/jironghuang.github.io/post/convert_na_num/" itemprop="url">Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</a>
   </h3>
   
 
@@ -365,7 +439,7 @@ The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating th
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/convert_na_num/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/convert_na_num/#disqus_thread"></a>
   
 
   
@@ -399,7 +473,7 @@ suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent aw
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/convert_na_num/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/convert_na_num/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -413,7 +487,7 @@ suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent aw
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/load_data_with_correct_types/" itemprop="url">Loading excel data with correct variable types</a>
+    <a href="/jironghuang.github.io/post/load_data_with_correct_types/" itemprop="url">Loading excel data with correct variable types</a>
   </h3>
   
 
@@ -439,7 +513,7 @@ suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent aw
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/load_data_with_correct_types/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/load_data_with_correct_types/#disqus_thread"></a>
   
 
   
@@ -471,7 +545,7 @@ What I’ve written below is a swiss army knife function to read an excel file: 
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/load_data_with_correct_types/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/load_data_with_correct_types/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -485,7 +559,7 @@ What I’ve written below is a swiss army knife function to read an excel file: 
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/cluster_descriptive_stats/" itemprop="url">Function to describe clusters derived from unsupervised learning</a>
+    <a href="/jironghuang.github.io/post/cluster_descriptive_stats/" itemprop="url">Function to describe clusters derived from unsupervised learning</a>
   </h3>
   
 
@@ -511,7 +585,7 @@ What I’ve written below is a swiss army knife function to read an excel file: 
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/cluster_descriptive_stats/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/cluster_descriptive_stats/#disqus_thread"></a>
   
 
   
@@ -540,7 +614,7 @@ I chanced upon this really nifty concept at work to describe the clusters derive
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/cluster_descriptive_stats/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/cluster_descriptive_stats/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -554,7 +628,7 @@ I chanced upon this really nifty concept at work to describe the clusters derive
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/google_place_api/" itemprop="url">Playing with Google Place API</a>
+    <a href="/jironghuang.github.io/post/google_place_api/" itemprop="url">Playing with Google Place API</a>
   </h3>
   
 
@@ -580,7 +654,7 @@ I chanced upon this really nifty concept at work to describe the clusters derive
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/google_place_api/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/google_place_api/#disqus_thread"></a>
   
 
   
@@ -610,7 +684,7 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/google_place_api/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/google_place_api/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -624,7 +698,7 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/exp_distrib/" itemprop="url">Using exponential distribution to estimate frequency of occurence</a>
+    <a href="/jironghuang.github.io/post/exp_distrib/" itemprop="url">Using exponential distribution to estimate frequency of occurence</a>
   </h3>
   
 
@@ -650,7 +724,7 @@ If you&rsquo;re interested, you may visit this stackoverflow link (https://stack
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/exp_distrib/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/exp_distrib/#disqus_thread"></a>
   
 
   
@@ -683,7 +757,7 @@ Here’s the scenario with the accompanying assumptions
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/exp_distrib/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/exp_distrib/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -697,7 +771,7 @@ Here’s the scenario with the accompanying assumptions
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/q_learning/" itemprop="url">Some thoughts on Reinforcement Learning - Q Learning</a>
+    <a href="/jironghuang.github.io/post/q_learning/" itemprop="url">Some thoughts on Reinforcement Learning - Q Learning</a>
   </h3>
   
 
@@ -723,7 +797,7 @@ Here’s the scenario with the accompanying assumptions
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/q_learning/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/q_learning/#disqus_thread"></a>
   
 
   
@@ -754,7 +828,7 @@ Here&rsquo;s my confession. What I&rsquo;m doing in this post is to summarise wh
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/q_learning/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/q_learning/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -768,7 +842,7 @@ Here&rsquo;s my confession. What I&rsquo;m doing in this post is to summarise wh
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/xirr_cpfis/" itemprop="url">What&#39;re the returns (XIRR) for my CPFIS Portfolio</a>
+    <a href="/jironghuang.github.io/post/xirr_cpfis/" itemprop="url">What&#39;re the returns (XIRR) for my CPFIS Portfolio</a>
   </h3>
   
 
@@ -794,7 +868,7 @@ Here&rsquo;s my confession. What I&rsquo;m doing in this post is to summarise wh
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/xirr_cpfis/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/xirr_cpfis/#disqus_thread"></a>
   
 
   
@@ -822,7 +896,7 @@ As an ex-economist/ data geek who doesn’t shy away from having skin in the gam
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/xirr_cpfis/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/xirr_cpfis/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -836,7 +910,7 @@ As an ex-economist/ data geek who doesn’t shy away from having skin in the gam
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/hosting-a-flask-app-on-heroku/" itemprop="url">Hosting a Flask App on Heroku</a>
+    <a href="/jironghuang.github.io/post/hosting-a-flask-app-on-heroku/" itemprop="url">Hosting a Flask App on Heroku</a>
   </h3>
   
 
@@ -862,7 +936,7 @@ As an ex-economist/ data geek who doesn’t shy away from having skin in the gam
   
   
   <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/hosting-a-flask-app-on-heroku/#disqus_thread"></a>
+  <a href="/jironghuang.github.io/post/hosting-a-flask-app-on-heroku/#disqus_thread"></a>
   
 
   
@@ -899,82 +973,7 @@ Possibilites are immense! I can easily create APIs or host dashboard here.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/hosting-a-flask-app-on-heroku/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="jironghuang.github.io/post/sampling-with-replacement-through-first-principles/" itemprop="url">Sampling With Replacement Through First Principles</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-02-27 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Feb 27, 2019
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="jironghuang.github.io/post/sampling-with-replacement-through-first-principles/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/jironghuang.github.io/categories/programming">programming</a
-    >, 
-    
-    <a href="/jironghuang.github.io/categories/statistics">statistics</a
-    >, 
-    
-    <a href="/jironghuang.github.io/categories/firstprinciples">firstPrinciples</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Sampling with replacement Hello! It&rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
-I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
-Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="jironghuang.github.io/post/sampling-with-replacement-through-first-principles/" class="btn btn-primary btn-outline">
+    <a href="/jironghuang.github.io/post/hosting-a-flask-app-on-heroku/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

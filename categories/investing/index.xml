@@ -2,20 +2,137 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>investing on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/categories/investing/</link>
+    <link>/jironghuang.github.io/categories/investing/</link>
     <description>Recent content in investing on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 29 Jul 2020 11:50:49 +0800</lastBuildDate>
-    <atom:link href="jironghuang.github.io/categories/investing/" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2020 11:50:49 +0800</lastBuildDate>
+    <atom:link href="/jironghuang.github.io/categories/investing/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Plans for trend following strategy in futures using binary forecast</title>
+      <link>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
+      <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</guid>
+      <description>
+
+&lt;h2 id=&#34;trend-following-strategy-in-futures-using-non-binary-forecasts&#34;&gt;Trend following strategy in futures using non binary forecasts&lt;/h2&gt;
+
+&lt;h3 id=&#34;project-motivation&#34;&gt;Project motivation&lt;/h3&gt;
+
+&lt;p&gt;As David Ricardo, a British economist in the 19th century once said, ‘cut short your losses and let your profits trend’ allude to the point that trend following as a profitable strategy could exist even back then.&lt;/p&gt;
+
+&lt;p&gt;Having read AQR’s papers on the Time Series Momentum (TSMOM, I am keen to explore this topic in the futures space (Moskowitz, T. J., Ooi, Y. H., &amp;amp; Pedersen, L. H. (2012)). This strategy has been explored by the Quantopian community and the source code &amp;amp; dataset could be found in this github repository (&lt;a href=&#34;https://github.com/quantopian/research_public/tree/master/advanced_sample_analyses/TSMOM&#34; target=&#34;_blank&#34;&gt;https://github.com/quantopian/research_public/tree/master/advanced_sample_analyses/TSMOM&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Besides AQR papers, I have also followed closely the work of Robert Carver, an ex-MAN AHL quant who specialized in the space of intermediate to long term trend-following futures strategies.&lt;/p&gt;
+
+&lt;h3 id=&#34;dataset&#34;&gt;Dataset&lt;/h3&gt;
+
+&lt;p&gt;Futures dataset across 4 asset classes: Indices, Bonds, Currencies, Commodites&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Quantopian datset up till 2016
+Presumably stiched through backward, forward, proportional adjusted methodology&lt;/li&gt;
+&lt;li&gt;CHRIS Wiki Continuous Futures dataset in Quandl (&lt;a href=&#34;https://www.quandl.com/data/CHRIS-Wiki-Continuous-Futures&#34; target=&#34;_blank&#34;&gt;https://www.quandl.com/data/CHRIS-Wiki-Continuous-Futures&lt;/a&gt;)
+Datasets are stitched with continuous raw non-adjusted prices but not backward, forward, proportional adjusted. There are varaitions of front contract, second contract, third contract, etc.
+To use it for data modelling purposes, I would have to assume that rollover is required on certain date (through volume or open interest)&lt;/li&gt;
+&lt;li&gt;Steven Analytics Futures dataset in Quandl (&lt;a href=&#34;https://www.quandl.com/databases/SCF/data&#34; target=&#34;_blank&#34;&gt;https://www.quandl.com/databases/SCF/data&lt;/a&gt;)
+Stiched datasets with variations of backward, forward, proportional adjustment
+Behind paywall&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;data-mining&#34;&gt;Data mining&lt;/h3&gt;
+
+&lt;p&gt;In AQR papers, the authors experimented with fixed lookback periods of 1 year and deciding on the trading signal for the next month i.e. if price of an asset increase over 1 year period, the trading signal for next month would be long. Reverse holds when price of an asset decreased. Position of each asset is based on lookback exponential standard deviation of daily returns with annualized volatility of 40%. Agglomerated to a portfolio, the annualized standard deviation is closer to 12% with approximate sharpe of 1.0 over 30 years.&lt;/p&gt;
+
+&lt;p&gt;What I intend to carry out in this research paper instead is something closer to Robert Carver’s methdology,&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;First, compute 3 types of continuous forecasts based on the following,&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Exponential moving averages (e.g. 8-32, 16-64, 32-138)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Raw forecast: Take the difference between pair of moving averages&lt;/li&gt;
+&lt;li&gt;Divide raw forecast by instrument-risk (volatility of instrument in price unit) to get a risk adjusted forecast.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Breakouts&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Raw Forecast, scaled price in range: (Pt – Ravg/med N) / (RmaxN – RminN)&lt;/li&gt;
+&lt;li&gt;Divide raw forecast by instrument-risk (volatility of instrument in price unit) to get a risk adjusted forecast.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Carry strategy&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Raw Forecast = (Front contract price – Next contract price)/ distance between contract&lt;/li&gt;
+&lt;li&gt;Divide raw forecast by instrument-risk (volatility of instrument in price unit) to get a risk adjusted forecast.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Rescale the signals in point 1 to obtain average absolute signal strength of 10 for each individual forecasts across time. Rescaling factor based on expanding window of median acoss all instruments.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Combine signals in point 2 across systems. Bootstrapping or block bootstrapping with expanding window is used to find the optimal weights (on in-sample or out-of sample data. Requires guidance on this). Cap the signal at -20 to +20.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;With diversification, the combined signal in point 3 will bring down the average signal strength to below 10. A forecast diversification multiplier (FDM) is required to bring the signal to average of 10 again. FDM  = 1/[sqrt(W X H X Wtranspose)], where W is the forecast weights, H is the correlation matrix of forecast values in point 1&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Position allocation is based on lookback exponential volatility of 25 trading days. May look into stratification by asset classes.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;E.g. 25% volatility target on 1,000,000 portfolio would indicate annualized risk of 250,000 with daily risk of 250,000/16 = 15,625&lt;/li&gt;
+&lt;li&gt;If there are 4 assets classes, each asset class is allocated 3,906 of daily risk&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If there are 4 instruments in each asset class. This would be approximately 977 dollars daily risk per instrument. Signal of +10 for an instrument would indicate 977 dollars of risk and +20 (strong positve forecasts) would indicate 1954 dollars of risk.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Entry and exit rules are based on continuous forecasts instead of binary entries and exits. i.e. strategy is dependent on the state of the forecasts&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;evaluation-of-strategies&#34;&gt;Evaluation of strategies&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sharpe/ Sortino ratio&lt;/li&gt;
+&lt;li&gt;Calmar ratio/ Max drawdown&lt;/li&gt;
+&lt;li&gt;Beta/ Fama-French 3 factor analysis&lt;/li&gt;
+&lt;li&gt;Skew/ kurtosis of strategies&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;potential-challenges-and-require-further-deliberation-on-following-pointers&#34;&gt;Potential challenges and require further deliberation on following pointers&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Stitching of futures dataset.&lt;/li&gt;
+&lt;li&gt;When and how do we rollover in practice?&lt;/li&gt;
+&lt;li&gt;Is it essential to avoid front contracts? To avoid the ‘oil contract’ negative prices issue in early 2020?&lt;/li&gt;
+&lt;li&gt;Do we always remain in the contract with highest volume/ open interest?&lt;/li&gt;
+&lt;li&gt;How do we find optimal weights in 3.3 in practice&lt;/li&gt;
+&lt;li&gt;How do we use boostrapping properly to avoid in-sample bias?&lt;/li&gt;
+&lt;li&gt;In optimisation, do we usually optimize based on in-sample data or do we also consider the results in validation dataset? E.g. Sharpe ratio in in-sample data and validation dataset shouldn’t differ by x%. If so, is this difference filtered by the program. And would this run a risk of curve-fitting?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hurst, Brian, Yao Hua Ooi, and Lasse Heje Pedersen. &amp;ldquo;A century of evidence on trend-following investing.&amp;ldquo; The Journal of Portfolio Management 44, no. 1 (2017): 15-29.&lt;/li&gt;
+&lt;li&gt;Moskowitz, Tobias J., Yao Hua Ooi, and Lasse Heje Pedersen. &amp;ldquo;Time series momentum.&amp;ldquo; Journal of financial economics 104, no. 2 (2012): 228-250.&lt;/li&gt;
+&lt;li&gt;Carver, Robert. Systematic Trading: A unique new method for designing trading and investing systems. Harriman House Limited, 2015.&lt;/li&gt;
+&lt;li&gt;Carver, Robert.Leveraged Trading. Harriman House Limited, 2019.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
-      <link>jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
+      <link>/jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
       <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
+      <guid>/jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
       <description>
 
 &lt;h2 id=&#34;volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-quantitative-strategies&#34;&gt;Volatility targeting could potentially increase risk-adjusted returns for quantitative strategies&lt;/h2&gt;
@@ -59,11 +176,11 @@
 
 &lt;p&gt;There are periods where portfolio risk is significantly above the 10% volatility target. Case in point during Covid sell-off? Should you be reducing risk instead?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;Equity curves and portfolio statistics are included below for benchmarking purposes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -105,7 +222,7 @@
 
 &lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher. You would also notice that the negative skewness of the strategy improved considerably from -1.14 to -0.8.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -149,11 +266,11 @@
 
 &lt;p&gt;I&amp;rsquo;ve included the possibility space with respect to annualized returns, sharpe ratio, max drawdown to understand the risk-reward preferences.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
-&lt;img src=&#34;jironghuang.github.io/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
-&lt;img src=&#34;jironghuang.github.io/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
-&lt;img src=&#34;jironghuang.github.io/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
-&lt;img src=&#34;jironghuang.github.io/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;caveat&#34;&gt;Caveat&lt;/h3&gt;
 
@@ -161,16 +278,16 @@
 
 &lt;h3 id=&#34;full-tear-sheet-of-10-volatility-target-and-max-leverage-of-1-6-included-for-reference&#34;&gt;Full tear sheet of 10% volatility target and Max leverage of 1.6 included for reference&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Framework for capital allocation</title>
-      <link>jironghuang.github.io/post/framework-for-capital-allocation/</link>
+      <link>/jironghuang.github.io/post/framework-for-capital-allocation/</link>
       <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/framework-for-capital-allocation/</guid>
+      <guid>/jironghuang.github.io/post/framework-for-capital-allocation/</guid>
       <description>
 
 &lt;h2 id=&#34;framework-for-capital-allocation&#34;&gt;Framework for capital allocation&lt;/h2&gt;
@@ -189,10 +306,10 @@
     
     <item>
       <title>Integrating volatility targeting into Jarvis, my expert advisor</title>
-      <link>jironghuang.github.io/post/volatility-targeting/</link>
+      <link>/jironghuang.github.io/post/volatility-targeting/</link>
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/volatility-targeting/</guid>
+      <guid>/jironghuang.github.io/post/volatility-targeting/</guid>
       <description>
 
 &lt;h2 id=&#34;volatility-targeting&#34;&gt;Volatility targeting&lt;/h2&gt;
@@ -221,7 +338,7 @@
 
 &lt;p&gt;Here is the volatility of my levered portfolio. Notice how it spiked up 5 times in the month of March this year.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;What volatility targeting does is to supposedly to turn the volatility curve into a straight line.&lt;/p&gt;
 

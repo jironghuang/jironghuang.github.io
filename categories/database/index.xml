@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>database on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/categories/database/</link>
+    <link>/jironghuang.github.io/categories/database/</link>
     <description>Recent content in database on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 29 Sep 2019 11:46:49 +0800</lastBuildDate>
-    <atom:link href="jironghuang.github.io/categories/database/" rel="self" type="application/rss+xml" />
+    <atom:link href="/jironghuang.github.io/categories/database/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Setting up a database for my Jarvis</title>
-      <link>jironghuang.github.io/post/jarvis_database/</link>
+      <link>/jironghuang.github.io/post/jarvis_database/</link>
       <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/jarvis_database/</guid>
+      <guid>/jironghuang.github.io/post/jarvis_database/</guid>
       <description>
 
 &lt;h2 id=&#34;setting-up-a-database-for-my-jarvis&#34;&gt;Setting up a database for my Jarvis&lt;/h2&gt;

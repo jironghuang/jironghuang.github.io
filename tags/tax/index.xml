@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tax on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/tags/tax/</link>
+    <link>/jironghuang.github.io/tags/tax/</link>
     <description>Recent content in tax on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Wed, 27 Nov 2019 11:46:49 +0800</lastBuildDate>
     
-	<atom:link href="jironghuang.github.io/tags/tax/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/tags/tax/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Free lunch does exist in Singapore - SRS analysis</title>
-      <link>jironghuang.github.io/post/srs_analysis/</link>
+      <link>/jironghuang.github.io/post/srs_analysis/</link>
       <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/srs_analysis/</guid>
+      <guid>/jironghuang.github.io/post/srs_analysis/</guid>
       <description>SRS analysis I haven&amp;rsquo;t paid much attention to SRS contributions as a way to reduce taxable income. But lately, I realised you could boost investment portfolio returns through this avenue at literally 0 cost.
 I find this blog post written by a local finance blogger to be really helpful in understanding the SRS contributions and withdrawal mechanics.
 For my own understanding, I also did some quick analysis using google sheet (see &amp;lsquo;Analysis in google sheet&amp;rsquo; section) to evaluate if this works, and to my surprise, I found that free lunch does exist in Singapore!</description>

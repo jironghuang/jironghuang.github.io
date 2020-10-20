@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>statistics on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/tags/statistics/</link>
+    <link>/jironghuang.github.io/tags/statistics/</link>
     <description>Recent content in statistics on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="jironghuang.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using exponential distribution to estimate frequency of occurence</title>
-      <link>jironghuang.github.io/post/exp_distrib/</link>
+      <link>/jironghuang.github.io/post/exp_distrib/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/post/exp_distrib/</guid>
+      <guid>/jironghuang.github.io/post/exp_distrib/</guid>
       <description>Simulating product failures I’m inspired by this post here (http://www.programmingr.com/examples/neat-tricks/sample-r-function/rexp/). And decided to expand on the example.
 Say you are an owner of a computer store and you would like to estimate the frequency of warranty repairs - and the ensuing costs.
 Here’s the scenario with the accompanying assumptions
@@ -26,10 +26,10 @@ Here’s the scenario with the accompanying assumptions
     
     <item>
       <title>Sampling With Replacement Through First Principles</title>
-      <link>jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</link>
+      <link>/jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</link>
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</guid>
+      <guid>/jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</guid>
       <description>Sampling with replacement Hello! It&amp;rsquo;s me once again attempting to explain things from first principles - a term popularized by Elon Musk.
 I will use some psudeo code - on sampling with replacement for weights - to aid my explanation.
 Earlier in the week, I attempted to write a simple function from scratch but I gave up after realising that it will take me more than 15 mins! Difficulties lies in the multiple switch statements in defining the intervals.</description>

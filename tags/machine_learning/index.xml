@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>machine_learning on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/tags/machine_learning/</link>
+    <link>/jironghuang.github.io/tags/machine_learning/</link>
     <description>Recent content in machine_learning on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Tue, 10 Sep 2019 11:46:49 +0800</lastBuildDate>
     
-	<atom:link href="jironghuang.github.io/tags/machine_learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/tags/machine_learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ETF watchlist email notification Through Python</title>
-      <link>jironghuang.github.io/post/email_notification_python/</link>
+      <link>/jironghuang.github.io/post/email_notification_python/</link>
       <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/email_notification_python/</guid>
+      <guid>/jironghuang.github.io/post/email_notification_python/</guid>
       <description>Email notification I finally bit the bullet and updated my previously hideous email notification!
 You may find the updated email notification template here - alongside with the code.
 Feel free to ping me if you are keen to be on the email list too.
@@ -27,20 +27,20 @@ import smtplib, ssl import datetime import pandas as pd from email.mime.text imp
     
     <item>
       <title>Some thoughts on Reinforcement Learning - Q Learning</title>
-      <link>jironghuang.github.io/post/q_learning/</link>
+      <link>/jironghuang.github.io/post/q_learning/</link>
       <pubDate>Mon, 08 Apr 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/q_learning/</guid>
+      <guid>/jironghuang.github.io/post/q_learning/</guid>
       <description>Q learning I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia here, it&amp;rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.
 Here&amp;rsquo;s my confession. What I&amp;rsquo;m doing in this post is to summarise what I&amp;rsquo;ve just learnt so that I may come back to this at any point in future.</description>
     </item>
     
     <item>
       <title>Building a decision tree algorithm from scratch</title>
-      <link>jironghuang.github.io/post/building-adecision-tree-from-scratch/</link>
+      <link>/jironghuang.github.io/post/building-adecision-tree-from-scratch/</link>
       <pubDate>Fri, 15 Feb 2019 13:09:44 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/building-adecision-tree-from-scratch/</guid>
+      <guid>/jironghuang.github.io/post/building-adecision-tree-from-scratch/</guid>
       <description>Building a decision tree from scratch Sometimes to truly understand and internalise an algorithm, it&amp;rsquo;s always useful to build from scratch. Rather than relying on a module or library written by someone else.
 I&amp;rsquo;m fortunate to be given the chance to do it in 1 of my assignments for decision trees.
 From this exercise, I had to rely on my knowledge on recursion, binary trees (in-order traversal) and object oriented programming.</description>

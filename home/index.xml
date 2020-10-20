@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homes on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/home/</link>
+    <link>/jironghuang.github.io/home/</link>
     <description>Recent content in Homes on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="jironghuang.github.io/home/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/home/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>jironghuang.github.io/home/about/</link>
+      <link>/jironghuang.github.io/home/about/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/home/about/</guid>
+      <guid>/jironghuang.github.io/home/about/</guid>
       <description>About Hi there!
 Welcome to my sandbox.
 Through this blog, I hope to share my thoughts on analytics and quantitative investment. The latter is something I&amp;rsquo;m keeping track of - with skin in the game. It aligns with my core belief that any analysis should be accompanied with corresponding bets with the appropiate risk-rewards ratios - fan of Nassim Taleb in this regard.
@@ -26,46 +26,46 @@ See here for my investment framework and performance.</description>
     
     <item>
       <title>Recent Posts</title>
-      <link>jironghuang.github.io/home/posts/</link>
+      <link>/jironghuang.github.io/home/posts/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/home/posts/</guid>
+      <guid>/jironghuang.github.io/home/posts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>jironghuang.github.io/home/projects/</link>
+      <link>/jironghuang.github.io/home/projects/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/home/projects/</guid>
+      <guid>/jironghuang.github.io/home/projects/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Subscribe Here</title>
-      <link>jironghuang.github.io/home/subscribe/</link>
+      <link>/jironghuang.github.io/home/subscribe/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0800</pubDate>
       
-      <guid>jironghuang.github.io/home/subscribe/</guid>
+      <guid>/jironghuang.github.io/home/subscribe/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tags</title>
-      <link>jironghuang.github.io/home/tags/</link>
+      <link>/jironghuang.github.io/home/tags/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0800</pubDate>
       
-      <guid>jironghuang.github.io/home/tags/</guid>
+      <guid>/jironghuang.github.io/home/tags/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>jironghuang.github.io/home/contact/</link>
+      <link>/jironghuang.github.io/home/contact/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/home/contact/</guid>
+      <guid>/jironghuang.github.io/home/contact/</guid>
       <description></description>
     </item>
     

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>finance on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/categories/finance/</link>
+    <link>/jironghuang.github.io/categories/finance/</link>
     <description>Recent content in finance on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Mon, 23 Sep 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="jironghuang.github.io/categories/finance/" rel="self" type="application/rss+xml" />
+    <atom:link href="/jironghuang.github.io/categories/finance/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Market Neutral Strategy - DAX Index and EWG ETF</title>
-      <link>jironghuang.github.io/post/market_neutral_ewg/</link>
+      <link>/jironghuang.github.io/post/market_neutral_ewg/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/post/market_neutral_ewg/</guid>
+      <guid>/jironghuang.github.io/post/market_neutral_ewg/</guid>
       <description>
 
 
@@ -110,7 +110,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -166,7 +166,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-05-11 2017-08-02 2018-01-09 -0.0622    164        57      107
@@ -227,10 +227,10 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
     
     <item>
       <title>Market Neutral Strategy - FTSE Index and EWU ETF</title>
-      <link>jironghuang.github.io/post/market_neutral_ewu/</link>
+      <link>/jironghuang.github.io/post/market_neutral_ewu/</link>
       <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/post/market_neutral_ewu/</guid>
+      <guid>/jironghuang.github.io/post/market_neutral_ewu/</guid>
       <description>
 
 
@@ -323,7 +323,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -379,7 +379,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
@@ -440,10 +440,10 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
     
     <item>
       <title>Market Neutral Strategy - SnP500 (SPY) to Berkshire Hathaway Ratio</title>
-      <link>jironghuang.github.io/post/market_neutral/</link>
+      <link>/jironghuang.github.io/post/market_neutral/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/post/market_neutral/</guid>
+      <guid>/jironghuang.github.io/post/market_neutral/</guid>
       <description>
 
 
@@ -623,7 +623,7 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 ## 
 ## This message is shown once per session and may be disabled by setting
 ## options(&amp;quot;getSymbols.yahoo.warning&amp;quot;=FALSE).&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/jironghuang.github.io/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;displaying-of-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Displaying of results&lt;/h2&gt;
@@ -667,10 +667,10 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
     
     <item>
       <title>Prototype Pair Trading Strategy for Silver ETFs</title>
-      <link>jironghuang.github.io/post/prototype-of-pair-trading-strategy-for-silver-etfs/</link>
+      <link>/jironghuang.github.io/post/prototype-of-pair-trading-strategy-for-silver-etfs/</link>
       <pubDate>Tue, 18 Dec 2018 13:03:44 +0800</pubDate>
       
-      <guid>jironghuang.github.io/post/prototype-of-pair-trading-strategy-for-silver-etfs/</guid>
+      <guid>/jironghuang.github.io/post/prototype-of-pair-trading-strategy-for-silver-etfs/</guid>
       <description>&lt;p&gt;In these 2 weeks, I&amp;rsquo;ll deploy my pair trading algo strategy into my server.&lt;/p&gt;
 
 &lt;p&gt;I modified the code below from a renowned quant trader, Ernest Chan. The basic idea is to find z-scores through moving average &amp;amp; moving SD of spread. If it&amp;rsquo;s more than absolute of z-score, I will either short or long the spread depending on the polarity.&lt;/p&gt;
@@ -679,8 +679,8 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 
 &lt;p&gt;Results are pretty good with a healthy sharpe ratio of 2.7 in the training set and 1.6 in the testing set of data. Annualized return is approximately 26% (translates to 2600 dollars) for the test set.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;jironghuang.github.io/post/img/equity_curve.png&#34; alt=&#34;/post/img/equity_curve.png&#34;&gt;
-&lt;img src=&#34;jironghuang.github.io/post/img/summary_stats.png&#34; alt=&#34;/post/img/summary_stats.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/equity_curve.png&#34; alt=&#34;/post/img/equity_curve.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/summary_stats.png&#34; alt=&#34;/post/img/summary_stats.png&#34;&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;rm(list=ls()) # clear workspace
 

@@ -2,310 +2,310 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Jirong&#39;s sandbox</title>
-    <link>jironghuang.github.io/tags/</link>
+    <link>/jironghuang.github.io/tags/</link>
     <description>Recent content in Tags on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="jironghuang.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Content tagged as &#39;Academic&#39;</title>
-      <link>jironghuang.github.io/tags/academic/</link>
+      <link>/jironghuang.github.io/tags/academic/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/academic/</guid>
+      <guid>/jironghuang.github.io/tags/academic/</guid>
       <description>Here is a list of all the content that has been tagged as academic.</description>
     </item>
     
     <item>
       <title>R</title>
-      <link>jironghuang.github.io/tags/r/</link>
+      <link>/jironghuang.github.io/tags/r/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/r/</guid>
+      <guid>/jironghuang.github.io/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>algo</title>
-      <link>jironghuang.github.io/tags/algo/</link>
+      <link>/jironghuang.github.io/tags/algo/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/algo/</guid>
+      <guid>/jironghuang.github.io/tags/algo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>api</title>
-      <link>jironghuang.github.io/tags/api/</link>
+      <link>/jironghuang.github.io/tags/api/</link>
       <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/api/</guid>
+      <guid>/jironghuang.github.io/tags/api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>asset_allocation</title>
-      <link>jironghuang.github.io/tags/asset_allocation/</link>
+      <link>/jironghuang.github.io/tags/asset_allocation/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/asset_allocation/</guid>
+      <guid>/jironghuang.github.io/tags/asset_allocation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>betting</title>
-      <link>jironghuang.github.io/tags/betting/</link>
+      <link>/jironghuang.github.io/tags/betting/</link>
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/betting/</guid>
+      <guid>/jironghuang.github.io/tags/betting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>coding</title>
-      <link>jironghuang.github.io/tags/coding/</link>
+      <link>/jironghuang.github.io/tags/coding/</link>
       <pubDate>Sun, 26 Aug 2018 14:09:02 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/coding/</guid>
+      <guid>/jironghuang.github.io/tags/coding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dashboard</title>
-      <link>jironghuang.github.io/tags/dashboard/</link>
+      <link>/jironghuang.github.io/tags/dashboard/</link>
       <pubDate>Sat, 01 Sep 2018 21:30:46 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/dashboard/</guid>
+      <guid>/jironghuang.github.io/tags/dashboard/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data_analytics</title>
-      <link>jironghuang.github.io/tags/data_analytics/</link>
+      <link>/jironghuang.github.io/tags/data_analytics/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/data_analytics/</guid>
+      <guid>/jironghuang.github.io/tags/data_analytics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data_cleaning</title>
-      <link>jironghuang.github.io/tags/data_cleaning/</link>
+      <link>/jironghuang.github.io/tags/data_cleaning/</link>
       <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/data_cleaning/</guid>
+      <guid>/jironghuang.github.io/tags/data_cleaning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>database</title>
-      <link>jironghuang.github.io/tags/database/</link>
+      <link>/jironghuang.github.io/tags/database/</link>
       <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/database/</guid>
+      <guid>/jironghuang.github.io/tags/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>economics</title>
-      <link>jironghuang.github.io/tags/economics/</link>
+      <link>/jironghuang.github.io/tags/economics/</link>
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/economics/</guid>
+      <guid>/jironghuang.github.io/tags/economics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>engineering</title>
-      <link>jironghuang.github.io/tags/engineering/</link>
+      <link>/jironghuang.github.io/tags/engineering/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/engineering/</guid>
+      <guid>/jironghuang.github.io/tags/engineering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>finance</title>
-      <link>jironghuang.github.io/tags/finance/</link>
+      <link>/jironghuang.github.io/tags/finance/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/finance/</guid>
+      <guid>/jironghuang.github.io/tags/finance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>firstPrinciples</title>
-      <link>jironghuang.github.io/tags/firstprinciples/</link>
+      <link>/jironghuang.github.io/tags/firstprinciples/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/firstprinciples/</guid>
+      <guid>/jironghuang.github.io/tags/firstprinciples/</guid>
       <description></description>
     </item>
     
     <item>
       <title>framework</title>
-      <link>jironghuang.github.io/tags/framework/</link>
-      <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
+      <link>/jironghuang.github.io/tags/framework/</link>
+      <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/framework/</guid>
+      <guid>/jironghuang.github.io/tags/framework/</guid>
       <description></description>
     </item>
     
     <item>
       <title>investing</title>
-      <link>jironghuang.github.io/tags/investing/</link>
-      <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
+      <link>/jironghuang.github.io/tags/investing/</link>
+      <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/investing/</guid>
+      <guid>/jironghuang.github.io/tags/investing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>investment</title>
-      <link>jironghuang.github.io/tags/investment/</link>
+      <link>/jironghuang.github.io/tags/investment/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/investment/</guid>
+      <guid>/jironghuang.github.io/tags/investment/</guid>
       <description></description>
     </item>
     
     <item>
       <title>machine_learning</title>
-      <link>jironghuang.github.io/tags/machine_learning/</link>
+      <link>/jironghuang.github.io/tags/machine_learning/</link>
       <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/machine_learning/</guid>
+      <guid>/jironghuang.github.io/tags/machine_learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>macroeonomics</title>
-      <link>jironghuang.github.io/tags/macroeonomics/</link>
+      <link>/jironghuang.github.io/tags/macroeonomics/</link>
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/macroeonomics/</guid>
+      <guid>/jironghuang.github.io/tags/macroeonomics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>momentum</title>
-      <link>jironghuang.github.io/tags/momentum/</link>
+      <link>/jironghuang.github.io/tags/momentum/</link>
       <pubDate>Tue, 03 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/momentum/</guid>
+      <guid>/jironghuang.github.io/tags/momentum/</guid>
       <description></description>
     </item>
     
     <item>
       <title>odds</title>
-      <link>jironghuang.github.io/tags/odds/</link>
+      <link>/jironghuang.github.io/tags/odds/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/odds/</guid>
+      <guid>/jironghuang.github.io/tags/odds/</guid>
       <description></description>
     </item>
     
     <item>
       <title>philosophy</title>
-      <link>jironghuang.github.io/tags/philosophy/</link>
+      <link>/jironghuang.github.io/tags/philosophy/</link>
       <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/philosophy/</guid>
+      <guid>/jironghuang.github.io/tags/philosophy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>probability</title>
-      <link>jironghuang.github.io/tags/probability/</link>
+      <link>/jironghuang.github.io/tags/probability/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/probability/</guid>
+      <guid>/jironghuang.github.io/tags/probability/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
-      <link>jironghuang.github.io/tags/programming/</link>
+      <link>/jironghuang.github.io/tags/programming/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/programming/</guid>
+      <guid>/jironghuang.github.io/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>jironghuang.github.io/tags/python/</link>
+      <link>/jironghuang.github.io/tags/python/</link>
       <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/python/</guid>
+      <guid>/jironghuang.github.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>quant</title>
-      <link>jironghuang.github.io/tags/quant/</link>
-      <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
+      <link>/jironghuang.github.io/tags/quant/</link>
+      <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/quant/</guid>
+      <guid>/jironghuang.github.io/tags/quant/</guid>
       <description></description>
     </item>
     
     <item>
       <title>risk</title>
-      <link>jironghuang.github.io/tags/risk/</link>
+      <link>/jironghuang.github.io/tags/risk/</link>
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/risk/</guid>
+      <guid>/jironghuang.github.io/tags/risk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>simulation</title>
-      <link>jironghuang.github.io/tags/simulation/</link>
+      <link>/jironghuang.github.io/tags/simulation/</link>
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/simulation/</guid>
+      <guid>/jironghuang.github.io/tags/simulation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>statistics</title>
-      <link>jironghuang.github.io/tags/statistics/</link>
+      <link>/jironghuang.github.io/tags/statistics/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/statistics/</guid>
+      <guid>/jironghuang.github.io/tags/statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tax</title>
-      <link>jironghuang.github.io/tags/tax/</link>
+      <link>/jironghuang.github.io/tags/tax/</link>
       <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/tax/</guid>
+      <guid>/jironghuang.github.io/tags/tax/</guid>
       <description></description>
     </item>
     
     <item>
       <title>thoughts</title>
-      <link>jironghuang.github.io/tags/thoughts/</link>
+      <link>/jironghuang.github.io/tags/thoughts/</link>
       <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
       
-      <guid>jironghuang.github.io/tags/thoughts/</guid>
+      <guid>/jironghuang.github.io/tags/thoughts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>trading</title>
-      <link>jironghuang.github.io/tags/trading/</link>
+      <link>/jironghuang.github.io/tags/trading/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>jironghuang.github.io/tags/trading/</guid>
+      <guid>/jironghuang.github.io/tags/trading/</guid>
       <description></description>
     </item>
     
