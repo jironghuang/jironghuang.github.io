@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jirong&#39;s sandbox on Jirong&#39;s sandbox</title>
-    <link>/jironghuang.github.io/</link>
+    <link>/</link>
     <description>Recent content in Jirong&#39;s sandbox on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/jironghuang.github.io/" rel="self" type="application/rss+xml" />
+    <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Plans for trend following strategy in futures using binary forecast</title>
-      <link>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
+      <link>/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
       <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</guid>
+      <guid>/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</guid>
       <description>
 
 &lt;h2 id=&#34;trend-following-strategy-in-futures-using-non-binary-forecasts&#34;&gt;Trend following strategy in futures using non binary forecasts&lt;/h2&gt;
@@ -129,10 +129,10 @@ Behind paywall&lt;/li&gt;
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
-      <link>/jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
       <description>
 
 &lt;h2 id=&#34;developing-a-performance-monitoring-system-for-my-algorithmic-trading-system&#34;&gt;Developing a performance monitoring system for my algorithmic trading system&lt;/h2&gt;
@@ -157,7 +157,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;Some trivial code is then written to format the XML into this format below for my email notification,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;what-are-my-daily-returns-how-do-i-measure-performance-of-my-strategy-while-accounting-for-inflow-and-outflow-of-cash-into-the-account&#34;&gt;What are my daily returns? How do I measure performance of my strategy while accounting for inflow and outflow of cash into the account?&lt;/h3&gt;
 
@@ -167,7 +167,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;To do that, the system triggers a request to take an accounting snapshot of the portfolio every hour,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;But what if there is inflow and outflow of cash - you may ask? I simply rely on Time Weighted Return Formula.&lt;/p&gt;
 
@@ -185,8 +185,8 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;After all that is mentioned and done, what could I do? I could plot some fancy equity curves as shown below,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
+&lt;img src=&#34;/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;I could also measure realized rolling volatility and do crazy stuff (but unimportant in my opinion) like fama-french 3, 5, or gazillion factors analysis.&lt;/p&gt;
 
@@ -200,16 +200,16 @@ report = FlexReport(token, queryId)
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Crawling data from basketball-reference and espn</title>
-      <link>/jironghuang.github.io/post/crawling-data-from-basektball-reference-and-espn/</link>
+      <link>/post/crawling-data-from-basektball-reference-and-espn/</link>
       <pubDate>Tue, 22 Sep 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/crawling-data-from-basektball-reference-and-espn/</guid>
+      <guid>/post/crawling-data-from-basektball-reference-and-espn/</guid>
       <description>
 
 &lt;h2 id=&#34;crawling-data-from-basketball-reference-and-espn&#34;&gt;Crawling data from basketball-reference and espn&lt;/h2&gt;
@@ -220,18 +220,18 @@ report = FlexReport(token, queryId)
 
 &lt;h3 id=&#34;codes&#34;&gt;Codes&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/crawl1.png&#34; alt=&#34;/post/img/crawl1.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/crawl2.png&#34; alt=&#34;/post/img/crawl2.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/crawl3.png&#34; alt=&#34;/post/img/crawl3.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/crawl1.png&#34; alt=&#34;/post/img/crawl1.png&#34;&gt;
+&lt;img src=&#34;/post/img/crawl2.png&#34; alt=&#34;/post/img/crawl2.png&#34;&gt;
+&lt;img src=&#34;/post/img/crawl3.png&#34; alt=&#34;/post/img/crawl3.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
-      <link>/jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
+      <link>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
+      <guid>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>
 
 &lt;h2 id=&#34;designing-building-and-deploying-a-fully-automated-algorithmic-trading-system&#34;&gt;Designing, Building and Deploying a Fully Automated Algorithmic Trading System&lt;/h2&gt;
@@ -292,18 +292,18 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
+&lt;img src=&#34;/post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
+&lt;img src=&#34;/post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
-      <link>/jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
+      <link>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
       <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
+      <guid>/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
       <description>
 
 &lt;h2 id=&#34;volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-quantitative-strategies&#34;&gt;Volatility targeting could potentially increase risk-adjusted returns for quantitative strategies&lt;/h2&gt;
@@ -347,11 +347,11 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;There are periods where portfolio risk is significantly above the 10% volatility target. Case in point during Covid sell-off? Should you be reducing risk instead?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;Equity curves and portfolio statistics are included below for benchmarking purposes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -393,7 +393,7 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher. You would also notice that the negative skewness of the strategy improved considerably from -1.14 to -0.8.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -437,11 +437,11 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;I&amp;rsquo;ve included the possibility space with respect to annualized returns, sharpe ratio, max drawdown to understand the risk-reward preferences.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
+&lt;img src=&#34;/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
+&lt;img src=&#34;/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
+&lt;img src=&#34;/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
+&lt;img src=&#34;/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;caveat&#34;&gt;Caveat&lt;/h3&gt;
 
@@ -449,16 +449,16 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;h3 id=&#34;full-tear-sheet-of-10-volatility-target-and-max-leverage-of-1-6-included-for-reference&#34;&gt;Full tear sheet of 10% volatility target and Max leverage of 1.6 included for reference&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Framework for capital allocation</title>
-      <link>/jironghuang.github.io/post/framework-for-capital-allocation/</link>
+      <link>/post/framework-for-capital-allocation/</link>
       <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/framework-for-capital-allocation/</guid>
+      <guid>/post/framework-for-capital-allocation/</guid>
       <description>
 
 &lt;h2 id=&#34;framework-for-capital-allocation&#34;&gt;Framework for capital allocation&lt;/h2&gt;
@@ -477,10 +477,10 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
     
     <item>
       <title>Integrating volatility targeting into Jarvis, my expert advisor</title>
-      <link>/jironghuang.github.io/post/volatility-targeting/</link>
+      <link>/post/volatility-targeting/</link>
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/volatility-targeting/</guid>
+      <guid>/post/volatility-targeting/</guid>
       <description>
 
 &lt;h2 id=&#34;volatility-targeting&#34;&gt;Volatility targeting&lt;/h2&gt;
@@ -509,7 +509,7 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;Here is the volatility of my levered portfolio. Notice how it spiked up 5 times in the month of March this year.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;What volatility targeting does is to supposedly to turn the volatility curve into a straight line.&lt;/p&gt;
 
@@ -749,10 +749,10 @@ if(abs(hedge - current_hedge_value) &amp;gt; 3000){
     
     <item>
       <title>Mapreduce using Java</title>
-      <link>/jironghuang.github.io/post/mapreduce-in-java/</link>
+      <link>/post/mapreduce-in-java/</link>
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/mapreduce-in-java/</guid>
+      <guid>/post/mapreduce-in-java/</guid>
       <description>
 
 &lt;h2 id=&#34;mapreduce-using-java&#34;&gt;Mapreduce using java&lt;/h2&gt;
@@ -803,10 +803,10 @@ public static void main(String[] args) throws Exception {
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>/jironghuang.github.io/post/hidden_markov_model/</link>
+      <link>/post/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/post/hidden_markov_model/</guid>
+      <guid>/post/hidden_markov_model/</guid>
       <description>
 
 
@@ -820,7 +820,7 @@ public static void main(String[] args) throws Exception {
 &lt;div id=&#34;output-as-of-16-march-2020&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Output as of 16 March 2020&lt;/h2&gt;
 &lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/li&gt;
@@ -953,10 +953,10 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>/jironghuang.github.io/project/hidden_markov_model/</link>
+      <link>/project/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/project/hidden_markov_model/</guid>
+      <guid>/project/hidden_markov_model/</guid>
       <description>
 
 
@@ -970,7 +970,7 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;output-updated-daily&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Output updated daily&lt;/h2&gt;
 &lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note: I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;code&#34; class=&#34;section level2&#34;&gt;
@@ -1099,10 +1099,10 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Embedding D3 interactive charts part 2</title>
-      <link>/jironghuang.github.io/post/embedding-d3-interactive-charts-part2/</link>
+      <link>/post/embedding-d3-interactive-charts-part2/</link>
       <pubDate>Sun, 23 Feb 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/embedding-d3-interactive-charts-part2/</guid>
+      <guid>/post/embedding-d3-interactive-charts-part2/</guid>
       <description>
 
 &lt;h2 id=&#34;embedding-d3-interactive-charts-part-2-testing-reading-in-of-file-from-directory&#34;&gt;Embedding D3 interactive charts Part 2 - Testing reading in of file from directory&lt;/h2&gt;
@@ -1315,10 +1315,10 @@ d3.csv(&amp;quot;/post/data/2_TwoNum.csv&amp;quot;, function(data) {
     
     <item>
       <title>Embedding D3 interactive charts</title>
-      <link>/jironghuang.github.io/post/embedding-d3-interactive-charts/</link>
+      <link>/post/embedding-d3-interactive-charts/</link>
       <pubDate>Sun, 23 Feb 2020 11:46:40 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/embedding-d3-interactive-charts/</guid>
+      <guid>/post/embedding-d3-interactive-charts/</guid>
       <description>
 
 &lt;h2 id=&#34;embedding-d3-interactive-charts&#34;&gt;Embedding D3 interactive charts&lt;/h2&gt;
@@ -1528,10 +1528,10 @@ d3.csv(&amp;quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Exa
     
     <item>
       <title>Fuzzy matching with many to many matches without loops</title>
-      <link>/jironghuang.github.io/post/fuzzy_matching_no_loops/</link>
+      <link>/post/fuzzy_matching_no_loops/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/post/fuzzy_matching_no_loops/</guid>
+      <guid>/post/fuzzy_matching_no_loops/</guid>
       <description>
 
 
@@ -1647,10 +1647,10 @@ best_match_all(df1, df2, 2, 2)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Latest lessons learnt from crawling</title>
-      <link>/jironghuang.github.io/post/crawling-insights/</link>
+      <link>/post/crawling-insights/</link>
       <pubDate>Sun, 08 Dec 2019 11:46:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/crawling-insights/</guid>
+      <guid>/post/crawling-insights/</guid>
       <description>
 
 &lt;h2 id=&#34;lessons-learnt&#34;&gt;Lessons learnt&lt;/h2&gt;
@@ -1689,10 +1689,10 @@ best_match_all(df1, df2, 2, 2)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Free lunch does exist in Singapore - SRS analysis</title>
-      <link>/jironghuang.github.io/post/srs_analysis/</link>
+      <link>/post/srs_analysis/</link>
       <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/srs_analysis/</guid>
+      <guid>/post/srs_analysis/</guid>
       <description>
 
 &lt;h2 id=&#34;srs-analysis&#34;&gt;SRS analysis&lt;/h2&gt;

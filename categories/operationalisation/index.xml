@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>operationalisation on Jirong&#39;s sandbox</title>
-    <link>/jironghuang.github.io/categories/operationalisation/</link>
+    <link>/categories/operationalisation/</link>
     <description>Recent content in operationalisation on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 04 Nov 2018 10:19:13 +0800</lastBuildDate>
-    <atom:link href="/jironghuang.github.io/categories/operationalisation/" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/operationalisation/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Architecture and Process Flow for My Algorithmic Trading</title>
-      <link>/jironghuang.github.io/post/architecture-and-process-flow-for-my-algorithmic-trading/</link>
+      <link>/post/architecture-and-process-flow-for-my-algorithmic-trading/</link>
       <pubDate>Sun, 04 Nov 2018 10:19:13 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
+      <guid>/post/architecture-and-process-flow-for-my-algorithmic-trading/</guid>
       <description>
 
 &lt;h2 id=&#34;project-that-i-will-be-working-in-2018-2019&#34;&gt;Project that I will be working in 2018-2019&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/mvp_algo_trading.png&#34; alt=&#34;/post/img/mvp_algo_trading.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/mvp_algo_trading.png&#34; alt=&#34;/post/img/mvp_algo_trading.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

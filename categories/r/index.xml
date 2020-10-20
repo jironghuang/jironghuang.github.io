@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Jirong&#39;s sandbox</title>
-    <link>/jironghuang.github.io/categories/r/</link>
+    <link>/categories/r/</link>
     <description>Recent content in R on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/jironghuang.github.io/categories/r/" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/r/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fuzzy matching with many to many matches without loops</title>
-      <link>/jironghuang.github.io/post/fuzzy_matching_no_loops/</link>
+      <link>/post/fuzzy_matching_no_loops/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/post/fuzzy_matching_no_loops/</guid>
+      <guid>/post/fuzzy_matching_no_loops/</guid>
       <description>
 
 
@@ -131,10 +131,10 @@ best_match_all(df1, df2, 2, 2)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</title>
-      <link>/jironghuang.github.io/post/convert_na_num/</link>
+      <link>/post/convert_na_num/</link>
       <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/post/convert_na_num/</guid>
+      <guid>/post/convert_na_num/</guid>
       <description>
 
 
@@ -268,10 +268,10 @@ print(data)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>R package: Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects</title>
-      <link>/jironghuang.github.io/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
+      <link>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</link>
       <pubDate>Thu, 25 Oct 2018 11:39:24 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
+      <guid>/post/decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects/</guid>
       <description>
 
 &lt;h2 id=&#34;decomposing-a-position-into-exchange-rate-and-non-exchange-rate-effects&#34;&gt;Decomposing a Position Into Exchange Rate and Non Exchange Rate Effects&lt;/h2&gt;
@@ -286,8 +286,8 @@ print(data)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;To start using this package, you may first install the devtools package and execute the following command. install_github(&amp;ldquo;jironghuang/RemoveExchangeRateEffects&amp;rdquo;). The R documentation is as follows,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
-&lt;img src=&#34;/jironghuang.github.io/post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
+&lt;img src=&#34;/post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;You may follow the 2 examples to better understand how this package works.&lt;/p&gt;
 
@@ -400,10 +400,10 @@ Oct 2018 260.95       1.76900  147.5127           265.0848       -4.1347817
     
     <item>
       <title>Shift Share Analysis Package I developed</title>
-      <link>/jironghuang.github.io/post/shift-share-analysis-package/</link>
+      <link>/post/shift-share-analysis-package/</link>
       <pubDate>Sat, 22 Sep 2018 12:23:28 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/shift-share-analysis-package/</guid>
+      <guid>/post/shift-share-analysis-package/</guid>
       <description>
 
 &lt;h2 id=&#34;shift-share-analysis-package-i-developed&#34;&gt;Shift-share Analysis Package I developed&lt;/h2&gt;

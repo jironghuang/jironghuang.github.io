@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>framework on Jirong&#39;s sandbox</title>
-    <link>/jironghuang.github.io/tags/framework/</link>
+    <link>/tags/framework/</link>
     <description>Recent content in framework on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Tue, 20 Oct 2020 11:50:49 +0800</lastBuildDate>
     
-	<atom:link href="/jironghuang.github.io/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/framework/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Plans for trend following strategy in futures using binary forecast</title>
-      <link>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
+      <link>/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
       <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</guid>
+      <guid>/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</guid>
       <description>Trend following strategy in futures using non binary forecasts Project motivation As David Ricardo, a British economist in the 19th century once said, ‘cut short your losses and let your profits trend’ allude to the point that trend following as a profitable strategy could exist even back then.
 Having read AQR’s papers on the Time Series Momentum (TSMOM, I am keen to explore this topic in the futures space (Moskowitz, T.</description>
     </item>
     
     <item>
       <title>Framework for capital allocation</title>
-      <link>/jironghuang.github.io/post/framework-for-capital-allocation/</link>
+      <link>/post/framework-for-capital-allocation/</link>
       <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/framework-for-capital-allocation/</guid>
+      <guid>/post/framework-for-capital-allocation/</guid>
       <description>Framework for capital allocation In this resource starved world, capital is scarce. Every dollar that you own has its place and deserves to be allocated properly.
 Currently, I already have a huge chunk of capital tied up in a diversified portfolio levered up to 1.4 times. Portfolio has (&amp;amp; expected to) outperformed/ matched up to market returns with 2 to 3 times lower risk - in terms of standard deviation and drawdown.</description>
     </item>

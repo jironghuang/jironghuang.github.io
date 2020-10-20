@@ -2,145 +2,145 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Jirong&#39;s sandbox</title>
-    <link>/jironghuang.github.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <atom:link href="/jironghuang.github.io/categories/" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>R</title>
-      <link>/jironghuang.github.io/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>algo</title>
-      <link>/jironghuang.github.io/categories/algo/</link>
+      <link>/categories/algo/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/categories/algo/</guid>
+      <guid>/categories/algo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>api</title>
-      <link>/jironghuang.github.io/categories/api/</link>
+      <link>/categories/api/</link>
       <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/api/</guid>
+      <guid>/categories/api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>betting</title>
-      <link>/jironghuang.github.io/categories/betting/</link>
+      <link>/categories/betting/</link>
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/betting/</guid>
+      <guid>/categories/betting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>coding</title>
-      <link>/jironghuang.github.io/categories/coding/</link>
+      <link>/categories/coding/</link>
       <pubDate>Sun, 26 Aug 2018 14:09:02 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/coding/</guid>
+      <guid>/categories/coding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data_analytics</title>
-      <link>/jironghuang.github.io/categories/data_analytics/</link>
+      <link>/categories/data_analytics/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/categories/data_analytics/</guid>
+      <guid>/categories/data_analytics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data_cleaning</title>
-      <link>/jironghuang.github.io/categories/data_cleaning/</link>
+      <link>/categories/data_cleaning/</link>
       <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/categories/data_cleaning/</guid>
+      <guid>/categories/data_cleaning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>database</title>
-      <link>/jironghuang.github.io/categories/database/</link>
+      <link>/categories/database/</link>
       <pubDate>Sun, 29 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/database/</guid>
+      <guid>/categories/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>engineering</title>
-      <link>/jironghuang.github.io/categories/engineering/</link>
+      <link>/categories/engineering/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/engineering/</guid>
+      <guid>/categories/engineering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>finance</title>
-      <link>/jironghuang.github.io/categories/finance/</link>
+      <link>/categories/finance/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/categories/finance/</guid>
+      <guid>/categories/finance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>firstPrinciples</title>
-      <link>/jironghuang.github.io/categories/firstprinciples/</link>
+      <link>/categories/firstprinciples/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/categories/firstprinciples/</guid>
+      <guid>/categories/firstprinciples/</guid>
       <description></description>
     </item>
     
     <item>
       <title>framework</title>
-      <link>/jironghuang.github.io/categories/framework/</link>
+      <link>/categories/framework/</link>
       <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/framework/</guid>
+      <guid>/categories/framework/</guid>
       <description></description>
     </item>
     
     <item>
       <title>investing</title>
-      <link>/jironghuang.github.io/categories/investing/</link>
+      <link>/categories/investing/</link>
       <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/investing/</guid>
+      <guid>/categories/investing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>investment</title>
-      <link>/jironghuang.github.io/categories/investment/</link>
+      <link>/categories/investment/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/categories/investment/</guid>
+      <guid>/categories/investment/</guid>
       <description></description>
     </item>
     
     <item>
       <title>machine_learning</title>
-      <link>/jironghuang.github.io/categories/machine_learning/</link>
+      <link>/categories/machine_learning/</link>
       <pubDate>Tue, 10 Sep 2019 11:46:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/categories/machine_learning/</guid>
+      <guid>/categories/machine_learning/</guid>
       <description></description>
     </item>
     
