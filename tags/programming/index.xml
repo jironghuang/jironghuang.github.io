@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 06 Oct 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2020 11:50:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Testing github gist</title>
+      <link>/post/test-github-gist/</link>
+      <pubDate>Tue, 10 Nov 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/test-github-gist/</guid>
+      <description> Testing github gist  </description>
+    </item>
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>

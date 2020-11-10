@@ -31,7 +31,7 @@
     
     
       
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
       
     
   
@@ -82,7 +82,7 @@
   <meta property="og:description" content="Data Scientist and Quantitative Investor and Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2020-01-17T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2020-02-23T11:46:40&#43;08:00">
   
 
   
@@ -90,7 +90,7 @@
   <title>programming | Jirong&#39;s sandbox</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" class="dark">
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
   <div class="container">
@@ -257,6 +257,17 @@
   
   
   <div>
+    <h2><a href="/post/embedding-d3-interactive-charts/">Embedding D3 interactive charts</a></h2>
+    <div class="article-style">
+      
+      Embedding D3 interactive charts Just having fun - testing to see if I could embed D3 charts in my blog.
+Seems like it works!
+   // set the dimensions and margins of the graph var margin = {top: 10, right: 30, bottom: 30, left: 60}, width = 460 - margin.left - margin.right, height = 450 - margin.top - margin.bottom; // append the svg object to the body of the page var svg = d3.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/fuzzy_matching_no_loops/">Fuzzy matching with many to many matches without loops</a></h2>
     <div class="article-style">
       
@@ -355,19 +366,6 @@ If you&rsquo;re interested, you may visit this stackoverflow link (<a href="http
       
       Q learning I just completed a Reinforcement Learning assignment - in particular on Q-learning. According to Wikipedia here, it&rsquo;s a model-free Rl algorithm. The goal for the algo is to learn a policy, which tells an agent what action to take under different circumstances.
 Here&rsquo;s my confession. What I&rsquo;m doing in this post is to summarise what I&rsquo;ve just learnt so that I may come back to this at any point in future.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/hosting-a-flask-app-on-heroku/">Hosting a Flask App on Heroku</a></h2>
-    <div class="article-style">
-      
-      Following the steps here &ndash;&gt; <a href="https://realpython.com/flask-by-example-part-1-project-setup/" target="_blank">https://realpython.com/flask-by-example-part-1-project-setup/</a>
-I managed to deploy my python flask app in Heroku.
-from flask import Flask app = Flask(<strong>name</strong>) @app.route(&lsquo;/&rsquo;) def hello(): return &quot;Hello World!&quot; @app.route(&lsquo;/&lt;name&gt;&rsquo;) def hello_name(name): return &quot;Hello {}!&quot;.format(name) if <strong>name</strong> == &lsquo;<strong>main</strong>&lsquo;: app.run()  You may visit the following link &ndash;&gt;<a href="https://jirong-stage.herokuapp.com/" target="_blank">https://jirong-stage.herokuapp.com/</a> &amp; add a suffix to it.
-Example <a href="https://jirong-stage.herokuapp.com/jirong" target="_blank">https://jirong-stage.herokuapp.com/jirong</a> &amp; this will return Hello jirong!
-Possibilites are immense! I can easily create APIs or host dashboard here.
       
     </div>
   </div>

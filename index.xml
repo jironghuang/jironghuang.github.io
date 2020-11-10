@@ -11,6 +11,20 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Testing github gist</title>
+      <link>/post/test-github-gist/</link>
+      <pubDate>Tue, 10 Nov 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/test-github-gist/</guid>
+      <description>
+
+&lt;h2 id=&#34;testing-github-gist&#34;&gt;Testing github gist&lt;/h2&gt;
+
+&lt;script src=&#34;https://gist.github.com/jironghuang/357a8799e5b4423af3dc668abc25eeb7.js&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Plans for trend following strategy in futures using continuous forecast</title>
       <link>/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
       <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
@@ -1684,57 +1698,6 @@ best_match_all(df1, df2, 2, 2)&lt;/code&gt;&lt;/pre&gt;
 /html/body/div[4]/div[2]/div[1]/div[1]/div/div[2]/div[11]/div[3]/div/div/div/div[1]/div/div[1]/div[3]/a
 /html/body/div[4]/div[2]/div[1]/div[1]/div/div[2]/div[11]/div[4]/div/div/div/div[1]/div/div[1]/div[3]/a
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Free lunch does exist in Singapore - SRS analysis</title>
-      <link>/post/srs_analysis/</link>
-      <pubDate>Wed, 27 Nov 2019 11:46:49 +0800</pubDate>
-      
-      <guid>/post/srs_analysis/</guid>
-      <description>
-
-&lt;h2 id=&#34;srs-analysis&#34;&gt;SRS analysis&lt;/h2&gt;
-
-&lt;p&gt;I haven&amp;rsquo;t paid much attention to SRS contributions as a way to reduce taxable income. But lately, I realised you could boost investment portfolio returns through this avenue at literally 0 cost.&lt;/p&gt;
-
-&lt;p&gt;I find this &lt;a href=&#34;https://newacademyoffinance.com/maximize-srs-contribution-and-withdrawal/&#34;&gt;blog post&lt;/a&gt; written by a local finance blogger to be really helpful in understanding the SRS contributions and withdrawal mechanics.&lt;/p&gt;
-
-&lt;p&gt;For my own understanding, I also did some quick analysis using google sheet (see &amp;lsquo;Analysis in google sheet&amp;rsquo; section) to evaluate if this works, and to my surprise, I found that free lunch does exist in Singapore!&lt;/p&gt;
-
-&lt;h2 id=&#34;assumptions&#34;&gt;Assumptions&lt;/h2&gt;
-
-&lt;p&gt;In my analysis, I assume 7% marginal tax rate because that&amp;rsquo;s the lower bound when contributing to SRS starts to make sense - accounting for the 5% penalty for early withdrawal.&lt;/p&gt;
-
-&lt;p&gt;For robustness, I did scenario analysis across 1-10% myriad of possible invesment returns.&lt;/p&gt;
-
-&lt;p&gt;For this example, I extended the cashflow only till the 10th year.&lt;/p&gt;
-
-&lt;p&gt;Maximum allowable contribution of $15.3k/ year is used here.&lt;/p&gt;
-
-&lt;h2 id=&#34;quick-summary-of-analysis&#34;&gt;Quick summary of analysis&lt;/h2&gt;
-
-&lt;p&gt;I wouldn&amp;rsquo;t bore you with the mechanics as the steps could be found in the google sheet but I will do a quick summary of my findings.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Comparing Row C and G: Over a 10 year period - assuming you invest out of SRS regime (Row G) over within SRS regime (Row C) - you enjoy an additional terminal value of $11k - 15k.&lt;/li&gt;
-&lt;li&gt;Comparing Row D and G: Assuming a 5% early withdrawal penalty (broad stroke here because taxable income in year and amount you withdraw matters), you enjoy an additional terminal value of $3.2k - 4.4k.&lt;/li&gt;
-&lt;li&gt;Comparing Row E and B: Investment returns wise, if you ignore early withdrawal penalty, you would enjoy additional returns of 1.5 - 1.6%.&lt;/li&gt;
-&lt;li&gt;Comparing Row F and B: Accouting for withdrawal penalty, you would enjoy additional returns of 0.4 - 0.5%.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;caveat&#34;&gt;Caveat&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;You do lose some flexibility by contributing towards SRS because you aren&amp;rsquo;t able to liquidate entire SRS at a low cost. Because taxable income in year of withdrawal and amount you withdraw matter!&lt;/li&gt;
-&lt;li&gt;Investment returns could be further boosted if you withdraw at age 62 because only 50% of SRS is taxed at the prevailing retirement age when you opened your SRS account (currently at 62).&lt;/li&gt;
-&lt;li&gt;Works better for non property players with 0 rental income.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;analysis-in-google-sheet&#34;&gt;Analysis in google sheet&lt;/h2&gt;
-
-&lt;iframe src=&#34;https://docs.google.com/spreadsheets/d/e/2PACX-1vQtSJfzakpUWRkryIoXaqJm7szd-g6R1SHr-aAXAlHNOFEDXYGhCBNC9UeYEYv8cYf8krgsS6LPpED9/pubhtml?gid=802197944&amp;single=true&#34; width=&#34;900&#34; height=&#34;780&#34; style=&#34;border: none;&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
