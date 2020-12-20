@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Subscribes on Jirong&#39;s sandbox</title>
-    <link>/subscribe/</link>
+    <link>//jironghuang.github.io/subscribe/</link>
     <description>Recent content in Subscribes on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 12 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/subscribe/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//jironghuang.github.io/subscribe/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>If you&#39;re interested in the content, please subscribe here</title>
-      <link>/subscribe/subscribe/</link>
+      <link>//jironghuang.github.io/subscribe/subscribe/</link>
       <pubDate>Sun, 12 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/subscribe/subscribe/</guid>
+      <guid>//jironghuang.github.io/subscribe/subscribe/</guid>
       <description> Loading…  </description>
     </item>
     

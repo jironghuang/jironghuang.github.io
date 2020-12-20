@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on Jirong&#39;s sandbox</title>
-    <link>/tags/python/</link>
+    <link>//jironghuang.github.io/tags/python/</link>
     <description>Recent content in python on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Thu, 28 Feb 2019 23:34:32 +0800</lastBuildDate>
     
-	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//jironghuang.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hosting a Flask App on Heroku</title>
-      <link>/post/hosting-a-flask-app-on-heroku/</link>
+      <link>//jironghuang.github.io/post/hosting-a-flask-app-on-heroku/</link>
       <pubDate>Thu, 28 Feb 2019 23:34:32 +0800</pubDate>
       
-      <guid>/post/hosting-a-flask-app-on-heroku/</guid>
+      <guid>//jironghuang.github.io/post/hosting-a-flask-app-on-heroku/</guid>
       <description>Following the steps here &amp;ndash;&amp;gt; https://realpython.com/flask-by-example-part-1-project-setup/
 I managed to deploy my python flask app in Heroku.
 from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &amp;quot;Hello World!&amp;quot; @app.route(&#39;/&amp;lt;name&amp;gt;&#39;) def hello_name(name): return &amp;quot;Hello {}!&amp;quot;.format(name) if __name__ == &#39;__main__&#39;: app.run()  You may visit the following link &amp;ndash;&amp;gt;https://jirong-stage.herokuapp.com/ &amp;amp; add a suffix to it.

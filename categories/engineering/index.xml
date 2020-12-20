@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>engineering on Jirong&#39;s sandbox</title>
-    <link>/categories/engineering/</link>
+    <link>//jironghuang.github.io/categories/engineering/</link>
     <description>Recent content in engineering on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Description of algorithmic trading and portfolio management infrastructure</title>
-      <link>/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</link>
+      <link>//jironghuang.github.io/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</link>
       <pubDate>Sun, 20 Dec 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</guid>
+      <guid>//jironghuang.github.io/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</guid>
       <description>
 
 &lt;h2 id=&#34;medium-links-to-write-up-on-fully-automated-algorithmic-trading-and-portfolio-management-infrastructure&#34;&gt;Medium links to write-up on fully automated algorithmic trading and portfolio management infrastructure&lt;/h2&gt;
@@ -50,10 +50,10 @@
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
-      <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <link>//jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <guid>//jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
       <description>
 
 &lt;h2 id=&#34;developing-a-performance-monitoring-system-for-my-algorithmic-trading-system&#34;&gt;Developing a performance monitoring system for my algorithmic trading system&lt;/h2&gt;
@@ -78,7 +78,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;Some trivial code is then written to format the XML into this format below for my email notification,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;what-are-my-daily-returns-how-do-i-measure-performance-of-my-strategy-while-accounting-for-inflow-and-outflow-of-cash-into-the-account&#34;&gt;What are my daily returns? How do I measure performance of my strategy while accounting for inflow and outflow of cash into the account?&lt;/h3&gt;
 
@@ -88,7 +88,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;To do that, the system triggers a request to take an accounting snapshot of the portfolio every hour,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;But what if there is inflow and outflow of cash - you may ask? I simply rely on Time Weighted Return Formula.&lt;/p&gt;
 
@@ -106,8 +106,8 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;After all that is mentioned and done, what could I do? I could plot some fancy equity curves as shown below,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
-&lt;img src=&#34;/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
+&lt;img src=&#34;//jironghuang.github.io/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;I could also measure realized rolling volatility and do crazy stuff (but unimportant in my opinion) like fama-french 3, 5, or gazillion factors analysis.&lt;/p&gt;
 
@@ -121,16 +121,16 @@ report = FlexReport(token, queryId)
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
-      <link>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
+      <link>//jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
-      <guid>/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
+      <guid>//jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>
 
 &lt;h2 id=&#34;designing-building-and-deploying-a-fully-automated-algorithmic-trading-system&#34;&gt;Designing, Building and Deploying a Fully Automated Algorithmic Trading System&lt;/h2&gt;
@@ -191,9 +191,9 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
-&lt;img src=&#34;/post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
-&lt;img src=&#34;/post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
+&lt;img src=&#34;//jironghuang.github.io/post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
+&lt;img src=&#34;//jironghuang.github.io/post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

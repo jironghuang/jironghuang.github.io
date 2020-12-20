@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>thoughts on Jirong&#39;s sandbox</title>
-    <link>/categories/thoughts/</link>
+    <link>//jironghuang.github.io/categories/thoughts/</link>
     <description>Recent content in thoughts on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Back to Basics - Birth of an idea in the jungle</title>
-      <link>/post/birth-of-an-idea-in-the-jungle/</link>
+      <link>//jironghuang.github.io/post/birth-of-an-idea-in-the-jungle/</link>
       <pubDate>Sun, 06 Oct 2019 11:46:49 +0800</pubDate>
       
-      <guid>/post/birth-of-an-idea-in-the-jungle/</guid>
+      <guid>//jironghuang.github.io/post/birth-of-an-idea-in-the-jungle/</guid>
       <description>
 
 &lt;h2 id=&#34;birth-of-an-idea-of-all-places-in-the-jungle&#34;&gt;Birth of an idea of all places: In the Jungle&lt;/h2&gt;
@@ -61,7 +61,7 @@
 
 &lt;p&gt;Current tech stack that I use are: IB TWS, Quandl API, R, Mysql and Pushover API to notify me of the signals.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/post/img/conceptualization.jpg&#34; alt=&#34;/post/img/conceptualization.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/conceptualization.jpg&#34; alt=&#34;/post/img/conceptualization.jpg&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
