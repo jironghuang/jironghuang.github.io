@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>quant on Jirong&#39;s sandbox</title>
-    <link>//jironghuang.github.io/categories/quant/</link>
+    <link>/jironghuang.github.io/categories/quant/</link>
     <description>Recent content in quant on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Tue, 20 Oct 2020 11:50:49 +0800</lastBuildDate>
-    <atom:link href="/categories/quant/" rel="self" type="application/rss+xml" />
+    <atom:link href="/jironghuang.github.io/categories/quant/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Plans for trend following strategy in futures using continuous forecast</title>
-      <link>//jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
+      <link>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</link>
       <pubDate>Tue, 20 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</guid>
+      <guid>/jironghuang.github.io/post/plans-for-trend-following-strategy-in-futures-using-binary-forecast/</guid>
       <description>
 
 &lt;h2 id=&#34;trend-following-strategy-in-futures-using-non-binary-forecasts&#34;&gt;Trend following strategy in futures using non binary forecasts&lt;/h2&gt;
@@ -129,10 +129,10 @@ Behind paywall&lt;/li&gt;
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
-      <link>//jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <link>/jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <guid>/jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
       <description>
 
 &lt;h2 id=&#34;developing-a-performance-monitoring-system-for-my-algorithmic-trading-system&#34;&gt;Developing a performance monitoring system for my algorithmic trading system&lt;/h2&gt;
@@ -157,7 +157,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;Some trivial code is then written to format the XML into this format below for my email notification,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;what-are-my-daily-returns-how-do-i-measure-performance-of-my-strategy-while-accounting-for-inflow-and-outflow-of-cash-into-the-account&#34;&gt;What are my daily returns? How do I measure performance of my strategy while accounting for inflow and outflow of cash into the account?&lt;/h3&gt;
 
@@ -167,7 +167,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;To do that, the system triggers a request to take an accounting snapshot of the portfolio every hour,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;But what if there is inflow and outflow of cash - you may ask? I simply rely on Time Weighted Return Formula.&lt;/p&gt;
 
@@ -185,8 +185,8 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;After all that is mentioned and done, what could I do? I could plot some fancy equity curves as shown below,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
-&lt;img src=&#34;//jironghuang.github.io/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;I could also measure realized rolling volatility and do crazy stuff (but unimportant in my opinion) like fama-french 3, 5, or gazillion factors analysis.&lt;/p&gt;
 
@@ -200,16 +200,16 @@ report = FlexReport(token, queryId)
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
-      <link>//jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
+      <link>/jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
+      <guid>/jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>
 
 &lt;h2 id=&#34;designing-building-and-deploying-a-fully-automated-algorithmic-trading-system&#34;&gt;Designing, Building and Deploying a Fully Automated Algorithmic Trading System&lt;/h2&gt;
@@ -270,18 +270,18 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
-&lt;img src=&#34;//jironghuang.github.io/post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
-&lt;img src=&#34;//jironghuang.github.io/post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Could volatility targeting increase risk-adjusted returns for quantitative strategies</title>
-      <link>//jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
+      <link>/jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</link>
       <pubDate>Wed, 29 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
+      <guid>/jironghuang.github.io/post/volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-any-quant-strategies/</guid>
       <description>
 
 &lt;h2 id=&#34;volatility-targeting-could-potentially-increase-risk-adjusted-returns-for-quantitative-strategies&#34;&gt;Volatility targeting could potentially increase risk-adjusted returns for quantitative strategies&lt;/h2&gt;
@@ -325,11 +325,11 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;There are periods where portfolio risk is significantly above the 10% volatility target. Case in point during Covid sell-off? Should you be reducing risk instead?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;Equity curves and portfolio statistics are included below for benchmarking purposes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -371,7 +371,7 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher. You would also notice that the negative skewness of the strategy improved considerably from -1.14 to -0.8.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -415,11 +415,11 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;I&amp;rsquo;ve included the possibility space with respect to annualized returns, sharpe ratio, max drawdown to understand the risk-reward preferences.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
-&lt;img src=&#34;//jironghuang.github.io/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
-&lt;img src=&#34;//jironghuang.github.io/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
-&lt;img src=&#34;//jironghuang.github.io/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
-&lt;img src=&#34;//jironghuang.github.io/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
+&lt;img src=&#34;/jironghuang.github.io/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;caveat&#34;&gt;Caveat&lt;/h3&gt;
 
@@ -427,16 +427,16 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;h3 id=&#34;full-tear-sheet-of-10-volatility-target-and-max-leverage-of-1-6-included-for-reference&#34;&gt;Full tear sheet of 10% volatility target and Max leverage of 1.6 included for reference&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Framework for capital allocation</title>
-      <link>//jironghuang.github.io/post/framework-for-capital-allocation/</link>
+      <link>/jironghuang.github.io/post/framework-for-capital-allocation/</link>
       <pubDate>Thu, 16 Jul 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/framework-for-capital-allocation/</guid>
+      <guid>/jironghuang.github.io/post/framework-for-capital-allocation/</guid>
       <description>
 
 &lt;h2 id=&#34;framework-for-capital-allocation&#34;&gt;Framework for capital allocation&lt;/h2&gt;
@@ -455,10 +455,10 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
     
     <item>
       <title>Integrating volatility targeting into Jarvis, my expert advisor</title>
-      <link>//jironghuang.github.io/post/volatility-targeting/</link>
+      <link>/jironghuang.github.io/post/volatility-targeting/</link>
       <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/volatility-targeting/</guid>
+      <guid>/jironghuang.github.io/post/volatility-targeting/</guid>
       <description>
 
 &lt;h2 id=&#34;volatility-targeting&#34;&gt;Volatility targeting&lt;/h2&gt;
@@ -487,7 +487,7 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;p&gt;Here is the volatility of my levered portfolio. Notice how it spiked up 5 times in the month of March this year.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;What volatility targeting does is to supposedly to turn the volatility curve into a straight line.&lt;/p&gt;
 

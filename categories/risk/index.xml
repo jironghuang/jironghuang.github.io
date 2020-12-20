@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>risk on Jirong&#39;s sandbox</title>
-    <link>//jironghuang.github.io/categories/risk/</link>
+    <link>/jironghuang.github.io/categories/risk/</link>
     <description>Recent content in risk on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 26 Jan 2019 11:46:49 +0800</lastBuildDate>
-    <atom:link href="/categories/risk/" rel="self" type="application/rss+xml" />
+    <atom:link href="/jironghuang.github.io/categories/risk/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Martingale Strategy - Double Down</title>
-      <link>//jironghuang.github.io/post/martingale-strategy/</link>
+      <link>/jironghuang.github.io/post/martingale-strategy/</link>
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/martingale-strategy/</guid>
+      <guid>/jironghuang.github.io/post/martingale-strategy/</guid>
       <description>
 
 &lt;h2 id=&#34;martingale-strategy&#34;&gt;Martingale Strategy&lt;/h2&gt;
@@ -41,7 +41,7 @@
 
 &lt;p&gt;In the chart below, you will notice that for some runs; because of a sequence of bad luck, the losses quick spiralled!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/10_simulations.png&#34; alt=&#34;/post/img/10_simulations.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/10_simulations.png&#34; alt=&#34;/post/img/10_simulations.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;simulate-strategy-1000-runs-times-and-compute-the-mean&#34;&gt;Simulate strategy 1000 runs/ times and compute the mean&lt;/h3&gt;
 
@@ -49,9 +49,9 @@
 
 &lt;p&gt;However the the risk is enormous. Near the average 120th run, the standard deviation sky-rocketed to 120,000. I&amp;rsquo;m unsure if anyone could stomach this loss at any one point of time. The journey matters!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/1000_simulations.png&#34; alt=&#34;/post/img/1000_simulations.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/1000_simulations.png&#34; alt=&#34;/post/img/1000_simulations.png&#34;&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;//jironghuang.github.io/post/img/simulation_sd.png&#34; alt=&#34;/post/img/simulation_sd.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/img/simulation_sd.png&#34; alt=&#34;/post/img/simulation_sd.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;insights-from-this-strategy&#34;&gt;Insights from this strategy&lt;/h3&gt;
 

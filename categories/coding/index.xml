@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>coding on Jirong&#39;s sandbox</title>
-    <link>//jironghuang.github.io/categories/coding/</link>
+    <link>/jironghuang.github.io/categories/coding/</link>
     <description>Recent content in coding on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 26 Aug 2018 14:09:02 +0800</lastBuildDate>
-    <atom:link href="/categories/coding/" rel="self" type="application/rss+xml" />
+    <atom:link href="/jironghuang.github.io/categories/coding/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Naming Conventions in R. Let&#39;s call it JR Notations</title>
-      <link>//jironghuang.github.io/post/jr-naming-conventions-in-r/</link>
+      <link>/jironghuang.github.io/post/jr-naming-conventions-in-r/</link>
       <pubDate>Sun, 26 Aug 2018 14:09:02 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/jr-naming-conventions-in-r/</guid>
+      <guid>/jironghuang.github.io/post/jr-naming-conventions-in-r/</guid>
       <description>
 
 &lt;h2 id=&#34;naming-conventions-in-r-let-s-call-it-jr-notations&#34;&gt;Naming Conventions in R. Let&amp;rsquo;s call it JR Notations.&lt;/h2&gt;

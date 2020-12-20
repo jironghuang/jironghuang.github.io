@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data_analytics on Jirong&#39;s sandbox</title>
-    <link>//jironghuang.github.io/tags/data_analytics/</link>
+    <link>/jironghuang.github.io/tags/data_analytics/</link>
     <description>Recent content in data_analytics on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//jironghuang.github.io/tags/data_analytics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/tags/data_analytics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Loading excel data with correct variable types</title>
-      <link>//jironghuang.github.io/post/load_data_with_correct_types/</link>
+      <link>/jironghuang.github.io/post/load_data_with_correct_types/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>//jironghuang.github.io/post/load_data_with_correct_types/</guid>
+      <guid>/jironghuang.github.io/post/load_data_with_correct_types/</guid>
       <description>Loading data with data types When reading static files into R or Python, most of the times we are lazy as we load the data with no regard to the data types.
 But in mission critical ETL jobs or Data analytics workflow, data types are quintessential and there’s a fine line between life and death. Ok, I’m exaggerating here.
 What I’ve written below is a swiss army knife function to read an excel file: 1st tab is data and 2nd tab is the variable types (e.</description>

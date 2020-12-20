@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Jirong&#39;s sandbox</title>
-    <link>//jironghuang.github.io/project/</link>
+    <link>/jironghuang.github.io/project/</link>
     <description>Recent content in Projects on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//jironghuang.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Regime detection through hidden markov model</title>
-      <link>//jironghuang.github.io/project/hidden_markov_model/</link>
+      <link>/jironghuang.github.io/project/hidden_markov_model/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>//jironghuang.github.io/project/hidden_markov_model/</guid>
+      <guid>/jironghuang.github.io/project/hidden_markov_model/</guid>
       <description>Regime detection through hidden markov model It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.
 Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.
 Hidden markov mode is a statistical unsupervised learning model used to model states.</description>
@@ -25,50 +25,50 @@ Hidden markov mode is a statistical unsupervised learning model used to model st
     
     <item>
       <title>What&#39;re the returns (XIRR) for my CPFIS Portfolio</title>
-      <link>//jironghuang.github.io/project/xirr_cpf/</link>
+      <link>/jironghuang.github.io/project/xirr_cpf/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>//jironghuang.github.io/project/xirr_cpf/</guid>
+      <guid>/jironghuang.github.io/project/xirr_cpf/</guid>
       <description>What’re the returns (XIRR) for my CPFIS Portfolio? Note: This section is archived because I’ve diverted my CPF OA funds to Endowus (40-60 portfolio) instead. It aligns more with my philosophy of global diversification to seek higher risk adjusted returns. I realized an annualized loss of approximately of -1.5% a year. With opportunity cost of 2.5% from CPF OA, that amounts to 4% loss a year.
 I expounded my philosophy and calculated the returns of my CPFIS portfolio via XIRR (Extended Internal Rate of Returns) here.</description>
     </item>
     
     <item>
       <title>What is low - Regression Approach</title>
-      <link>//jironghuang.github.io/project/what-is-low-regression-approach/</link>
+      <link>/jironghuang.github.io/project/what-is-low-regression-approach/</link>
       <pubDate>Sat, 01 Sep 2018 21:30:46 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/project/what-is-low-regression-approach/</guid>
+      <guid>/jironghuang.github.io/project/what-is-low-regression-approach/</guid>
       <description>What is low - Regression Approach This serves as an alternate compass for me to visualize what is low. See post here for another version of compass.
 I was inspired by a post written by a local finance blogger. He used a regression line flanked by the intervals to inform whether the prices are low or not. I&amp;rsquo;m unsure what sort of intervals of intervals he used in his plots, but for my purpose I will use prediction intervals instead.</description>
     </item>
     
     <item>
       <title>Investment compass</title>
-      <link>//jironghuang.github.io/project/investment_compass_guidance/</link>
+      <link>/jironghuang.github.io/project/investment_compass_guidance/</link>
       <pubDate>Thu, 09 Aug 2018 21:30:46 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/project/investment_compass_guidance/</guid>
+      <guid>/jironghuang.github.io/project/investment_compass_guidance/</guid>
       <description>Investment Compass (Kindly wait 10 seconds for the entire app to load. Best viewed in Desktop) This serves as a compass for me to visualize the potential returns given the % fall from 52 week high. See my linkedin article here for further explanation on why I think this is a good indicator.
 The app consists of 3 tabs. The &amp;lsquo;Visualize&amp;rsquo; tab contains 3 graphs plotting % fall from 52 week high against the expected returns 1 to 3 years later.</description>
     </item>
     
     <item>
       <title>ETFs watchlist</title>
-      <link>//jironghuang.github.io/project/watch_list/</link>
+      <link>/jironghuang.github.io/project/watch_list/</link>
       <pubDate>Sun, 17 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>//jironghuang.github.io/project/watch_list/</guid>
+      <guid>/jironghuang.github.io/project/watch_list/</guid>
       <description>ETFs watchlist In my Ubunutu - Linux laptop, I wrote some R scripts to crawl the yahoo financial data. When the clock strikes midnight, my cronjob task scheduler will execute these scripts in a parallel fashion to extract the data.
 Then my script will log into my google account via SSH and paste the crawled data into 1 of the googlesheet tabs. And this is linked to my portfolio allocation, computation and milestones.</description>
     </item>
     
     <item>
       <title>Permanent Portfolio that I Implemented</title>
-      <link>//jironghuang.github.io/project/perm_port_proj/</link>
+      <link>/jironghuang.github.io/project/perm_port_proj/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>//jironghuang.github.io/project/perm_port_proj/</guid>
+      <guid>/jironghuang.github.io/project/perm_port_proj/</guid>
       <description>Portfolio Performance since 2 April 18  Include Google Sheet iframe link in future.   An all weather portfolio Note: I carried out a similar analysis as 1 of the posts I’ve written (https://jirong-huang.netlify.com/post/perm_port/). The difference is that I considered 4 assets (including T-bills) instead of 3. The performance in the post is more reflective of stress-test perfromance (Sharpe, Drawdown Ratio, etc.)
 Based on the literature, permanent portfolio is an investment strategy that is able to yield moderate returns and relatively low volatility.</description>
     </item>

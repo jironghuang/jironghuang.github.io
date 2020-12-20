@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Portfolios on Jirong&#39;s sandbox</title>
-    <link>//jironghuang.github.io/portfolio/</link>
+    <link>/jironghuang.github.io/portfolio/</link>
     <description>Recent content in Portfolios on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//jironghuang.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Performance of Fully Automated Portfolio Mgt. and Algo. Trading System (a.k.a. Jarvis)</title>
-      <link>//jironghuang.github.io/portfolio/portfolio/</link>
+      <link>/jironghuang.github.io/portfolio/portfolio/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>//jironghuang.github.io/portfolio/portfolio/</guid>
+      <guid>/jironghuang.github.io/portfolio/portfolio/</guid>
       <description>Portfolio Performance (Track record from 2020) - Blue Line against Benchmarks (VT: Global Index, EWS: Singapore Index) in other colours. Starting index of 1000 at start of year. Algorithmic trading and portfolio management architecture  As of Aug 2020, I&amp;rsquo;ve fully automated my trading &amp;amp; portfolio management. See here (https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620) for the full architecture. Peformance monitoring component of Jarvis is explained here (https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-88f5afae05cd) &amp;amp; (https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-983368441bba) As much as possible, I will try to live by this mantra: Anything that can&amp;rsquo;t be automated doesn&amp;rsquo;t have a place in my portfolio.</description>
     </item>
     

@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>engineering on Jirong&#39;s sandbox</title>
-    <link>//jironghuang.github.io/tags/engineering/</link>
+    <link>/jironghuang.github.io/tags/engineering/</link>
     <description>Recent content in engineering on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 20 Dec 2020 11:50:49 +0800</lastBuildDate>
     
-	<atom:link href="//jironghuang.github.io/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/jironghuang.github.io/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Description of algorithmic trading and portfolio management infrastructure</title>
-      <link>//jironghuang.github.io/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</link>
+      <link>/jironghuang.github.io/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</link>
       <pubDate>Sun, 20 Dec 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</guid>
+      <guid>/jironghuang.github.io/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</guid>
       <description>Medium links to write-up on fully automated algorithmic trading and portfolio management infrastructure Algorithmic trading infrastructure for non options and options strategies  Designing, Building and Deploying a Fully Automated Algorithmic Trading System: link How to place option spread (e.g. straddle) through Interactive Brokers API, a 101 tutorial: link
   Performance monitoring features in fully automated algorithmic trading and portfolio management infrastructure  Developing a performance monitoring component in my fully automated algorithmic trading system (part 1): link</description>
     </item>
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
-      <link>//jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
+      <link>/jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
+      <guid>/jironghuang.github.io/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</guid>
       <description>Developing a performance monitoring system for my algorithmic trading system It&amp;rsquo;s one thing to backtest your signals and forecasts on historical data but it&amp;rsquo;s a completely different animal in terms of execution. I have written about this here.
 Another important component of setting up an algorithmic trading system is performance monitoring. Some important questions I had in mind while developing this component,
  How do I measure my slippage? Commissions paid?</description>
@@ -35,10 +35,10 @@ Another important component of setting up an algorithmic trading system is perfo
     
     <item>
       <title>Designing, Building and Deploying a Fully Automated Algorithmic Trading System</title>
-      <link>//jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
+      <link>/jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</link>
       <pubDate>Mon, 24 Aug 2020 11:50:49 +0800</pubDate>
       
-      <guid>//jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
+      <guid>/jironghuang.github.io/post/developing-an-accounting-and-performance-monitoring-system-for-my-algorithmic-trading-system/</guid>
       <description>Designing, Building and Deploying a Fully Automated Algorithmic Trading System As I developed several inter-day trading/ portfolio management algorithms, I also embarked on a journey in parallel to develop a fully automated execution framework that could satisfy my requirements.
 Previously orders were executed manually after signals are generated automatically.
 Requirements  A relatively slow trading system triggered by an hourly task scheduler during trading hours. I’m using Linux cron jobs for this.</description>
