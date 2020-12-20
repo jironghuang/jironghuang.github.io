@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>risk on Jirong&#39;s sandbox</title>
-    <link>/jironghuang.github.io/tags/risk/</link>
+    <link>/tags/risk/</link>
     <description>Recent content in risk on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 26 Jan 2019 11:46:49 +0800</lastBuildDate>
     
-	<atom:link href="/jironghuang.github.io/tags/risk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/risk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Martingale Strategy - Double Down</title>
-      <link>/jironghuang.github.io/post/martingale-strategy/</link>
+      <link>/post/martingale-strategy/</link>
       <pubDate>Sat, 26 Jan 2019 11:46:49 +0800</pubDate>
       
-      <guid>/jironghuang.github.io/post/martingale-strategy/</guid>
+      <guid>/post/martingale-strategy/</guid>
       <description>Martingale Strategy In this post, I will simulate a martingale strategy in Roulette&amp;rsquo;s context to highlight the potential risks associated with this strategy.
 Double down! That&amp;rsquo;s essentially the essence of it.
 Here&amp;rsquo;s a simple explanation of the strategy,

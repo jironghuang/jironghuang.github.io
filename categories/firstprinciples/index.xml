@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>firstPrinciples on Jirong&#39;s sandbox</title>
-    <link>/jironghuang.github.io/categories/firstprinciples/</link>
+    <link>/categories/firstprinciples/</link>
     <description>Recent content in firstPrinciples on Jirong&#39;s sandbox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/jironghuang.github.io/categories/firstprinciples/" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/firstprinciples/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using exponential distribution to estimate frequency of occurence</title>
-      <link>/jironghuang.github.io/post/exp_distrib/</link>
+      <link>/post/exp_distrib/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/post/exp_distrib/</guid>
+      <guid>/post/exp_distrib/</guid>
       <description>
 
 
@@ -115,10 +115,10 @@ head(sim_repair_time, 50)&lt;/code&gt;&lt;/pre&gt;
 sim_repair_time$year_spoilt = sim_repair_time$spoilt_years_later + as.numeric(sim_repair_time$year)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is the distribution of years taken that a computer will break down.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(sim_repair_time$spoilt_years_later)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/exp_distrib_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/exp_distrib_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;And here is the distribution of the years that the computer will break down.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(sim_repair_time$year_spoilt)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/exp_distrib_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/exp_distrib_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;explaining-exponential-distribution-from-first-principle&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Explaining exponential distribution from first principle&lt;/h2&gt;
@@ -129,7 +129,7 @@ sim_repair_time$year_spoilt = sim_repair_time$spoilt_years_later + as.numeric(si
 &lt;p&gt;And if you do a mean of the simulated data, it will return close to the mean of 7&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data = rexp(1000, 1/7)
 hist(data)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/jironghuang.github.io/post/exp_distrib_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../post/exp_distrib_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(data)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 6.775649&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I hope this simple example here is useful!&lt;/p&gt;
@@ -139,10 +139,10 @@ hist(data)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Sampling With Replacement Through First Principles</title>
-      <link>/jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</link>
+      <link>/post/sampling-with-replacement-through-first-principles/</link>
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/jironghuang.github.io/post/sampling-with-replacement-through-first-principles/</guid>
+      <guid>/post/sampling-with-replacement-through-first-principles/</guid>
       <description>
 
 &lt;h1 id=&#34;sampling-with-replacement&#34;&gt;Sampling with replacement&lt;/h1&gt;
