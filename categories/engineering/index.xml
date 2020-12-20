@@ -7,8 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 06 Oct 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 11:50:49 +0800</lastBuildDate>
     <atom:link href="/categories/engineering/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Description of algorithmic trading and portfolio management infrastructure</title>
+      <link>/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</link>
+      <pubDate>Sun, 20 Dec 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</guid>
+      <description>
+
+&lt;h2 id=&#34;medium-links-to-write-up-on-fully-automated-algorithmic-trading-and-portfolio-management-infrastructure&#34;&gt;Medium links to write-up on fully automated algorithmic trading and portfolio management infrastructure&lt;/h2&gt;
+
+&lt;h3 id=&#34;algorithmic-trading-infrastructure-for-non-options-and-options-strategies&#34;&gt;Algorithmic trading infrastructure for non options and options strategies&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Designing, Building and Deploying a Fully Automated Algorithmic Trading System:
+&lt;a href=&#34;https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620&#34;&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;How to place option spread (e.g. straddle) through Interactive Brokers API, a 101 tutorial: &lt;a href=&#34;https://medium.com/datadriveninvestor/how-to-place-option-spread-e-g-straddle-through-interactive-brokers-api-a-101-tutorial-aca2a0be3737&#34;&gt;link&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;performance-monitoring-features-in-fully-automated-algorithmic-trading-and-portfolio-management-infrastructure&#34;&gt;Performance monitoring features in fully automated algorithmic trading and portfolio management infrastructure&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Developing a performance monitoring component in my fully automated algorithmic trading system (part 1):
+&lt;a href=&#34;https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-88f5afae05cd&#34;&gt;link&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Developing a performance monitoring component in my fully automated algorithmic trading system (part 2):
+&lt;a href=&#34;https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-983368441bba&#34;&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Developing a performance monitoring component in my fully automated algorithmic trading system (Part 3):
+&lt;a href=&#34;https://medium.com/datadriveninvestor/performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-part-3-3d41f14005&#34;&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;hedging-against-foreign-exposure&#34;&gt;Hedging against foreign exposure&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Deploying a hedging mechanism for foreign exposure in fully automated algorithmic trading system:
+&lt;a href=&#34;https://medium.com/datadriveninvestor/deploying-a-hedging-feature-for-foreign-exposure-in-fully-automated-algorithmic-trading-system-8db31f50d3ad&#34;&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>

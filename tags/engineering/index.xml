@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 06 Oct 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 11:50:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Description of algorithmic trading and portfolio management infrastructure</title>
+      <link>/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</link>
+      <pubDate>Sun, 20 Dec 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</guid>
+      <description>Medium links to write-up on fully automated algorithmic trading and portfolio management infrastructure Algorithmic trading infrastructure for non options and options strategies  Designing, Building and Deploying a Fully Automated Algorithmic Trading System: link How to place option spread (e.g. straddle) through Interactive Brokers API, a 101 tutorial: link
+  Performance monitoring features in fully automated algorithmic trading and portfolio management infrastructure  Developing a performance monitoring component in my fully automated algorithmic trading system (part 1): link</description>
+    </item>
     
     <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
