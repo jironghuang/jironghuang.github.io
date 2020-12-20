@@ -286,8 +286,8 @@ print(data)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;To start using this package, you may first install the devtools package and execute the following command. install_github(&amp;ldquo;jironghuang/RemoveExchangeRateEffects&amp;rdquo;). The R documentation is as follows,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
-&lt;img src=&#34;../../post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/exch_documentation1.png&#34; alt=&#34;/post/img/exch_documentation1.png&#34;&gt;
+&lt;img src=&#34;/post/img/exch_documentation2.png&#34; alt=&#34;/post/img/exch_documentation2.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;You may follow the 2 examples to better understand how this package works.&lt;/p&gt;
 

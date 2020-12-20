@@ -29,7 +29,7 @@
 &lt;div id=&#34;output-as-of-16-march-2020&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Output as of 16 March 2020&lt;/h2&gt;
 &lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/li&gt;
@@ -179,7 +179,7 @@ plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;output-updated-daily&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Output updated daily&lt;/h2&gt;
 &lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note: I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;code&#34; class=&#34;section level2&#34;&gt;
@@ -564,7 +564,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -620,7 +620,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-05-11 2017-08-02 2018-01-09 -0.0622    164        57      107
@@ -745,7 +745,7 @@ if(as.numeric(data_sub$ratio[nrow(data_sub)]) &amp;gt; as.numeric(data_sub$up[nr
 
 &lt;p&gt;On a separate note, I also run market neutral strategies to try and profit in all economic climates. Returns from this section will tend to be lesser than my overall portfolio unless I leverage significantly. These are documented under &lt;a href=&#34;https://jironghuang.github.io/skin/skin-in-the-game/&#34;&gt;&amp;lsquo;Skin in the game&amp;rsquo;&lt;/a&gt; section of my blog.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/jarvis.png&#34; alt=&#34;/post/img/jarvis.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/jarvis.png&#34; alt=&#34;/post/img/jarvis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;snippets-of-my-jarvis&#34;&gt;Snippets of my Jarvis&lt;/h2&gt;
 
@@ -894,7 +894,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -950,7 +950,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
@@ -1194,7 +1194,7 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 ## 
 ## This message is shown once per session and may be disabled by setting
 ## options(&amp;quot;getSymbols.yahoo.warning&amp;quot;=FALSE).&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;../../post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;displaying-of-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Displaying of results&lt;/h2&gt;
@@ -2778,7 +2778,7 @@ NA
 
 &lt;div id=&#34;updated-etf-watchlist-project&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Updated ETF watchlist project&lt;/h2&gt;
-&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;../../project/watch_list&#34;&gt;here&lt;/a&gt; if you haven’t seen it yet)&lt;/p&gt;
+&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;/project/watch_list&#34;&gt;here&lt;/a&gt; if you haven’t seen it yet)&lt;/p&gt;
 &lt;p&gt;You may find the github code &lt;a href=&#34;https://github.com/jironghuang/ETF_watchlist&#34;&gt;here&lt;/a&gt;. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.&lt;/p&gt;
 &lt;p&gt;To create your own watchlist. Follow these steps,&lt;/p&gt;
 &lt;ul&gt;
@@ -2805,7 +2805,7 @@ NA
 
 &lt;h2 id=&#34;updated-etf-watchlist-project&#34;&gt;Updated ETF watchlist project&lt;/h2&gt;
 
-&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;../../project/watch_list&#34;&gt;here&lt;/a&gt; if you haven&amp;rsquo;t seen it yet)&lt;/p&gt;
+&lt;p&gt;While watching a world cup match today, I updated my ETF watchlist project (you may click &lt;a href=&#34;/project/watch_list&#34;&gt;here&lt;/a&gt; if you haven&amp;rsquo;t seen it yet)&lt;/p&gt;
 
 &lt;p&gt;You may find the github code &lt;a href=&#34;https://github.com/jironghuang/ETF_watchlist&#34;&gt;here&lt;/a&gt;. In the revision, I parallelized the crawling - essentially tapping on all the cores in my machines.&lt;/p&gt;
 
@@ -2863,7 +2863,7 @@ ggplot(data = dat_long,
        aes(x = year, y = value, colour = variable)) +
        geom_line() + scale_x_continuous(breaks = seq(1990, 2017, 2)) +
        labs(x=&amp;quot;Year&amp;quot;,y=&amp;quot;Percentage&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/buffett_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/buffett_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

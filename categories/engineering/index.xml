@@ -78,7 +78,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;Some trivial code is then written to format the XML into this format below for my email notification,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/Slippage.png&#34; alt=&#34;/post/img/Slippage.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;what-are-my-daily-returns-how-do-i-measure-performance-of-my-strategy-while-accounting-for-inflow-and-outflow-of-cash-into-the-account&#34;&gt;What are my daily returns? How do I measure performance of my strategy while accounting for inflow and outflow of cash into the account?&lt;/h3&gt;
 
@@ -88,7 +88,7 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;To do that, the system triggers a request to take an accounting snapshot of the portfolio every hour,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/snapshot.png&#34; alt=&#34;/post/img/snapshot.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;But what if there is inflow and outflow of cash - you may ask? I simply rely on Time Weighted Return Formula.&lt;/p&gt;
 
@@ -106,8 +106,8 @@ report = FlexReport(token, queryId)
 
 &lt;p&gt;After all that is mentioned and done, what could I do? I could plot some fancy equity curves as shown below,&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
-&lt;img src=&#34;../../post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/strategy1_equity_curve.png&#34; alt=&#34;/post/img/strategy1_equity_curve.png&#34;&gt;
+&lt;img src=&#34;/post/img/strategy2_equity_curve.png&#34; alt=&#34;/post/img/strategy2_equity_curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;I could also measure realized rolling volatility and do crazy stuff (but unimportant in my opinion) like fama-french 3, 5, or gazillion factors analysis.&lt;/p&gt;
 
@@ -121,7 +121,7 @@ report = FlexReport(token, queryId)
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/accounting.png&#34; alt=&#34;/post/img/accounting.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -191,9 +191,9 @@ Cancel any open orders. I adopt this option instead of ‘modifying orders’ as
 
 &lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
-&lt;img src=&#34;../../post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
-&lt;img src=&#34;../../post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/prog1.png&#34; alt=&#34;/post/img/prog1.png&#34;&gt;
+&lt;img src=&#34;/post/img/prog2.png&#34; alt=&#34;/post/img/prog2.png&#34;&gt;
+&lt;img src=&#34;/post/img/flow1.jpeg&#34; alt=&#34;/post/img/flow1.jpeg&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

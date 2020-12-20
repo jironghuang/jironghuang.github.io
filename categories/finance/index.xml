@@ -110,7 +110,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -166,7 +166,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewg_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-05-11 2017-08-02 2018-01-09 -0.0622    164        57      107
@@ -323,7 +323,7 @@ plot(data_sub$ratio)
 lines(data_sub$mavg, col = &amp;quot;red&amp;quot;)
 lines(data_sub$up, col = &amp;quot;blue&amp;quot;)
 lines(data_sub$dn, col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#If lower than 
 data_sub$longs &amp;lt;- data_sub$ratio &amp;lt;= data_sub$dn # buy spread when its value drops below 2 standard deviations.
 data_sub$shorts &amp;lt;- data_sub$ratio &amp;gt;= data_sub$up # short spread when its value rises above 2 standard deviations.
@@ -379,7 +379,7 @@ data_sub$pnl = lag(data_sub$position1, 1) * data_sub$dailyret1  + lag(data_sub$p
 tryCatch({
   charts.PerformanceSummary(data_sub$pnl)
 }, error = function(e){})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_ewu_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table.Drawdowns(data_sub$pnl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##         From     Trough         To   Depth Length To Trough Recovery
 ## 1 2017-12-13 2018-02-01 2018-03-27 -0.0703     70        33       37
@@ -623,7 +623,7 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 ## 
 ## This message is shown once per session and may be disabled by setting
 ## options(&amp;quot;getSymbols.yahoo.warning&amp;quot;=FALSE).&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;../../post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/market_neutral_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;displaying-of-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Displaying of results&lt;/h2&gt;
@@ -679,8 +679,8 @@ res = lf_bollinger_pair_trading(stock1, stock2, start_date, end_date, prop_res, 
 
 &lt;p&gt;Results are pretty good with a healthy sharpe ratio of 2.7 in the training set and 1.6 in the testing set of data. Annualized return is approximately 26% (translates to 2600 dollars) for the test set.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/equity_curve.png&#34; alt=&#34;/post/img/equity_curve.png&#34;&gt;
-&lt;img src=&#34;../../post/img/summary_stats.png&#34; alt=&#34;/post/img/summary_stats.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/equity_curve.png&#34; alt=&#34;/post/img/equity_curve.png&#34;&gt;
+&lt;img src=&#34;/post/img/summary_stats.png&#34; alt=&#34;/post/img/summary_stats.png&#34;&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;rm(list=ls()) # clear workspace
 

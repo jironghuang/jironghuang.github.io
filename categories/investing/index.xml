@@ -176,11 +176,11 @@ Behind paywall&lt;/li&gt;
 
 &lt;p&gt;There are periods where portfolio risk is significantly above the 10% volatility target. Case in point during Covid sell-off? Should you be reducing risk instead?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/volatility curve.png&#34; alt=&#34;/post/img/volatility curve.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;Equity curves and portfolio statistics are included below for benchmarking purposes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/raw_portfolio.png&#34; alt=&#34;/post/img/raw_portfolio.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -222,7 +222,7 @@ Behind paywall&lt;/li&gt;
 
 &lt;p&gt;Based on the equity curve and portfolio statistics below, the answer to the question posed earlier in the section is a resounding YES! It&amp;rsquo;s risk-reducing and returns enhancing to target volatility. Risk adjusted returns (Sharpe ratio) increased by 10% (1.62 to 1.79) and Return/ Max Drawdown is considerably higher. You would also notice that the negative skewness of the strategy improved considerably from -1.14 to -0.8.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/curve_lev.png&#34; alt=&#34;/post/img/curve_lev.png&#34;&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -266,11 +266,11 @@ Behind paywall&lt;/li&gt;
 
 &lt;p&gt;I&amp;rsquo;ve included the possibility space with respect to annualized returns, sharpe ratio, max drawdown to understand the risk-reward preferences.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
-&lt;img src=&#34;../../post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
-&lt;img src=&#34;../../post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
-&lt;img src=&#34;../../post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
-&lt;img src=&#34;../../post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/Returns.png&#34; alt=&#34;/post/img/Returns.png&#34;&gt;
+&lt;img src=&#34;/post/img/sharpe.png&#34; alt=&#34;/post/img/sharpe.png&#34;&gt;
+&lt;img src=&#34;/post/img/drawdown.png&#34; alt=&#34;/post/img/drawdown.png&#34;&gt;
+&lt;img src=&#34;/post/img/skewness.png&#34; alt=&#34;/post/img/skewness.png&#34;&gt;
+&lt;img src=&#34;/post/img/kurtosis.png&#34; alt=&#34;/post/img/kurtosis.png&#34;&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;caveat&#34;&gt;Caveat&lt;/h3&gt;
 
@@ -278,7 +278,7 @@ Behind paywall&lt;/li&gt;
 
 &lt;h3 id=&#34;full-tear-sheet-of-10-volatility-target-and-max-leverage-of-1-6-included-for-reference&#34;&gt;Full tear sheet of 10% volatility target and Max leverage of 1.6 included for reference&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/tear_sheet.png&#34; alt=&#34;/post/img/tear_sheet.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -338,7 +338,7 @@ Behind paywall&lt;/li&gt;
 
 &lt;p&gt;Here is the volatility of my levered portfolio. Notice how it spiked up 5 times in the month of March this year.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/vol_target.png&#34; alt=&#34;/post/img/vol_target.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;What volatility targeting does is to supposedly to turn the volatility curve into a straight line.&lt;/p&gt;
 

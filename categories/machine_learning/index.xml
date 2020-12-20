@@ -28,7 +28,7 @@
 
 &lt;p&gt;~ Jirong&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../post/img/email.png&#34; alt=&#34;/post/img/email.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/img/email.png&#34; alt=&#34;/post/img/email.png&#34;&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;import smtplib, ssl
 import datetime
