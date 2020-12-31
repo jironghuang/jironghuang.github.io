@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 20 Dec 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Dec 2020 11:50:49 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Highlights of 2020</title>
+      <link>/post/highlights-of-2020/</link>
+      <pubDate>Thu, 31 Dec 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/highlights-of-2020/</guid>
+      <description>Highlights of 2020  Developed forecasting system for hotel room supply and demand for COVID workstream in my previous day job. That&amp;rsquo;s meaningful! Quit my data scientist job in middle of 2020 to try and pursue a quantitative finance, systematic trading path. Spent the next half of year exploring and building up infrastructure for fully automated algorithmic trading and portfolio management. Deployed 3 trading strategies with 1 currency hedging feature.</description>
+    </item>
     
     <item>
       <title>Description of algorithmic trading and portfolio management infrastructure</title>
