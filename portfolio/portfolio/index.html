@@ -339,7 +339,7 @@
 
 <p><img src="/portfolio/combined_equity_curve.png" alt="/portfolio/combined_equity_curve.png"></p>
 
-<h3 id="risk-parity-portfolio">Risk parity portfolio</h3>
+<h3 id="risk-parity-portfolio-10-volatility">Risk parity portfolio (10% volatility)</h3>
 
 <p><img src="/portfolio/risk_parity_equity_curve.png" alt="/portfolio/risk_parity_equity_curve.png"></p>
 
@@ -347,11 +347,16 @@
 
 <p><img src="/portfolio/vol_risk_prem_equity_curve.png" alt="/portfolio/vol_risk_prem_equity_curve.png"></p>
 
+<h3 id="option-strategies-yet-to-create-performance-monitoring-feature">Option strategies (yet to create performance monitoring feature)</h3>
+
+<h3 id="hedging-profits-yet-to-create-performance-monitoring-feature">Hedging profits (yet to create performance monitoring feature)</h3>
+
 <h2 id="algorithmic-trading-and-portfolio-management-architecture">Algorithmic trading and portfolio management architecture</h2>
 
 <ul>
-<li>As of Aug 2020, I&rsquo;ve fully automated my trading &amp; portfolio management. See here (<a href="https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620" target="_blank">https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620</a>) for the full architecture.</li>
-<li>Peformance monitoring component of Jarvis is explained here (<a href="https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-88f5afae05cd" target="_blank">https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-88f5afae05cd</a>) &amp; (<a href="https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-983368441bba" target="_blank">https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-983368441bba</a>)</li>
+<li>As of Sep 2020, I&rsquo;ve fully automated my trading &amp; portfolio management. See here (<a href="https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620" target="_blank">https://medium.com/datadriveninvestor/designing-and-building-a-fully-automated-algorithmic-trading-portfolio-management-system-6945c6c87620</a>) for the full architecture.</li>
+<li>Peformance monitoring component of Jarvis is explained here (<a href="https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-88f5afae05cd" target="_blank">https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-88f5afae05cd</a>) &amp; (<a href="https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-983368441bba" target="_blank">https://medium.com/datadriveninvestor/developing-a-performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-983368441bba</a>) &amp; (<a href="https://medium.com/datadriveninvestor/performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-part-3-3d41f14005" target="_blank">https://medium.com/datadriveninvestor/performance-monitoring-component-in-my-fully-automated-algorithmic-trading-system-part-3-3d41f14005</a>)</li>
+<li>Forex hedging feature (<a href="https://medium.com/datadriveninvestor/deploying-a-hedging-feature-for-foreign-exposure-in-fully-automated-algorithmic-trading-system-8db31f50d3ad" target="_blank">https://medium.com/datadriveninvestor/deploying-a-hedging-feature-for-foreign-exposure-in-fully-automated-algorithmic-trading-system-8db31f50d3ad</a>)</li>
 <li>As much as possible, I will try to live by this mantra: Anything that can&rsquo;t be automated doesn&rsquo;t have a place in my portfolio.</li>
 <li>This radical approach was undertaken to completely remove my cognitive bias/ emotions for better sustainable investment performance.</li>
 </ul>
@@ -361,6 +366,7 @@
 <p>The objective of the portfolio is to achieve the following against the benchmarks in a year,</p>
 
 <ul>
+<li>Positive month</li>
 <li>Highest daily win rates in positive periods</li>
 <li>Highest sharpe ratio</li>
 <li>Highest sortino ratio</li>
@@ -370,6 +376,8 @@
 <li>Low beta against benchmarks (&lt;= 0.25): Target to maintain beta at around 0.15-0.25 range.</li>
 <li>10% volatility target or less: The key is to limit the volatility analagous to the odds of flipping a biased coin towards your favour with equal payout. At any day, you wouldn&rsquo;t know if you will win or lose but you do know you will win 60-70% of the time.</li>
 </ul>
+
+<p>Note: Targeting 100% annual win rate, then quarterly win rate, then weekly win rate, then daily win rate.</p>
 
 <p>Goal of my portfolio is to go against conventional wisdom of higher risk, higher returns through a risk parity approach. It&rsquo;s entirely possible to engineer higher returns with lower risk (lower standard deviation, downward deviation and drawdowns).</p>
 
@@ -383,9 +391,8 @@
 
 <ul>
 <li>Core asset allocation is inspired by Ray Dalio and determined programatically by risk parity algorithms.<br /></li>
-<li>Volatility risk premium tail hedge strategy (5% of portfolio)</li>
-<li>Carry &amp; momentum trading in commodities and currencies using dated futures &amp; dated CFDs (In development phase - scaling up to 5 - 7.5%/10%/20% of portfolio in the long run)</li>
-<li>Mean reversion market neutral strategies (put on hold as of now while I developed fully automated infrastructure for pair/triplets and currency/ index arbitrage)</li>
+<li>Volatility risk premium tail hedge strategy</li>
+<li>Systematic options trading</li>
 </ul>
 
 <p>Further algorithmic toolkits are developed (some elements may be incorporated but not used completely),</p>
@@ -404,6 +411,7 @@
 
 <ul>
 <li>As it stands, 100% of my net worth is devoted to mentioned strategies above. It aligns with my core belief that any analysis should be accompanied with skin in the game. There&rsquo;s no room for armchair economist talk that is so prevalent in this environment. How you structure your portfolio should reflect your view of the world.<br /></li>
+<li>Goal is to create a smooth and upward sloping equity curve designed to be an ATM to meet my expenses and financial obligations</li>
 </ul>
 
 <h3 id="future-developments">Future developments</h3>
@@ -411,11 +419,11 @@
 <p>Besides diversifying across asset classes, I&rsquo;m keen to also diversify across multiple trading strategies,</p>
 
 <ul>
-<li>Options trading (e.g. covered call, cash secured put, iron condors, call spreads, long spreads, etc)</li>
+<li>Options trading</li>
 <li>Momentum (diversifying across timeframes)</li>
 <li>Factors</li>
 <li>Carry (futures)</li>
-<li>Currency trading - mean reversion and momentum</li>
+<li>Currency trading - mean reversion, momentum and economics data</li>
 <li>Alternative data</li>
 <li>Cryptocurrency</li>
 <li>Economic data</li>
@@ -423,9 +431,19 @@
 <li>HFT order book depth</li>
 </ul>
 
+<h3 id="2021">2021</h3>
+
+<p>Fully automated since Sep-2021
+To do list: Futures-related strategies, Mean-reversion strategies, Momentum strategies in stocks (Andrea Clenow)
+Now that I&rsquo;ve finalised my core portfolio, I will focus on strategies with fix capital sizing and discrete in nature. Profits from these strategies will feed into the core portfolio like a self-reinforcing machine.</p>
+
+<ul>
+<li>Jan 2021</li>
+</ul>
+
 <h3 id="2020">2020</h3>
 
-<p>I&rsquo;ve adopted a risk parity approach from 2020 onwards.</p>
+<p>I&rsquo;ve adopted a risk parity approach + other strategies from 2020 onwards.</p>
 
 <p>+1 indicates achieved goals, % refers to monthly change</p>
 
@@ -437,11 +455,11 @@
 <li>May 2020 (+1, monthly change +0.34%) - Positive month. Hedges to reach volatility target of 15% completely removed as portfolio volatility dwindles. Far out of the money put options (30% below market price) that costs around 0.1% on a monthly basis is integrated into the portfolio. Changed benchmark of SnP 500 to EWS (Singapore etf) as I think it&rsquo;s a better benchmark given that&rsquo;s my home country.</li>
 <li>June 2020 (+1, monthly change +2.07%) - Positive month. Added covered call strategy (potentially additional 6% inversely correlated returns stream to market) Tweaked the system in such a way that if put options are cheap enough to be purchased, use 15% volatility target. Else use 10% volatility target. Removed far out of the money options strategy because it&rsquo;s too costly to hedge.<br /></li>
 <li>July 2020 (+1, monthly change +6.69%) - Positive record-breaking month. Developed a full risk parity model (equal risk across asset classes) in incubation period. To be deployed after Aug 21. Signals are generated programmatically daily and to be deployed manually. Automated deployment infrastructure is still in the works.</li>
-<li>Aug 2020 (+1, monthly change -1.09%) - Negative month because of Gold and Market Neutral Strategies. Deployed a Minimimum Viable Product for fully automated algorithmic trading infrastructure. Additional features in the backlog. Deploying Volatility Risk Premium model for hedging purposes next. To keep an approximate 5% of portfolio in this strategy. Phased out covered call strategy because it can&rsquo;t be automated.</li>
-<li>Sep 2020 (+1, monthly change -1.52%) - Negative month due to correction in equties but still approx 5.5% year to date. Drawdown is 3 times lesser than global benchmark. 2nd month of implementing 2 fully automated algorithmic trading strategies. Keen to add a third one using expiring CFDs in Saxo based on Time Series Momentum (TSMOM) and ex-MAN AHL quant Robert Carver Systematic trading framework. Probably based on a continuous forecasting based system rather than a binary take profit - stop loss system. Expected sharpe of 0.5 - seems low but it has positive expected returns with low to inverse correlation with core risk parity portfolio. In addition, commodities other than Gold is missing from my portfolio and an active strategy for this asset class of approx 5-7.5% would be a good fit in jarvis.</li>
-<li>Oct 2020 (+1, monthly change +0.68%) - Positive month. Slight recovery. Good progress this month and glad that the defensive nature of the portfolio is able to counter the onslaught of correction from the equity market. 3rd month of sticking to the fully automated system with no human intervention. May increase leverage cap from 1.8 to 2.0 after president election in order to reduce the negative skew nature of the risk-parity strategy. Still in the midst of developing a trend following strategy in futures market.<br /></li>
+<li>Aug 2020 (+1, monthly change -0.88%) - Negative month because of Gold and Market Neutral Strategies. Deployed a Minimimum Viable Product for fully automated algorithmic trading infrastructure. Additional features in the backlog. Deploying Volatility Risk Premium model for hedging purposes next. To keep an approximate 5% of portfolio in this strategy. Phased out covered call strategy because it can&rsquo;t be automated.</li>
+<li>Sep 2020 (+1, monthly change -1.61%) - Negative month due to correction in equties but still approx 5.5% year to date. Drawdown is 3 times lesser than global benchmark. 2nd month of implementing 2 fully automated algorithmic trading strategies. Keen to add a third one using expiring CFDs in Saxo based on Time Series Momentum (TSMOM) and ex-MAN AHL quant Robert Carver Systematic trading framework. Probably based on a continuous forecasting based system rather than a binary take profit - stop loss system. Expected sharpe of 0.5 - seems low but it has positive expected returns with low to inverse correlation with core risk parity portfolio. In addition, commodities other than Gold is missing from my portfolio and an active strategy for this asset class of approx 5-7.5% would be a good fit in jarvis.</li>
+<li>Oct 2020 (+1, monthly change +0.41%) - Positive month. Slight recovery. Good progress this month and glad that the defensive nature of the portfolio is able to counter the onslaught of correction from the equity market. 3rd month of sticking to the fully automated system with no human intervention. May increase leverage cap from 1.8 to 2.0 after president election in order to reduce the negative skew nature of the risk-parity strategy. Still in the midst of developing a trend following strategy in futures market.<br /></li>
 <li>Nov 2020 (+1, monthly change +0.11%) - Positive month. Huge currency drag. Busy with school work; hence did not work much on jarvis.</li>
-<li>Dec 2020 (+1, monthly change +3.65%) - Positive monster month. Incorporated currency hedging feature (which was a huge drag in last few months). And also deployed automated short options strategy that is likely to contribute approximately 3-5% to overall portfolio returns. Archiving trend following in futures at the moment because sharpe is disappointing after 2010. Will relook into the strategy soon. To further improve volatility risk premium strategy and infrastructure of options strategy (use adaptive limit or market orders in patient mode).<br /></li>
+<li>Dec 2020 (+1, monthly change +3.89%) - Positive monster month. Incorporated currency hedging feature (which was a huge drag in last few months). And also deployed automated short options strategy that is likely to contribute approximately 3-5% to overall portfolio returns. Archiving trend following in futures at the moment because sharpe is disappointing after 2010. Will relook into the strategy soon. To further improve volatility risk premium strategy and infrastructure of options strategy (use adaptive limit or market orders in patient mode).<br /></li>
 </ul>
 
 <h4 id="portfolio-in-blue-benchmarks-in-other-colours">Portfolio in blue. Benchmarks in other colours</h4>
