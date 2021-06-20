@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 29 Sep 2019 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Dec 2020 11:50:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/database/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Nifty database framework</title>
+      <link>/post/database-framework/</link>
+      <pubDate>Thu, 31 Dec 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/database-framework/</guid>
+      <description>Database framework for sql queries, execute and rollbacks In database management, it&amp;rsquo;s useful to define atomic blocks. And let&amp;rsquo;s say if something fails within this block, you can always revert to the initial state before any of the transaction happens.
+Below is a nifty framework,
+ Execute the query while not changing the state in the database. If there&amp;rsquo;re any errors along within the atomic block, you capture the error under exception area.</description>
+    </item>
     
     <item>
       <title>Setting up a database for my Jarvis</title>

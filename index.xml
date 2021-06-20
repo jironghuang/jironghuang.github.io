@@ -45,6 +45,49 @@
     </item>
     
     <item>
+      <title>Nifty database framework</title>
+      <link>/post/database-framework/</link>
+      <pubDate>Thu, 31 Dec 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/database-framework/</guid>
+      <description>
+
+&lt;h2 id=&#34;database-framework-for-sql-queries-execute-and-rollbacks&#34;&gt;Database framework for sql queries, execute and rollbacks&lt;/h2&gt;
+
+&lt;p&gt;In database management, it&amp;rsquo;s useful to define atomic blocks. And let&amp;rsquo;s say if something fails within this block, you can always revert to the initial state before any of the transaction happens.&lt;/p&gt;
+
+&lt;p&gt;Below is a nifty framework,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Execute the query while not changing the state in the database.&lt;/li&gt;
+&lt;li&gt;If there&amp;rsquo;re any errors along within the atomic block, you capture the error under exception area. And rollback to the initial state.&lt;/li&gt;
+&lt;li&gt;If everything goes well, commit the cached queries to the database.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;Exceptions = []
+
+for i in range(3):
+
+    try:
+        i/0
+        print(&#39;cursor.Execute()&#39;)
+    except Exception as e:
+        Exceptions.append({
+        &#39;id&#39;: i,
+        &#39;error&#39;: str(e)        
+        })
+        
+if len(Exceptions) &amp;gt; 0:
+    print(Exceptions)
+    print(&#39;cursor.rollback()&#39;)
+    
+else:
+    print(&#39;cursor.commit() to database&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Description of algorithmic trading and portfolio management infrastructure</title>
       <link>/post/description-of-algorithmic-trading-and-portfolio-management-infrastructure/</link>
       <pubDate>Sun, 20 Dec 2020 11:50:49 +0800</pubDate>
@@ -1402,219 +1445,6 @@ d3.csv(&amp;quot;/post/data/2_TwoNum.csv&amp;quot;, function(data) {
 
 &amp;lt;/script&amp;gt;
 
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Embedding D3 interactive charts</title>
-      <link>/post/embedding-d3-interactive-charts/</link>
-      <pubDate>Sun, 23 Feb 2020 11:46:40 +0800</pubDate>
-      
-      <guid>/post/embedding-d3-interactive-charts/</guid>
-      <description>
-
-&lt;h2 id=&#34;embedding-d3-interactive-charts&#34;&gt;Embedding D3 interactive charts&lt;/h2&gt;
-
-&lt;p&gt;Just having fun - testing to see if I could embed D3 charts in my blog.&lt;/p&gt;
-
-&lt;p&gt;Seems like it works!&lt;/p&gt;
-
-&lt;p&gt;&lt;meta charset=&#34;utf-8&#34;&gt;&lt;/p&gt;
-
-&lt;!-- Load d3.js --&gt;
-
-&lt;script src=&#34;https://d3js.org/d3.v4.js&#34;&gt;&lt;/script&gt;
-
-&lt;!-- Create a div where the graph will take place --&gt;
-
-&lt;div id=&#34;my_dataviz&#34;&gt;&lt;/div&gt;
-
-&lt;script&gt;
-
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select(&#34;#my_dataviz&#34;)
-  .append(&#34;svg&#34;)
-    .attr(&#34;width&#34;, width + margin.left + margin.right)
-    .attr(&#34;height&#34;, height + margin.top + margin.bottom)
-  .append(&#34;g&#34;)
-    .attr(&#34;transform&#34;,
-          &#34;translate(&#34; + margin.left + &#34;,&#34; + margin.top + &#34;)&#34;);
-
-//Read the data
-d3.csv(&#34;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&#34;, function(data) {
-
-  // Add X axis
-  var x = d3.scaleLinear()
-    .domain([0, 3000])
-    .range([ 0, width ]);
-  svg.append(&#34;g&#34;)
-    .attr(&#34;transform&#34;, &#34;translate(0,&#34; + height + &#34;)&#34;)
-    .call(d3.axisBottom(x));
-
-  // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([0, 400000])
-    .range([ height, 0]);
-  svg.append(&#34;g&#34;)
-    .call(d3.axisLeft(y));
-
-  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
-  // Its opacity is set to 0: we don&#39;t see it by default.
-  var tooltip = d3.select(&#34;#my_dataviz&#34;)
-    .append(&#34;div&#34;)
-    .style(&#34;opacity&#34;, 0)
-    .attr(&#34;class&#34;, &#34;tooltip&#34;)
-    .style(&#34;background-color&#34;, &#34;white&#34;)
-    .style(&#34;border&#34;, &#34;solid&#34;)
-    .style(&#34;border-width&#34;, &#34;1px&#34;)
-    .style(&#34;border-radius&#34;, &#34;5px&#34;)
-    .style(&#34;padding&#34;, &#34;10px&#34;)
-
-
-
-  // A function that change this tooltip when the user hover a point.
-  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
-  var mouseover = function(d) {
-    tooltip
-      .style(&#34;opacity&#34;, 1)
-  }
-
-  var mousemove = function(d) {
-    tooltip
-      .html(&#34;The exact value of&lt;br&gt;the Ground Living area is: &#34; + d.GrLivArea)
-      .style(&#34;left&#34;, (d3.mouse(this)[0]+90) + &#34;px&#34;) // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-      .style(&#34;top&#34;, (d3.mouse(this)[1]) + &#34;px&#34;)
-  }
-
-  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
-  var mouseleave = function(d) {
-    tooltip
-      .transition()
-      .duration(200)
-      .style(&#34;opacity&#34;, 0)
-  }
-
-  // Add dots
-  svg.append(&#39;g&#39;)
-    .selectAll(&#34;dot&#34;)
-    .data(data.filter(function(d,i){return i&lt;50})) // the .filter part is just to keep a few dots on the chart, not all of them
-    .enter()
-    .append(&#34;circle&#34;)
-      .attr(&#34;cx&#34;, function (d) { return x(d.GrLivArea); } )
-      .attr(&#34;cy&#34;, function (d) { return y(d.SalePrice); } )
-      .attr(&#34;r&#34;, 7)
-      .style(&#34;fill&#34;, &#34;#69b3a2&#34;)
-      .style(&#34;opacity&#34;, 0.3)
-      .style(&#34;stroke&#34;, &#34;white&#34;)
-    .on(&#34;mouseover&#34;, mouseover )
-    .on(&#34;mousemove&#34;, mousemove )
-    .on(&#34;mouseleave&#34;, mouseleave )
-
-})
-
-&lt;/script&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Load d3.js --&amp;gt;
-&amp;lt;script src=&amp;quot;https://d3js.org/d3.v4.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-
-&amp;lt;!-- Create a div where the graph will take place --&amp;gt;
-&amp;lt;div id=&amp;quot;my_dataviz&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-
-&amp;lt;script&amp;gt;
-
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select(&amp;quot;#my_dataviz&amp;quot;)
-  .append(&amp;quot;svg&amp;quot;)
-    .attr(&amp;quot;width&amp;quot;, width + margin.left + margin.right)
-    .attr(&amp;quot;height&amp;quot;, height + margin.top + margin.bottom)
-  .append(&amp;quot;g&amp;quot;)
-    .attr(&amp;quot;transform&amp;quot;,
-          &amp;quot;translate(&amp;quot; + margin.left + &amp;quot;,&amp;quot; + margin.top + &amp;quot;)&amp;quot;);
-
-//Read the data
-d3.csv(&amp;quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&amp;quot;, function(data) {
-
-  // Add X axis
-  var x = d3.scaleLinear()
-    .domain([0, 3000])
-    .range([ 0, width ]);
-  svg.append(&amp;quot;g&amp;quot;)
-    .attr(&amp;quot;transform&amp;quot;, &amp;quot;translate(0,&amp;quot; + height + &amp;quot;)&amp;quot;)
-    .call(d3.axisBottom(x));
-
-  // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([0, 400000])
-    .range([ height, 0]);
-  svg.append(&amp;quot;g&amp;quot;)
-    .call(d3.axisLeft(y));
-
-  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
-  // Its opacity is set to 0: we don&#39;t see it by default.
-  var tooltip = d3.select(&amp;quot;#my_dataviz&amp;quot;)
-    .append(&amp;quot;div&amp;quot;)
-    .style(&amp;quot;opacity&amp;quot;, 0)
-    .attr(&amp;quot;class&amp;quot;, &amp;quot;tooltip&amp;quot;)
-    .style(&amp;quot;background-color&amp;quot;, &amp;quot;white&amp;quot;)
-    .style(&amp;quot;border&amp;quot;, &amp;quot;solid&amp;quot;)
-    .style(&amp;quot;border-width&amp;quot;, &amp;quot;1px&amp;quot;)
-    .style(&amp;quot;border-radius&amp;quot;, &amp;quot;5px&amp;quot;)
-    .style(&amp;quot;padding&amp;quot;, &amp;quot;10px&amp;quot;)
-
-
-
-  // A function that change this tooltip when the user hover a point.
-  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
-  var mouseover = function(d) {
-    tooltip
-      .style(&amp;quot;opacity&amp;quot;, 1)
-  }
-
-  var mousemove = function(d) {
-    tooltip
-      .html(&amp;quot;The exact value of&amp;lt;br&amp;gt;the Ground Living area is: &amp;quot; + d.GrLivArea)
-      .style(&amp;quot;left&amp;quot;, (d3.mouse(this)[0]+90) + &amp;quot;px&amp;quot;) // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-      .style(&amp;quot;top&amp;quot;, (d3.mouse(this)[1]) + &amp;quot;px&amp;quot;)
-  }
-
-  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
-  var mouseleave = function(d) {
-    tooltip
-      .transition()
-      .duration(200)
-      .style(&amp;quot;opacity&amp;quot;, 0)
-  }
-
-  // Add dots
-  svg.append(&#39;g&#39;)
-    .selectAll(&amp;quot;dot&amp;quot;)
-    .data(data.filter(function(d,i){return i&amp;lt;50})) // the .filter part is just to keep a few dots on the chart, not all of them
-    .enter()
-    .append(&amp;quot;circle&amp;quot;)
-      .attr(&amp;quot;cx&amp;quot;, function (d) { return x(d.GrLivArea); } )
-      .attr(&amp;quot;cy&amp;quot;, function (d) { return y(d.SalePrice); } )
-      .attr(&amp;quot;r&amp;quot;, 7)
-      .style(&amp;quot;fill&amp;quot;, &amp;quot;#69b3a2&amp;quot;)
-      .style(&amp;quot;opacity&amp;quot;, 0.3)
-      .style(&amp;quot;stroke&amp;quot;, &amp;quot;white&amp;quot;)
-    .on(&amp;quot;mouseover&amp;quot;, mouseover )
-    .on(&amp;quot;mousemove&amp;quot;, mousemove )
-    .on(&amp;quot;mouseleave&amp;quot;, mouseleave )
-
-})
-
-&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
