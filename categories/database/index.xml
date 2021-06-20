@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 31 Dec 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jun 2021 11:50:49 +0800</lastBuildDate>
     <atom:link href="/categories/database/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Nifty database framework</title>
       <link>/post/database-framework/</link>
-      <pubDate>Thu, 31 Dec 2020 11:50:49 +0800</pubDate>
+      <pubDate>Sun, 20 Jun 2021 11:50:49 +0800</pubDate>
       
       <guid>/post/database-framework/</guid>
       <description>

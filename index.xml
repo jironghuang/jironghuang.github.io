@@ -11,43 +11,9 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Highlights of 2020</title>
-      <link>/post/highlights-of-2020/</link>
-      <pubDate>Thu, 31 Dec 2020 11:50:49 +0800</pubDate>
-      
-      <guid>/post/highlights-of-2020/</guid>
-      <description>
-
-&lt;h2 id=&#34;highlights-of-2020&#34;&gt;Highlights of 2020&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Developed forecasting system for hotel room supply and demand for COVID workstream in my previous day job. That&amp;rsquo;s meaningful!&lt;/li&gt;
-&lt;li&gt;Quit my data scientist job in middle of 2020 to try and pursue a quantitative finance, systematic trading path.&lt;/li&gt;
-&lt;li&gt;Spent the next half of year exploring and building up infrastructure for fully automated algorithmic trading and portfolio management.&lt;/li&gt;
-&lt;li&gt;Deployed 3 trading strategies with 1 currency hedging feature. Realised it&amp;rsquo;s possible to survive without a full-time job. The infrastructure and framework that I developed could be used forever. I hope.&lt;/li&gt;
-&lt;li&gt;Fully internalised Robert Carver&amp;rsquo;s and some of Ernest Chan frameworks. Good materials for anyone who wants to venture into systematic trading.&lt;/li&gt;
-&lt;li&gt;Wrote couple of well received Medium articles on my algo system.&lt;/li&gt;
-&lt;li&gt;To complement what I already knew in Python (used at work and school previously) and to understand the best practices, I took up and completed 15 courses in Datacamp on Python.&lt;/li&gt;
-&lt;li&gt;Took 3 modules (Data visualization and analytics, Time series analysis, Machine Learning) in Georgia Technology computer science masters. Obtained 3As. Cheap thrill. I have already gotten past the stage for grades.&lt;/li&gt;
-&lt;li&gt;Took up a quant program in Quantinsti. Great program with great support. Lots of ideas provided. Some of the stuff taught is in the realm of overfitting so you have to take it in with a pinch of salt and modify them.&lt;/li&gt;
-&lt;li&gt;Wrote a python package on walk forward analysis + boostrapping. (&lt;a href=&#34;https://pypi.org/project/bootstrapindex/&#34; target=&#34;_blank&#34;&gt;https://pypi.org/project/bootstrapindex/&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Had a newborn. That&amp;rsquo;s a delight.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;plans-for-2021&#34;&gt;Plans for 2021&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Continue developing more systematic strategies to achieve higher risk-adjusted smoother returns. Starting with mean reversion strategies.&lt;/li&gt;
-&lt;li&gt;Pursue a career in systematic trading, quantitative finance and hedge fund.&lt;/li&gt;
-&lt;li&gt;Maybe take up a free Financial Engineering masters in WorldQuant after I&amp;rsquo;m done with my Computer Science Masters.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Nifty database framework</title>
       <link>/post/database-framework/</link>
-      <pubDate>Thu, 31 Dec 2020 11:50:49 +0800</pubDate>
+      <pubDate>Sun, 20 Jun 2021 11:50:49 +0800</pubDate>
       
       <guid>/post/database-framework/</guid>
       <description>
@@ -84,6 +50,40 @@ if len(Exceptions) &amp;gt; 0:
 else:
     print(&#39;cursor.commit() to database&#39;)
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Highlights of 2020</title>
+      <link>/post/highlights-of-2020/</link>
+      <pubDate>Thu, 31 Dec 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/highlights-of-2020/</guid>
+      <description>
+
+&lt;h2 id=&#34;highlights-of-2020&#34;&gt;Highlights of 2020&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Developed forecasting system for hotel room supply and demand for COVID workstream in my previous day job. That&amp;rsquo;s meaningful!&lt;/li&gt;
+&lt;li&gt;Quit my data scientist job in middle of 2020 to try and pursue a quantitative finance, systematic trading path.&lt;/li&gt;
+&lt;li&gt;Spent the next half of year exploring and building up infrastructure for fully automated algorithmic trading and portfolio management.&lt;/li&gt;
+&lt;li&gt;Deployed 3 trading strategies with 1 currency hedging feature. Realised it&amp;rsquo;s possible to survive without a full-time job. The infrastructure and framework that I developed could be used forever. I hope.&lt;/li&gt;
+&lt;li&gt;Fully internalised Robert Carver&amp;rsquo;s and some of Ernest Chan frameworks. Good materials for anyone who wants to venture into systematic trading.&lt;/li&gt;
+&lt;li&gt;Wrote couple of well received Medium articles on my algo system.&lt;/li&gt;
+&lt;li&gt;To complement what I already knew in Python (used at work and school previously) and to understand the best practices, I took up and completed 15 courses in Datacamp on Python.&lt;/li&gt;
+&lt;li&gt;Took 3 modules (Data visualization and analytics, Time series analysis, Machine Learning) in Georgia Technology computer science masters. Obtained 3As. Cheap thrill. I have already gotten past the stage for grades.&lt;/li&gt;
+&lt;li&gt;Took up a quant program in Quantinsti. Great program with great support. Lots of ideas provided. Some of the stuff taught is in the realm of overfitting so you have to take it in with a pinch of salt and modify them.&lt;/li&gt;
+&lt;li&gt;Wrote a python package on walk forward analysis + boostrapping. (&lt;a href=&#34;https://pypi.org/project/bootstrapindex/&#34; target=&#34;_blank&#34;&gt;https://pypi.org/project/bootstrapindex/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Had a newborn. That&amp;rsquo;s a delight.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;plans-for-2021&#34;&gt;Plans for 2021&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Continue developing more systematic strategies to achieve higher risk-adjusted smoother returns. Starting with mean reversion strategies.&lt;/li&gt;
+&lt;li&gt;Pursue a career in systematic trading, quantitative finance and hedge fund.&lt;/li&gt;
+&lt;li&gt;Maybe take up a free Financial Engineering masters in WorldQuant after I&amp;rsquo;m done with my Computer Science Masters.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
