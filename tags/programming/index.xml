@@ -22,6 +22,16 @@
     </item>
     
     <item>
+      <title>Setting up ens domain</title>
+      <link>/post/setting-up-ens-domain/</link>
+      <pubDate>Sat, 07 Nov 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/setting-up-ens-domain/</guid>
+      <description>Setting up ens domain The reason why I wrote this post is to just document the steps on how I broadly set up my eth domain here, https://jironghuang.eth.link
+Steps  First and foremost, I already have static pages that reside in this repo, https://github.com/jironghuang/jironghuang.github.io . The pages are served in my personal blog jironghuang.github.io . Second, register for ENS domain by following up the steps listed here, https://ens.domains/ . I registered for my domain jironghuang.</description>
+    </item>
+    
+    <item>
       <title>Developing a performance monitoring component in my fully automated algorithmic trading system</title>
       <link>/post/designing-and-deploying-a-fully-automated-algorithmic-trading-system/</link>
       <pubDate>Tue, 06 Oct 2020 11:50:49 +0800</pubDate>
