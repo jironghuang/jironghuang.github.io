@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 10 Nov 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 02:39:29 +0800</lastBuildDate>
     
 	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting Up New Ens Domain</title>
+      <link>/post/setting-up-new-ens-domain/</link>
+      <pubDate>Sun, 07 Nov 2021 02:39:29 +0800</pubDate>
+      
+      <guid>/post/setting-up-new-ens-domain/</guid>
+      <description>Setting up ens domain The reason why I wrote this post is to just document the steps on how I broadly set up my eth domain here, https://jironghuang.eth.link
+Steps  First and foremost, I already have static pages that reside in this repo, https://github.com/jironghuang/jironghuang.github.io . The pages are served in my personal blog jironghuang.github.io . Second, register for ENS domain by following up the steps listed here, https://ens.domains/ . I registered for my domain jironghuang.</description>
+    </item>
     
     <item>
       <title>Testing github gist</title>
@@ -19,16 +29,6 @@
       
       <guid>/post/test-github-gist/</guid>
       <description> Testing github gist  </description>
-    </item>
-    
-    <item>
-      <title>Setting up ens domain</title>
-      <link>/post/setting-up-ens-domain/</link>
-      <pubDate>Sat, 07 Nov 2020 11:50:49 +0800</pubDate>
-      
-      <guid>/post/setting-up-ens-domain/</guid>
-      <description>Setting up ens domain The reason why I wrote this post is to just document the steps on how I broadly set up my eth domain here, https://jironghuang.eth.link
-Steps  First and foremost, I already have static pages that reside in this repo, https://github.com/jironghuang/jironghuang.github.io . The pages are served in my personal blog jironghuang.github.io . Second, register for ENS domain by following up the steps listed here, https://ens.domains/ . I registered for my domain jironghuang.</description>
     </item>
     
     <item>

@@ -7,29 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 10 Nov 2020 11:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 02:39:29 +0800</lastBuildDate>
     <atom:link href="/categories/programming/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Testing github gist</title>
-      <link>/post/test-github-gist/</link>
-      <pubDate>Tue, 10 Nov 2020 11:50:49 +0800</pubDate>
+      <title>Setting Up New Ens Domain</title>
+      <link>/post/setting-up-new-ens-domain/</link>
+      <pubDate>Sun, 07 Nov 2021 02:39:29 +0800</pubDate>
       
-      <guid>/post/test-github-gist/</guid>
-      <description>
-
-&lt;h2 id=&#34;testing-github-gist&#34;&gt;Testing github gist&lt;/h2&gt;
-
-&lt;script src=&#34;https://gist.github.com/jironghuang/357a8799e5b4423af3dc668abc25eeb7.js&#34;&gt;&lt;/script&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Setting up ens domain</title>
-      <link>/post/setting-up-ens-domain/</link>
-      <pubDate>Sat, 07 Nov 2020 11:50:49 +0800</pubDate>
-      
-      <guid>/post/setting-up-ens-domain/</guid>
+      <guid>/post/setting-up-new-ens-domain/</guid>
       <description>
 
 &lt;h2 id=&#34;setting-up-ens-domain&#34;&gt;Setting up ens domain&lt;/h2&gt;
@@ -42,10 +28,24 @@
 &lt;li&gt;First and foremost, I already have static pages that reside in this repo, &lt;a href=&#34;https://github.com/jironghuang/jironghuang.github.io&#34; target=&#34;_blank&#34;&gt;https://github.com/jironghuang/jironghuang.github.io&lt;/a&gt; . The pages are served in my personal blog jironghuang.github.io .&lt;/li&gt;
 &lt;li&gt;Second, register for ENS domain by following up the steps listed here, &lt;a href=&#34;https://ens.domains/&#34; target=&#34;_blank&#34;&gt;https://ens.domains/&lt;/a&gt; . I registered for my domain jironghuang.eth which costs around 200 bucks.&lt;/li&gt;
 &lt;li&gt;Third, deploy your static pages onto IPFS via fleek as shown by the steps here. &lt;a href=&#34;https://blog.fleek.co/posts/fleek%20helloWorld&#34; target=&#34;_blank&#34;&gt;https://blog.fleek.co/posts/fleek%20helloWorld&lt;/a&gt; . In a nutshell, you publish your content to github repo. Then there 2 continuous integration processes. One that serves your github pages in github.io by github and another by fleek.co.&lt;/li&gt;
-&lt;li&gt;Last but not the least, you have to paste the IPFS hash, ipfs://Qme8LTUT6LwcsnYVaKtzZ7isYteKVu9dMcDZM5QvpemBfV into the ENS site&lt;/li&gt;
+&lt;li&gt;Last but not the least, you have to paste the IPFS hash, ipfs://Qme8LTUT6LwcsnYVaKtzZ7isYteKVu9dMcDZM5QvpemBfV into the content section of ENS site&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;I ought to paste some print screens here for readers&amp;rsquo; easier comprehension but I&amp;rsquo;m too lazy at the moment. Feel free to reach out if you&amp;rsquo;ve any questions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Testing github gist</title>
+      <link>/post/test-github-gist/</link>
+      <pubDate>Tue, 10 Nov 2020 11:50:49 +0800</pubDate>
+      
+      <guid>/post/test-github-gist/</guid>
+      <description>
+
+&lt;h2 id=&#34;testing-github-gist&#34;&gt;Testing github gist&lt;/h2&gt;
+
+&lt;script src=&#34;https://gist.github.com/jironghuang/357a8799e5b4423af3dc668abc25eeb7.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     
