@@ -11,6 +11,35 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Personal update in 2022</title>
+      <link>/post/personal-update-in-2022/</link>
+      <pubDate>Tue, 27 Dec 2022 11:46:49 +0800</pubDate>
+      
+      <guid>/post/personal-update-in-2022/</guid>
+      <description>
+
+&lt;h2 id=&#34;personal-update-in-2022&#34;&gt;Personal update in 2022&lt;/h2&gt;
+
+&lt;p&gt;Note: This is not affiliated with any organization or entity. Whatever opinions I expressed here is of my own.&lt;/p&gt;
+
+&lt;p&gt;What a year it has been!&lt;/p&gt;
+
+&lt;p&gt;On the personal portfolio front, I kind of shifted my personal investment philosophy to a complete market neutrality at start of 2021. This works wonder in a bearish regime where the alpha outperformance is simply not losing money!&lt;/p&gt;
+
+&lt;p&gt;Last year was a great one with performance of ~ +65.4%. This year dwindled to about +7.19%. With a few days to go before closing book for the year, it&amp;rsquo;s likely to be approximately +7.30%.&lt;/p&gt;
+
+&lt;p&gt;With risk-free rate from various sources such as CPF, SRS + SSB, Tbills and amortized tax gains, you can easily engineer return streams of about 4% to 7%. It&amp;rsquo;s kind of my hurdle rate for long term sustainable risk free infinite sharpe returns. I wholeheartedly embrace these return sources given a very likely lost decade (once again this is my personal macro view).&lt;/p&gt;
+
+&lt;p&gt;Some near term stuff to amuse/torture myself,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Analyzing deprecated Quantopian Python Tech stack to incorporate some of the best practices in my existing python public repositories&lt;/li&gt;
+&lt;li&gt;Front load next semester Graduate Algorithm coursework. One of the most painful endeavour ever. I think it is second my Bachelor Coursework on computing system where I have to build (in a simulator) from logic gates, registers, CPU, assembly language, binary language, creating a programming language with associated grammars.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Setting Up New Ens Domain</title>
       <link>/post/setting-up-new-ens-domain/</link>
       <pubDate>Sun, 07 Nov 2021 02:39:29 +0800</pubDate>
@@ -987,152 +1016,6 @@ public static void main(String[] args) throws Exception {
 &lt;li&gt;I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/li&gt;
 &lt;li&gt;Output that’s updated daily will be in this link instead –&amp;gt; &lt;a href=&#34;https://jironghuang.github.io/project/hidden_markov_model/&#34; class=&#34;uri&#34;&gt;https://jironghuang.github.io/project/hidden_markov_model/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;code&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Code&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;#import packages for use later in the HMM code
-
-import pandas as pd
-import sklearn.mixture as mix
-
-import numpy as np
-import scipy.stats as scs
-
-import datetime as dt
-
-import matplotlib as mpl
-from matplotlib import cm
-import matplotlib.pyplot as plt
-from matplotlib.dates import YearLocator, MonthLocator
-
-import seaborn as sns
-
-from iex import Stock
-import yfinance as yf
-
-data = yf.Ticker(&amp;quot;SPY&amp;quot;)
-data.info 
-all_historic_data = data.history(period=&amp;quot;max&amp;quot;)
-
-ticker_data_clean = all_historic_data[[&amp;quot;Close&amp;quot;, &amp;quot;High&amp;quot;, &amp;quot;Low&amp;quot;]]
-ticker_data_clean[&amp;quot;date&amp;quot;] = ticker_data_clean.index 
-ticker_data_clean[&amp;quot;date&amp;quot;] = pd.to_datetime(ticker_data_clean[&amp;quot;date&amp;quot;])
-ticker_data_clean[&amp;quot;range&amp;quot;] = (ticker_data_clean[&amp;quot;High&amp;quot;]/ticker_data_clean[&amp;quot;Low&amp;quot;])-1
-ticker_data_clean[&amp;quot;return&amp;quot;] = ticker_data_clean[&amp;quot;Close&amp;quot;].pct_change()
-ticker_data_clean[&amp;quot;close&amp;quot;] = ticker_data_clean[&amp;quot;Close&amp;quot;]
-del ticker_data_clean[&amp;quot;High&amp;quot;]
-del ticker_data_clean[&amp;quot;Low&amp;quot;]
-del ticker_data_clean[&amp;quot;Close&amp;quot;]
-
-
-ticker_data_clean = ticker_data_clean[[&amp;quot;date&amp;quot;, &amp;quot;return&amp;quot;, &amp;quot;range&amp;quot;, &amp;quot;close&amp;quot;]]
-ticker_data_clean.dropna(how=&amp;quot;any&amp;quot;, inplace=True)
-
-#create train and test sets
-#this methodology will randomly select 80% of our data
-
-#msk = np.random.rand(len(ticker_data_clean)) &amp;lt; 0.8
-#train = ticker_data_clean[msk]
-#test = ticker_data_clean[~msk]
-
-#X_train = train[[&amp;quot;date&amp;quot;, &amp;quot;return&amp;quot;, &amp;quot;range&amp;quot;, &amp;quot;close&amp;quot;]].set_index(&amp;quot;date&amp;quot;)
-#X_test = test[[&amp;quot;date&amp;quot;, &amp;quot;return&amp;quot;, &amp;quot;range&amp;quot;, &amp;quot;close&amp;quot;]].set_index(&amp;quot;date&amp;quot;)
-
-X_train = ticker_data_clean[[&amp;quot;date&amp;quot;, &amp;quot;return&amp;quot;, &amp;quot;range&amp;quot;, &amp;quot;close&amp;quot;]].set_index(&amp;quot;date&amp;quot;)
-X_test = ticker_data_clean[[&amp;quot;date&amp;quot;, &amp;quot;return&amp;quot;, &amp;quot;range&amp;quot;, &amp;quot;close&amp;quot;]].set_index(&amp;quot;date&amp;quot;)
-
-
-model = mix.GaussianMixture(n_components=3, 
-                            covariance_type=&amp;quot;full&amp;quot;, 
-                            n_init=100, 
-                            random_state=7).fit(X_train)
-
-# Predict the optimal sequence of internal hidden state
-hidden_states = model.predict(X_test)
-
-print(&amp;quot;Means and vars of each hidden state&amp;quot;)
-for i in range(model.n_components):
-    print(&amp;quot;{0}th hidden state&amp;quot;.format(i))
-    print(&amp;quot;mean = &amp;quot;, model.means_[i])
-    print(&amp;quot;var = &amp;quot;, np.diag(model.covariances_[i]))
-    print()
-    
-    
-sns.set(font_scale=1.25)
-style_kwds = {&amp;#39;xtick.major.size&amp;#39;: 3, &amp;#39;ytick.major.size&amp;#39;: 3,
-              &amp;#39;font.family&amp;#39;:u&amp;#39;courier prime code&amp;#39;, &amp;#39;legend.frameon&amp;#39;: True}
-sns.set_style(&amp;#39;white&amp;#39;, style_kwds)
-
-fig, axs = plt.subplots(model.n_components, sharex=True, sharey=True, figsize=(12,9))
-colors = cm.rainbow(np.linspace(0, 1, model.n_components))
-
-for i, (ax, color) in enumerate(zip(axs, colors)):
-    # Use fancy indexing to plot data in each state.
-    mask = hidden_states == i
-    ax.plot_date(X_test.index.values[mask],
-                 X_test[&amp;quot;close&amp;quot;].values[mask],
-                 &amp;quot;.-&amp;quot;, c=color)
-    ax.set_title(&amp;quot;{0}th hidden state&amp;quot;.format(i), fontsize=16, fontweight=&amp;#39;demi&amp;#39;)
-
-    # Format the ticks.
-    ax.xaxis.set_major_locator(YearLocator())
-    ax.xaxis.set_minor_locator(MonthLocator())
-    sns.despine(offset=10)
-
-plt.tight_layout()
-
-
-sns.set(font_scale=1.5)
-states = (pd.DataFrame(hidden_states, columns=[&amp;#39;states&amp;#39;], index=X_test.index)
-          .join(X_test, how=&amp;#39;inner&amp;#39;)
-          .reset_index(drop=False)
-          .rename(columns={&amp;#39;index&amp;#39;:&amp;#39;Date&amp;#39;}))
-states.head()
-
-#Identify state in 2020-03-12--&amp;gt;Crisis state--&amp;gt;Embed in title
-row_index = states[states[&amp;#39;date&amp;#39;] == &amp;#39;2020-03-12&amp;#39;].index.tolist()
-crisis_state = states.iloc[row_index][&amp;#39;states&amp;#39;].tolist()[0]
-
-
-#suppressing warnings because of some issues with the font package
-#in general, would not rec turning off warnings.
-import warnings
-warnings.filterwarnings(&amp;quot;ignore&amp;quot;)
-
-sns.set_style(&amp;#39;white&amp;#39;, style_kwds)
-order = [0, 1, 2]
-fg = sns.FacetGrid(data=states, hue=&amp;#39;states&amp;#39;, hue_order=order,
-                   palette=colors, aspect=1.31, height=12)
-fg.map(plt.scatter, &amp;#39;date&amp;#39;, &amp;quot;close&amp;quot;, alpha=0.8).add_legend()
-sns.despine(offset=10)
-fg.fig.suptitle(&amp;#39;Historical SPY Regimes&amp;#39; + &amp;#39;, Crisis State is &amp;#39; + str(crisis_state), fontsize=24, fontweight=&amp;#39;demi&amp;#39;)
-
-plt.savefig(&amp;#39;&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Regime detection through hidden markov model</title>
-      <link>/project/hidden_markov_model/</link>
-      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/project/hidden_markov_model/</guid>
-      <description>
-
-
-&lt;div id=&#34;regime-detection-through-hidden-markov-model&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Regime detection through hidden markov model&lt;/h2&gt;
-&lt;p&gt;It’s rumoured that in the early days of Renaissance Technologies - according to the book ‘The Man Who Solved the Market’ - hidden markov models are used for regime detection.&lt;/p&gt;
-&lt;p&gt;Here I am, a couple of decades later - employing this strategy. This will be integrated into my ‘Jarvis’ - a series of Algorithmic toolkits that advises me in all situations.&lt;/p&gt;
-&lt;p&gt;Hidden markov mode is a statistical unsupervised learning model used to model states. It’s often used in speech, bioinformatics, computational finance, etc. See wiki post (&lt;a href=&#34;https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Hidden_Markov_model#Applications&lt;/a&gt;) for more info.&lt;/p&gt;
-&lt;p&gt;And you would have guessed it; I’m using it for quant strategies.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;output-updated-daily&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Output updated daily&lt;/h2&gt;
-&lt;p&gt;In particular, I’m only highlighting the crisis state (stated in title of graph below) as I seek to hedge against downside risk during crisis/ low-negative growth - low inflation scenarios.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/project/img/hmm.png&#34; alt=&#34;/project/img/hmm.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Note: I wouldn’t want to claim credit over the code. I adapted mostly from this post (&lt;a href=&#34;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com/when-to-buy-the-dip-e2e128d737a7&lt;/a&gt;). Changes made are mostly connection to APIs and output files.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;code&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Code&lt;/h2&gt;

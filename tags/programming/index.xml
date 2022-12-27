@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 07 Nov 2021 02:39:29 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Dec 2022 11:46:49 +0800</lastBuildDate>
     
 	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Personal update in 2022</title>
+      <link>/post/personal-update-in-2022/</link>
+      <pubDate>Tue, 27 Dec 2022 11:46:49 +0800</pubDate>
+      
+      <guid>/post/personal-update-in-2022/</guid>
+      <description>Personal update in 2022 Note: This is not affiliated with any organization or entity. Whatever opinions I expressed here is of my own.
+What a year it has been!
+On the personal portfolio front, I kind of shifted my personal investment philosophy to a complete market neutrality at start of 2021. This works wonder in a bearish regime where the alpha outperformance is simply not losing money!
+Last year was a great one with performance of ~ +65.</description>
+    </item>
     
     <item>
       <title>Setting Up New Ens Domain</title>
