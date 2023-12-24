@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>update on Jirong&#39;s sandbox</title>
+    <link>/tags/update/</link>
+    <description>Recent content in update on Jirong&#39;s sandbox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 25 Dec 2023 11:46:49 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/update/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Personal update in 2023</title>
+      <link>/post/personal-update-in-2023/</link>
+      <pubDate>Mon, 25 Dec 2023 11:46:49 +0800</pubDate>
+      
+      <guid>/post/personal-update-in-2023/</guid>
+      <description>Personal update in 2023 Note: This is not affiliated with any organization or entity. Whatever opinions I expressed here is of my own and should not be construed as advice. Performance figures quoted is not based on traditional finance market or any equities so there is no confict of interest with my day job.
+What a year it has been! Writing this post a few days before end of the year as I found some time during the xmas break.</description>
+    </item>
+    
+  </channel>
+</rss>
