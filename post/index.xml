@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 25 Dec 2023 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2024 11:46:49 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Personal update in 2024</title>
+      <link>/post/personal-update-in-2024/</link>
+      <pubDate>Tue, 31 Dec 2024 11:46:49 +0800</pubDate>
+      
+      <guid>/post/personal-update-in-2024/</guid>
+      <description>Personal update in 2024 Note: This is not affiliated with any organization or entity. Whatever opinions I expressed here is of my own and should not be construed as advice. Performance figures quoted is not based on traditional finance market or any equities so there is no confict of interest with my day job.
+What a year it has been! Writing this post as I found some time on new year day.</description>
+    </item>
     
     <item>
       <title>Personal update in 2023</title>

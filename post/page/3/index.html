@@ -80,7 +80,7 @@
   <meta property="og:description" content="Data Scientist and Quantitative Investor and Trader">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-11-27T11:46:49&#43;08:00">
+  <meta property="og:updated_time" content="2019-12-08T11:46:49&#43;08:00">
   
 
   
@@ -219,6 +219,77 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/crawling-insights/" itemprop="url">Latest lessons learnt from crawling</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-12-08 11:46:49 &#43;0800 &#43;08" itemprop="datePublished dateModified">
+      Dec 8, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Huang Jirong">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/crawling-insights/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Lessons learnt I just realised that there&rsquo;s a quick way to understand the xpaths&rsquo; patterns.
+In the past, usually what I did is to manually eyeball to infer the patterns from the page source or inspect page.
+Silly me!
+1 quick way to understand the pattern is through the following,
+ Right click on an element in a web page that you are interested in and click on &lsquo;inspect&rsquo; Right click on the node and click &lsquo;copy&rsquo; Copy full xpath  And paste to a notepad.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/crawling-insights/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -886,80 +957,6 @@ The SnP500 ETF/ Berkshire ratio has been falling over the years - insinuating th
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/market_neutral/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/convert_na_num/" itemprop="url">Convert NAs to Obscure Number in Data Frame to Aid in Recoding/ Feature Engineering</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Jun 7, 2019
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Huang Jirong">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/convert_na_num/#disqus_thread"></a>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/data_cleaning">data_cleaning</a
-    >, 
-    
-    <a href="/categories/programming">programming</a
-    >, 
-    
-    <a href="/categories/r">R</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Converting NAs to obscure numbers to prevent the data from messing up the recoding. 1 issue that I encounter while I data-munge is that NAs in data seem to mess up my recoding. Here’s a neat swiss army knife utility function I developed recently.
-suppressMessages(library(dplyr)) # Converting NA to obscure number to prevent awkward recoding situations that require &amp; !is.na(&lt;variable&gt;) # Doesn&#39;t work for factors #&#39; @title Convert NA to obscure number #&#39; @param dp_dataframe Dataframe in consideration #&#39; @param np_obscure_num Numeric - Obscure number #&#39; @param bp_na_to_num Boolean if TRUE, convert NA to num.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/convert_na_num/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

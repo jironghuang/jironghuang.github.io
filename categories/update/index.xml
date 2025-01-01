@@ -7,8 +7,58 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 25 Dec 2023 11:46:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2024 11:46:49 +0800</lastBuildDate>
     <atom:link href="/categories/update/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Personal update in 2024</title>
+      <link>/post/personal-update-in-2024/</link>
+      <pubDate>Tue, 31 Dec 2024 11:46:49 +0800</pubDate>
+      
+      <guid>/post/personal-update-in-2024/</guid>
+      <description>
+
+&lt;h2 id=&#34;personal-update-in-2024&#34;&gt;Personal update in 2024&lt;/h2&gt;
+
+&lt;p&gt;Note: This is not affiliated with any organization or entity. Whatever opinions I expressed here is of my own and should not be construed as advice. Performance figures quoted is not based on traditional finance market or any equities so there is no confict of interest with my day job.&lt;/p&gt;
+
+&lt;p&gt;What a year it has been! Writing this post as I found some time on new year day.&lt;/p&gt;
+
+&lt;p&gt;On the personal portfolio front, as mentioned in my last post, my personal investment philosophy lean towards market neutrality since start of 2021. That being said, I have some beta exposure in commodities and stocks with performance that will go unreported below.&lt;/p&gt;
+
+&lt;p&gt;Here is the breakdown of my performance since 5-Feb-2021 since it is the point where I changed my philosophy. I quoted S&amp;amp;P 500 as my benchmark as that is a viable alternative (or some sort of broad asset allocation) if I do not actively manage my portfolio.&lt;/p&gt;
+
+&lt;p&gt;Also note that returns quoted below is unlevered and I may vary my leverage factor across the period which may boost or reduce the returns.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Overall sharpe as of writing: 2.4296&lt;/li&gt;
+&lt;li&gt;Returns since Feb-2021: +150.16% vs +51.16%&lt;/li&gt;
+&lt;li&gt;Returns in 2024: +24.29% (max drawdown: 2.77%) vs +24.00% (max drawdown: 8+%)&lt;/li&gt;
+&lt;li&gt;Returns in 2023: +13.36% (max drawdown: 4.02%) vs +24.81%&lt;/li&gt;
+&lt;li&gt;Returns in 2022: +7.34% (max drawdown: 4.66%) vs -19.44%&lt;/li&gt;
+&lt;li&gt;Returns in 2021 (from 5-Feb-2021 onwards): +65.41% (max drawdown: 9.69%) vs 22.50%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I still maintain my view that it is going to be a challenging decade for indexes. Hence on my personal portfolio front, I&amp;rsquo;m still going to maintaining delta neutral portfolio with alpha overlays with some undisclosed beta exposure&lt;/p&gt;
+
+&lt;p&gt;On the self development front,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I haven&amp;rsquo;t been taking any formal education programmes but only pure mathematic courses in coursera&lt;/li&gt;
+&lt;li&gt;I have also started triathlon training from sprint to olympic distances.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Besides the updates in finance front, here are some near term stuff to amuse/torture myself,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Analyzing deprecated Quantopian Python Tech stack to incorporate some of the best practices in my existing python public repositories. I brought forward this task from last year as I did not start.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Complete deep learning AI math specialization just to fill up some possible gaps.&lt;/li&gt;
+&lt;li&gt;Embark on deep learning AI NLP and ML specializations. This would be helpful for some strategies in day job.&lt;/li&gt;
+&lt;li&gt;Embark on Worldquant university financial engineering masters to gain new ideas.&lt;/li&gt;
+&lt;li&gt;Going forward, I will train for long triathlon distances with a goals of doing Ironman 70.3 and Full Ironman within 3 years.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Personal update in 2023</title>

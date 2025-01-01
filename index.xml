@@ -11,6 +11,56 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Personal update in 2024</title>
+      <link>/post/personal-update-in-2024/</link>
+      <pubDate>Tue, 31 Dec 2024 11:46:49 +0800</pubDate>
+      
+      <guid>/post/personal-update-in-2024/</guid>
+      <description>
+
+&lt;h2 id=&#34;personal-update-in-2024&#34;&gt;Personal update in 2024&lt;/h2&gt;
+
+&lt;p&gt;Note: This is not affiliated with any organization or entity. Whatever opinions I expressed here is of my own and should not be construed as advice. Performance figures quoted is not based on traditional finance market or any equities so there is no confict of interest with my day job.&lt;/p&gt;
+
+&lt;p&gt;What a year it has been! Writing this post as I found some time on new year day.&lt;/p&gt;
+
+&lt;p&gt;On the personal portfolio front, as mentioned in my last post, my personal investment philosophy lean towards market neutrality since start of 2021. That being said, I have some beta exposure in commodities and stocks with performance that will go unreported below.&lt;/p&gt;
+
+&lt;p&gt;Here is the breakdown of my performance since 5-Feb-2021 since it is the point where I changed my philosophy. I quoted S&amp;amp;P 500 as my benchmark as that is a viable alternative (or some sort of broad asset allocation) if I do not actively manage my portfolio.&lt;/p&gt;
+
+&lt;p&gt;Also note that returns quoted below is unlevered and I may vary my leverage factor across the period which may boost or reduce the returns.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Overall sharpe as of writing: 2.4296&lt;/li&gt;
+&lt;li&gt;Returns since Feb-2021: +150.16% vs +51.16%&lt;/li&gt;
+&lt;li&gt;Returns in 2024: +24.29% (max drawdown: 2.77%) vs +24.00% (max drawdown: 8+%)&lt;/li&gt;
+&lt;li&gt;Returns in 2023: +13.36% (max drawdown: 4.02%) vs +24.81%&lt;/li&gt;
+&lt;li&gt;Returns in 2022: +7.34% (max drawdown: 4.66%) vs -19.44%&lt;/li&gt;
+&lt;li&gt;Returns in 2021 (from 5-Feb-2021 onwards): +65.41% (max drawdown: 9.69%) vs 22.50%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I still maintain my view that it is going to be a challenging decade for indexes. Hence on my personal portfolio front, I&amp;rsquo;m still going to maintaining delta neutral portfolio with alpha overlays with some undisclosed beta exposure&lt;/p&gt;
+
+&lt;p&gt;On the self development front,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I haven&amp;rsquo;t been taking any formal education programmes but only pure mathematic courses in coursera&lt;/li&gt;
+&lt;li&gt;I have also started triathlon training from sprint to olympic distances.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Besides the updates in finance front, here are some near term stuff to amuse/torture myself,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Analyzing deprecated Quantopian Python Tech stack to incorporate some of the best practices in my existing python public repositories. I brought forward this task from last year as I did not start.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Complete deep learning AI math specialization just to fill up some possible gaps.&lt;/li&gt;
+&lt;li&gt;Embark on deep learning AI NLP and ML specializations. This would be helpful for some strategies in day job.&lt;/li&gt;
+&lt;li&gt;Embark on Worldquant university financial engineering masters to gain new ideas.&lt;/li&gt;
+&lt;li&gt;Going forward, I will train for long triathlon distances with a goals of doing Ironman 70.3 and Full Ironman within 3 years.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Personal update in 2023</title>
       <link>/post/personal-update-in-2023/</link>
       <pubDate>Mon, 25 Dec 2023 11:46:49 +0800</pubDate>
@@ -978,60 +1028,6 @@ if(abs(hedge - current_hedge_value) &amp;gt; 3000){
   pushover(message = msg, 
            user = Sys.getenv(&amp;quot;pushover_user&amp;quot;), app = Sys.getenv(&amp;quot;pushover_app&amp;quot;))
   
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Mapreduce using Java</title>
-      <link>/post/mapreduce-in-java/</link>
-      <pubDate>Sun, 15 Mar 2020 11:50:49 +0800</pubDate>
-      
-      <guid>/post/mapreduce-in-java/</guid>
-      <description>
-
-&lt;h2 id=&#34;mapreduce-using-java&#34;&gt;Mapreduce using java&lt;/h2&gt;
-
-&lt;p&gt;I haven&amp;rsquo;t coded in java in eons. The assignment (Mapreduce, Pig and Spark) I worked on over last 3 weeks is a good way to jolt me out from my comfort zone.&lt;/p&gt;
-
-&lt;p&gt;Java is something I need to brush up on before taking the Software Development Process module which requires me to write an android app. Argh!&lt;/p&gt;
-
-&lt;p&gt;Back to Mapreduce. It&amp;rsquo;s a useful framework if you&amp;rsquo;ve to summarise huge datasets (gigabytes, terabytes). Here are some of the common steps in mapreduce,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;In Mapper method, each entity of data (e.g. row, word) is tokenized and assigned values&lt;/li&gt;
-&lt;li&gt;In Reduce method, data is aggregated (e.g sum, average, etc.)&lt;/li&gt;
-&lt;li&gt;In Main function, mapreduce jobs are managed through certain parameters&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Note: Mapreduce data types are different from Java data types! It could be confusing at times. But if you get used to it, it will be easier.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public class MapReuceJobs {
-
-public static class TokenizerMapper
-extends Mapper&amp;lt;LongWritable, Text, Text, Text&amp;gt;
-{
-&amp;lt;Deliberately left blank&amp;gt;
-...Each row of data is tokenize and assign a number
-}
-
-//Reducer
-public static class IntSumReducer
-extends Reducer&amp;lt;Text,Text,Text,Text&amp;gt; {
-
-&amp;lt;Deliberately left blank&amp;gt;
-...Aggregated data is collated here
-}
-
-
-
-//IntSumReducer  
-public static void main(String[] args) throws Exception {
-
-&amp;lt;Deliberately left blank&amp;gt;
-...Jobs are managed here
 }
 
 &lt;/code&gt;&lt;/pre&gt;
